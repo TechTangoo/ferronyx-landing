@@ -5,9 +5,9 @@ import logo from '../assets/logo.png'
 
 function Footer() {
     const [formData, setFormData] = useState({
-        name: '',
         company: '',
-        email: ''
+        email: '',
+        comments: ''
     })
 
     const handleInputChange = (e) => {
@@ -20,40 +20,35 @@ function Footer() {
 
     const sendDemoBookingEmail = async (bookingData) => {
         try {
-            const emailBody = `
-            New Demo Booking Request
+            // EmailJS configuration - replace these with your actual values
+            const serviceId = import.meta.env.VITE_APP_EMAILJS_SERVICE_ID;
+            const templateId = import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID;
+            const publicKey = import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY;
 
-            Name: ${bookingData.name}
-            Company: ${bookingData.company}
-            Email: ${bookingData.email}
-            Date: ${new Date().toLocaleString()}
+            // Import EmailJS (you'll need to install: npm install @emailjs/browser)
+            const emailjs = await import('@emailjs/browser');
 
-            Please follow up with this potential client.
-                        `.trim();
+            const templateParams = {
+                email: bookingData.email,
+                company: bookingData.company,
+                name: "User",
+                time: new Date().toLocaleString(),
+                message: bookingData.comment,
+                teamemail: 'team@ferronyx.com',
+            };
 
-            // Option 1: Using EmailJS (recommended for frontend)
-            // You'll need to install emailjs-com: npm install emailjs-com
-            // And configure your EmailJS account
-            
-            // Option 2: Using mailto (opens user's email client)
-            const mailtoLink = `mailto:pj@ferronyx.com?subject=New Demo Booking Request - ${bookingData.company}&body=${encodeURIComponent(emailBody)}`;
-            window.open(mailtoLink, '_blank');
+            const response = await emailjs.send(
+                serviceId,
+                templateId,
+                templateParams,
+                publicKey
+            );
 
-            // Option 3: Backend API call (if you have a backend)
-            // const response = await fetch('/api/send-demo-email', {
-            //     method: 'POST',
-            //     headers: {
-            //         'Content-Type': 'application/json',
-            //     },
-            //     body: JSON.stringify({
-            //         to: 'pj@ferronyx.com',
-            //         subject: `New Demo Booking Request - ${bookingData.company}`,
-            //         body: emailBody,
-            //         bookingData
-            //     })
-            // });
-            
-            return true;
+            if (response.status === 200) {
+                return true;
+            } else {
+                throw new Error('EmailJS failed to send email');
+            }
         } catch (error) {
             console.error('Error sending demo booking email:', error);
             return false;
@@ -62,9 +57,9 @@ function Footer() {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        
+
         // Validate form data
-        if (!formData.name || !formData.company || !formData.email) {
+        if (!formData.comments || !formData.company || !formData.email) {
             alert('Please fill in all required fields.');
             return;
         }
@@ -79,15 +74,15 @@ function Footer() {
         try {
             // Send email notification
             const emailSent = await sendDemoBookingEmail(formData);
-            
+
             if (emailSent) {
                 // Clear form
                 setFormData({
-                    name: '',
+                    comments: '',
                     company: '',
                     email: ''
                 });
-                
+
                 alert('Thank you! Your demo booking request has been sent. We\'ll be in touch soon.');
             } else {
                 alert('There was an issue sending your request. Please try again or contact us directly at support@ferronyx.com');
