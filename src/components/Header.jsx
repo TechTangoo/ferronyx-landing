@@ -4,6 +4,16 @@ import Button from './Button';
 import { colors } from '../utils/colors';
 
 function Header() {
+    const scrollToFooter = () => {
+        const footerElement = document.getElementById('contact-footer');
+        if (footerElement) {
+            footerElement.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    };
+
     return (
         <header className="w-screen flex justify-center">
             <div className='w-[90%]'>
@@ -13,8 +23,19 @@ function Header() {
                     </a>
 
                     <div className="flex items-center gap-6">
-                        <a href="#contact" className="bg-white hover:bg-gray-100 text-black font-semibold py-2 px-6 rounded-md">Contact us</a>
-                        <a href="#demo" className="text-white font-semibold py-2 px-6 rounded-md border" style={{ borderColor: colors.primary, ':hover': { backgroundColor: `${colors.primary}1a` } }}>Book a demo</a>
+                        <button 
+                            onClick={scrollToFooter}
+                            className="bg-white hover:bg-gray-100 text-black font-semibold py-2 px-6 rounded-md transition-colors duration-200 cursor-pointer"
+                        >
+                            Contact us
+                        </button>
+                        <button 
+                            onClick={scrollToFooter}
+                            className={`text-white font-semibold py-2 px-6 rounded-md border transition-colors duration-200 cursor-pointer`}
+                            style={{ borderColor: colors.primary }}
+                        >
+                            Book a demo
+                        </button>
                     </div>
                 </div>
             </div>

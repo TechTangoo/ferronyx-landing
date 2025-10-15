@@ -94,7 +94,7 @@ function Footer() {
     }
 
     return (
-        <footer className="relative w-full mt-20 overflow-hidden">
+        <footer id="contact-footer" className="relative w-full mt-20 overflow-hidden">
             {/* Linear gradient background from bottom to top */}
             <div
                 className="absolute inset-0 w-full h-full"
@@ -154,7 +154,7 @@ function Footer() {
                         </div>
 
                         {/* Right Side - Demo Booking Form */}
-                        <div className="flex flex-col justify-center" style={{ backgroundColor: `${colors.secondary}40`, borderRadius: '16px', border: `1px solid ${colors.primary}80`, padding: '1px' }}>
+                        <div href="#contactus" className="flex flex-col justify-center" style={{ backgroundColor: `${colors.secondary}40`, borderRadius: '16px', border: `1px solid ${colors.primary}80`, padding: '1px' }}>
                             <div
                                 className="p-8 rounded-2xl justify-center items-center"
                             >
@@ -244,7 +244,7 @@ function Footer() {
                                             size="lg"
                                             className="bg-white hover:bg-gray-100 text-black font-semibold py-2 px-8 rounded-md"
                                         >
-                                            Book Demo
+                                            Contact Us
                                         </button>
                                     </div>
                                 </form>

@@ -7,6 +7,17 @@ import AnimatedContent from '../components/AnimatedContent';
 import dashboard from '../assets/image31.png';
 
 function Home() {
+
+  const scrollToFooter = () => {
+    const footerElement = document.getElementById('contact-footer');
+    if (footerElement) {
+      footerElement.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  };
+
   return (
     <div className="relative h-screen w-screen overflow-hidden">
       {/* Primary gradient background from bottom to top */}
@@ -34,8 +45,19 @@ function Home() {
                 Real-time fleet observability and AI-assisted troubleshooting for every robot, all in one cloud dashboard.
               </p>
               <div className="flex items-center gap-6 justify-center">
-                <a href="#contact" className="bg-white hover:bg-gray-100 text-black font-semibold py-2 px-8 rounded-md">Contact us</a>
-                <a href="#demo" className="text-white font-semibold py-2 px-8 rounded-md border" style={{ borderColor: colors.primary, ':hover': { backgroundColor: `${colors.primary}1a` } }}>Book a demo</a>
+                <button
+                  onClick={scrollToFooter}
+                  className="bg-white hover:bg-gray-100 text-black font-semibold py-2 px-8 rounded-md transition-colors duration-200 cursor-pointer"
+                >
+                  Contact us
+                </button>
+                <button
+                  onClick={scrollToFooter}
+                  className={`text-white font-semibold py-2 px-8 rounded-md border transition-colors duration-200 cursor-pointer`}
+                  style={{ borderColor: colors.primary }}
+                >
+                  Book a demo
+                </button>
               </div>
             </div>
             <img src={dashboard} alt="dashboard" className='border-t-5 border-x-5 border-white/20 rounded-t-xl w-full h-auto' />
