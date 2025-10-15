@@ -1,6 +1,8 @@
 import React from 'react'
 import { colors } from '../utils/colors'
 import AnimatedContent from '../components/AnimatedContent'
+import { ChartNoAxesCombined, BellRing, Users, Bot, CircleGauge } from 'lucide-react';
+
 
 // Features data structure
 const featuresData = [
@@ -9,35 +11,35 @@ const featuresData = [
     title: "Real-Time Robot Monitoring",
     subtitle: "See what's happening inside every robot.",
     description: "Stream live CPU, memory, and disk metrics directly from each device. Visualize short-term trends or drill down into historical data to catch issues before they escalate.",
-    icon: "📊"
+    icon: <ChartNoAxesCombined strokeWidth={0.8} size={28} color={colors.light} />
   },
   {
     id: 2,
     title: "Smart Alerts & Notifications",
     subtitle: "Know when something's wrong — instantly.",
     description: "Define metric thresholds, get real-time alerts, and prioritize responses by severity. Integrated with Slack, email, and webhooks so your team never misses a critical update.",
-    icon: "🔔"
+    icon: <BellRing strokeWidth={0.8} size={28} color={colors.light} />
   },
   {
     id: 3,
     title: "Robot Assignment & Ownership",
     subtitle: "Accountability built into every alert.",
     description: "Assign robots to specific engineers or teams. Ownership data travels with alerts, ensuring fast, clear response paths and no duplicate work.",
-    icon: "👥"
+    icon: <Users strokeWidth={0.8} size={28} color={colors.light} />
   },
   {
     id: 4,
     title: "AI-Powered ROS 2 Troubleshooting",
     subtitle: "Debug ROS 2 issues — without touching SSH.",
     description: "Chat with an AI assistant that understands ROS 2 logs, topics, and nodes. It analyzes context and suggests root causes and fixes — saving hours of manual debugging.",
-    icon: "🤖"
+    icon: <Bot strokeWidth={0.8} size={28} color={colors.light} />
   },
   {
     id: 5,
     title: "Fleet Health Dashboard",
     subtitle: "Your mission control for operational insight.",
     description: "View the live status of all robots in one unified dashboard. See which are healthy, degraded, or offline — with quick access to recent alerts and performance summaries.",
-    icon: "🎛️"
+    icon: <CircleGauge strokeWidth={0.8} size={28} color={colors.light} />
   }
 ];
 
@@ -71,7 +73,7 @@ function Features() {
                     <div className="max-w-7xl mx-auto">
                         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
                             {featuresData.map((feature, index) => (
-                                <AnimatedContent key={feature.id} duration={1} delay={0.5 + (index * 0.1)}>
+                                <AnimatedContent key={feature.id} duration={1.5} delay={0.5 + (index * 0.1)}>
                                     <div 
                                         className="relative group h-full"
                                         style={{
@@ -90,48 +92,47 @@ function Features() {
                                         />
                                         
                                         {/* Card content */}
-                                        <div className="relative p-8 h-full flex flex-col">
+                                        <div className="relative p-6 h-full flex flex-col">
                                             {/* Feature number and icon */}
                                             <div className="flex items-center justify-between mb-6">
                                                 <div 
-                                                    className="flex items-center justify-center w-12 h-12 rounded-xl text-2xl"
+                                                    className="flex items-center justify-center w-12 h-12 rounded-xl text-2xl border border-white/20"
                                                     style={{ backgroundColor: `${colors.primary}40` }}
                                                 >
                                                     {feature.icon}
                                                 </div>
-                                                <span 
-                                                    className="text-sm font-mono px-3 py-1 rounded-full"
-                                                    style={{ 
-                                                        backgroundColor: `${colors.accent}60`,
-                                                        color: colors.text
-                                                    }}
-                                                >
-                                                    Feature {feature.id}
-                                                </span>
                                             </div>
 
                                             {/* Title and subtitle */}
-                                            <div className="mb-4">
-                                                <h3 className="text-xl font-bold text-white mb-2 leading-tight">
+                                            <div>
+                                                <h3 className="text-2xl font-bold text-white mb-2 leading-tight">
                                                     {feature.title}
                                                 </h3>
-                                                <p 
-                                                    className="text-sm font-medium mb-3"
+                                                {/* <p 
+                                                    className="text-md font-medium mb-3"
                                                     style={{ color: colors.light }}
                                                 >
                                                     {feature.subtitle}
-                                                </p>
+                                                </p> */}
                                             </div>
 
+                                            {/* Description */}
+                                            <p 
+                                                className="text-sm leading-relaxed flex-grow"
+                                                style={{ color: colors.textSecondary }}
+                                            >
+                                                {feature.description}
+                                            </p>
+
                                             {/* Hover indicator */}
-                                            <div className="mt-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                            {/* <div className="mt-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                                 <div 
                                                     className="h-1 w-full rounded-full"
                                                     style={{
                                                         background: `linear-gradient(90deg, ${colors.primary}, ${colors.accent})`
                                                     }}
                                                 />
-                                            </div>
+                                            </div> */}
                                         </div>
                                     </div>
                                 </AnimatedContent>

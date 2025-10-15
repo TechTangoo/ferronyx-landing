@@ -18,12 +18,84 @@ function Footer() {
         }))
     }
 
-    const handleSubmit = (e) => {
+    const sendDemoBookingEmail = async (bookingData) => {
+        try {
+            const emailBody = `
+            New Demo Booking Request
+
+            Name: ${bookingData.name}
+            Company: ${bookingData.company}
+            Email: ${bookingData.email}
+            Date: ${new Date().toLocaleString()}
+
+            Please follow up with this potential client.
+                        `.trim();
+
+            // Option 1: Using EmailJS (recommended for frontend)
+            // You'll need to install emailjs-com: npm install emailjs-com
+            // And configure your EmailJS account
+            
+            // Option 2: Using mailto (opens user's email client)
+            const mailtoLink = `mailto:pj@ferronyx.com?subject=New Demo Booking Request - ${bookingData.company}&body=${encodeURIComponent(emailBody)}`;
+            window.open(mailtoLink, '_blank');
+
+            // Option 3: Backend API call (if you have a backend)
+            // const response = await fetch('/api/send-demo-email', {
+            //     method: 'POST',
+            //     headers: {
+            //         'Content-Type': 'application/json',
+            //     },
+            //     body: JSON.stringify({
+            //         to: 'pj@ferronyx.com',
+            //         subject: `New Demo Booking Request - ${bookingData.company}`,
+            //         body: emailBody,
+            //         bookingData
+            //     })
+            // });
+            
+            return true;
+        } catch (error) {
+            console.error('Error sending demo booking email:', error);
+            return false;
+        }
+    };
+
+    const handleSubmit = async (e) => {
         e.preventDefault()
-        // Handle form submission here
-        console.log('Demo booking request:', formData)
-        // You can add your form submission logic here
-        alert('Thank you! We\'ll be in touch soon.')
+        
+        // Validate form data
+        if (!formData.name || !formData.company || !formData.email) {
+            alert('Please fill in all required fields.');
+            return;
+        }
+
+        // Basic email validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(formData.email)) {
+            alert('Please enter a valid email address.');
+            return;
+        }
+
+        try {
+            // Send email notification
+            const emailSent = await sendDemoBookingEmail(formData);
+            
+            if (emailSent) {
+                // Clear form
+                setFormData({
+                    name: '',
+                    company: '',
+                    email: ''
+                });
+                
+                alert('Thank you! Your demo booking request has been sent. We\'ll be in touch soon.');
+            } else {
+                alert('There was an issue sending your request. Please try again or contact us directly at support@ferronyx.com');
+            }
+        } catch (error) {
+            console.error('Demo booking error:', error);
+            alert('There was an issue with your request. Please try again.');
+        }
     }
 
     return (
@@ -93,7 +165,7 @@ function Footer() {
                             >
 
                                 <form onSubmit={handleSubmit} className="space-y-4 justify-center">
-                                    <div>
+                                    {/* <div>
                                         <label htmlFor="name" className="block text-sm font-medium text-white mb-2">
                                             Full Name *
                                         </label>
@@ -111,7 +183,7 @@ function Footer() {
                                             }}
                                             placeholder="Enter your full name"
                                         />
-                                    </div>
+                                    </div> */}
 
                                     <div>
                                         <label htmlFor="company" className="block text-sm font-medium text-white mb-2">
@@ -152,6 +224,24 @@ function Footer() {
                                             placeholder="Enter your business email"
                                         />
                                     </div>
+                                    <div>
+                                        <label htmlFor="comments" className="block text-sm font-medium text-white mb-2">
+                                            Comments*
+                                        </label>
+                                        <textarea
+                                            id="comments"
+                                            name="comments"
+                                            value={formData.comments}
+                                            onChange={handleInputChange}
+                                            rows={4}
+                                            className="w-full px-4 py-3 rounded-lg border bg-transparent text-white placeholder-gray-400 focus:outline-none focus:ring-2 transition-colors resize-vertical"
+                                            style={{
+                                                borderColor: `${colors.accent}60`,
+                                                backgroundColor: `${colors.background}60`
+                                            }}
+                                            placeholder="Tell us more about your robotics project or specific requirements..."
+                                        />
+                                    </div>
                                     <div className="flex justify-center mt-6">
                                         <button
                                             type="submit"
@@ -167,10 +257,10 @@ function Footer() {
                         </div>
                     </div>
                 </div>
-                <div className='mt-4'>
+                <div className='mt-4 border-t border-white/20 pt-6'>
                     <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
                         <p className="text-sm" style={{ color: colors.textSecondary }}>
-                            © 2025 Ferronyx. All rights reserved.
+                            © Ferronyx 2025 | All rights reserved.
                         </p>
                         <div className="flex gap-6 text-sm">
                             <a
@@ -180,6 +270,7 @@ function Footer() {
                             >
                                 Privacy Policy
                             </a>
+                            <p style={{ color: colors.textSecondary }} >|</p>
                             <a
                                 href="/terms"
                                 className="hover:text-white transition-colors"

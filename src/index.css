@@ -40,8 +40,8 @@
   --sidebar-ring: oklch(0.708 0 0);
 }
 
-html, body {
-  font-family: "Lato", sans-serif;
+*{
+  font-family: "Noto Sans", sans-serif;
 }
 
 .dark {
