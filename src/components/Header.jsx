@@ -9,7 +9,7 @@ function Header() {
             <div className='w-[90%]'>
                 <div className="flex items-center justify-between h-20 px-4 sm:px-6 lg:px-8">
                     <a href="#" className="flex items-center gap-3">
-                        <img src={logo} alt="Rosstack logo" className="w-12 h-12 sm:w-14 sm:h-14 object-contain" />
+                        <img src={logo} alt="ferronyx logo" className="w-12 h-12 sm:w-14 sm:h-14 object-contain" />
                     </a>
 
                     <div className="flex items-center gap-6">
