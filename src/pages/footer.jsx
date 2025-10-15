@@ -33,7 +33,7 @@ function Footer() {
                 company: bookingData.company,
                 name: "User",
                 time: new Date().toLocaleString(),
-                message: bookingData.comment,
+                message: bookingData.comments,
                 teamemail: 'team@ferronyx.com',
             };
 
