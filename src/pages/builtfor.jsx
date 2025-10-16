@@ -43,7 +43,25 @@ const audienceData = [
 function Builtfor() {
     return (
         <div className='relative w-screen overflow-hidden py-24' style={{ backgroundColor: colors.background }}>
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            {/* Enhanced Background */}
+            <div className="absolute inset-0 opacity-30">
+                <div className="absolute top-1/2 left-1/4 w-[500px] h-[500px] rounded-full blur-3xl"
+                     style={{backgroundColor: `${colors.primary}40`}} />
+                <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] rounded-full blur-3xl"
+                     style={{backgroundColor: `${colors.accent}40`}} />
+            </div>
+
+            {/* Subtle Line Grid */}
+            <div className="absolute inset-0 opacity-5">
+                <div className="w-full h-full"
+                     style={{
+                         backgroundImage: `linear-gradient(${colors.primary}40 1px, transparent 1px), linear-gradient(90deg, ${colors.primary}40 1px, transparent 1px)`,
+                         backgroundSize: '50px 50px'
+                     }}
+                />
+            </div>
+
+            <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <AnimatedContent duration={0.8}>
                     {/* Header Section */}
                     <div className="text-center mb-16">
@@ -60,24 +78,31 @@ function Builtfor() {
                         {audienceData.map((item, idx) => (
                             <AnimatedContent key={item.id} duration={0.6} delay={idx * 0.1}>
                                 <div
-                                    className="p-8 rounded-xl border h-full hover:border-opacity-100 transition-all duration-300"
+                                    className="group p-8 rounded-xl border h-full hover:border-opacity-100 transition-all duration-300 relative overflow-hidden"
                                     style={{
                                         backgroundColor: `${colors.forebackground}`,
                                         borderColor: `${colors.primary}30`
                                     }}
                                 >
+                                    {/* Hover Glow Effect */}
                                     <div
-                                        className="w-16 h-16 rounded-lg flex items-center justify-center mb-6"
-                                        style={{backgroundColor: `${colors.primary}30`}}
-                                    >
-                                        <img src={item.icon} alt={item.title} className="w-9 h-9" />
+                                        className="absolute -inset-20 opacity-0 group-hover:opacity-20 transition-opacity duration-500 blur-2xl"
+                                        style={{backgroundColor: colors.primary}}
+                                    />
+                                    <div className="relative">
+                                        <div
+                                            className="w-16 h-16 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300"
+                                            style={{backgroundColor: `${colors.primary}30`}}
+                                        >
+                                            <img src={item.icon} alt={item.title} className="w-9 h-9" />
+                                        </div>
+                                        <h3 className="text-xl font-bold text-white mb-3">
+                                            {item.title}
+                                        </h3>
+                                        <p className="text-white/60 leading-relaxed">
+                                            {item.desc}
+                                        </p>
                                     </div>
-                                    <h3 className="text-xl font-bold text-white mb-3">
-                                        {item.title}
-                                    </h3>
-                                    <p className="text-white/60 leading-relaxed">
-                                        {item.desc}
-                                    </p>
                                 </div>
                             </AnimatedContent>
                         ))}

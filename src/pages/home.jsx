@@ -2,9 +2,8 @@ import React from 'react';
 import LightRays from '../components/LightRays';
 import Header from '../components/Header';
 import { colors } from '../utils/colors';
-import StarBorder from '../components/StarBorder';
 import AnimatedContent from '../components/AnimatedContent';
-import dashboard from '../assets/image31.png';
+import DashboardIllustration from '../components/DashboardIllustration';
 
 function Home() {
 
@@ -97,13 +96,8 @@ function Home() {
               </div>
             </div>
 
-            <div className="mt-8">
-              <img
-                src={dashboard}
-                alt="Ferronyx Dashboard - Robot Fleet Monitoring"
-                className='border-t-4 border-x-4 rounded-t-2xl w-full h-auto shadow-2xl'
-                style={{borderColor: `${colors.primary}40`}}
-              />
+            <div className="mt-12 relative">
+              <DashboardIllustration />
             </div>
           </div>
         </AnimatedContent>

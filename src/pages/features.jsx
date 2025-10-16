@@ -1,7 +1,10 @@
 import React from 'react'
 import { colors } from '../utils/colors'
 import AnimatedContent from '../components/AnimatedContent'
-import { ChartNoAxesCombined, BellRing, Users, Bot, CircleGauge, Timer, Brain, ScanEye } from 'lucide-react';
+import { ChartNoAxesCombined, BellRing, Users, Bot, CircleGauge, Timer, Brain, ScanEye } from 'lucide-react'
+import AIDebugMockup from '../components/AIDebugMockup'
+import MonitoringMockup from '../components/MonitoringMockup'
+import OnCallMockup from '../components/OnCallMockup';
 
 
 // Features data structure
@@ -75,7 +78,23 @@ const featuresData = [
 function Features() {
     return (
         <div className='relative w-screen overflow-hidden py-24' style={{ backgroundColor: colors.background}}>
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            {/* Enhanced Background */}
+            <div className="absolute inset-0 opacity-30">
+                <div className="absolute top-20 left-10 w-96 h-96 rounded-full blur-3xl"
+                     style={{backgroundColor: `${colors.primary}40`}} />
+                <div className="absolute bottom-20 right-10 w-96 h-96 rounded-full blur-3xl"
+                     style={{backgroundColor: `${colors.accent}40`}} />
+            </div>
+
+            {/* Dot Grid Pattern */}
+            <div className="absolute inset-0 opacity-5"
+                 style={{
+                     backgroundImage: `radial-gradient(circle, ${colors.light} 1px, transparent 1px)`,
+                     backgroundSize: '30px 30px'
+                 }}
+            />
+
+            <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Section Header */}
                 <div className="text-center mb-20">
                     <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
@@ -117,11 +136,7 @@ function Features() {
                                 </ul>
                             </div>
                             <div className="relative">
-                                <div className="aspect-video rounded-lg border" style={{backgroundColor: `${colors.forebackground}`, borderColor: `${colors.primary}30`}}>
-                                    <div className="p-6 h-full flex items-center justify-center text-white/40">
-                                        AI Debug Interface Mockup
-                                    </div>
-                                </div>
+                                <AIDebugMockup />
                             </div>
                         </div>
                     </div>
@@ -158,11 +173,7 @@ function Features() {
                                 </ul>
                             </div>
                             <div className="relative lg:order-1">
-                                <div className="aspect-video rounded-lg border" style={{backgroundColor: `${colors.forebackground}`, borderColor: `${colors.primary}30`}}>
-                                    <div className="p-6 h-full flex items-center justify-center text-white/40">
-                                        Monitoring Dashboard Mockup
-                                    </div>
-                                </div>
+                                <MonitoringMockup />
                             </div>
                         </div>
                     </div>
@@ -184,10 +195,10 @@ function Features() {
                                     Customizable escalation policies, incident timelines, and MTTR/MTTA tracking — designed specifically for robotics engineering teams.
                                 </p>
                                 <ul className="space-y-3 text-white/60">
-                                    <li className="flex items-start gap-3">
-                                        <span style={{color: colors.primary}}>✓</span>
-                                        <span>Smart alerting with Slack, PagerDuty integration</span>
-                                    </li>
+                                    {/*<li className="flex items-start gap-3">*/}
+                                    {/*    <span style={{color: colors.primary}}>✓</span>*/}
+                                    {/*    <span>Smart alerting with Slack, PagerDuty integration</span>*/}
+                                    {/*</li>*/}
                                     <li className="flex items-start gap-3">
                                         <span style={{color: colors.primary}}>✓</span>
                                         <span>Escalation policies and on-call scheduling</span>
@@ -199,11 +210,7 @@ function Features() {
                                 </ul>
                             </div>
                             <div className="relative">
-                                <div className="aspect-video rounded-lg border" style={{backgroundColor: `${colors.forebackground}`, borderColor: `${colors.primary}30`}}>
-                                    <div className="p-6 h-full flex items-center justify-center text-white/40">
-                                        On-Call Dashboard Mockup
-                                    </div>
-                                </div>
+                                <OnCallMockup />
                             </div>
                         </div>
                     </div>
