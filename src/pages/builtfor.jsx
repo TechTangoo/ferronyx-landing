@@ -133,7 +133,7 @@ function Builtfor() {
                                         color: 'white'
                                     }}
                                 >
-                                    Contact Sales
+                                    Contact Us
                                 </button>
                             </div>
                         </AnimatedContent>

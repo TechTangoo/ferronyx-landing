@@ -6,75 +6,6 @@ import AIDebugMockup from '../components/AIDebugMockup'
 import MonitoringMockup from '../components/MonitoringMockup'
 import OnCallMockup from '../components/OnCallMockup';
 
-
-// Features data structure
-const featuresData = [
-    {
-        id: 1,
-        title: "AI-Assisted Debugging",
-        subtitle: "Chat with your robot.",
-        description: "Ask \"Why did camera feed stop?\" and Ferronyx analyzes logs, metrics, and ROS topics to suggest fixes — with human approval, clear explanations, and editable commands.",
-        emoji: "🧠",
-        icon: <Bot strokeWidth={0.8} size={28} color={colors.light} />
-    },
-    {
-        id: 2,
-        title: "Machine Metrics Monitoring",
-        subtitle: "See what your robot feels.",
-        description: "Track CPU, memory, disk, and network usage in real-time. Visualize historic data up to one year with InfluxDB-powered analytics.",
-        emoji: "📊",
-        icon: <ScanEye strokeWidth={0.8} size={28} color={colors.light} />
-    },
-    {
-        id: 3,
-        title: "10-Minute Setup",
-        subtitle: "Install. Connect. Relax.",
-        description: "Drop in a single command, and Ferronyx auto-discovers ROS topics, configures telemetry, and starts streaming data securely to the cloud.",
-        emoji: "🚀",
-        icon: <Timer strokeWidth={0.8} size={28} color={colors.light} />
-    },
-    {
-        id: 4,
-        title: "ROS-Aware Intelligence",
-        subtitle: "Understands your robot's language.",
-        description: "Automatically detects ROS topics, nodes, and message types — builds alerts and correlation graphs without any manual configuration.",
-        emoji: "🧩",
-        icon: <Brain strokeWidth={0.8} size={28} color={colors.light} />
-    },
-    {
-        id: 5,
-        title: "Alerting & Incident Automation",
-        subtitle: "Never miss a signal.",
-        description: "Set alerts on any metric or ROS event. Integrate with your on-call system — Slack, PagerDuty, or Ferronyx On-Call — for instant notifications and context.",
-        emoji: "🕑",
-        icon: <BellRing strokeWidth={0.8} size={28} color={colors.light} />
-    },
-    {
-        id: 6,
-        title: "Ferronyx On-Call",
-        subtitle: "SRE-grade reliability for robotics.",
-        description: "Customizable escalation policies, incident timelines, and MTTR/MTTA tracking — designed for robotics engineering teams.",
-        emoji: "👩‍💻",
-        icon: <Users strokeWidth={0.8} size={28} color={colors.light} />
-    },
-    {
-        id: 7,
-        title: "Historic Insights & Trends",
-        subtitle: "Learn from every incident.",
-        description: "Ferronyx stores one year of high-resolution data, so you can correlate past issues, detect degradation, and predict failures before they happen.",
-        emoji: "🧾",
-        icon: <ChartNoAxesCombined strokeWidth={0.8} size={28} color={colors.light} />
-    },
-    {
-        id: 8,
-        title: "Unified Fleet View",
-        subtitle: "One dashboard, every robot.",
-        description: "Monitor all robots — ROS or not — from a single control plane. Filter by health, uptime, alerts, or AI diagnostics, and act instantly.",
-        emoji: "🌍",
-        icon: <CircleGauge strokeWidth={0.8} size={28} color={colors.light} />
-    }
-];
-
 function Features() {
     return (
         <div className='relative w-screen overflow-hidden py-24' style={{ backgroundColor: colors.background}}>
@@ -106,7 +37,7 @@ function Features() {
                 </div>
 
                 {/* Feature 1 - AI Debugging (Left aligned, large) */}
-                <AnimatedContent duration={0.8}>
+                <AnimatedContent duration={0.5}>
                     <div className="mb-32">
                         <div className="grid lg:grid-cols-2 gap-12 items-center">
                             <div>
@@ -143,7 +74,7 @@ function Features() {
                 </AnimatedContent>
 
                 {/* Feature 2 - Real-time Monitoring (Right aligned) */}
-                <AnimatedContent duration={0.8}>
+                <AnimatedContent duration={0.5}>
                     <div className="mb-32">
                         <div className="grid lg:grid-cols-2 gap-12 items-center">
                             <div className="lg:order-2">
@@ -180,7 +111,7 @@ function Features() {
                 </AnimatedContent>
 
                 {/* Feature 3 - On-Call Management (Left aligned) */}
-                <AnimatedContent duration={0.8}>
+                <AnimatedContent duration={0.5}>
                     <div className="mb-32">
                         <div className="grid lg:grid-cols-2 gap-12 items-center">
                             <div>

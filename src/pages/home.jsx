@@ -19,7 +19,7 @@ function Home() {
 
   
   return (
-    <div className="relative min-h-screen w-screen overflow-hidden">
+    <div className="relative h-screen w-screen overflow-hidden">
       {/* Primary gradient background from bottom to top */}
       <div
         className="absolute inset-0 w-full h-full z-0"
@@ -51,12 +51,10 @@ function Home() {
               </div>
 
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-6 leading-tight">
-                Observe. Diagnose.
-                <br />
-                <span style={{color: colors.primary}}>Heal.</span>
+                Observe. Diagnose. <span style={{color: colors.primary}}>Heal.</span>
               </h1>
 
-              <p className="text-lg sm:text-xl md:text-2xl mb-8 max-w-4xl mx-auto leading-relaxed" style={{color: colors.textSecondary}}>
+              <p className="text-lg sm:text-xl md:text-2xl mb-6 max-w-4xl mx-auto leading-relaxed" style={{color: colors.textSecondary}}>
                 Ferronyx gives robotics teams a unified view of their entire fleet — with AI-powered debugging, real-time telemetry, and SRE-grade incident management.
               </p>
 
@@ -96,7 +94,7 @@ function Home() {
               </div>
             </div>
 
-            <div className="mt-12 relative">
+            <div className="mt-8 h-[50%]">
               <DashboardIllustration />
             </div>
           </div>
