@@ -74,115 +74,171 @@ const featuresData = [
 
 function Features() {
     return (
-        <div className='relative h-full w-screen overflow-hidden' style={{ backgroundColor: colors.background }}>
-            {/* Subtle light glow in the middle */}
-            <div
-                className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 opacity-20"
-                style={{
-                    background: `radial-gradient(circle, ${colors.primary}, ${colors.accent} 40%, transparent 70%)`,
-                    filter: 'blur(60px)'
-                }}
-            />
+        <div className='relative w-screen overflow-hidden py-24' style={{ backgroundColor: colors.background}}>
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                {/* Section Header */}
+                <div className="text-center mb-20">
+                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
+                        Built for Modern Robotics Teams
+                    </h2>
+                    <p className="text-lg text-white/60 max-w-2xl mx-auto">
+                        Everything you need to observe, debug, and maintain your robot fleet
+                    </p>
+                </div>
 
-            <div className="relative z-10 px-4 sm:px-6 lg:px-8 py-24">
-                <AnimatedContent duration={1.5} delay={0.3}>
-                    {/* Header Section */}
-                    <div className="max-w-7xl mx-auto text-center mb-20">
-                        <div className="max-w-5xl mx-auto">
-                            <div
-                                className="inline-block px-5 py-2 rounded-full mb-6 border"
-                                style={{
-                                    backgroundColor: `${colors.primary}20`,
-                                    borderColor: `${colors.primary}60`
-                                }}
-                            >
-                                <p className="text-sm sm:text-base font-medium" style={{color: colors.light}}>
-                                    Platform Features
+                {/* Feature 1 - AI Debugging (Left aligned, large) */}
+                <AnimatedContent duration={0.8}>
+                    <div className="mb-32">
+                        <div className="grid lg:grid-cols-2 gap-12 items-center">
+                            <div>
+                                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full mb-4" style={{backgroundColor: `${colors.primary}20`, borderColor: `${colors.primary}60`, border: '1px solid'}}>
+                                    <Bot size={16} color={colors.light} />
+                                    <span className="text-sm font-medium" style={{color: colors.light}}>AI-Powered</span>
+                                </div>
+                                <h3 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+                                    Debug with AI
+                                </h3>
+                                <p className="text-lg text-white/70 mb-6 leading-relaxed">
+                                    Ask "Why did the camera feed stop?" and Ferronyx analyzes logs, metrics, and ROS topics to suggest fixes — with human approval and editable commands.
                                 </p>
+                                <ul className="space-y-3 text-white/60">
+                                    <li className="flex items-start gap-3">
+                                        <span style={{color: colors.primary}}>✓</span>
+                                        <span>Natural language queries to diagnose issues</span>
+                                    </li>
+                                    <li className="flex items-start gap-3">
+                                        <span style={{color: colors.primary}}>✓</span>
+                                        <span>Automatic log and metric correlation</span>
+                                    </li>
+                                    <li className="flex items-start gap-3">
+                                        <span style={{color: colors.primary}}>✓</span>
+                                        <span>Human-in-the-loop command execution</span>
+                                    </li>
+                                </ul>
                             </div>
-                            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-                                Everything You Need to Scale
-                                <br />
-                                <span style={{color: colors.primary}}>Your Robotic Fleet</span>
-                            </h2>
-                            <p className="text-lg sm:text-xl text-white/80 mb-12 max-w-4xl mx-auto leading-relaxed">
-                                From live telemetry to AI-powered debugging — get the complete observability stack built specifically for robotics engineers.
-                            </p>
+                            <div className="relative">
+                                <div className="aspect-video rounded-lg border" style={{backgroundColor: `${colors.forebackground}`, borderColor: `${colors.primary}30`}}>
+                                    <div className="p-6 h-full flex items-center justify-center text-white/40">
+                                        AI Debug Interface Mockup
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
+                </AnimatedContent>
 
-                    {/* Features Grid */}
-                    <AnimatedContent duration={1} >
-                        <div className="max-w-7xl mx-auto">
-
-                            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-                                {featuresData.map((feature, index) => (
-                                    <div
-                                        key={feature.id}
-                                        className="relative group h-full rounded-2xl border transition-all duration-300 hover:scale-105 hover:shadow-2xl"
-                                        style={{
-                                            background: `linear-gradient(145deg, ${colors.forebackground}, ${colors.secondary})`,
-                                            borderColor: `${colors.accent}40`
-                                        }}
-                                    >
-                                        {/* Card glow effect on hover */}
-                                        <div
-                                            className="absolute inset-0 opacity-0 group-hover:opacity-30 transition-opacity duration-300 rounded-2xl"
-                                            style={{
-                                                background: `radial-gradient(circle at center, ${colors.primary}, transparent)`,
-                                                filter: 'blur(30px)'
-                                            }}
-                                        />
-
-                                        {/* Card content */}
-                                        <div className="relative p-8 h-full flex flex-col">
-                                            {/* Feature icon */}
-                                            <div className="mb-6">
-                                                <div
-                                                    className="flex items-center justify-center w-14 h-14 rounded-xl border group-hover:scale-110 transition-transform duration-300"
-                                                    style={{
-                                                        backgroundColor: `${colors.primary}50`,
-                                                        borderColor: `${colors.primary}60`
-                                                    }}
-                                                >
-                                                    {feature.icon}
-                                                </div>
-                                            </div>
-
-                                            {/* Title */}
-                                            <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 leading-tight">
-                                                {feature.title}
-                                            </h3>
-
-                                            {/* Subtitle */}
-                                            <p
-                                                className="text-base font-medium mb-4"
-                                                style={{ color: colors.light }}
-                                            >
-                                                {feature.subtitle}
-                                            </p>
-
-                                            {/* Description */}
-                                            <p
-                                                className="text-sm sm:text-base leading-relaxed flex-grow"
-                                                style={{ color: colors.textSecondary }}
-                                            >
-                                                {feature.description}
-                                            </p>
-
-                                            {/* Hover indicator */}
-                                            <div className="mt-6 h-1 w-0 group-hover:w-full transition-all duration-500 rounded-full"
-                                                style={{
-                                                    background: `linear-gradient(90deg, ${colors.primary}, ${colors.accent})`
-                                                }}
-                                            />
-                                        </div>
+                {/* Feature 2 - Real-time Monitoring (Right aligned) */}
+                <AnimatedContent duration={0.8}>
+                    <div className="mb-32">
+                        <div className="grid lg:grid-cols-2 gap-12 items-center">
+                            <div className="lg:order-2">
+                                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full mb-4" style={{backgroundColor: `${colors.primary}20`, borderColor: `${colors.primary}60`, border: '1px solid'}}>
+                                    <CircleGauge size={16} color={colors.light} />
+                                    <span className="text-sm font-medium" style={{color: colors.light}}>Real-time</span>
+                                </div>
+                                <h3 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+                                    Monitor Every Robot
+                                </h3>
+                                <p className="text-lg text-white/70 mb-6 leading-relaxed">
+                                    Track CPU, memory, disk, network, and ROS topics in real-time. Visualize historic data up to one year with InfluxDB-powered analytics.
+                                </p>
+                                <ul className="space-y-3 text-white/60">
+                                    <li className="flex items-start gap-3">
+                                        <span style={{color: colors.primary}}>✓</span>
+                                        <span>Live system metrics and ROS topic monitoring</span>
+                                    </li>
+                                    <li className="flex items-start gap-3">
+                                        <span style={{color: colors.primary}}>✓</span>
+                                        <span>One year of high-resolution data retention</span>
+                                    </li>
+                                    <li className="flex items-start gap-3">
+                                        <span style={{color: colors.primary}}>✓</span>
+                                        <span>Custom dashboards and visualizations</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div className="relative lg:order-1">
+                                <div className="aspect-video rounded-lg border" style={{backgroundColor: `${colors.forebackground}`, borderColor: `${colors.primary}30`}}>
+                                    <div className="p-6 h-full flex items-center justify-center text-white/40">
+                                        Monitoring Dashboard Mockup
                                     </div>
-                                ))}
+                                </div>
                             </div>
                         </div>
-                    </AnimatedContent>
+                    </div>
                 </AnimatedContent>
+
+                {/* Feature 3 - On-Call Management (Left aligned) */}
+                <AnimatedContent duration={0.8}>
+                    <div className="mb-32">
+                        <div className="grid lg:grid-cols-2 gap-12 items-center">
+                            <div>
+                                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full mb-4" style={{backgroundColor: `${colors.primary}20`, borderColor: `${colors.primary}60`, border: '1px solid'}}>
+                                    <BellRing size={16} color={colors.light} />
+                                    <span className="text-sm font-medium" style={{color: colors.light}}>Incident Management</span>
+                                </div>
+                                <h3 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+                                    SRE-Grade On-Call
+                                </h3>
+                                <p className="text-lg text-white/70 mb-6 leading-relaxed">
+                                    Customizable escalation policies, incident timelines, and MTTR/MTTA tracking — designed specifically for robotics engineering teams.
+                                </p>
+                                <ul className="space-y-3 text-white/60">
+                                    <li className="flex items-start gap-3">
+                                        <span style={{color: colors.primary}}>✓</span>
+                                        <span>Smart alerting with Slack, PagerDuty integration</span>
+                                    </li>
+                                    <li className="flex items-start gap-3">
+                                        <span style={{color: colors.primary}}>✓</span>
+                                        <span>Escalation policies and on-call scheduling</span>
+                                    </li>
+                                    <li className="flex items-start gap-3">
+                                        <span style={{color: colors.primary}}>✓</span>
+                                        <span>Incident postmortems and analytics</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div className="relative">
+                                <div className="aspect-video rounded-lg border" style={{backgroundColor: `${colors.forebackground}`, borderColor: `${colors.primary}30`}}>
+                                    <div className="p-6 h-full flex items-center justify-center text-white/40">
+                                        On-Call Dashboard Mockup
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </AnimatedContent>
+
+                {/* Additional Features Grid */}
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-20">
+                    {[
+                        {
+                            icon: <Timer strokeWidth={0.8} size={24} color={colors.light} />,
+                            title: "10-Minute Setup",
+                            desc: "Single command installation with automatic ROS discovery"
+                        },
+                        {
+                            icon: <Brain strokeWidth={0.8} size={24} color={colors.light} />,
+                            title: "ROS-Aware Intelligence",
+                            desc: "Auto-detects topics, nodes, and message types"
+                        },
+                        {
+                            icon: <ChartNoAxesCombined strokeWidth={0.8} size={24} color={colors.light} />,
+                            title: "Historic Insights",
+                            desc: "Correlate past issues and predict failures"
+                        }
+                    ].map((feature, idx) => (
+                        <AnimatedContent key={idx} duration={0.6} delay={idx * 0.1}>
+                            <div className="p-6 rounded-xl border" style={{backgroundColor: `${colors.forebackground}`, borderColor: `${colors.primary}30`}}>
+                                <div className="w-12 h-12 rounded-lg flex items-center justify-center mb-4" style={{backgroundColor: `${colors.primary}30`}}>
+                                    {feature.icon}
+                                </div>
+                                <h4 className="text-xl font-bold text-white mb-2">{feature.title}</h4>
+                                <p className="text-white/60 text-sm">{feature.desc}</p>
+                            </div>
+                        </AnimatedContent>
+                    ))}
+                </div>
             </div>
         </div>
     )
