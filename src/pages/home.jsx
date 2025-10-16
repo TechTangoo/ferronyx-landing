@@ -18,6 +18,7 @@ function Home() {
     }
   };
 
+  
   return (
     <div className="relative h-screen w-screen overflow-hidden">
       {/* Primary gradient background from bottom to top */}
@@ -38,13 +39,16 @@ function Home() {
         <AnimatedContent duration={2}>
           <div className="max-w-7xl mx-auto text-center mt-20 flex flex-col gap-6">
             <div className="max-w-4xl mx-auto">
-              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight">
-                Monitor, Debug, and Fix Your ROS 2 Robots — From Anywhere.
-              </h1>
-              <p className="text-xl sm:text-xl text-white mb-6 max-w-3xl mx-auto leading-relaxed">
-                Real-time fleet observability and AI-assisted troubleshooting for every robot, all in one cloud dashboard.
+              <p className="text-xl sm:text-xl mb-6 max-w-3xl mx-auto leading-relaxed" style={{color: colors.text}}>
+                Ferronyx AI — The Intelligence Layer for Robotics
               </p>
-              <div className="flex items-center gap-6 justify-center">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight">
+                Observe. Diagnose. Heal.
+              </h1>
+              <p className="text-xl sm:text-xl  mb-6 max-w-3xl mx-auto leading-relaxed" style={{color: colors.textSecondary}}>
+                Ferronyx gives you a singular view of your entire robotic fleet — with AI-assisted debugging, real-time observability, and automated on-call workflows.
+              </p>
+              {/* <div className="flex items-center gap-6 justify-center">
                 <button
                   onClick={scrollToFooter}
                   className="bg-white hover:bg-gray-100 text-black font-semibold py-2 px-8 rounded-md transition-colors duration-200 cursor-pointer"
@@ -58,9 +62,9 @@ function Home() {
                 >
                   Book a demo
                 </button>
-              </div>
+              </div> */}
             </div>
-            <img src={dashboard} alt="dashboard" className='border-t-5 border-x-5 border-white/20 rounded-t-xl w-full h-auto' />
+            <img src={dashboard} alt="dashboard" className='border-t-5 mt-10 border-x-5 border-white/20 rounded-t-xl w-full h-auto' />
           </div>
         </AnimatedContent>
       </section>

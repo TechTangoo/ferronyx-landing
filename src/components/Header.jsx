@@ -29,13 +29,13 @@ function Header() {
                         >
                             Contact us
                         </button>
-                        <button 
+                       {/*  <button 
                             onClick={scrollToFooter}
                             className={`text-white font-semibold py-2 px-6 rounded-md border transition-colors duration-200 cursor-pointer`}
                             style={{ borderColor: colors.primary }}
                         >
                             Book a demo
-                        </button>
+                        </button> */}
                     </div>
                 </div>
             </div>

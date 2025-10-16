@@ -94,7 +94,7 @@ function Footer() {
     }
 
     return (
-        <footer id="contact-footer" className="relative w-full mt-20 overflow-hidden">
+        <footer id="contact-footer" className="relative w-full overflow-hidden">
             {/* Linear gradient background from bottom to top */}
             <div
                 className="absolute inset-0 w-full h-full"
@@ -131,13 +131,13 @@ function Footer() {
                                         Ferronyx
                                     </h3>
                                     <p className="text-sm" style={{ color: colors.textSecondary }}>
-                                        ROS 2 Fleet Management Platform
+                                        The Intelligence Layer for Robotics
                                     </p>
                                 </div>
                             </div>
 
                             <p className="text-lg leading-relaxed mb-6" style={{ color: colors.textSecondary }}>
-                                Monitor, debug, and fix your ROS 2 robots from anywhere.
+                                Monitor, debug, and fix your robots from anywhere.
                                 Real-time fleet observability and AI-assisted troubleshooting
                                 for every robot, all in one cloud dashboard.
                             </p>

@@ -10,7 +10,7 @@ import teams from '../assets/teams.png';
 
 function Builtfor() {
     return (
-        <div className='relative h-screen w-screen overflow-hidden' style={{ backgroundColor: colors.background }}>
+        <div className='relative h-full w-screen overflow-hidden' style={{ backgroundColor: colors.background }}>
             <div
                 className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 opacity-20"
                 style={{

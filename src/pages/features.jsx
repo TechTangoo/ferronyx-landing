@@ -1,67 +1,96 @@
 import React from 'react'
 import { colors } from '../utils/colors'
 import AnimatedContent from '../components/AnimatedContent'
-import { ChartNoAxesCombined, BellRing, Users, Bot, CircleGauge } from 'lucide-react';
+import { ChartNoAxesCombined, BellRing, Users, Bot, CircleGauge, Timer, Brain, ScanEye } from 'lucide-react';
 
 
 // Features data structure
 const featuresData = [
-  {
-    id: 1,
-    title: "Real-Time Robot Monitoring",
-    subtitle: "See what's happening inside every robot.",
-    description: "Stream live CPU, memory, and disk metrics directly from each device. Visualize short-term trends or drill down into historical data to catch issues before they escalate.",
-    icon: <ChartNoAxesCombined strokeWidth={0.8} size={28} color={colors.light} />
-  },
-  {
-    id: 2,
-    title: "Smart Alerts & Notifications",
-    subtitle: "Know when something's wrong — instantly.",
-    description: "Define metric thresholds, get real-time alerts, and prioritize responses by severity. Integrated with Slack, email, and webhooks so your team never misses a critical update.",
-    icon: <BellRing strokeWidth={0.8} size={28} color={colors.light} />
-  },
-  {
-    id: 3,
-    title: "Robot Assignment & Ownership",
-    subtitle: "Accountability built into every alert.",
-    description: "Assign robots to specific engineers or teams. Ownership data travels with alerts, ensuring fast, clear response paths and no duplicate work.",
-    icon: <Users strokeWidth={0.8} size={28} color={colors.light} />
-  },
-  {
-    id: 4,
-    title: "AI-Powered ROS 2 Troubleshooting",
-    subtitle: "Debug ROS 2 issues — without touching SSH.",
-    description: "Chat with an AI assistant that understands ROS 2 logs, topics, and nodes. It analyzes context and suggests root causes and fixes — saving hours of manual debugging.",
-    icon: <Bot strokeWidth={0.8} size={28} color={colors.light} />
-  },
-  {
-    id: 5,
-    title: "Fleet Health Dashboard",
-    subtitle: "Your mission control for operational insight.",
-    description: "View the live status of all robots in one unified dashboard. See which are healthy, degraded, or offline — with quick access to recent alerts and performance summaries.",
-    icon: <CircleGauge strokeWidth={0.8} size={28} color={colors.light} />
-  }
+    {
+        id: 1,
+        title: "AI-Assisted Debugging",
+        subtitle: "Chat with your robot.",
+        description: "Ask \"Why did camera feed stop?\" and Ferronyx analyzes logs, metrics, and ROS topics to suggest fixes — with human approval, clear explanations, and editable commands.",
+        emoji: "🧠",
+        icon: <Bot strokeWidth={0.8} size={28} color={colors.light} />
+    },
+    {
+        id: 2,
+        title: "Machine Metrics Monitoring",
+        subtitle: "See what your robot feels.",
+        description: "Track CPU, memory, disk, and network usage in real-time. Visualize historic data up to one year with InfluxDB-powered analytics.",
+        emoji: "📊",
+        icon: <ScanEye strokeWidth={0.8} size={28} color={colors.light} />
+    },
+    {
+        id: 3,
+        title: "10-Minute Setup",
+        subtitle: "Install. Connect. Relax.",
+        description: "Drop in a single command, and Ferronyx auto-discovers ROS topics, configures telemetry, and starts streaming data securely to the cloud.",
+        emoji: "🚀",
+        icon: <Timer strokeWidth={0.8} size={28} color={colors.light} />
+    },
+    {
+        id: 4,
+        title: "ROS-Aware Intelligence",
+        subtitle: "Understands your robot's language.",
+        description: "Automatically detects ROS topics, nodes, and message types — builds alerts and correlation graphs without any manual configuration.",
+        emoji: "🧩",
+        icon: <Brain strokeWidth={0.8} size={28} color={colors.light} />
+    },
+    {
+        id: 5,
+        title: "Alerting & Incident Automation",
+        subtitle: "Never miss a signal.",
+        description: "Set alerts on any metric or ROS event. Integrate with your on-call system — Slack, PagerDuty, or Ferronyx On-Call — for instant notifications and context.",
+        emoji: "🕑",
+        icon: <BellRing strokeWidth={0.8} size={28} color={colors.light} />
+    },
+    {
+        id: 6,
+        title: "Ferronyx On-Call",
+        subtitle: "SRE-grade reliability for robotics.",
+        description: "Customizable escalation policies, incident timelines, and MTTR/MTTA tracking — designed for robotics engineering teams.",
+        emoji: "👩‍💻",
+        icon: <Users strokeWidth={0.8} size={28} color={colors.light} />
+    },
+    {
+        id: 7,
+        title: "Historic Insights & Trends",
+        subtitle: "Learn from every incident.",
+        description: "Ferronyx stores one year of high-resolution data, so you can correlate past issues, detect degradation, and predict failures before they happen.",
+        emoji: "🧾",
+        icon: <ChartNoAxesCombined strokeWidth={0.8} size={28} color={colors.light} />
+    },
+    {
+        id: 8,
+        title: "Unified Fleet View",
+        subtitle: "One dashboard, every robot.",
+        description: "Monitor all robots — ROS or not — from a single control plane. Filter by health, uptime, alerts, or AI diagnostics, and act instantly.",
+        emoji: "🌍",
+        icon: <CircleGauge strokeWidth={0.8} size={28} color={colors.light} />
+    }
 ];
 
 function Features() {
     return (
-        <div className='relative min-h-screen w-screen overflow-hidden' style={{ backgroundColor: colors.background }}>
+        <div className='relative h-full w-screen overflow-hidden' style={{ backgroundColor: colors.background }}>
             {/* Subtle light glow in the middle */}
-            <div 
+            <div
                 className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 opacity-20"
                 style={{
                     background: `radial-gradient(circle, ${colors.primary}, ${colors.accent} 40%, transparent 70%)`,
                     filter: 'blur(60px)'
                 }}
             />
-            
+
             <div className="relative z-10 px-4 sm:px-6 lg:px-8 py-20">
                 <AnimatedContent duration={2} delay={0.5}>
                     {/* Header Section */}
                     <div className="max-w-7xl mx-auto text-center mb-16">
                         <div className="max-w-4xl mx-auto">
                             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
-                                Everything You Need to Manage Your ROS 2 Fleet — Remotely.
+                                Everything You Need to Manage Your Robotic Fleet — Remotely.
                             </h2>
                             <p className="text-lg sm:text-xl text-white/80 mb-12 max-w-3xl mx-auto leading-relaxed">
                                 From live telemetry to AI-powered debugging, get every tool you need to monitor, diagnose, and maintain your robots — all in one place.
@@ -70,11 +99,13 @@ function Features() {
                     </div>
 
                     {/* Features Grid */}
-                    <div className="max-w-7xl mx-auto">
-                        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-                            {featuresData.map((feature, index) => (
-                                <AnimatedContent key={feature.id} duration={1.5} delay={0.5 + (index * 0.1)}>
-                                    <div 
+                    <AnimatedContent duration={1} >
+                        <div className="max-w-7xl mx-auto">
+
+                            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                                {featuresData.map((feature, index) => (
+                                    <div
+                                    key={feature.id} 
                                         className="relative group h-full"
                                         style={{
                                             background: `linear-gradient(145deg, ${colors.forebackground}, ${colors.secondary})`,
@@ -83,19 +114,19 @@ function Features() {
                                         }}
                                     >
                                         {/* Card glow effect on hover */}
-                                        <div 
+                                        <div
                                             className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-300 rounded-2xl"
                                             style={{
                                                 background: `linear-gradient(145deg, ${colors.primary}, ${colors.accent})`,
                                                 filter: 'blur(20px)'
                                             }}
                                         />
-                                        
+
                                         {/* Card content */}
                                         <div className="relative p-6 h-full flex flex-col">
                                             {/* Feature number and icon */}
                                             <div className="flex items-center justify-between mb-6">
-                                                <div 
+                                                <div
                                                     className="flex items-center justify-center w-12 h-12 rounded-xl text-2xl border border-white/20"
                                                     style={{ backgroundColor: `${colors.primary}40` }}
                                                 >
@@ -117,7 +148,7 @@ function Features() {
                                             </div>
 
                                             {/* Description */}
-                                            <p 
+                                            <p
                                                 className="text-sm leading-relaxed flex-grow"
                                                 style={{ color: colors.textSecondary }}
                                             >
@@ -135,10 +166,10 @@ function Features() {
                                             </div> */}
                                         </div>
                                     </div>
-                                </AnimatedContent>
-                            ))}
+                                ))}
+                            </div>
                         </div>
-                    </div>
+                    </AnimatedContent>
                 </AnimatedContent>
             </div>
         </div>
