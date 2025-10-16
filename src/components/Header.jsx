@@ -23,13 +23,13 @@ function Header() {
                     </a>
 
                     <div className="flex items-center gap-6">
-                        <button 
+                        {/* <button
                             onClick={scrollToFooter}
                             className="bg-white hover:bg-gray-100 text-black font-semibold py-2 px-6 rounded-md transition-colors duration-200 cursor-pointer"
                         >
                             Contact us
                         </button>
-                       {/*  <button 
+                        <button
                             onClick={scrollToFooter}
                             className={`text-white font-semibold py-2 px-6 rounded-md border transition-colors duration-200 cursor-pointer`}
                             style={{ borderColor: colors.primary }}

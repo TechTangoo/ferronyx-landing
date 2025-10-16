@@ -154,12 +154,17 @@ function Footer() {
                         </div>
 
                         {/* Right Side - Demo Booking Form */}
-                        <div href="#contactus" className="flex flex-col justify-center" style={{ backgroundColor: `${colors.secondary}40`, borderRadius: '16px', border: `1px solid ${colors.primary}80`, padding: '1px' }}>
-                            <div
-                                className="p-8 rounded-2xl justify-center items-center"
-                            >
+                        <div className="flex flex-col justify-center rounded-2xl border p-8" style={{ backgroundColor: `${colors.secondary}40`, borderColor: `${colors.primary}80` }}>
+                            <div className="mb-6">
+                                <h3 className="text-2xl sm:text-3xl font-bold text-white mb-3">
+                                    Get Started Today
+                                </h3>
+                                <p className="text-base" style={{ color: colors.textSecondary }}>
+                                    Tell us about your robotics fleet and we'll show you how Ferronyx can help.
+                                </p>
+                            </div>
 
-                                <form onSubmit={handleSubmit} className="space-y-4 justify-center">
+                            <form onSubmit={handleSubmit} className="space-y-5">
                                     {/* <div>
                                         <label htmlFor="name" className="block text-sm font-medium text-white mb-2">
                                             Full Name *
@@ -237,18 +242,19 @@ function Footer() {
                                             placeholder="Tell us more about your robotics project or specific requirements..."
                                         />
                                     </div>
-                                    <div className="flex justify-center mt-6">
+                                    <div className="mt-6">
                                         <button
                                             type="submit"
-                                            variant="gradient"
-                                            size="lg"
-                                            className="bg-white hover:bg-gray-100 text-black font-semibold py-2 px-8 rounded-md"
+                                            className="w-full font-semibold py-3 px-8 rounded-lg transition-all duration-200 hover:scale-105 shadow-lg"
+                                            style={{
+                                                background: `linear-gradient(135deg, ${colors.primary}, ${colors.accent})`,
+                                                color: 'white'
+                                            }}
                                         >
-                                            Contact Us
+                                            Send Message
                                         </button>
                                     </div>
                                 </form>
-                            </div>
                         </div>
                     </div>
                 </div>

@@ -36,35 +36,75 @@ function Home() {
       {/* Hero Section */}
       <section className="relative z-10 px-4 sm:px-6 lg:px-8 items-center">
         <Header />
-        <AnimatedContent duration={2}>
-          <div className="max-w-7xl mx-auto text-center mt-20 flex flex-col gap-6">
-            <div className="max-w-4xl mx-auto">
-              <p className="text-xl sm:text-xl mb-6 max-w-3xl mx-auto leading-relaxed" style={{color: colors.text}}>
-                Ferronyx AI — The Intelligence Layer for Robotics
-              </p>
-              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight">
-                Observe. Diagnose. Heal.
+        <AnimatedContent duration={1.5}>
+          <div className="max-w-7xl mx-auto text-center mt-16 flex flex-col gap-8">
+            <div className="max-w-5xl mx-auto">
+              <div
+                className="inline-block px-5 py-2 rounded-full mb-6 border"
+                style={{
+                  backgroundColor: `${colors.primary}20`,
+                  borderColor: `${colors.primary}60`
+                }}
+              >
+                <p className="text-sm sm:text-base font-medium" style={{color: colors.light}}>
+                  The Intelligence Layer for Robotics
+                </p>
+              </div>
+
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-6 leading-tight">
+                Observe. Diagnose.
+                <br />
+                <span style={{color: colors.primary}}>Heal.</span>
               </h1>
-              <p className="text-xl sm:text-xl  mb-6 max-w-3xl mx-auto leading-relaxed" style={{color: colors.textSecondary}}>
-                Ferronyx gives you a singular view of your entire robotic fleet — with AI-assisted debugging, real-time observability, and automated on-call workflows.
+
+              <p className="text-lg sm:text-xl md:text-2xl mb-8 max-w-4xl mx-auto leading-relaxed" style={{color: colors.textSecondary}}>
+                Ferronyx gives robotics teams a unified view of their entire fleet — with AI-powered debugging, real-time telemetry, and SRE-grade incident management.
               </p>
-              {/* <div className="flex items-center gap-6 justify-center">
+
+              <div className="flex flex-col sm:flex-row items-center gap-4 justify-center mb-4">
                 <button
                   onClick={scrollToFooter}
-                  className="bg-white hover:bg-gray-100 text-black font-semibold py-2 px-8 rounded-md transition-colors duration-200 cursor-pointer"
+                  className="w-full sm:w-auto font-semibold py-3 px-10 rounded-lg transition-all duration-200 cursor-pointer hover:scale-105 shadow-lg"
+                  style={{
+                    background: `linear-gradient(135deg, ${colors.primary}, ${colors.accent})`,
+                    color: 'white'
+                  }}
                 >
-                  Contact us
+                  Get Started
                 </button>
-                <button
+                {/*<button
                   onClick={scrollToFooter}
-                  className={`text-white font-semibold py-2 px-8 rounded-md border transition-colors duration-200 cursor-pointer`}
-                  style={{ borderColor: colors.primary }}
+                  className="w-full sm:w-auto text-white font-semibold py-3 px-10 rounded-lg border transition-all duration-200 cursor-pointer hover:scale-105 hover:bg-white/5"
+                  style={{ borderColor: `${colors.primary}80` }}
                 >
-                  Book a demo
-                </button>
-              </div> */}
+                  Book a Demo
+                </button>*/}
+              </div>
+
+              <div className="flex flex-wrap items-center justify-center gap-6 text-sm" style={{color: colors.textSecondary}}>
+                <div className="flex items-center gap-2">
+                  <span className="text-green-400">✓</span>
+                  <span>10-minute setup</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-green-400">✓</span>
+                  <span>ROS-native integration</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-green-400">✓</span>
+                  <span>AI-assisted debugging</span>
+                </div>
+              </div>
             </div>
-            <img src={dashboard} alt="dashboard" className='border-t-5 mt-10 border-x-5 border-white/20 rounded-t-xl w-full h-auto' />
+
+            <div className="mt-8">
+              <img
+                src={dashboard}
+                alt="Ferronyx Dashboard - Robot Fleet Monitoring"
+                className='border-t-4 border-x-4 rounded-t-2xl w-full h-auto shadow-2xl'
+                style={{borderColor: `${colors.primary}40`}}
+              />
+            </div>
           </div>
         </AnimatedContent>
       </section>

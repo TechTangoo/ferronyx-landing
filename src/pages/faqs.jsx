@@ -43,13 +43,24 @@ function Faqs() {
                     filter: 'blur(60px)'
                 }}
             />
-            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-                <div className="text-center mb-16">
+            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+                <div className="text-center mb-20">
                     <AnimatedContent duration={1}>
-                        <h2 className="text-3xl sm:text-4xl font-bold mb-4" style={{ color: colors.text }}>
-                            Frequently Asked Questions
+                        <div
+                            className="inline-block px-5 py-2 rounded-full mb-6 border"
+                            style={{
+                                backgroundColor: `${colors.primary}20`,
+                                borderColor: `${colors.primary}60`
+                            }}
+                        >
+                            <p className="text-sm sm:text-base font-medium" style={{color: colors.light}}>
+                                FAQs
+                            </p>
+                        </div>
+                        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6" style={{ color: colors.text }}>
+                            Questions? We've Got Answers
                         </h2>
-                        <p className="text-lg" style={{ color: colors.textSecondary }}>
+                        <p className="text-lg sm:text-xl" style={{ color: colors.textSecondary }}>
                             Everything you need to know about Ferronyx
                         </p>
                     </AnimatedContent>

@@ -84,16 +84,29 @@ function Features() {
                 }}
             />
 
-            <div className="relative z-10 px-4 sm:px-6 lg:px-8 py-20">
-                <AnimatedContent duration={2} delay={0.5}>
+            <div className="relative z-10 px-4 sm:px-6 lg:px-8 py-24">
+                <AnimatedContent duration={1.5} delay={0.3}>
                     {/* Header Section */}
-                    <div className="max-w-7xl mx-auto text-center mb-16">
-                        <div className="max-w-4xl mx-auto">
-                            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
-                                Everything You Need to Manage Your Robotic Fleet — Remotely.
+                    <div className="max-w-7xl mx-auto text-center mb-20">
+                        <div className="max-w-5xl mx-auto">
+                            <div
+                                className="inline-block px-5 py-2 rounded-full mb-6 border"
+                                style={{
+                                    backgroundColor: `${colors.primary}20`,
+                                    borderColor: `${colors.primary}60`
+                                }}
+                            >
+                                <p className="text-sm sm:text-base font-medium" style={{color: colors.light}}>
+                                    Platform Features
+                                </p>
+                            </div>
+                            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+                                Everything You Need to Scale
+                                <br />
+                                <span style={{color: colors.primary}}>Your Robotic Fleet</span>
                             </h2>
-                            <p className="text-lg sm:text-xl text-white/80 mb-12 max-w-3xl mx-auto leading-relaxed">
-                                From live telemetry to AI-powered debugging, get every tool you need to monitor, diagnose, and maintain your robots — all in one place.
+                            <p className="text-lg sm:text-xl text-white/80 mb-12 max-w-4xl mx-auto leading-relaxed">
+                                From live telemetry to AI-powered debugging — get the complete observability stack built specifically for robotics engineers.
                             </p>
                         </div>
                     </div>
@@ -105,65 +118,64 @@ function Features() {
                             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
                                 {featuresData.map((feature, index) => (
                                     <div
-                                    key={feature.id} 
-                                        className="relative group h-full"
+                                        key={feature.id}
+                                        className="relative group h-full rounded-2xl border transition-all duration-300 hover:scale-105 hover:shadow-2xl"
                                         style={{
                                             background: `linear-gradient(145deg, ${colors.forebackground}, ${colors.secondary})`,
-                                            borderRadius: '16px',
-                                            border: `1px solid ${colors.accent}40`
+                                            borderColor: `${colors.accent}40`
                                         }}
                                     >
                                         {/* Card glow effect on hover */}
                                         <div
-                                            className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-300 rounded-2xl"
+                                            className="absolute inset-0 opacity-0 group-hover:opacity-30 transition-opacity duration-300 rounded-2xl"
                                             style={{
-                                                background: `linear-gradient(145deg, ${colors.primary}, ${colors.accent})`,
-                                                filter: 'blur(20px)'
+                                                background: `radial-gradient(circle at center, ${colors.primary}, transparent)`,
+                                                filter: 'blur(30px)'
                                             }}
                                         />
 
                                         {/* Card content */}
-                                        <div className="relative p-6 h-full flex flex-col">
-                                            {/* Feature number and icon */}
-                                            <div className="flex items-center justify-between mb-6">
+                                        <div className="relative p-8 h-full flex flex-col">
+                                            {/* Feature icon */}
+                                            <div className="mb-6">
                                                 <div
-                                                    className="flex items-center justify-center w-12 h-12 rounded-xl text-2xl border border-white/20"
-                                                    style={{ backgroundColor: `${colors.primary}40` }}
+                                                    className="flex items-center justify-center w-14 h-14 rounded-xl border group-hover:scale-110 transition-transform duration-300"
+                                                    style={{
+                                                        backgroundColor: `${colors.primary}50`,
+                                                        borderColor: `${colors.primary}60`
+                                                    }}
                                                 >
                                                     {feature.icon}
                                                 </div>
                                             </div>
 
-                                            {/* Title and subtitle */}
-                                            <div>
-                                                <h3 className="text-2xl font-bold text-white mb-2 leading-tight">
-                                                    {feature.title}
-                                                </h3>
-                                                {/* <p 
-                                                    className="text-md font-medium mb-3"
-                                                    style={{ color: colors.light }}
-                                                >
-                                                    {feature.subtitle}
-                                                </p> */}
-                                            </div>
+                                            {/* Title */}
+                                            <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 leading-tight">
+                                                {feature.title}
+                                            </h3>
+
+                                            {/* Subtitle */}
+                                            <p
+                                                className="text-base font-medium mb-4"
+                                                style={{ color: colors.light }}
+                                            >
+                                                {feature.subtitle}
+                                            </p>
 
                                             {/* Description */}
                                             <p
-                                                className="text-sm leading-relaxed flex-grow"
+                                                className="text-sm sm:text-base leading-relaxed flex-grow"
                                                 style={{ color: colors.textSecondary }}
                                             >
                                                 {feature.description}
                                             </p>
 
                                             {/* Hover indicator */}
-                                            {/* <div className="mt-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                                <div 
-                                                    className="h-1 w-full rounded-full"
-                                                    style={{
-                                                        background: `linear-gradient(90deg, ${colors.primary}, ${colors.accent})`
-                                                    }}
-                                                />
-                                            </div> */}
+                                            <div className="mt-6 h-1 w-0 group-hover:w-full transition-all duration-500 rounded-full"
+                                                style={{
+                                                    background: `linear-gradient(90deg, ${colors.primary}, ${colors.accent})`
+                                                }}
+                                            />
                                         </div>
                                     </div>
                                 ))}
