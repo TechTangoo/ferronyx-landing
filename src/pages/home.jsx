@@ -19,7 +19,7 @@ function Home() {
 
   
   return (
-    <div className="relative h-screen w-screen overflow-hidden">
+    <div className="relative min-h-screen w-screen overflow-hidden">
       {/* Primary gradient background from bottom to top */}
       <div
         className="absolute inset-0 w-full h-full z-0"

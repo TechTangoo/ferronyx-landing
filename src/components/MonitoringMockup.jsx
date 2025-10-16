@@ -77,7 +77,7 @@ const MonitoringMockup = () => {
                             {/* Mini Progress Bar */}
                             <div className="mt-2 h-1 rounded-full bg-black/40 overflow-hidden">
                                 <div
-                                    className="h-full rounded-full animate-pulse"
+                                    className="h-full rounded-full"
                                     style={{
                                         width: metric.value.includes('%') ? metric.value : '60%',
                                         backgroundColor: colors.primary
@@ -118,7 +118,6 @@ const MonitoringMockup = () => {
                                     fill="none"
                                     stroke={colors.primary}
                                     strokeWidth="2"
-                                    className="animate-pulse"
                                 />
                                 <path
                                     d="M0,45 L15,40 L30,42 L45,35 L60,30 L75,33 L90,25 L105,28 L120,22 L135,20 L150,25 L165,18 L180,15 L200,20 L200,60 L0,60 Z"
