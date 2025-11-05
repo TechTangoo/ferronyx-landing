@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import { colors } from '../utils/colors'
-import Button from '../components/Button'
-import logo from '../assets/logo.png'
+import logo from '../assets/logo.svg'
+import { Input } from '../components/ui/input'
+import { Textarea } from '../components/ui/textarea'
+import { Button } from '../components/ui/button'
 
 function Footer() {
     const [formData, setFormData] = useState({
@@ -189,17 +191,17 @@ function Footer() {
                                         <label htmlFor="company" className="block text-sm font-medium text-white mb-2">
                                             Company Name *
                                         </label>
-                                        <input
+                                        <Input
                                             type="text"
                                             id="company"
                                             name="company"
                                             value={formData.company}
                                             onChange={handleInputChange}
                                             required
-                                            className="w-full px-4 py-3 rounded-lg border bg-transparent text-white placeholder-gray-400 focus:outline-none focus:ring-2 transition-colors"
+                                            className="w-full px-4 py-3 border text-white placeholder-gray-400"
                                             style={{
-                                                borderColor: `${colors.accent}60`,
-                                                backgroundColor: `${colors.background}60`
+                                                borderColor: `${colors.border}`,
+                                                backgroundColor: `${colors.secondary}`
                                             }}
                                             placeholder="Enter your company name"
                                         />
@@ -209,17 +211,17 @@ function Footer() {
                                         <label htmlFor="email" className="block text-sm font-medium text-white mb-2">
                                             Business Email *
                                         </label>
-                                        <input
+                                        <Input
                                             type="email"
                                             id="email"
                                             name="email"
                                             value={formData.email}
                                             onChange={handleInputChange}
                                             required
-                                            className="w-full px-4 py-3 rounded-lg border bg-transparent text-white placeholder-gray-400 focus:outline-none focus:ring-2 transition-colors"
+                                            className="w-full px-4 py-3 border text-white placeholder-gray-400"
                                             style={{
-                                                borderColor: `${colors.accent}60`,
-                                                backgroundColor: `${colors.background}60`
+                                                borderColor: `${colors.border}`,
+                                                backgroundColor: `${colors.secondary}`
                                             }}
                                             placeholder="Enter your business email"
                                         />
@@ -228,31 +230,32 @@ function Footer() {
                                         <label htmlFor="comments" className="block text-sm font-medium text-white mb-2">
                                             Comments*
                                         </label>
-                                        <textarea
+                                        <Textarea
                                             id="comments"
                                             name="comments"
                                             value={formData.comments}
                                             onChange={handleInputChange}
                                             rows={4}
-                                            className="w-full px-4 py-3 rounded-lg border bg-transparent text-white placeholder-gray-400 focus:outline-none focus:ring-2 transition-colors resize-vertical"
+                                            className="w-full px-4 py-3 border text-white placeholder-gray-400 resize-vertical"
                                             style={{
-                                                borderColor: `${colors.accent}60`,
-                                                backgroundColor: `${colors.background}60`
+                                                borderColor: `${colors.border}`,
+                                                backgroundColor: `${colors.secondary}`
                                             }}
                                             placeholder="Tell us more about your robotics project or specific requirements..."
                                         />
                                     </div>
                                     <div className="mt-6">
-                                        <button
+                                        <Button
                                             type="submit"
-                                            className="w-full font-semibold py-3 px-8 rounded-lg transition-all duration-200 hover:scale-105 shadow-lg"
+                                            size="lg"
+                                            className="w-full font-semibold shadow-lg"
                                             style={{
-                                                background: `linear-gradient(135deg, ${colors.primary}, ${colors.accent})`,
+                                                backgroundColor: colors.primary,
                                                 color: 'white'
                                             }}
                                         >
                                             Send Message
-                                        </button>
+                                        </Button>
                                     </div>
                                 </form>
                         </div>
