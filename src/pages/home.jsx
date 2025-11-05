@@ -4,6 +4,8 @@ import Header from '../components/Header';
 import { colors } from '../utils/colors';
 import AnimatedContent from '../components/AnimatedContent';
 import DashboardIllustration from '../components/DashboardIllustration';
+import { Button } from '../components/ui/button';
+import { Badge } from '../components/ui/badge';
 
 function Home() {
 
@@ -38,20 +40,20 @@ function Home() {
         <AnimatedContent duration={1.5}>
           <div className="max-w-7xl mx-auto text-center mt-16 flex flex-col gap-8">
             <div className="max-w-5xl mx-auto">
-              <div
-                className="inline-block px-5 py-2 rounded-full mb-6 border"
+              <Badge
+                variant="outline"
+                className="px-5 py-2 mb-6 text-sm sm:text-base font-medium border"
                 style={{
-                  backgroundColor: `${colors.primary}20`,
-                  borderColor: `${colors.primary}60`
+                  backgroundColor: `${colors.primary}15`,
+                  borderColor: `${colors.border}`,
+                  color: colors.light
                 }}
               >
-                <p className="text-sm sm:text-base font-medium" style={{color: colors.light}}>
-                  The Intelligence Layer for Robotics
-                </p>
-              </div>
+                The Intelligence Layer for Robotics
+              </Badge>
 
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-6 leading-tight">
-                Observe. Diagnose. <span style={{color: colors.primary}}>Heal.</span>
+                Observe. Diagnose. <span style={{color: colors.light}}>Heal.</span>
               </h1>
 
               <p className="text-lg sm:text-xl md:text-2xl mb-6 max-w-4xl mx-auto leading-relaxed" style={{color: colors.textSecondary}}>
@@ -59,36 +61,30 @@ function Home() {
               </p>
 
               <div className="flex flex-col sm:flex-row items-center gap-4 justify-center mb-4">
-                <button
+                <Button
                   onClick={scrollToFooter}
-                  className="w-full sm:w-auto font-semibold py-3 px-10 rounded-lg transition-all duration-200 cursor-pointer hover:scale-105 shadow-lg"
+                  size="lg"
+                  className="w-full sm:w-auto font-semibold px-10 shadow-lg"
                   style={{
-                    background: `linear-gradient(135deg, ${colors.primary}, ${colors.accent})`,
+                    backgroundColor: colors.primary,
                     color: 'white'
                   }}
                 >
                   Get Started
-                </button>
-                {/*<button
-                  onClick={scrollToFooter}
-                  className="w-full sm:w-auto text-white font-semibold py-3 px-10 rounded-lg border transition-all duration-200 cursor-pointer hover:scale-105 hover:bg-white/5"
-                  style={{ borderColor: `${colors.primary}80` }}
-                >
-                  Book a Demo
-                </button>*/}
+                </Button>
               </div>
 
               <div className="flex flex-wrap items-center justify-center gap-6 text-sm" style={{color: colors.textSecondary}}>
                 <div className="flex items-center gap-2">
-                  <span className="text-green-400">✓</span>
+                  <span style={{color: colors.success}}>✓</span>
                   <span>10-minute setup</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="text-green-400">✓</span>
+                  <span style={{color: colors.success}}>✓</span>
                   <span>ROS-native integration</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="text-green-400">✓</span>
+                  <span style={{color: colors.success}}>✓</span>
                   <span>AI-assisted debugging</span>
                 </div>
               </div>

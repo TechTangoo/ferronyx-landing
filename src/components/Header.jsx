@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from '../assets/logo.png';
+import logo from '../assets/logo.svg';
 import Button from './Button';
 import { colors } from '../utils/colors';
 

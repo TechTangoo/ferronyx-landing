@@ -1,13 +1,10 @@
 import AnimatedContent from '@/components/AnimatedContent'
 import { colors } from '@/utils/colors'
-import React, { useState } from 'react'
+import React from 'react'
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
+import { Badge } from '@/components/ui/badge'
 
 function Faqs() {
-    const [openIndex, setOpenIndex] = useState(null)
-
-    const toggleFaq = (index) => {
-        setOpenIndex(openIndex === index ? null : index)
-    }
     const faqs = [
         {
             question: "Does Ferronyx only work with ROS2 robots?",
@@ -46,17 +43,17 @@ function Faqs() {
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
                 <div className="text-center mb-20">
                     <AnimatedContent duration={1}>
-                        <div
-                            className="inline-block px-5 py-2 rounded-full mb-6 border"
+                        <Badge
+                            variant="outline"
+                            className="px-5 py-2 mb-6 text-sm sm:text-base font-medium"
                             style={{
-                                backgroundColor: `${colors.primary}20`,
-                                borderColor: `${colors.primary}60`
+                                backgroundColor: `${colors.primary}15`,
+                                borderColor: `${colors.border}`,
+                                color: colors.light
                             }}
                         >
-                            <p className="text-sm sm:text-base font-medium" style={{color: colors.light}}>
-                                FAQs
-                            </p>
-                        </div>
+                            FAQs
+                        </Badge>
                         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6" style={{ color: colors.text }}>
                             Questions? We've Got Answers
                         </h2>
@@ -66,73 +63,34 @@ function Faqs() {
                     </AnimatedContent>
                 </div>
                 <AnimatedContent duration={1} delay={0.5}>
-
-                    <div className="space-y-4">
+                    <Accordion type="single" collapsible className="space-y-4">
                         {faqs.map((faq, index) => (
-                            <div
+                            <AccordionItem
                                 key={index}
-                                className="group rounded-xl border transition-all duration-300 hover:shadow-lg"
+                                value={`item-${index}`}
+                                className="rounded-xl border"
                                 style={{
-                                    borderColor: 'rgba(255, 255, 255, 0.1)',
-                                    backgroundColor: `${colors.forebackground}80`
+                                    borderColor: colors.border,
+                                    backgroundColor: `${colors.forebackground}`
                                 }}
                             >
-                                {/* Question Header - Clickable */}
-                                <button
-                                    onClick={() => toggleFaq(index)}
-                                    className="w-full text-left p-6 flex items-center justify-between transition-colors duration-200 hover:bg-white/5 rounded-xl"
+                                <AccordionTrigger
+                                    className="px-6 py-6 text-lg font-semibold hover:bg-white/5 rounded-xl [&[data-state=open]>svg]:rotate-180"
+                                    style={{ color: colors.text }}
                                 >
-                                    <h3
-                                        className="text-lg font-semibold pr-8"
-                                        style={{ color: colors.text }}
+                                    {faq.question}
+                                </AccordionTrigger>
+                                <AccordionContent className="px-6 pb-6">
+                                    <p
+                                        className="text-base leading-relaxed pt-4 border-t"
+                                        style={{ color: colors.textSecondary, borderColor: 'rgba(255, 255, 255, 0.1)' }}
                                     >
-                                        {faq.question}
-                                    </h3>
-
-                                    {/* Animated Chevron Icon */}
-                                    <div
-                                        className={`transform transition-transform duration-300 flex-shrink-0 ${openIndex === index ? 'rotate-180' : 'rotate-0'
-                                            }`}
-                                    >
-                                        <svg
-                                            width="20"
-                                            height="20"
-                                            viewBox="0 0 24 24"
-                                            fill="none"
-                                            stroke="currentColor"
-                                            strokeWidth="2"
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                            style={{ color: colors.light }}
-                                        >
-                                            <polyline points="6,9 12,15 18,9"></polyline>
-                                        </svg>
-                                    </div>
-                                </button>
-
-                                {/* Answer Content - Expandable */}
-                                <div
-                                    className={`overflow-hidden transition-all duration-500 ease-in-out ${openIndex === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-                                        }`}
-                                >
-                                    <div className="px-6 pb-6">
-                                        <div
-                                            className="border-t pt-4"
-                                            style={{ borderColor: 'rgba(255, 255, 255, 0.1)' }}
-                                        >
-                                            <p
-                                                className="text-base leading-relaxed"
-                                                style={{ color: colors.textSecondary }}
-                                            >
-                                                {faq.answer}
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                                        {faq.answer}
+                                    </p>
+                                </AccordionContent>
+                            </AccordionItem>
                         ))}
-
-                    </div>
+                    </Accordion>
                 </AnimatedContent>
             </div>
 

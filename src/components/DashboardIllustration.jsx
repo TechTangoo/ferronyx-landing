@@ -7,14 +7,14 @@ const DashboardIllustration = () => {
     <div className="relative w-full aspect-video rounded-xl h-[50%] border overflow-hidden"
          style={{
            backgroundColor: `${colors.background}`,
-           borderColor: `${colors.primary}40`
+           borderColor: `${colors.border}`
          }}>
 
       {/* Grid Pattern Background */}
-      <div className="absolute inset-0 opacity-10">
+      <div className="absolute inset-0 opacity-5">
         <div className="w-full h-auto"
              style={{
-               backgroundImage: `linear-gradient(${colors.primary}40 1px, transparent 1px), linear-gradient(90deg, ${colors.primary}40 1px, transparent 1px)`,
+               backgroundImage: `linear-gradient(${colors.border} 1px, transparent 1px), linear-gradient(90deg, ${colors.border} 1px, transparent 1px)`,
                backgroundSize: '20px 20px'
              }}
         />
@@ -25,15 +25,15 @@ const DashboardIllustration = () => {
         className="absolute left-0 top-0 bottom-0 w-12 md:w-14 border-r flex flex-col items-center py-4 z-20"
         style={{
           backgroundColor: `${colors.secondary}`,
-          borderColor: `${colors.primary}30`
+          borderColor: `${colors.border}`
         }}
       >
         {/* Logo */}
         <div
           className="w-8 h-8 rounded-lg flex items-center justify-center mb-6"
           style={{
-            backgroundColor: `${colors.primary}40`,
-            border: `1px solid ${colors.primary}60`
+            backgroundColor: `${colors.primary}20`,
+            border: `1px solid ${colors.primary}`
           }}
         >
           <div className="text-white font-bold text-sm">F</div>
@@ -44,8 +44,8 @@ const DashboardIllustration = () => {
           <div
             className="w-8 h-8 rounded-lg flex items-center justify-center transition-all cursor-pointer"
             style={{
-              backgroundColor: `${colors.primary}30`,
-              border: `1px solid ${colors.primary}60`
+              backgroundColor: `${colors.primary}20`,
+              border: `1px solid ${colors.primary}`
             }}
           >
             <LayoutDashboard size={16} color={colors.light} />
@@ -54,28 +54,28 @@ const DashboardIllustration = () => {
             className="w-8 h-8 rounded-lg flex items-center justify-center transition-all cursor-pointer opacity-50 hover:opacity-100"
             style={{
               backgroundColor: 'transparent',
-              border: `1px solid ${colors.primary}20`
+              border: `1px solid ${colors.border}`
             }}
           >
-            <Bot size={16} color={colors.light} />
+            <Bot size={16} color={colors.textSecondary} />
           </div>
           <div
             className="w-8 h-8 rounded-lg flex items-center justify-center transition-all cursor-pointer opacity-50 hover:opacity-100"
             style={{
               backgroundColor: 'transparent',
-              border: `1px solid ${colors.primary}20`
+              border: `1px solid ${colors.border}`
             }}
           >
-            <BellRing size={16} color={colors.light} />
+            <BellRing size={16} color={colors.textSecondary} />
           </div>
           <div
             className="w-8 h-8 rounded-lg flex items-center justify-center transition-all cursor-pointer opacity-50 hover:opacity-100"
             style={{
               backgroundColor: 'transparent',
-              border: `1px solid ${colors.primary}20`
+              border: `1px solid ${colors.border}`
             }}
           >
-            <Settings size={16} color={colors.light} />
+            <Settings size={16} color={colors.textSecondary} />
           </div>
         </div>
       </div>
@@ -87,9 +87,9 @@ const DashboardIllustration = () => {
         <div className="flex items-center justify-between mb-4 md:mb-6">
           <h1 className="text-white text-xl md:text-2xl font-bold">Dashboard</h1>
           <div className="flex gap-2">
-            <div className="h-6 px-3 rounded border flex items-center" style={{borderColor: `${colors.primary}60`, backgroundColor: `${colors.primary}30`}}>
-              <div className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse mr-2" />
-              <span className="text-xs font-medium" style={{color: colors.light}}>Live</span>
+            <div className="h-6 px-3 rounded border flex items-center" style={{borderColor: colors.border, backgroundColor: colors.secondary}}>
+              <div className="w-1.5 h-1.5 rounded-full animate-pulse mr-2" style={{backgroundColor: colors.success}} />
+              <span className="text-xs font-medium" style={{color: colors.textSecondary}}>Live</span>
             </div>
           </div>
         </div>
@@ -106,17 +106,17 @@ const DashboardIllustration = () => {
               key={idx}
               className="p-2 md:p-3 rounded-lg border animate-fadeIn"
               style={{
-                backgroundColor: `${colors.secondary}`,
-                borderColor: `${colors.primary}30`,
+                backgroundColor: `${colors.forebackground}`,
+                borderColor: `${colors.border}`,
                 animationDelay: `${idx * 0.1}s`
               }}
             >
               <div className="flex items-center gap-2 mb-2">
                 <div
                   className="p-1 rounded"
-                  style={{backgroundColor: `${colors.primary}30`}}
+                  style={{backgroundColor: `${colors.secondary}`}}
                 >
-                  <div style={{color: colors.light}}>
+                  <div style={{color: colors.textSecondary}}>
                     {stat.icon}
                   </div>
                 </div>
@@ -124,7 +124,7 @@ const DashboardIllustration = () => {
               </div>
               <div className="text-white font-bold text-base md:text-lg mb-2">{stat.value}</div>
               {/* Mini Progress Bar */}
-              <div className="h-1 rounded-full bg-black/40 overflow-hidden">
+              <div className="h-1 rounded-full overflow-hidden" style={{backgroundColor: colors.secondary}}>
                 <div
                   className="h-full rounded-full"
                   style={{
@@ -143,13 +143,13 @@ const DashboardIllustration = () => {
           <div
             className="p-3 md:p-4 rounded-lg border"
             style={{
-              backgroundColor: `${colors.secondary}`,
-              borderColor: `${colors.primary}30`
+              backgroundColor: `${colors.forebackground}`,
+              borderColor: `${colors.border}`
             }}
           >
             <div className="flex items-center justify-between mb-3">
               <span className="text-white/70 text-xs md:text-sm font-medium">CPU Usage - Robot-01</span>
-              <span className="text-xs px-2 py-0.5 rounded" style={{backgroundColor: `${colors.primary}40`, color: colors.light}}>
+              <span className="text-xs px-2 py-0.5 rounded" style={{backgroundColor: `${colors.secondary}`, color: colors.textSecondary}}>
                 Real-time
               </span>
             </div>
@@ -188,8 +188,8 @@ const DashboardIllustration = () => {
           <div
             className="p-3 md:p-4 rounded-lg border"
             style={{
-              backgroundColor: `${colors.secondary}`,
-              borderColor: `${colors.primary}30`
+              backgroundColor: `${colors.forebackground}`,
+              borderColor: `${colors.border}`
             }}
           >
             <div className="text-white/70 text-xs md:text-sm font-medium mb-3">Recent Alerts</div>
@@ -203,11 +203,11 @@ const DashboardIllustration = () => {
                   key={idx}
                   className="p-2 rounded transition-all hover:border-l-2"
                   style={{
-                    backgroundColor: `${colors.forebackground}`,
+                    backgroundColor: `${colors.secondary}`,
                     borderLeft: `2px solid ${
-                      alert.severity === 'high' ? '#ef4444' :
-                      alert.severity === 'medium' ? '#f59e0b' :
-                      '#10b981'
+                      alert.severity === 'high' ? colors.error :
+                      alert.severity === 'medium' ? colors.warning :
+                      colors.success
                     }`
                   }}
                 >
@@ -217,9 +217,9 @@ const DashboardIllustration = () => {
                         size={12}
                         className="flex-shrink-0 mt-0.5"
                         color={
-                          alert.severity === 'high' ? '#ef4444' :
-                          alert.severity === 'medium' ? '#f59e0b' :
-                          '#10b981'
+                          alert.severity === 'high' ? colors.error :
+                          alert.severity === 'medium' ? colors.warning :
+                          colors.success
                         }
                       />
                       <span className="text-white/80 text-xs truncate">{alert.title}</span>
