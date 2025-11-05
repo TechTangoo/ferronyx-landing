@@ -6,6 +6,8 @@ import research from '../assets/researchlabs.png';
 import robotics from '../assets/robotics.png';
 import sreengineer from '../assets/sreengineer.png';
 import teams from '../assets/teams.png';
+import { Card, CardContent } from '../components/ui/card';
+import { Button } from '../components/ui/button';
 
 const audienceData = [
     {
@@ -44,18 +46,18 @@ function Builtfor() {
     return (
         <div className='relative w-screen overflow-hidden py-24' style={{ backgroundColor: colors.background }}>
             {/* Enhanced Background */}
-            <div className="absolute inset-0 opacity-30">
+            <div className="absolute inset-0 opacity-20">
                 <div className="absolute top-1/2 left-1/4 w-[500px] h-[500px] rounded-full blur-3xl"
-                     style={{backgroundColor: `${colors.primary}40`}} />
+                     style={{backgroundColor: `${colors.primary}30`}} />
                 <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] rounded-full blur-3xl"
-                     style={{backgroundColor: `${colors.accent}40`}} />
+                     style={{backgroundColor: `${colors.accent}30`}} />
             </div>
 
             {/* Subtle Line Grid */}
-            <div className="absolute inset-0 opacity-5">
+            <div className="absolute inset-0 opacity-3">
                 <div className="w-full h-full"
                      style={{
-                         backgroundImage: `linear-gradient(${colors.primary}40 1px, transparent 1px), linear-gradient(90deg, ${colors.primary}40 1px, transparent 1px)`,
+                         backgroundImage: `linear-gradient(${colors.border} 1px, transparent 1px), linear-gradient(90deg, ${colors.border} 1px, transparent 1px)`,
                          backgroundSize: '50px 50px'
                      }}
                 />
@@ -77,22 +79,22 @@ function Builtfor() {
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
                         {audienceData.map((item, idx) => (
                             <AnimatedContent key={item.id} duration={0.6} delay={idx * 0.1}>
-                                <div
-                                    className="group p-8 rounded-xl border h-full hover:border-opacity-100 transition-all duration-300 relative overflow-hidden"
+                                <Card
+                                    className="group border h-full hover:border-opacity-100 transition-all duration-300 relative overflow-hidden"
                                     style={{
                                         backgroundColor: `${colors.forebackground}`,
-                                        borderColor: `${colors.primary}30`
+                                        borderColor: `${colors.border}`
                                     }}
                                 >
                                     {/* Hover Glow Effect */}
                                     <div
-                                        className="absolute -inset-20 opacity-0 group-hover:opacity-20 transition-opacity duration-500 blur-2xl"
+                                        className="absolute -inset-20 opacity-0 group-hover:opacity-10 transition-opacity duration-500 blur-2xl"
                                         style={{backgroundColor: colors.primary}}
                                     />
-                                    <div className="relative">
+                                    <CardContent className="p-8 relative">
                                         <div
                                             className="w-16 h-16 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300"
-                                            style={{backgroundColor: `${colors.primary}30`}}
+                                            style={{backgroundColor: `${colors.secondary}`}}
                                         >
                                             <img src={item.icon} alt={item.title} className="w-9 h-9" />
                                         </div>
@@ -102,40 +104,42 @@ function Builtfor() {
                                         <p className="text-white/60 leading-relaxed">
                                             {item.desc}
                                         </p>
-                                    </div>
-                                </div>
+                                    </CardContent>
+                                </Card>
                             </AnimatedContent>
                         ))}
 
                         {/* CTA Card */}
                         <AnimatedContent duration={0.6} delay={0.5}>
-                            <div
-                                className="p-8 rounded-xl border h-full flex flex-col justify-center items-center text-center"
+                            <Card
+                                className="border h-full"
                                 style={{
-                                    backgroundColor: `${colors.primary}20`,
-                                    borderColor: `${colors.primary}60`
+                                    backgroundColor: `${colors.primary}15`,
+                                    borderColor: `${colors.primary}`
                                 }}
                             >
-                                <h3 className="text-2xl font-bold text-white mb-4">
-                                    Ready to Get Started?
-                                </h3>
-                                <p className="text-white/70 mb-6">
-                                    Join teams shipping robots at scale
-                                </p>
-                                <button
-                                    onClick={() => {
-                                        const footer = document.getElementById('contact-footer');
-                                        footer?.scrollIntoView({ behavior: 'smooth' });
-                                    }}
-                                    className="px-6 py-3 rounded-lg font-semibold transition-all duration-200"
-                                    style={{
-                                        backgroundColor: colors.primary,
-                                        color: 'white'
-                                    }}
-                                >
-                                    Contact Us
-                                </button>
-                            </div>
+                                <CardContent className="p-8 flex flex-col justify-center items-center text-center">
+                                    <h3 className="text-2xl font-bold text-white mb-4">
+                                        Ready to Get Started?
+                                    </h3>
+                                    <p className="text-white/70 mb-6">
+                                        Join teams shipping robots at scale
+                                    </p>
+                                    <Button
+                                        onClick={() => {
+                                            const footer = document.getElementById('contact-footer');
+                                            footer?.scrollIntoView({ behavior: 'smooth' });
+                                        }}
+                                        size="lg"
+                                        style={{
+                                            backgroundColor: colors.primary,
+                                            color: 'white'
+                                        }}
+                                    >
+                                        Contact Us
+                                    </Button>
+                                </CardContent>
+                            </Card>
                         </AnimatedContent>
                     </div>
                 </AnimatedContent>
