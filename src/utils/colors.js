@@ -1,14 +1,19 @@
 const blueTheme = {
-    background: '#06142f',
-    primary: '#99c8f8',
-    accent: '#6196d1',
-    secondary: '#2d5f9a',
-    forebackground: '#08346b',
+    background: '#000000',
+    primary: '#2b7fff',
+    accent: '#2563eb',
+    secondary: '#18181b',
+    forebackground: '#1a1a1a',
     text: '#FFFFFF',
-    textSecondary: '#AAAAAA',
-    highlight: '#FF6F91',
+    textSecondary: '#a1a1aa',
+    highlight: '#2b7fff',
     shadow: '#000000',
-    light: "#99c8f8"
+    light: "#5b9fff",
+    border: '#27272a',
+    success: '#10b981',
+    warning: '#f59e0b',
+    error: '#ef4444',
+    info: '#2b7fff'
 }
 
 const maroontheme = {
@@ -24,4 +29,4 @@ const maroontheme = {
     light: "#a37ab8"
 }
 
-export const colors = maroontheme
+export const colors = blueTheme
