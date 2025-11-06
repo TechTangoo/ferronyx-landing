@@ -98,12 +98,12 @@ function Footer() {
     return (
         <footer id="contact-footer" className="relative w-full overflow-hidden">
             {/* Linear gradient background from bottom to top */}
-            <div
+            {/* <div
                 className="absolute inset-0 w-full h-full"
                 style={{
                     background: `linear-gradient(to top, ${colors.primary}, ${colors.background})`
                 }}
-            />
+            /> */}
 
             {/* Top border with primary color that fades at corners */}
             <div className="relative w-full h-[2px]">

@@ -49,7 +49,7 @@ function Home() {
                   color: colors.light
                 }}
               >
-                The Intelligence Layer for Robotics
+                Full stack observability tool for robotic fleets.
               </Badge>
 
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-6 leading-tight">
@@ -57,7 +57,7 @@ function Home() {
               </h1>
 
               <p className="text-lg sm:text-xl md:text-2xl mb-6 max-w-4xl mx-auto leading-relaxed" style={{color: colors.textSecondary}}>
-                Ferronyx gives robotics teams a unified view of their entire fleet — with AI-powered debugging, real-time telemetry, and SRE-grade incident management.
+                Ferronyx gives robotics teams a unified view of their entire fleet — with real-time telemetry, SRE-grade incident management and AI-powered debugging.
               </p>
 
               <div className="flex flex-col sm:flex-row items-center gap-4 justify-center mb-4">
@@ -78,6 +78,10 @@ function Home() {
                 <div className="flex items-center gap-2">
                   <span style={{color: colors.success}}>✓</span>
                   <span>10-minute setup</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span style={{color: colors.success}}>✓</span>
+                  <span>Alert Setup</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <span style={{color: colors.success}}>✓</span>
