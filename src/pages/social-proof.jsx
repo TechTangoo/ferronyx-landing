@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import { motion, useInView } from 'motion/react';
 import { colors } from '../utils/colors';
 import AnimatedContent from '../components/AnimatedContent';
 
 function SocialProof() {
+    const containerRef = useRef(null);
+    const isInView = useInView(containerRef, { once: true, margin: "-100px" });
+
     const stats = [
         {
             value: "99.9%",
@@ -43,58 +47,58 @@ function SocialProof() {
     ];
 
     return (
-        <div className="relative w-screen overflow-hidden py-20" style={{ backgroundColor: colors.background }}>
-            {/* Subtle gradient background */}
-            <div className="absolute inset-0 opacity-10">
-                <div className="absolute top-0 left-1/4 w-96 h-96 rounded-full blur-3xl" style={{ backgroundColor: colors.primary }} />
-                <div className="absolute bottom-0 right-1/4 w-96 h-96 rounded-full blur-3xl" style={{ backgroundColor: colors.accent }} />
-            </div>
+        <div className="relative w-screen overflow-hidden py-16 border-y" style={{ backgroundColor: colors.background, borderColor: colors.border }}>
 
-            <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div ref={containerRef} className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Stats Grid */}
-                <AnimatedContent duration={0.8}>
-                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-                        {stats.map((stat, idx) => (
-                            <AnimatedContent key={idx} duration={0.6} delay={idx * 0.1}>
-                                <div className="glass-strong rounded-2xl p-8 text-center group hover:scale-105 transition-all duration-300 card-hover">
-                                    <div
-                                        className="w-16 h-16 mx-auto mb-6 rounded-xl flex items-center justify-center transition-all duration-300 group-hover:scale-110"
-                                        style={{
-                                            backgroundColor: colors.secondary,
-                                            color: colors.primaryLight,
-                                            boxShadow: `0 8px 20px ${colors.glow}`
-                                        }}
-                                    >
-                                        {stat.icon}
-                                    </div>
-                                    <div className="text-4xl lg:text-5xl font-bold mb-2 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent" style={{
-                                        backgroundImage: `linear-gradient(135deg, ${colors.primaryLight}, ${colors.accent})`
-                                    }}>
-                                        {stat.value}
-                                    </div>
-                                    <div className="text-base font-medium" style={{ color: colors.textSecondary }}>
-                                        {stat.label}
-                                    </div>
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+                    {stats.map((stat, idx) => (
+                        <motion.div
+                            key={idx}
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                            transition={{ duration: 0.5, delay: idx * 0.1, ease: [0.6, 0.05, 0.01, 0.9] }}
+                        >
+                            <motion.div
+                                whileHover={{ y: -5, scale: 1.02 }}
+                                className="rounded-lg p-6 text-center border transition-all duration-200"
+                                style={{backgroundColor: colors.backgroundCard, borderColor: colors.border}}
+                            >
+                                <motion.div
+                                    whileHover={{ scale: 1.1, rotate: 10 }}
+                                    className="w-12 h-12 mx-auto mb-4 rounded-lg flex items-center justify-center"
+                                    style={{
+                                        backgroundColor: colors.backgroundSubtle,
+                                        color: colors.textSecondary
+                                    }}
+                                >
+                                    {stat.icon}
+                                </motion.div>
+                                <div className="text-3xl lg:text-4xl font-bold mb-2 text-white">
+                                    {stat.value}
                                 </div>
-                            </AnimatedContent>
-                        ))}
-                    </div>
-                </AnimatedContent>
+                                <div className="text-sm font-normal" style={{ color: colors.textMuted }}>
+                                    {stat.label}
+                                </div>
+                            </motion.div>
+                        </motion.div>
+                    ))}
+                </div>
 
                 {/* Trust indicators */}
                 <AnimatedContent duration={0.8} delay={0.4}>
-                    <div className="mt-20 text-center">
-                        <p className="text-sm font-semibold uppercase tracking-wider mb-8" style={{ color: colors.textMuted }}>
+                    <div className="mt-16 text-center border-t pt-16" style={{borderColor: colors.border}}>
+                        <p className="text-xs font-medium uppercase tracking-wider mb-8" style={{ color: colors.textMuted }}>
                             Trusted by robotics teams worldwide
                         </p>
-                        <div className="flex flex-wrap items-center justify-center gap-12 opacity-60">
+                        <div className="flex flex-wrap items-center justify-center gap-8 opacity-50">
                             {/* Placeholder for company logos - you can replace with actual logos */}
                             {[1, 2, 3, 4, 5].map((i) => (
                                 <div
                                     key={i}
-                                    className="glass px-8 py-4 rounded-xl hover:opacity-100 transition-opacity duration-300"
+                                    className="px-6 py-3"
                                 >
-                                    <div className="text-xl font-bold" style={{ color: colors.textSecondary }}>
+                                    <div className="text-sm font-medium" style={{ color: colors.textSecondary }}>
                                         Company {i}
                                     </div>
                                 </div>

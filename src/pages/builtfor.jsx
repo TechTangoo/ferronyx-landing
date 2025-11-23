@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useRef } from 'react'
+import { motion, useInView } from 'motion/react'
 import { colors } from '../utils/colors';
 import AnimatedContent from '../components/AnimatedContent';
+import Card3D from '../components/Card3D';
 import academics from '../assets/academics.png';
 import research from '../assets/researchlabs.png';
 import robotics from '../assets/robotics.png';
@@ -43,6 +45,25 @@ const audienceData = [
 ];
 
 function Builtfor() {
+    const headerRef = useRef(null);
+    const isHeaderInView = useInView(headerRef, { once: true, margin: "-100px" });
+
+    const CardWrapper = ({ children, delay = 0 }) => {
+        const ref = useRef(null);
+        const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+        return (
+            <motion.div
+                ref={ref}
+                initial={{ opacity: 0, y: 50 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6, delay, ease: [0.6, 0.05, 0.01, 0.9] }}
+            >
+                {children}
+            </motion.div>
+        );
+    };
+
     return (
         <div className='relative w-screen overflow-hidden py-24' style={{ backgroundColor: colors.background }}>
             {/* Enhanced Background */}
@@ -64,88 +85,85 @@ function Builtfor() {
             </div>
 
             <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <AnimatedContent duration={0.8}>
-                    {/* Header Section */}
-                    <div className="text-center mb-16">
-                        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
-                            Trusted by Robotics Teams Worldwide
-                        </h2>
-                        <p className="text-lg text-white/60 max-w-2xl mx-auto">
-                            From research labs to production fleets — teams rely on Ferronyx to scale with confidence
-                        </p>
-                    </div>
+                {/* Header Section with animation */}
+                <motion.div
+                    ref={headerRef}
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={isHeaderInView ? { opacity: 1, y: 0 } : {}}
+                    transition={{ duration: 0.8 }}
+                    className="text-center mb-16"
+                >
+                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
+                        Trusted by Robotics Teams Worldwide
+                    </h2>
+                    <p className="text-lg text-white/60 max-w-2xl mx-auto">
+                        From research labs to production fleets — teams rely on Ferronyx to scale with confidence
+                    </p>
+                </motion.div>
 
-                    {/* Clean Grid */}
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                {/* Clean Grid */}
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
                         {audienceData.map((item, idx) => (
-                            <AnimatedContent key={item.id} duration={0.6} delay={idx * 0.1}>
-                                <Card className="glass-strong card-hover group border-0 h-full relative overflow-hidden">
-                                    {/* Hover Glow Effect */}
-                                    <div
-                                        className="absolute -inset-20 opacity-0 group-hover:opacity-20 transition-opacity duration-500 blur-3xl"
-                                        style={{backgroundColor: colors.primary}}
-                                    />
-                                    <CardContent className="p-8 relative">
-                                        <div
-                                            className="w-20 h-20 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300"
-                                            style={{backgroundColor: `${colors.secondary}`, boxShadow: `0 8px 20px ${colors.glow}`}}
+                            <CardWrapper key={item.id} delay={idx * 0.1}>
+                                <Card3D
+                                    className="border h-full transition-all duration-200"
+                                    style={{backgroundColor: colors.backgroundCard, borderColor: colors.border}}
+                                >
+                                    <CardContent className="p-6">
+                                        <motion.div
+                                            whileHover={{ scale: 1.1, rotate: 5 }}
+                                            className="w-14 h-14 rounded-lg flex items-center justify-center mb-5"
+                                            style={{backgroundColor: colors.backgroundSubtle}}
                                         >
-                                            <img src={item.icon} alt={item.title} className="w-11 h-11" />
-                                        </div>
-                                        <h3 className="text-2xl font-bold text-white mb-4">
+                                            <img src={item.icon} alt={item.title} className="w-8 h-8" />
+                                        </motion.div>
+                                        <h3 className="text-lg font-bold text-white mb-3">
                                             {item.title}
                                         </h3>
-                                        <p style={{color: colors.textSecondary}} className="text-base leading-relaxed">
+                                        <p style={{color: colors.textSecondary}} className="text-sm leading-relaxed">
                                             {item.desc}
                                         </p>
                                     </CardContent>
-                                </Card>
-                            </AnimatedContent>
+                                </Card3D>
+                            </CardWrapper>
                         ))}
 
                         {/* CTA Card */}
-                        <AnimatedContent duration={0.6} delay={0.5}>
-                            <Card className="glass-strong border-0 h-full relative overflow-hidden group">
-                                <div
-                                    className="absolute inset-0 opacity-20 group-hover:opacity-30 transition-opacity duration-500"
-                                    style={{
-                                        background: `radial-gradient(circle at center, ${colors.primary}40, transparent)`
-                                    }}
-                                />
-                                <CardContent className="p-8 flex flex-col justify-center items-center text-center h-full relative">
-                                    <div className="mb-6">
-                                        <div className="w-16 h-16 rounded-full mx-auto flex items-center justify-center" style={{backgroundColor: colors.primary, boxShadow: `0 10px 30px ${colors.glow}`}}>
-                                            <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                                            </svg>
-                                        </div>
-                                    </div>
-                                    <h3 className="text-2xl font-bold text-white mb-4">
+                        <CardWrapper delay={0.5}>
+                            <Card3D
+                                className="border h-full transition-all duration-200"
+                                style={{backgroundColor: colors.backgroundCard, borderColor: colors.border}}
+                            >
+                                <CardContent className="p-6 flex flex-col justify-center items-center text-center h-full">
+                                    <h3 className="text-lg font-bold text-white mb-3">
                                         Ready to Get Started?
                                     </h3>
-                                    <p style={{color: colors.textSecondary}} className="mb-6 text-base">
+                                    <p style={{color: colors.textSecondary}} className="mb-5 text-sm">
                                         Join teams shipping robots at scale
                                     </p>
-                                    <Button
-                                        onClick={() => {
-                                            const footer = document.getElementById('contact-footer');
-                                            footer?.scrollIntoView({ behavior: 'smooth' });
-                                        }}
-                                        size="lg"
-                                        className="btn-glow hover:scale-105 transition-all duration-300"
-                                        style={{
-                                            backgroundColor: colors.primary,
-                                            color: 'white',
-                                            boxShadow: `0 10px 30px ${colors.glow}`
-                                        }}
+                                    <motion.div
+                                        whileHover={{ scale: 1.05 }}
+                                        whileTap={{ scale: 0.95 }}
+                                        className="w-full"
                                     >
-                                        Contact Us
-                                    </Button>
+                                        <Button
+                                            onClick={() => {
+                                                const footer = document.getElementById('contact-footer');
+                                                footer?.scrollIntoView({ behavior: 'smooth' });
+                                            }}
+                                            className="w-full"
+                                            style={{
+                                                backgroundColor: colors.primary,
+                                                color: 'white'
+                                            }}
+                                        >
+                                            Contact Us
+                                        </Button>
+                                    </motion.div>
                                 </CardContent>
-                            </Card>
-                        </AnimatedContent>
-                    </div>
-                </AnimatedContent>
+                            </Card3D>
+                        </CardWrapper>
+                </div>
             </div>
         </div>
     )

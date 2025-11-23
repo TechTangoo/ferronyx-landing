@@ -1,27 +1,43 @@
 const blueTheme = {
-    background: '#0a0a0f',          // Softer than pure black
-    backgroundAlt: '#0f0f14',       // Alternative dark shade
-    primary: '#3b82f6',             // Modern blue
-    primaryLight: '#60a5fa',        // Lighter variant
-    primaryDark: '#2563eb',         // Darker variant
-    accent: '#8b5cf6',              // Purple accent for variety
-    accentBlue: '#0ea5e9',          // Cyan blue accent
-    secondary: '#1a1a23',           // Deeper secondary
-    forebackground: '#141419',      // Subtle card background
-    cardGlass: 'rgba(20, 20, 25, 0.6)', // Glassmorphism
-    text: '#ffffff',
-    textSecondary: '#94a3b8',       // Softer gray
-    textMuted: '#64748b',           // More muted
-    highlight: '#3b82f6',
+    // Backgrounds - matching your dashboard
+    background: '#000000',           // Pure black like your product
+    backgroundCard: '#0a0a0a',       // Card backgrounds
+    backgroundSubtle: '#141414',     // Subtle backgrounds
+
+    // Blue accents - strategic use only
+    primary: '#2563eb',              // Professional blue for CTAs
+    primaryDark: '#1e40af',          // Darker blue for hover
+    primarySubtle: '#1e3a8a',        // Very subtle blue
+
+    // Neutral colors - main palette
+    text: '#ffffff',                 // Pure white text
+    textSecondary: '#9ca3af',        // Gray text like dashboard
+    textMuted: '#6b7280',            // Muted gray
+
+    // UI elements
+    border: '#1a1a1a',               // Subtle borders like dashboard
+    borderLight: '#262626',          // Slightly lighter borders
+
+    // Status colors - matching dashboard
+    success: '#10b981',              // Green for active/success
+    warning: '#f59e0b',              // Orange for warnings
+    error: '#ef4444',                // Red for critical
+    info: '#3b82f6',                 // Blue for info
+
+    // Accents
+    cardGlass: 'rgba(10, 10, 10, 0.8)', // Minimal glass
+    glow: 'rgba(37, 99, 235, 0.15)', // Subtle blue glow
+    glowStrong: 'rgba(37, 99, 235, 0.3)', // Stronger blue glow for CTAs
+
+    // Legacy support
+    secondary: '#0a0a0a',
+    forebackground: '#0a0a0a',
+    tertiary: '#141414',
+    light: '#3b82f6',
+    highlight: '#2563eb',
     shadow: '#000000',
-    light: "#60a5fa",
-    border: '#1e293b',              // Softer border
-    borderLight: '#334155',         // Lighter border for glass
-    success: '#10b981',
-    warning: '#f59e0b',
-    error: '#ef4444',
-    info: '#3b82f6',
-    glow: 'rgba(59, 130, 246, 0.5)' // For glow effects
+    accent: '#2563eb',
+    accentBlue: '#2563eb'
 }
 
 const maroontheme = {

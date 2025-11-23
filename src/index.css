@@ -165,63 +165,82 @@
   }
 }
 
-/* Glassmorphism utilities */
+/* Minimal glassmorphism utilities */
 .glass {
-  background: rgba(20, 20, 25, 0.6);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(10, 10, 10, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .glass-strong {
-  background: rgba(20, 20, 25, 0.8);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(15, 15, 15, 0.8);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-/* Gradient mesh background */
+/* Minimal gradient - very subtle */
 .gradient-mesh {
-  background:
-    radial-gradient(at 27% 37%, rgba(59, 130, 246, 0.15) 0px, transparent 50%),
-    radial-gradient(at 97% 21%, rgba(139, 92, 246, 0.15) 0px, transparent 50%),
-    radial-gradient(at 52% 99%, rgba(14, 165, 233, 0.15) 0px, transparent 50%),
-    radial-gradient(at 10% 29%, rgba(59, 130, 246, 0.2) 0px, transparent 50%),
-    radial-gradient(at 97% 96%, rgba(139, 92, 246, 0.15) 0px, transparent 50%);
+  background: #000000;
 }
 
-/* Button glow effect */
+/* Subtle dot pattern background */
+.dot-pattern {
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Subtle grid pattern background */
+.grid-pattern {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Combined pattern with fade */
+.pattern-fade {
+  background:
+    radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.8) 100%),
+    radial-gradient(circle, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 100% 100%, 24px 24px;
+}
+
+/* Subtle animated grid */
+@keyframes gridMove {
+  0% { background-position: 0 0, 0 0; }
+  100% { background-position: 0 0, 40px 40px; }
+}
+
+.grid-animated {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 40px 40px;
+  animation: gridMove 60s linear infinite;
+}
+
+/* Minimal button hover effect */
 .btn-glow {
   position: relative;
   overflow: hidden;
+  transition: all 0.2s ease;
 }
 
-.btn-glow::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  padding: 2px;
-  background: linear-gradient(45deg, rgba(59, 130, 246, 0.5), rgba(139, 92, 246, 0.5));
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  opacity: 0;
-  transition: opacity 0.3s ease;
+.btn-glow:hover {
+  background: #ffffff !important;
+  color: #000000 !important;
 }
 
-.btn-glow:hover::before {
-  opacity: 1;
-}
-
-/* Card hover effect */
+/* Minimal card hover effect */
 .card-hover {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.2s ease;
 }
 
 .card-hover:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 40px rgba(59, 130, 246, 0.2);
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.15);
 }
 
 /* Smooth transitions */

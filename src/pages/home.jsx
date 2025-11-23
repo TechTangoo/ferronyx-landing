@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import { motion, useScroll, useTransform, useInView } from 'motion/react';
 import LightRays from '../components/LightRays';
 import Header from '../components/Header';
+import NetworkBackground from '../components/NetworkBackground';
 import { colors } from '../utils/colors';
 import AnimatedContent from '../components/AnimatedContent';
 import DashboardIllustration from '../components/DashboardIllustration';
@@ -8,6 +10,15 @@ import { Button } from '../components/ui/button';
 import { Badge } from '../components/ui/badge';
 
 function Home() {
+  const containerRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end start"]
+  });
+
+  // Parallax transforms
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
   const scrollToFooter = () => {
     const footerElement = document.getElementById('contact-footer');
@@ -19,144 +30,183 @@ function Home() {
     }
   };
 
-  
+  // Animation variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.2
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: [0.6, 0.05, 0.01, 0.9]
+      }
+    }
+  };
+
+
   return (
-    <div className="relative min-h-screen w-screen overflow-hidden">
-      {/* Modern gradient mesh background */}
-      <div className="absolute inset-0 w-full h-full z-0 gradient-mesh" style={{ backgroundColor: colors.background }} />
+    <div ref={containerRef} className="relative min-h-screen w-screen overflow-hidden" style={{ backgroundColor: colors.background }}>
+      {/* Connected fleet network background with parallax */}
+      <motion.div
+        style={{ y: y, opacity: opacity }}
+        className="absolute inset-0 w-full h-full z-0 overflow-hidden"
+      >
+        <NetworkBackground animate={true} density="normal" />
+      </motion.div>
 
-      {/* Animated gradient orbs */}
-      <div className="absolute inset-0 w-full h-full z-0 overflow-hidden">
+      {/* Subtle blue accent - parallax */}
+      <motion.div
+        style={{ y: y }}
+        className="absolute inset-0 w-full h-full z-0 overflow-hidden opacity-10"
+      >
         <div
-          className="absolute top-1/4 -left-48 w-96 h-96 rounded-full blur-3xl animate-pulse"
+          className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full blur-[120px]"
           style={{
-            background: `radial-gradient(circle, ${colors.primary}40, transparent)`,
-            animation: 'float 20s ease-in-out infinite'
+            background: `radial-gradient(circle, ${colors.primary}30, transparent 70%)`
           }}
         />
-        <div
-          className="absolute bottom-1/4 -right-48 w-96 h-96 rounded-full blur-3xl animate-pulse"
-          style={{
-            background: `radial-gradient(circle, ${colors.accent}40, transparent)`,
-            animation: 'float 25s ease-in-out infinite reverse'
-          }}
-        />
-      </div>
-
-      <div className="absolute inset-0 w-full h-full z-0">
-        <LightRays />
-      </div>
+      </motion.div>
 
       {/* Hero Section */}
       <section className="relative z-10 px-4 sm:px-6 lg:px-8 items-center">
         <Header />
-        <AnimatedContent duration={1.5}>
-          <div className="max-w-7xl mx-auto text-center mt-12 sm:mt-20 flex flex-col gap-12">
-            <div className="max-w-6xl mx-auto">
-              {/* Modern glassmorphic badge */}
-              <div className="inline-flex mb-8">
-                <Badge
-                  variant="outline"
-                  className="glass px-6 py-3 text-base font-medium border-0"
-                  style={{
-                    color: colors.primaryLight,
-                    borderColor: colors.borderLight
-                  }}
-                >
-                  <span className="relative z-10">🤖 Full stack observability for robotic fleets</span>
-                </Badge>
-              </div>
-
-              {/* Massive hero headline */}
-              <h1 className="text-hero text-white mb-8 leading-[0.95] tracking-tight">
-                Observe. Diagnose.{' '}
-                <span
-                  className="bg-gradient-to-r from-blue-400 via-blue-500 to-purple-500 bg-clip-text text-transparent"
-                  style={{
-                    backgroundImage: `linear-gradient(135deg, ${colors.primaryLight}, ${colors.primary}, ${colors.accent})`
-                  }}
-                >
-                  Heal.
-                </span>
-              </h1>
-
-              {/* Larger, clearer subheadline */}
-              <p
-                className="text-large mb-10 max-w-3xl mx-auto font-light"
-                style={{color: colors.textSecondary}}
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          variants={containerVariants}
+          className="max-w-7xl mx-auto text-center mt-20 sm:mt-28 flex flex-col gap-16"
+        >
+          <div className="max-w-5xl mx-auto">
+            {/* Animated badge */}
+            <motion.div variants={itemVariants} className="inline-flex mb-10">
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                className="px-4 py-2 text-sm font-medium border rounded-lg"
+                style={{
+                  color: colors.textSecondary,
+                  borderColor: colors.border,
+                  backgroundColor: colors.backgroundCard
+                }}
               >
-                Give your robotics team a <strong className="font-semibold text-white">unified view</strong> of their entire fleet with real-time telemetry, SRE-grade incident management, and AI-powered debugging.
-              </p>
+                Full-stack observability for robotic fleets
+              </motion.div>
+            </motion.div>
 
-              {/* Modern CTA with glow effect */}
-              <div className="flex flex-col sm:flex-row items-center gap-4 justify-center mb-10">
+            {/* Animated headline */}
+            <motion.h1
+              variants={itemVariants}
+              className="text-hero text-white mb-8 leading-[0.95] tracking-tight font-bold"
+            >
+              Observe. Diagnose. Heal.
+            </motion.h1>
+
+            {/* Animated subheadline */}
+            <motion.p
+              variants={itemVariants}
+              className="text-large mb-12 max-w-3xl mx-auto font-normal leading-relaxed"
+              style={{color: colors.textSecondary}}
+            >
+              A unified platform for robotics teams to monitor fleet health, debug issues with AI, and manage incidents with SRE-grade tooling.
+            </motion.p>
+
+            {/* Animated CTAs */}
+            <motion.div
+              variants={itemVariants}
+              className="flex flex-col sm:flex-row items-center gap-4 justify-center mb-12"
+            >
+              <motion.div
+                whileHover={{ scale: 1.05, boxShadow: `0 20px 40px ${colors.glow}` }}
+                whileTap={{ scale: 0.95 }}
+              >
                 <Button
                   onClick={scrollToFooter}
                   size="lg"
-                  className="btn-glow w-full sm:w-auto font-semibold px-12 py-6 text-lg rounded-xl shadow-2xl hover:scale-105 transition-all duration-300"
+                  className="w-full sm:w-auto font-semibold px-10 py-6 text-base rounded-lg transition-all duration-200"
                   style={{
                     backgroundColor: colors.primary,
-                    color: 'white',
-                    boxShadow: `0 20px 40px ${colors.glow}`
+                    color: 'white'
                   }}
                 >
-                  Get Started Free
+                  Get Started
                 </Button>
+              </motion.div>
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
                 <Button
                   onClick={scrollToFooter}
                   size="lg"
                   variant="outline"
-                  className="glass w-full sm:w-auto font-semibold px-12 py-6 text-lg rounded-xl hover:scale-105 transition-all duration-300"
+                  className="w-full sm:w-auto font-semibold px-10 py-6 text-base rounded-lg border transition-all duration-200"
                   style={{
-                    color: colors.primaryLight,
-                    borderColor: colors.borderLight
+                    color: colors.text,
+                    borderColor: colors.border,
+                    backgroundColor: 'transparent'
                   }}
                 >
                   Book a Demo
                 </Button>
-              </div>
+              </motion.div>
+            </motion.div>
 
-              {/* Refined feature checkmarks with better spacing */}
-              <div className="flex flex-wrap items-center justify-center gap-8 text-base" style={{color: colors.textSecondary}}>
-                <div className="flex items-center gap-2">
-                  <svg className="w-5 h-5" style={{color: colors.success}} fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
-                  </svg>
-                  <span className="font-medium">10-minute setup</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <svg className="w-5 h-5" style={{color: colors.success}} fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
-                  </svg>
-                  <span className="font-medium">ROS-native</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <svg className="w-5 h-5" style={{color: colors.success}} fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
-                  </svg>
-                  <span className="font-medium">AI-assisted debugging</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Dashboard illustration with modern styling */}
-            <div className="mt-12 relative">
-              <div className="absolute inset-0 blur-3xl opacity-30" style={{backgroundColor: colors.primary}} />
-              <div className="relative">
-                <DashboardIllustration />
-              </div>
-            </div>
+            {/* Animated feature list */}
+            <motion.div
+              variants={itemVariants}
+              className="flex flex-wrap items-center justify-center gap-6 text-sm"
+              style={{color: colors.textMuted}}
+            >
+              {[
+                '10-minute setup',
+                'ROS-native integration',
+                'AI-assisted debugging'
+              ].map((feature, index) => (
+                <motion.div
+                  key={feature}
+                  initial={{ opacity: 0, x: -10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 1 + index * 0.1 }}
+                  className="flex items-center gap-2"
+                >
+                  <div className="w-1 h-1 rounded-full" style={{backgroundColor: colors.success}} />
+                  <span>{feature}</span>
+                </motion.div>
+              ))}
+            </motion.div>
           </div>
-        </AnimatedContent>
-      </section>
 
-      <style jsx>{`
-        @keyframes float {
-          0%, 100% { transform: translate(0, 0) scale(1); }
-          33% { transform: translate(30px, -30px) scale(1.1); }
-          66% { transform: translate(-20px, 20px) scale(0.9); }
-        }
-      `}</style>
+          {/* Dashboard illustration with slide-up + blur animation */}
+          <motion.div
+            initial={{ opacity: 0, y: 60, filter: "blur(10px)" }}
+            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            transition={{
+              duration: 1.2,
+              delay: 0.8,
+              ease: [0.6, 0.05, 0.01, 0.9]
+            }}
+            className="mt-8 relative"
+          >
+            <motion.div
+              whileHover={{ y: -10, transition: { duration: 0.3 } }}
+              className="relative border rounded-lg overflow-hidden"
+              style={{ borderColor: colors.border }}
+            >
+              <DashboardIllustration />
+            </motion.div>
+          </motion.div>
+        </motion.div>
+      </section>
     </div >
   );
 }
