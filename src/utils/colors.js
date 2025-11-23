@@ -1,19 +1,30 @@
-const blueTheme = {
-    background: '#000000',
-    primary: '#2b7fff',
-    accent: '#2563eb',
-    secondary: '#18181b',
-    forebackground: '#1a1a1a',
-    text: '#FFFFFF',
-    textSecondary: '#a1a1aa',
-    highlight: '#2b7fff',
-    shadow: '#000000',
-    light: "#5b9fff",
-    border: '#27272a',
-    success: '#10b981',
-    warning: '#f59e0b',
-    error: '#ef4444',
-    info: '#2b7fff'
+const professionalTheme = {
+    background: 'hsl(220, 15%, 4%)',
+    foreground: 'hsl(0, 0%, 95%)',
+    card: 'hsl(220, 15%, 7%)',
+    cardForeground: 'hsl(0, 0%, 95%)',
+    primary: 'hsl(210, 100%, 58%)',
+    primaryForeground: 'hsl(0, 0%, 98%)',
+    secondary: 'hsl(220, 15%, 12%)',
+    secondaryForeground: 'hsl(0, 0%, 85%)',
+    muted: 'hsl(220, 15%, 15%)',
+    mutedForeground: 'hsl(0, 0%, 65%)',
+    accent: 'hsl(216, 100%, 64%)',
+    accentForeground: 'hsl(0, 0%, 98%)',
+    border: 'hsl(220, 15%, 18%)',
+    input: 'hsl(220, 15%, 15%)',
+    ring: 'hsl(210, 100%, 58%)',
+    success: 'hsl(142, 76%, 36%)',
+    warning: 'hsl(38, 92%, 50%)',
+    error: 'hsl(0, 84%, 60%)',
+    destructive: 'hsl(0, 84%, 60%)',
+    destructiveForeground: 'hsl(0, 0%, 98%)',
+    // Legacy support
+    text: 'hsl(0, 0%, 95%)',
+    textSecondary: 'hsl(0, 0%, 65%)',
+    highlight: 'hsl(210, 100%, 58%)',
+    shadow: 'hsla(220, 15%, 4%, 0.8)',
+    light: 'hsl(216, 100%, 70%)'
 }
 
 const maroontheme = {
@@ -29,4 +40,4 @@ const maroontheme = {
     light: "#a37ab8"
 }
 
-export const colors = blueTheme
+export const colors = professionalTheme
