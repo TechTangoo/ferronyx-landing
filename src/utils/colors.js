@@ -1,19 +1,27 @@
 const blueTheme = {
-    background: '#000000',
-    primary: '#2b7fff',
-    accent: '#2563eb',
-    secondary: '#18181b',
-    forebackground: '#1a1a1a',
-    text: '#FFFFFF',
-    textSecondary: '#a1a1aa',
-    highlight: '#2b7fff',
+    background: '#0a0a0f',          // Softer than pure black
+    backgroundAlt: '#0f0f14',       // Alternative dark shade
+    primary: '#3b82f6',             // Modern blue
+    primaryLight: '#60a5fa',        // Lighter variant
+    primaryDark: '#2563eb',         // Darker variant
+    accent: '#8b5cf6',              // Purple accent for variety
+    accentBlue: '#0ea5e9',          // Cyan blue accent
+    secondary: '#1a1a23',           // Deeper secondary
+    forebackground: '#141419',      // Subtle card background
+    cardGlass: 'rgba(20, 20, 25, 0.6)', // Glassmorphism
+    text: '#ffffff',
+    textSecondary: '#94a3b8',       // Softer gray
+    textMuted: '#64748b',           // More muted
+    highlight: '#3b82f6',
     shadow: '#000000',
-    light: "#5b9fff",
-    border: '#27272a',
+    light: "#60a5fa",
+    border: '#1e293b',              // Softer border
+    borderLight: '#334155',         // Lighter border for glass
     success: '#10b981',
     warning: '#f59e0b',
     error: '#ef4444',
-    info: '#2b7fff'
+    info: '#3b82f6',
+    glow: 'rgba(59, 130, 246, 0.5)' // For glow effects
 }
 
 const maroontheme = {
