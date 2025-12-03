@@ -46,12 +46,12 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Modern typography scale */
+/* Modern typography scale - NewRelic-like sizing */
 .text-hero {
-  font-size: clamp(3rem, 8vw, 7rem);
-  line-height: 1.1;
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  line-height: 1.2;
   letter-spacing: -0.02em;
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .text-display {
@@ -165,29 +165,29 @@
   }
 }
 
-/* Glassmorphism utilities */
+/* Cleaner card utilities (reduced glassmorphism for NewRelic-like look) */
 .glass {
-  background: rgba(20, 20, 25, 0.6);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(26, 26, 35, 0.9);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .glass-strong {
-  background: rgba(20, 20, 25, 0.8);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(26, 26, 35, 0.95);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Gradient mesh background */
+/* Subtle gradient mesh background */
 .gradient-mesh {
   background:
-    radial-gradient(at 27% 37%, rgba(59, 130, 246, 0.15) 0px, transparent 50%),
-    radial-gradient(at 97% 21%, rgba(139, 92, 246, 0.15) 0px, transparent 50%),
-    radial-gradient(at 52% 99%, rgba(14, 165, 233, 0.15) 0px, transparent 50%),
-    radial-gradient(at 10% 29%, rgba(59, 130, 246, 0.2) 0px, transparent 50%),
-    radial-gradient(at 97% 96%, rgba(139, 92, 246, 0.15) 0px, transparent 50%);
+    radial-gradient(at 27% 37%, rgba(59, 130, 246, 0.08) 0px, transparent 50%),
+    radial-gradient(at 97% 21%, rgba(139, 92, 246, 0.08) 0px, transparent 50%),
+    radial-gradient(at 52% 99%, rgba(14, 165, 233, 0.08) 0px, transparent 50%),
+    radial-gradient(at 10% 29%, rgba(59, 130, 246, 0.1) 0px, transparent 50%),
+    radial-gradient(at 97% 96%, rgba(139, 92, 246, 0.08) 0px, transparent 50%);
 }
 
 /* Button glow effect */
@@ -214,14 +214,15 @@
   opacity: 1;
 }
 
-/* Card hover effect */
+/* Subtle card hover effect */
 .card-hover {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .card-hover:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 40px rgba(59, 130, 246, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(59, 130, 246, 0.15);
+  border-color: rgba(59, 130, 246, 0.3);
 }
 
 /* Smooth transitions */

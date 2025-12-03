@@ -1,177 +1,162 @@
 import React from 'react';
 import { colors } from '../utils/colors';
-import { Activity, Cpu, HardDrive, Network } from 'lucide-react';
+import { Activity, Cpu, HardDrive, Wifi, Bot, Battery, MapPin, TrendingUp } from 'lucide-react';
 
+// Matches the real dashboard styling
 const MonitoringMockup = () => {
+    const metrics = [
+        { icon: Bot, label: 'Total Robots', value: '24', color: colors.primary },
+        { icon: Wifi, label: 'Active', value: '18', color: '#10b981' },
+        { icon: Battery, label: 'Avg Battery', value: '73%', color: '#3b82f6' },
+    ];
+
+    const robots = [
+        { id: 'RB-001', location: 'Warehouse A', status: 'active', cpu: '45%', memory: '2.1GB' },
+        { id: 'RB-003', location: 'Manufacturing', status: 'active', cpu: '67%', memory: '3.4GB' },
+        { id: 'RB-007', location: 'Loading Dock', status: 'active', cpu: '32%', memory: '1.8GB' },
+        { id: 'RB-012', location: 'Outdoor', status: 'warning', cpu: '89%', memory: '4.2GB' },
+    ];
+
+    const chartPoints = [12, 18, 25, 32, 28, 35, 30, 42, 38, 45, 40, 48];
+
     return (
-        <div className="relative w-full aspect-video rounded-xl border overflow-hidden"
-             style={{
-                 backgroundColor: `${colors.forebackground}`,
-                 borderColor: `${colors.primary}40`
-             }}>
-
-            {/* Grid Pattern Background */}
-            <div className="absolute inset-0 opacity-10">
-                <div className="w-full h-full"
-                     style={{
-                         backgroundImage: `linear-gradient(${colors.primary}40 1px, transparent 1px), linear-gradient(90deg, ${colors.primary}40 1px, transparent 1px)`,
-                         backgroundSize: '20px 20px'
-                     }}
-                />
-            </div>
-
-            {/* Content */}
-            <div className="relative z-10 p-4 md:p-6 h-full">
-
-                {/* Header */}
-                <div className="flex items-center justify-between mb-4">
-                    <div>
-                        <h3 className="text-white font-semibold text-sm md:text-base">Robot-01 Metrics</h3>
-                        <p className="text-white/50 text-xs">Real-time monitoring</p>
-                    </div>
-                    <div className="flex gap-1 md:gap-2 text-xs">
-                        {['1h', '6h', '24h', '7d'].map((range, idx) => (
-                            <button
-                                key={range}
-                                className="px-2 md:px-3 py-1 rounded transition-all"
-                                style={{
-                                    backgroundColor: idx === 1 ? `${colors.primary}40` : `${colors.secondary}`,
-                                    color: idx === 1 ? colors.light : 'white/60'
-                                }}
-                            >
-                                {range}
-                            </button>
-                        ))}
+        <div
+            className="relative w-full rounded-xl overflow-hidden shadow-2xl"
+            style={{
+                background: '#0f0f14',
+                border: '1px solid rgba(255,255,255,0.1)'
+            }}
+        >
+            {/* Browser header */}
+            <div className="flex items-center gap-2 px-4 py-3 border-b border-white/10">
+                <div className="flex gap-1.5">
+                    <div className="w-3 h-3 rounded-full bg-red-500/80" />
+                    <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
+                    <div className="w-3 h-3 rounded-full bg-green-500/80" />
+                </div>
+                <div className="flex-1 ml-4">
+                    <div className="bg-white/5 rounded-md px-3 py-1 text-xs text-white/50 max-w-xs">
+                        app.ferronyx.com/monitoring
                     </div>
                 </div>
+            </div>
 
-                {/* Metrics Grid */}
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-3 mb-4">
-                    {[
-                        { icon: <Cpu size={16} />, label: 'CPU', value: '67%', color: 'blue' },
-                        { icon: <Activity size={16} />, label: 'Memory', value: '4.2GB', color: 'green' },
-                        { icon: <HardDrive size={16} />, label: 'Disk', value: '82%', color: 'yellow' },
-                        { icon: <Network size={16} />, label: 'Network', value: '12 MB/s', color: 'purple' }
-                    ].map((metric, idx) => (
+            <div className="p-4 space-y-4">
+                {/* Metrics row */}
+                <div className="grid grid-cols-3 gap-3">
+                    {metrics.map((metric, idx) => (
                         <div
                             key={idx}
-                            className="p-2 md:p-3 rounded-lg border animate-fadeIn"
-                            style={{
-                                backgroundColor: `${colors.secondary}`,
-                                borderColor: `${colors.primary}30`,
-                                animationDelay: `${idx * 0.1}s`
-                            }}
+                            className="rounded-lg p-3"
+                            style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)' }}
                         >
-                            <div className="flex items-center gap-2 mb-2">
-                                <div
-                                    className="p-1 rounded"
-                                    style={{backgroundColor: `${colors.primary}30`}}
-                                >
-                                    <div style={{color: colors.light}}>
-                                        {metric.icon}
-                                    </div>
-                                </div>
-                                <span className="text-white/60 text-xs">{metric.label}</span>
+                            <div className="flex items-center justify-between mb-2">
+                                <span className="text-[10px] text-white/50 font-medium">{metric.label}</span>
+                                <metric.icon className="w-3.5 h-3.5" style={{ color: metric.color }} />
                             </div>
-                            <div className="text-white font-bold text-base md:text-lg">{metric.value}</div>
-                            {/* Mini Progress Bar */}
-                            <div className="mt-2 h-1 rounded-full bg-black/40 overflow-hidden">
-                                <div
-                                    className="h-full rounded-full"
-                                    style={{
-                                        width: metric.value.includes('%') ? metric.value : '60%',
-                                        backgroundColor: colors.primary
-                                    }}
-                                />
-                            </div>
+                            <div className="text-xl font-bold text-white">{metric.value}</div>
                         </div>
                     ))}
                 </div>
 
-                {/* Charts Section */}
-                <div className="grid md:grid-cols-2 gap-3 md:gap-4">
-
-                    {/* Live Chart */}
+                {/* Main grid */}
+                <div className="grid grid-cols-2 gap-4">
+                    {/* CPU Chart */}
                     <div
-                        className="p-3 md:p-4 rounded-lg border"
-                        style={{
-                            backgroundColor: `${colors.secondary}`,
-                            borderColor: `${colors.primary}30`
-                        }}
+                        className="rounded-lg p-4"
+                        style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)' }}
                     >
                         <div className="flex items-center justify-between mb-3">
-                            <span className="text-white/70 text-xs md:text-sm font-medium">CPU Usage</span>
-                            <span className="text-xs px-2 py-0.5 rounded" style={{backgroundColor: `${colors.primary}40`, color: colors.light}}>
-                                Live
-                            </span>
+                            <span className="text-sm font-semibold text-white">Fleet CPU Usage</span>
+                            <span className="text-[10px] px-2 py-0.5 rounded bg-blue-500/20 text-blue-400">Live</span>
                         </div>
-                        <div className="relative h-16 md:h-20">
-                            <svg className="w-full h-full" viewBox="0 0 200 60" preserveAspectRatio="none">
-                                <defs>
-                                    <linearGradient id="cpuGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                                        <stop offset="0%" stopColor={colors.primary} stopOpacity="0.5" />
-                                        <stop offset="100%" stopColor={colors.primary} stopOpacity="0.0" />
-                                    </linearGradient>
-                                </defs>
-                                <path
-                                    d="M0,45 L15,40 L30,42 L45,35 L60,30 L75,33 L90,25 L105,28 L120,22 L135,20 L150,25 L165,18 L180,15 L200,20"
-                                    fill="none"
-                                    stroke={colors.primary}
-                                    strokeWidth="2"
+                        <div className="h-20 flex items-end gap-1">
+                            {chartPoints.map((point, idx) => (
+                                <div
+                                    key={idx}
+                                    className="flex-1 rounded-t transition-all duration-300"
+                                    style={{
+                                        height: `${(point / 50) * 100}%`,
+                                        background: point > 40
+                                            ? 'linear-gradient(to top, #f59e0b80, #f59e0b20)'
+                                            : `linear-gradient(to top, ${colors.primary}80, ${colors.primary}20)`
+                                    }}
                                 />
-                                <path
-                                    d="M0,45 L15,40 L30,42 L45,35 L60,30 L75,33 L90,25 L105,28 L120,22 L135,20 L150,25 L165,18 L180,15 L200,20 L200,60 L0,60 Z"
-                                    fill="url(#cpuGradient)"
-                                />
-                            </svg>
-                            <div className="absolute bottom-0 left-0 right-0 flex justify-between text-xs text-white/40 px-1">
-                                <span>-6m</span>
-                                <span>-3m</span>
-                                <span>now</span>
-                            </div>
+                            ))}
+                        </div>
+                        <div className="flex justify-between mt-2 text-[8px] text-white/30">
+                            <span>-6h</span>
+                            <span>-3h</span>
+                            <span>now</span>
                         </div>
                     </div>
 
                     {/* ROS Topics */}
                     <div
-                        className="p-3 md:p-4 rounded-lg border"
-                        style={{
-                            backgroundColor: `${colors.secondary}`,
-                            borderColor: `${colors.primary}30`
-                        }}
+                        className="rounded-lg p-4"
+                        style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)' }}
                     >
-                        <div className="text-white/70 text-xs md:text-sm font-medium mb-3">Active ROS Topics</div>
+                        <div className="text-sm font-semibold text-white mb-3">Active ROS Topics</div>
                         <div className="space-y-2">
                             {[
-                                { name: '/camera/image_raw', hz: '30 Hz', status: 'healthy' },
-                                { name: '/odom', hz: '50 Hz', status: 'healthy' },
-                                { name: '/scan', hz: '10 Hz', status: 'healthy' },
-                                { name: '/cmd_vel', hz: '5 Hz', status: 'warning' }
+                                { name: '/camera/image_raw', hz: '30 Hz', ok: true },
+                                { name: '/odom', hz: '50 Hz', ok: true },
+                                { name: '/scan', hz: '10 Hz', ok: true },
+                                { name: '/cmd_vel', hz: '5 Hz', ok: false },
                             ].map((topic, idx) => (
                                 <div
                                     key={idx}
                                     className="flex items-center justify-between p-2 rounded"
-                                    style={{backgroundColor: `${colors.forebackground}`}}
+                                    style={{ background: 'rgba(0,0,0,0.3)' }}
                                 >
-                                    <div className="flex items-center gap-2 flex-1 min-w-0">
-                                        <div className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${
-                                            topic.status === 'healthy' ? 'bg-green-400 animate-pulse' : 'bg-yellow-400 animate-pulse'
-                                        }`} />
-                                        <span className="text-white/80 font-mono text-xs truncate">{topic.name}</span>
+                                    <div className="flex items-center gap-2">
+                                        <div className={`w-1.5 h-1.5 rounded-full ${topic.ok ? 'bg-emerald-400' : 'bg-amber-400'} animate-pulse`} />
+                                        <span className="text-white/70 font-mono text-[10px]">{topic.name}</span>
                                     </div>
-                                    <span className="text-white/50 text-xs ml-2 flex-shrink-0">{topic.hz}</span>
+                                    <span className="text-white/40 text-[10px]">{topic.hz}</span>
                                 </div>
                             ))}
                         </div>
                     </div>
                 </div>
-            </div>
 
-            {/* Glow Effect */}
-            <div
-                className="absolute -bottom-20 left-0 w-96 h-96 opacity-20 blur-3xl"
-                style={{backgroundColor: colors.primary}}
-            />
+                {/* Robot table */}
+                <div
+                    className="rounded-lg p-4"
+                    style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)' }}
+                >
+                    <div className="text-sm font-semibold text-white mb-3">Robot Metrics</div>
+                    <div className="overflow-hidden rounded border border-white/10">
+                        <table className="w-full text-[10px]">
+                            <thead>
+                                <tr style={{ background: 'rgba(255,255,255,0.02)' }}>
+                                    <th className="text-left p-2 text-white/50 font-medium">Robot</th>
+                                    <th className="text-left p-2 text-white/50 font-medium">Location</th>
+                                    <th className="text-left p-2 text-white/50 font-medium">CPU</th>
+                                    <th className="text-left p-2 text-white/50 font-medium">Memory</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {robots.map((robot, idx) => (
+                                    <tr key={idx} className="border-t border-white/5">
+                                        <td className="p-2 text-white font-medium">{robot.id}</td>
+                                        <td className="p-2 text-white/60 flex items-center gap-1">
+                                            <MapPin className="w-3 h-3" />
+                                            {robot.location}
+                                        </td>
+                                        <td className="p-2">
+                                            <span className={parseInt(robot.cpu) > 80 ? 'text-amber-400' : 'text-emerald-400'}>
+                                                {robot.cpu}
+                                            </span>
+                                        </td>
+                                        <td className="p-2 text-white/60">{robot.memory}</td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 };

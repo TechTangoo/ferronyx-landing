@@ -12,33 +12,33 @@ import { Button } from '../components/ui/button';
 const audienceData = [
     {
         id: 1,
-        title: "Robotics Companies",
+        title: "Robotics Startups",
         icon: robotics,
-        desc: "Monitor production fleets, debug issues remotely, and reduce downtime across distributed deployments."
+        desc: "Scaling from 5 to 500 robots? Monitor your growing fleet, debug issues remotely, and reduce downtime."
     },
     {
         id: 2,
-        title: "Research Labs",
-        icon: research,
-        desc: "Get instant visibility into experiments, debug ROS workflows, and track system health without custom tooling."
+        title: "Warehouse & Logistics",
+        icon: teams,
+        desc: "Managing AMR fleets? Get real-time visibility into every robot's status, location, and health."
     },
     {
         id: 3,
-        title: "Platform & Autonomy Teams",
-        icon: teams,
-        desc: "Unify observability for autonomous systems, correlate incidents, and ship faster with AI-assisted insights."
+        title: "Field Robotics",
+        icon: research,
+        desc: "Robots deployed remotely? Debug from anywhere without SSH tunnels or VPNs."
     },
     {
         id: 4,
-        title: "Robotics SRE & DevOps",
+        title: "Manufacturing",
         icon: sreengineer,
-        desc: "Implement SRE best practices with on-call workflows, escalation policies, and automated incident management."
+        desc: "Robot arms and cobots? Track performance, predict maintenance, and minimize production downtime."
     },
     {
         id: 5,
-        title: "Academic & R&D Teams",
+        title: "R&D Teams",
         icon: academics,
-        desc: "Focus on research, not infrastructure. Set up in minutes and start tracking robot behavior immediately."
+        desc: "Running experiments across multiple robots? Focus on research, not infrastructure."
     }
 ];
 

@@ -184,9 +184,24 @@ function Features() {
                             desc: "Auto-detects topics, nodes, and message types"
                         },
                         {
+                            icon: <ScanEye strokeWidth={0.8} size={24} color={colors.light} />,
+                            title: "Remote Diagnostics",
+                            desc: "Run commands on any robot from anywhere. No SSH tunnels, no VPNs."
+                        },
+                        {
                             icon: <ChartNoAxesCombined strokeWidth={0.8} size={24} color={colors.light} />,
-                            title: "Historic Insights",
-                            desc: "Correlate past issues and predict failures"
+                            title: "Automated Runbooks",
+                            desc: "Define diagnostic and recovery procedures once. Execute them automatically."
+                        },
+                        {
+                            icon: <Users strokeWidth={0.8} size={24} color={colors.light} />,
+                            title: "Smart Alerts",
+                            desc: "Custom thresholds with Email, Slack, SMS, or phone call notifications."
+                        },
+                        {
+                            icon: <Bot strokeWidth={0.8} size={24} color={colors.light} />,
+                            title: "Maintenance Windows",
+                            desc: "Schedule maintenance periods to silence alerts. No more 3 AM pages."
                         }
                     ].map((feature, idx) => (
                         <AnimatedContent key={idx} duration={0.6} delay={idx * 0.1}>
