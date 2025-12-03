@@ -31,58 +31,52 @@ function Faqs() {
 
 
     return (
-
-        <div className='relative h-full w-screen overflow-hidden' style={{ backgroundColor: colors.background }}>
+        <div className='relative h-full w-screen overflow-hidden py-24' style={{ backgroundColor: colors.background }}>
+            {/* Ambient background gradient */}
+            <div className="absolute inset-0 gradient-mesh opacity-30" />
             <div
-                className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 opacity-20"
+                className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] opacity-20 blur-3xl"
                 style={{
-                    background: `radial-gradient(circle, ${colors.primary}, ${colors.accent} 40%, transparent 70%)`,
-                    filter: 'blur(60px)'
+                    background: `radial-gradient(circle, ${colors.primary}, ${colors.accent} 40%, transparent 70%)`
                 }}
             />
-            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-                <div className="text-center mb-20">
+
+            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div className="text-center mb-16">
                     <AnimatedContent duration={1}>
                         <Badge
                             variant="outline"
-                            className="px-5 py-2 mb-6 text-sm sm:text-base font-medium"
-                            style={{
-                                backgroundColor: `${colors.primary}15`,
-                                borderColor: `${colors.border}`,
-                                color: colors.light
-                            }}
+                            className="glass px-6 py-3 mb-8 text-base font-semibold border-0"
+                            style={{ color: colors.primaryLight }}
                         >
                             FAQs
                         </Badge>
-                        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6" style={{ color: colors.text }}>
+                        <h2 className="text-display font-bold mb-6" style={{ color: colors.text }}>
                             Questions? We've Got Answers
                         </h2>
-                        <p className="text-lg sm:text-xl" style={{ color: colors.textSecondary }}>
+                        <p className="text-xl" style={{ color: colors.textSecondary }}>
                             Everything you need to know about Ferronyx
                         </p>
                     </AnimatedContent>
                 </div>
-                <AnimatedContent duration={1} delay={0.5}>
+
+                <AnimatedContent duration={1} delay={0.3}>
                     <Accordion type="single" collapsible className="space-y-4">
                         {faqs.map((faq, index) => (
                             <AccordionItem
                                 key={index}
                                 value={`item-${index}`}
-                                className="rounded-xl border"
-                                style={{
-                                    borderColor: colors.border,
-                                    backgroundColor: `${colors.forebackground}`
-                                }}
+                                className="glass-strong rounded-2xl border-0 overflow-hidden transition-all duration-300 hover:scale-[1.02]"
                             >
                                 <AccordionTrigger
-                                    className="px-6 py-6 text-lg font-semibold hover:bg-white/5 rounded-xl [&[data-state=open]>svg]:rotate-180"
+                                    className="px-8 py-6 text-lg font-semibold hover:bg-white/5 rounded-2xl [&[data-state=open]>svg]:rotate-180 text-left"
                                     style={{ color: colors.text }}
                                 >
                                     {faq.question}
                                 </AccordionTrigger>
-                                <AccordionContent className="px-6 pb-6">
+                                <AccordionContent className="px-8 pb-6">
                                     <p
-                                        className="text-base leading-relaxed pt-4 border-t"
+                                        className="text-lg leading-relaxed pt-4 border-t"
                                         style={{ color: colors.textSecondary, borderColor: 'rgba(255, 255, 255, 0.1)' }}
                                     >
                                         {faq.answer}
@@ -93,9 +87,7 @@ function Faqs() {
                     </Accordion>
                 </AnimatedContent>
             </div>
-
         </div>
-
     )
 }
 

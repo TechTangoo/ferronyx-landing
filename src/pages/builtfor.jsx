@@ -12,33 +12,33 @@ import { Button } from '../components/ui/button';
 const audienceData = [
     {
         id: 1,
-        title: "Robotics Companies",
+        title: "Robotics Startups",
         icon: robotics,
-        desc: "Monitor production fleets, debug issues remotely, and reduce downtime across distributed deployments."
+        desc: "Scaling from 5 to 500 robots? Monitor your growing fleet, debug issues remotely, and reduce downtime."
     },
     {
         id: 2,
-        title: "Research Labs",
-        icon: research,
-        desc: "Get instant visibility into experiments, debug ROS workflows, and track system health without custom tooling."
+        title: "Warehouse & Logistics",
+        icon: teams,
+        desc: "Managing AMR fleets? Get real-time visibility into every robot's status, location, and health."
     },
     {
         id: 3,
-        title: "Platform & Autonomy Teams",
-        icon: teams,
-        desc: "Unify observability for autonomous systems, correlate incidents, and ship faster with AI-assisted insights."
+        title: "Field Robotics",
+        icon: research,
+        desc: "Robots deployed remotely? Debug from anywhere without SSH tunnels or VPNs."
     },
     {
         id: 4,
-        title: "Robotics SRE & DevOps",
+        title: "Manufacturing",
         icon: sreengineer,
-        desc: "Implement SRE best practices with on-call workflows, escalation policies, and automated incident management."
+        desc: "Robot arms and cobots? Track performance, predict maintenance, and minimize production downtime."
     },
     {
         id: 5,
-        title: "Academic & R&D Teams",
+        title: "R&D Teams",
         icon: academics,
-        desc: "Focus on research, not infrastructure. Set up in minutes and start tracking robot behavior immediately."
+        desc: "Running experiments across multiple robots? Focus on research, not infrastructure."
     }
 ];
 
@@ -79,29 +79,23 @@ function Builtfor() {
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
                         {audienceData.map((item, idx) => (
                             <AnimatedContent key={item.id} duration={0.6} delay={idx * 0.1}>
-                                <Card
-                                    className="group border h-full hover:border-opacity-100 transition-all duration-300 relative overflow-hidden"
-                                    style={{
-                                        backgroundColor: `${colors.forebackground}`,
-                                        borderColor: `${colors.border}`
-                                    }}
-                                >
+                                <Card className="glass-strong card-hover group border-0 h-full relative overflow-hidden">
                                     {/* Hover Glow Effect */}
                                     <div
-                                        className="absolute -inset-20 opacity-0 group-hover:opacity-10 transition-opacity duration-500 blur-2xl"
+                                        className="absolute -inset-20 opacity-0 group-hover:opacity-20 transition-opacity duration-500 blur-3xl"
                                         style={{backgroundColor: colors.primary}}
                                     />
                                     <CardContent className="p-8 relative">
                                         <div
-                                            className="w-16 h-16 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300"
-                                            style={{backgroundColor: `${colors.secondary}`}}
+                                            className="w-20 h-20 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300"
+                                            style={{backgroundColor: `${colors.secondary}`, boxShadow: `0 8px 20px ${colors.glow}`}}
                                         >
-                                            <img src={item.icon} alt={item.title} className="w-9 h-9" />
+                                            <img src={item.icon} alt={item.title} className="w-11 h-11" />
                                         </div>
-                                        <h3 className="text-xl font-bold text-white mb-3">
+                                        <h3 className="text-2xl font-bold text-white mb-4">
                                             {item.title}
                                         </h3>
-                                        <p className="text-white/60 leading-relaxed">
+                                        <p style={{color: colors.textSecondary}} className="text-base leading-relaxed">
                                             {item.desc}
                                         </p>
                                     </CardContent>
@@ -111,18 +105,25 @@ function Builtfor() {
 
                         {/* CTA Card */}
                         <AnimatedContent duration={0.6} delay={0.5}>
-                            <Card
-                                className="border h-full"
-                                style={{
-                                    backgroundColor: `${colors.primary}15`,
-                                    borderColor: `${colors.primary}`
-                                }}
-                            >
-                                <CardContent className="p-8 flex flex-col justify-center items-center text-center">
+                            <Card className="glass-strong border-0 h-full relative overflow-hidden group">
+                                <div
+                                    className="absolute inset-0 opacity-20 group-hover:opacity-30 transition-opacity duration-500"
+                                    style={{
+                                        background: `radial-gradient(circle at center, ${colors.primary}40, transparent)`
+                                    }}
+                                />
+                                <CardContent className="p-8 flex flex-col justify-center items-center text-center h-full relative">
+                                    <div className="mb-6">
+                                        <div className="w-16 h-16 rounded-full mx-auto flex items-center justify-center" style={{backgroundColor: colors.primary, boxShadow: `0 10px 30px ${colors.glow}`}}>
+                                            <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                            </svg>
+                                        </div>
+                                    </div>
                                     <h3 className="text-2xl font-bold text-white mb-4">
                                         Ready to Get Started?
                                     </h3>
-                                    <p className="text-white/70 mb-6">
+                                    <p style={{color: colors.textSecondary}} className="mb-6 text-base">
                                         Join teams shipping robots at scale
                                     </p>
                                     <Button
@@ -131,9 +132,11 @@ function Builtfor() {
                                             footer?.scrollIntoView({ behavior: 'smooth' });
                                         }}
                                         size="lg"
+                                        className="btn-glow hover:scale-105 transition-all duration-300"
                                         style={{
                                             backgroundColor: colors.primary,
-                                            color: 'white'
+                                            color: 'white',
+                                            boxShadow: `0 10px 30px ${colors.glow}`
                                         }}
                                     >
                                         Contact Us

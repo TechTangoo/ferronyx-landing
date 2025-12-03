@@ -41,7 +41,29 @@
 }
 
 *{
-  font-family: "Noto Sans", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", "Roboto", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Modern typography scale - NewRelic-like sizing */
+.text-hero {
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+
+.text-display {
+  font-size: clamp(2rem, 5vw, 4rem);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  font-weight: 700;
+}
+
+.text-large {
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  line-height: 1.5;
 }
 
 .dark {
@@ -141,4 +163,69 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* Cleaner card utilities (reduced glassmorphism for NewRelic-like look) */
+.glass {
+  background: rgba(26, 26, 35, 0.9);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-strong {
+  background: rgba(26, 26, 35, 0.95);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Subtle gradient mesh background */
+.gradient-mesh {
+  background:
+    radial-gradient(at 27% 37%, rgba(59, 130, 246, 0.08) 0px, transparent 50%),
+    radial-gradient(at 97% 21%, rgba(139, 92, 246, 0.08) 0px, transparent 50%),
+    radial-gradient(at 52% 99%, rgba(14, 165, 233, 0.08) 0px, transparent 50%),
+    radial-gradient(at 10% 29%, rgba(59, 130, 246, 0.1) 0px, transparent 50%),
+    radial-gradient(at 97% 96%, rgba(139, 92, 246, 0.08) 0px, transparent 50%);
+}
+
+/* Button glow effect */
+.btn-glow {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-glow::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(45deg, rgba(59, 130, 246, 0.5), rgba(139, 92, 246, 0.5));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.btn-glow:hover::before {
+  opacity: 1;
+}
+
+/* Subtle card hover effect */
+.card-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(59, 130, 246, 0.15);
+  border-color: rgba(59, 130, 246, 0.3);
+}
+
+/* Smooth transitions */
+* {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
