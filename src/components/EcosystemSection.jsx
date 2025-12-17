@@ -74,15 +74,15 @@ const LiquidLifecycle = () => {
     const yRight = useTransform(scrollYProgress, [0, 1], [-50, 50]);
     
     const leftSide = [
-        { id: 'ros', label: 'ROS 2 Discovery', icon: <Brain size={20} />, color: 'text-purple-300', desc: "Auto-detect nodes" },
-        { id: 'alerts', label: 'Smart Thresholds', icon: <BellRing size={20} />, color: 'text-blue-300', desc: "Configurable rules" },
-        { id: 'runbooks', label: 'Runbook Definitions', icon: <BookOpen size={20} />, color: 'text-cyan-300', desc: "Recovery logic" },
+        { id: 'ros', label: 'ROS 2 Discovery', icon: <Brain size={20} />, color: '', desc: "Auto-detect nodes" },
+        { id: 'alerts', label: 'Smart Thresholds', icon: <BellRing size={20} />, color: '', desc: "Configurable rules" },
+        { id: 'runbooks', label: 'Runbook Definitions', icon: <BookOpen size={20} />, color: '', desc: "Recovery logic" },
     ];
 
     const rightSide = [
-        { id: 'monitor', label: 'Live Monitoring', icon: <Activity size={20} />, color: 'text-green-300', desc: "Real-time telemetry" },
-        { id: 'debug', label: 'AI Diagnostics', icon: <Terminal size={20} />, color: 'text-pink-300', desc: "Root cause analysis" },
-        { id: 'heal', label: 'Remote Healing', icon: <Zap size={20} />, color: 'text-yellow-300', desc: "Execute fixes" },
+        { id: 'monitor', label: 'Live Monitoring', icon: <Activity size={20} />, color: '', desc: "Real-time telemetry" },
+        { id: 'debug', label: 'AI Diagnostics', icon: <Terminal size={20} />, color: '', desc: "Root cause analysis" },
+        { id: 'heal', label: 'Remote Healing', icon: <Zap size={20} />, color: '', desc: "Execute fixes" },
     ];
 
     return (
@@ -92,23 +92,23 @@ const LiquidLifecycle = () => {
              <div className="absolute inset-0 overflow-hidden pointer-events-none">
                  <motion.div 
                     style={{ y: yLeft }}
-                    className="absolute top-[20%] left-[10%] w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[120px] mix-blend-screen opacity-60"
+                    className="absolute top-[20%] left-[10%] w-[500px] h-[500px] bg-zinc-800/20 rounded-full blur-[120px] mix-blend-screen opacity-40"
                  />
                  <motion.div 
                     style={{ y: yRight }}
-                    className="absolute bottom-[20%] right-[10%] w-[600px] h-[600px] bg-purple-600/10 rounded-full blur-[120px] mix-blend-screen opacity-60"
+                    className="absolute bottom-[20%] right-[10%] w-[600px] h-[600px] bg-zinc-800/20 rounded-full blur-[120px] mix-blend-screen opacity-40"
                  />
              </div>
 
             <ScrollReveal className="max-w-4xl w-full text-center flex flex-col items-center gap-6 mb-24 relative z-10">
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-md shadow-lg text-xs font-semibold text-white/80 w-fit mb-4">
-                    <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span>
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-md shadow-lg text-xs font-semibold text-zinc-300 w-fit mb-4">
+                    <span className="w-2 h-2 rounded-full bg-white animate-pulse"></span>
                     End-to-End Reliability
                 </div>
                 <h2 className="text-5xl md:text-7xl font-bold tracking-tighter text-white drop-shadow-2xl">
                     Shift Left. <span className="text-white/20 mx-2">/</span> Shift Right.
                 </h2>
-                <p className="text-xl text-zinc-400 max-w-2xl leading-relaxed font-light">
+                <p className="text-xl text-zinc-500 max-w-2xl leading-relaxed font-light">
                     Ferronyx bridges the gap between proactive configuration and reactive operations.
                 </p>
             </ScrollReveal>
@@ -119,7 +119,7 @@ const LiquidLifecycle = () => {
                 {/* LEFT SIDE: Floating Stack (Shift Left) */}
                 <div className="flex flex-col gap-6 lg:gap-8 perspective-[1000px] relative z-10">
                     <div className="text-center lg:text-right mb-2 lg:pr-4">
-                        <span className="text-sm font-bold text-blue-400 uppercase tracking-widest">Prevention</span>
+                        <span className="text-xs font-bold text-zinc-600 uppercase tracking-widest">Prevention</span>
                     </div>
                      {leftSide.map((item, i) => (
                          <FloatingCard key={item.id} item={item} index={i} align="left" />
@@ -129,10 +129,10 @@ const LiquidLifecycle = () => {
                 {/* CENTER: Liquid Core */}
                 <div className="relative flex flex-col items-center justify-center py-12 lg:py-0 z-20">
                     {/* Central Connection Beam */}
-                    <div className="absolute top-1/2 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-blue-500/20 to-transparent blur-[1px]"></div>
+                    <div className="absolute top-1/2 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent blur-[1px]"></div>
 
                     <motion.div 
-                        className="relative w-40 h-40 md:w-52 md:h-52 rounded-full bg-black/40 backdrop-blur-2xl border border-white/10 flex items-center justify-center shadow-[0_0_80px_rgba(59,130,246,0.15)] ring-1 ring-white/20"
+                        className="relative w-40 h-40 md:w-52 md:h-52 rounded-full bg-black/40 backdrop-blur-2xl border border-white/10 flex items-center justify-center shadow-[0_0_80px_rgba(255,255,255,0.05)] ring-1 ring-white/10"
                         animate={{ 
                             scale: [1, 1.02, 1],
                         }}
@@ -141,8 +141,8 @@ const LiquidLifecycle = () => {
                         <img src={logo} alt="Ferronyx" className="h-20 md:h-24 w-auto relative z-10 drop-shadow-[0_0_30px_rgba(255,255,255,0.3)]" />
                         
                         {/* Fluid Ripples */}
-                        <div className="absolute inset-0 rounded-full border border-blue-400/20 animate-[ping_4s_cubic-bezier(0,0,0.2,1)_infinite]"></div>
-                        <div className="absolute inset-[-20px] rounded-full border border-purple-400/10 animate-[ping_4s_cubic-bezier(0,0,0.2,1)_infinite_1s]"></div>
+                        <div className="absolute inset-0 rounded-full border border-white/10 animate-[ping_4s_cubic-bezier(0,0,0.2,1)_infinite]"></div>
+                        <div className="absolute inset-[-20px] rounded-full border border-white/5 animate-[ping_4s_cubic-bezier(0,0,0.2,1)_infinite_1s]"></div>
                         
                         {/* Glass Shine */}
                         <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-white/10 to-transparent pointer-events-none"></div>
@@ -152,7 +152,7 @@ const LiquidLifecycle = () => {
                 {/* RIGHT SIDE: Floating Stack (Shift Right) */}
                 <div className="flex flex-col gap-6 lg:gap-8 perspective-[1000px] relative z-10">
                     <div className="text-center lg:text-left mb-2 lg:pl-4">
-                        <span className="text-sm font-bold text-purple-400 uppercase tracking-widest">Resolution</span>
+                        <span className="text-xs font-bold text-zinc-600 uppercase tracking-widest">Resolution</span>
                     </div>
                      {rightSide.map((item, i) => (
                          <FloatingCard key={item.id} item={item} index={i + 3} align="right" />
