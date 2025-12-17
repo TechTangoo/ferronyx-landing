@@ -13,8 +13,8 @@ const FerronyxHero = () => {
     });
 
     const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
-    const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.9]);
-    const y = useTransform(scrollYProgress, [0, 0.5], [0, 50]);
+    const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.95]);
+    const y = useTransform(scrollYProgress, [0, 0.5], [0, 30]);
 
     // Stagger container for children
     const containerVariants = {
@@ -22,46 +22,39 @@ const FerronyxHero = () => {
         visible: {
             opacity: 1,
             transition: {
-                staggerChildren: 0.15,
-                delayChildren: 0.2
+                staggerChildren: 0.1,
+                delayChildren: 0.1
             }
         }
     };
 
     const itemVariants = {
-        hidden: { opacity: 0, y: 30 },
+        hidden: { opacity: 0, y: 20 },
         visible: {
             opacity: 1,
             y: 0,
-            transition: { duration: 0.8, ease: [0.21, 0.47, 0.32, 0.98] }
-        }
-    };
-
-    const scrollToFooter = () => {
-        const footerElement = document.getElementById('contact-footer');
-        if (footerElement) {
-            footerElement.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
+            transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } // Apple-like ease
         }
     };
 
     return (
-        <section ref={targetRef} className="relative min-h-screen w-full flex flex-col items-center justify-center overflow-hidden bg-black selection:bg-blue-500/30 pt-20">
+        <section ref={targetRef} className="relative min-h-screen w-full flex flex-col items-center justify-center overflow-hidden bg-[#050505] pt-20">
             {/* Background Effects */}
             <div className="absolute inset-0 z-0">
                 {/* The Orb Component */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] md:w-[800px] md:h-[800px]">
-                     <Orb hue={210} size={80} />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] md:w-[800px] md:h-[800px] opacity-60">
+                     <Orb hue={220} size={70} />
                 </div>
                 
-                {/* Grid Overlay for texture */}
-                <div className="absolute inset-0 bg-[url('/grid.svg')] bg-[size:50px_50px] opacity-[0.07] pointer-events-none mix-blend-overlay"></div>
+                {/* Grid Overlay for texture - Extremely subtle */}
+                <div className="absolute inset-0 bg-[url('/grid.svg')] bg-[size:40px_40px] opacity-[0.04] pointer-events-none mix-blend-plus-lighter"></div>
+                
+                {/* Vignette */}
+                <div className="absolute inset-0 bg-radial-gradient from-transparent via-[#050505]/50 to-[#050505] pointer-events-none"></div>
             </div>
 
             <motion.div
-                className="relative z-10 text-center max-w-7xl px-6 flex flex-col items-center gap-8 md:gap-10 mt-10 md:mt-0"
+                className="relative z-10 text-center max-w-5xl px-6 flex flex-col items-center gap-8 mt-10 md:mt-0"
                 variants={containerVariants}
                 initial="hidden"
                 whileInView="visible"
@@ -69,64 +62,63 @@ const FerronyxHero = () => {
                 style={{ opacity, scale, y }} // Parallax effect on scroll
             >
                 {/* Badge */}
-                <motion.div variants={itemVariants} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-md text-sm font-medium text-blue-100/70 mb-2 hover:bg-white/10 transition-colors cursor-pointer group">
+                <motion.div variants={itemVariants} className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/[0.03] backdrop-blur-md text-xs font-medium text-zinc-300 hover:bg-white/[0.08] transition-colors cursor-pointer group">
                     <span className="relative flex h-2 w-2">
-                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-500 opacity-75"></span>
                         <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
                     </span>
-                    Full stack observability for robotic fleets
-                    <ChevronRight className="h-3 w-3 text-white/50 group-hover:translate-x-0.5 transition-transform" />
+                    v1.0 is now live
+                    <div className="h-3 w-[1px] bg-white/10 mx-1"></div>
+                    <span className="flex items-center text-zinc-400 group-hover:text-white transition-colors">
+                        Read the announcement <ChevronRight className="h-3 w-3 ml-1" />
+                    </span>
                 </motion.div>
 
                 {/* Main Heading */}
-                <motion.h1 variants={itemVariants} className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter text-white leading-[1.1] md:leading-[0.9]">
+                <motion.h1 variants={itemVariants} className="text-5xl md:text-7xl lg:text-8xl font-semibold tracking-tight text-white leading-[1.1] md:leading-[1.05]">
                     Observe. Diagnose. <br />
-                    <span className="text-transparent bg-clip-text bg-gradient-to-b from-blue-400 via-blue-200 to-white/40">Heal.</span>
+                    <span className="text-transparent bg-clip-text bg-gradient-to-b from-blue-300 to-blue-600">Heal.</span>
                 </motion.h1>
 
                 {/* Subheading */}
-                <motion.p variants={itemVariants} className="text-lg md:text-xl text-zinc-400 max-w-2xl text-center leading-relaxed tracking-tight">
-                    Ferronyx gives robotics teams a unified view of their entire fleet — with real-time telemetry, SRE-grade incident management, and AI-powered debugging.
+                <motion.p variants={itemVariants} className="text-lg md:text-xl text-[#8A8F98] max-w-2xl text-center leading-relaxed font-normal">
+                    Ferronyx is the intelligence layer for your robot fleet. <br className="hidden md:block" /> Real-time telemetry, SRE-grade incidents, and AI debugging.
                 </motion.p>
 
                 {/* Buttons */}
-                <motion.div variants={itemVariants} className="flex flex-col sm:flex-row items-center gap-4 mt-2 w-full sm:w-auto">
+                <motion.div variants={itemVariants} className="flex flex-col sm:flex-row items-center gap-4 mt-4 w-full sm:w-auto">
                     <a href="https://dev.ferronyx.com/register" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
-                        <Button size="lg" className="rounded-full text-base px-8 h-12 sm:h-14 bg-white text-black hover:bg-zinc-200 font-semibold transition-transform hover:scale-105 w-full cursor-pointer">
-                            Get Started
+                        <Button size="lg" className="rounded-full text-sm h-12 px-8 bg-[#F5F5F7] text-black hover:bg-white border border-transparent font-medium shadow-[0_0_20px_rgba(255,255,255,0.1)] transition-all hover:scale-[1.02] w-full cursor-pointer">
+                            Start for free
                         </Button>
                     </a>
                     <a href="https://www.youtube.com/watch?v=-12Zc0KPB2I" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
-                        <Button variant="outline" size="lg" className="rounded-full text-base px-8 h-12 sm:h-14 border-white/10 bg-white/5 hover:bg-white/10 text-white backdrop-blur-sm transition-transform hover:scale-105 group w-full cursor-pointer">
-                            <Play className="mr-2 h-4 w-4 fill-white" /> Watch Demo
+                        <Button variant="outline" size="lg" className="rounded-full text-sm h-12 px-8 border-white/10 bg-white/[0.05] hover:bg-white/[0.1] text-white backdrop-blur-sm transition-all hover:scale-[1.02] group w-full cursor-pointer">
+                            <Play className="mr-2 h-3 w-3 fill-white" /> Watch Demo
                         </Button>
                     </a>
                 </motion.div>
 
-                {/* Dashboard Preview */}
+                {/* Dashboard Preview - Linear Style Glass */}
                 <motion.div 
                     variants={itemVariants}
-                    className="mt-12 w-full max-w-5xl rounded-xl border border-white/10 bg-black/40 backdrop-blur-sm shadow-2xl shadow-blue-900/20 overflow-hidden"
+                    className="mt-16 w-full max-w-5xl rounded-xl border border-white/[0.08] bg-[#0A0A0B]/50 backdrop-blur-xl shadow-2xl shadow-black/50 overflow-hidden ring-1 ring-white/5"
                 >
+                    {/* Window Controls */}
+                    <div className="h-8 border-b border-white/[0.08] bg-white/[0.02] flex items-center px-4 gap-2">
+                        <div className="w-3 h-3 rounded-full bg-[#2D2D2E]"></div>
+                        <div className="w-3 h-3 rounded-full bg-[#2D2D2E]"></div>
+                        <div className="w-3 h-3 rounded-full bg-[#2D2D2E]"></div>
+                    </div>
                      <DashboardIllustration />
                 </motion.div>
                 
-                {/* Feature Pills */}
-                <motion.div variants={itemVariants} className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 text-sm text-zinc-500 mt-8">
-                     <div className="flex items-center gap-2">
-                        <span className="text-blue-500">✓</span> 10-minute setup
-                     </div>
-                     <div className="flex items-center gap-2">
-                        <span className="text-blue-500">✓</span> Zero-config ROS2 integration
-                     </div>
-                     <div className="flex items-center gap-2">
-                        <span className="text-blue-500">✓</span> AI-assisted debugging
-                     </div>
-                </motion.div>
+                {/* Companies/Social Proof Text */}
+                <motion.p variants={itemVariants} className="mt-12 text-xs font-medium text-zinc-600 uppercase tracking-widest">
+                    TRUSTED BY ROBOTICS TEAMS AT
+                </motion.p>
 
             </motion.div>
-
-            <div className="absolute bottom-0 w-full h-32 bg-gradient-to-t from-black to-transparent pointer-events-none"></div>
         </section>
     );
 };

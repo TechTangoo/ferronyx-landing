@@ -11,11 +11,10 @@ import {
     Zap, 
 } from 'lucide-react';
 
-// Floating Card Component for the "Liquid" feel
 const FloatingCard = ({ item, index, align = 'left' }) => {
     // Randomize floating parameters for organic feel
     const duration = 4 + Math.random() * 2;
-    const yOffset = 10 + Math.random() * 5;
+    const yOffset = 8 + Math.random() * 4;
     const delay = index * 0.2;
 
     return (
@@ -31,33 +30,32 @@ const FloatingCard = ({ item, index, align = 'left' }) => {
                 delay: delay
             }}
         >
-            {/* Connection Strand (Blurred Line) */}
-            <div className={`absolute top-1/2 w-[100px] h-[2px] bg-gradient-to-r from-transparent via-white/20 to-transparent blur-[1px] hidden lg:block
-                ${align === 'left' ? '-right-[100px]' : '-left-[100px]'}
+            {/* Connection Strand */}
+            <div className={`absolute top-1/2 w-[80px] h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent hidden lg:block
+                ${align === 'left' ? '-right-[80px]' : '-left-[80px]'}
             `}></div>
 
             <div className={`
-                relative flex items-center gap-4 p-5 rounded-2xl 
-                bg-white/5 backdrop-blur-xl border border-white/10
-                shadow-[0_8px_32px_rgba(0,0,0,0.3)]
-                hover:bg-white/10 hover:border-white/20 hover:scale-[1.02]
+                relative flex items-center gap-4 p-4 rounded-xl 
+                bg-[#0A0A0B]/80 backdrop-blur-md border border-white/[0.08]
+                shadow-[0_4px_20px_rgba(0,0,0,0.2)]
+                hover:bg-[#0A0A0B] hover:border-white/[0.15] hover:scale-[1.02]
                 transition-all duration-500 ease-out cursor-pointer
                 ${align === 'left' ? 'flex-row-reverse text-right' : 'flex-row text-left'}
             `}>
                 <div className={`
-                    p-3.5 rounded-xl bg-gradient-to-br from-white/10 to-transparent 
-                    border border-white/5 shadow-inner ${item.color}
-                    group-hover:scale-110 transition-transform duration-500
+                    p-2.5 rounded-lg bg-white/[0.03] border border-white/[0.05]
+                    text-zinc-300 group-hover:text-white transition-colors duration-300
                 `}>
                     {item.icon}
                 </div>
                 <div>
-                    <div className="font-bold text-white text-base tracking-tight mb-0.5">{item.label}</div>
-                    <div className="text-xs text-zinc-400 font-medium">{item.desc}</div>
+                    <div className="font-medium text-[#EDEDED] text-sm mb-0.5">{item.label}</div>
+                    <div className="text-[11px] text-[#8A8F98]">{item.desc}</div>
                 </div>
                 
-                {/* Glossy sheen effect */}
-                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/5 to-transparent pointer-events-none"></div>
+                {/* Top Highlight */}
+                <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/[0.1] to-transparent rounded-t-xl"></div>
             </div>
         </motion.div>
     );
@@ -70,56 +68,56 @@ const LiquidLifecycle = () => {
         offset: ["start end", "end start"]
     });
 
-    const yLeft = useTransform(scrollYProgress, [0, 1], [50, -50]);
-    const yRight = useTransform(scrollYProgress, [0, 1], [-50, 50]);
+    const yLeft = useTransform(scrollYProgress, [0, 1], [30, -30]);
+    const yRight = useTransform(scrollYProgress, [0, 1], [-30, 30]);
     
     const leftSide = [
-        { id: 'ros', label: 'ROS 2 Discovery', icon: <Brain size={20} />, color: '', desc: "Auto-detect nodes" },
-        { id: 'alerts', label: 'Smart Thresholds', icon: <BellRing size={20} />, color: '', desc: "Configurable rules" },
-        { id: 'runbooks', label: 'Runbook Definitions', icon: <BookOpen size={20} />, color: '', desc: "Recovery logic" },
+        { id: 'ros', label: 'ROS 2 Discovery', icon: <Brain size={18} />, desc: "Auto-detect nodes" },
+        { id: 'alerts', label: 'Smart Thresholds', icon: <BellRing size={18} />, desc: "Configurable rules" },
+        { id: 'runbooks', label: 'Runbook Definitions', icon: <BookOpen size={18} />, desc: "Recovery logic" },
     ];
 
     const rightSide = [
-        { id: 'monitor', label: 'Live Monitoring', icon: <Activity size={20} />, color: '', desc: "Real-time telemetry" },
-        { id: 'debug', label: 'AI Diagnostics', icon: <Terminal size={20} />, color: '', desc: "Root cause analysis" },
-        { id: 'heal', label: 'Remote Healing', icon: <Zap size={20} />, color: '', desc: "Execute fixes" },
+        { id: 'monitor', label: 'Live Monitoring', icon: <Activity size={18} />, desc: "Real-time telemetry" },
+        { id: 'debug', label: 'AI Diagnostics', icon: <Terminal size={18} />, desc: "Root cause analysis" },
+        { id: 'heal', label: 'Remote Healing', icon: <Zap size={18} />, desc: "Execute fixes" },
     ];
 
     return (
-        <section ref={ref} className="relative min-h-screen w-full flex flex-col items-center justify-center bg-black px-6 border-t border-white/5 py-32 overflow-hidden">
+        <section ref={ref} className="relative min-h-screen w-full flex flex-col items-center justify-center bg-[#050505] px-6 border-t border-white/[0.05] py-32 overflow-hidden">
              
-             {/* Liquid Background Blobs */}
+             {/* Liquid Background Blobs - Subtle & Dark */}
              <div className="absolute inset-0 overflow-hidden pointer-events-none">
                  <motion.div 
                     style={{ y: yLeft }}
-                    className="absolute top-[20%] left-[10%] w-[500px] h-[500px] bg-zinc-800/20 rounded-full blur-[120px] mix-blend-screen opacity-40"
+                    className="absolute top-[20%] left-[15%] w-[400px] h-[400px] bg-blue-500/[0.03] rounded-full blur-[100px]"
                  />
                  <motion.div 
                     style={{ y: yRight }}
-                    className="absolute bottom-[20%] right-[10%] w-[600px] h-[600px] bg-zinc-800/20 rounded-full blur-[120px] mix-blend-screen opacity-40"
+                    className="absolute bottom-[20%] right-[15%] w-[400px] h-[400px] bg-purple-500/[0.03] rounded-full blur-[100px]"
                  />
              </div>
 
             <ScrollReveal className="max-w-4xl w-full text-center flex flex-col items-center gap-6 mb-24 relative z-10">
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-md shadow-lg text-xs font-semibold text-zinc-300 w-fit mb-4">
-                    <span className="w-2 h-2 rounded-full bg-white animate-pulse"></span>
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/[0.02] backdrop-blur-md text-xs font-medium text-zinc-400 w-fit mb-4">
+                    <span className="w-1.5 h-1.5 rounded-full bg-blue-500/80 animate-pulse"></span>
                     End-to-End Reliability
                 </div>
-                <h2 className="text-5xl md:text-7xl font-bold tracking-tighter text-white drop-shadow-2xl">
+                <h2 className="text-4xl md:text-6xl font-semibold tracking-tight text-white">
                     Shift Left. <span className="text-white/20 mx-2">/</span> Shift Right.
                 </h2>
-                <p className="text-xl text-zinc-500 max-w-2xl leading-relaxed font-light">
+                <p className="text-lg text-[#8A8F98] max-w-2xl leading-relaxed">
                     Ferronyx bridges the gap between proactive configuration and reactive operations.
                 </p>
             </ScrollReveal>
 
             {/* The Liquid Flow Visualization */}
-            <div className="relative w-full max-w-7xl grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-0 items-center">
+            <div className="relative w-full max-w-5xl grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-0 items-center">
                 
-                {/* LEFT SIDE: Floating Stack (Shift Left) */}
-                <div className="flex flex-col gap-6 lg:gap-8 perspective-[1000px] relative z-10">
-                    <div className="text-center lg:text-right mb-2 lg:pr-4">
-                        <span className="text-xs font-bold text-zinc-600 uppercase tracking-widest">Prevention</span>
+                {/* LEFT SIDE: Shift Left */}
+                <div className="flex flex-col gap-5 lg:gap-6 perspective-[1000px] relative z-10">
+                    <div className="text-center lg:text-right mb-1 lg:pr-2">
+                        <span className="text-[10px] font-bold text-zinc-600 uppercase tracking-widest">Prevention</span>
                     </div>
                      {leftSide.map((item, i) => (
                          <FloatingCard key={item.id} item={item} index={i} align="left" />
@@ -129,30 +127,30 @@ const LiquidLifecycle = () => {
                 {/* CENTER: Liquid Core */}
                 <div className="relative flex flex-col items-center justify-center py-12 lg:py-0 z-20">
                     {/* Central Connection Beam */}
-                    <div className="absolute top-1/2 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent blur-[1px]"></div>
+                    <div className="absolute top-1/2 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/[0.08] to-transparent blur-[0.5px]"></div>
 
                     <motion.div 
-                        className="relative w-40 h-40 md:w-52 md:h-52 rounded-full bg-black/40 backdrop-blur-2xl border border-white/10 flex items-center justify-center shadow-[0_0_80px_rgba(255,255,255,0.05)] ring-1 ring-white/10"
+                        className="relative w-36 h-36 md:w-48 md:h-48 rounded-full bg-[#050505] border border-white/10 flex items-center justify-center shadow-[0_0_60px_rgba(255,255,255,0.03)] ring-1 ring-white/[0.05]"
                         animate={{ 
                             scale: [1, 1.02, 1],
                         }}
-                        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
                     >
-                        <img src={logo} alt="Ferronyx" className="h-20 md:h-24 w-auto relative z-10 drop-shadow-[0_0_30px_rgba(255,255,255,0.3)]" />
+                        <img src={logo} alt="Ferronyx" className="h-16 md:h-20 w-auto relative z-10 opacity-90" />
                         
-                        {/* Fluid Ripples */}
-                        <div className="absolute inset-0 rounded-full border border-white/10 animate-[ping_4s_cubic-bezier(0,0,0.2,1)_infinite]"></div>
-                        <div className="absolute inset-[-20px] rounded-full border border-white/5 animate-[ping_4s_cubic-bezier(0,0,0.2,1)_infinite_1s]"></div>
+                        {/* Subtle Ripples */}
+                        <div className="absolute inset-0 rounded-full border border-white/[0.05] animate-[ping_4s_cubic-bezier(0,0,0.2,1)_infinite]"></div>
+                        <div className="absolute inset-[-15px] rounded-full border border-white/[0.02] animate-[ping_4s_cubic-bezier(0,0,0.2,1)_infinite_1.5s]"></div>
                         
                         {/* Glass Shine */}
-                        <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-white/10 to-transparent pointer-events-none"></div>
+                        <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-white/[0.05] to-transparent pointer-events-none"></div>
                     </motion.div>
                 </div>
 
-                {/* RIGHT SIDE: Floating Stack (Shift Right) */}
-                <div className="flex flex-col gap-6 lg:gap-8 perspective-[1000px] relative z-10">
-                    <div className="text-center lg:text-left mb-2 lg:pl-4">
-                        <span className="text-xs font-bold text-zinc-600 uppercase tracking-widest">Resolution</span>
+                {/* RIGHT SIDE: Shift Right */}
+                <div className="flex flex-col gap-5 lg:gap-6 perspective-[1000px] relative z-10">
+                    <div className="text-center lg:text-left mb-1 lg:pl-2">
+                        <span className="text-[10px] font-bold text-zinc-600 uppercase tracking-widest">Resolution</span>
                     </div>
                      {rightSide.map((item, i) => (
                          <FloatingCard key={item.id} item={item} index={i + 3} align="right" />

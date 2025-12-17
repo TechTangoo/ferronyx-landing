@@ -1,30 +1,30 @@
 import React from 'react';
-import { Factory, FlaskConical, Layers, ServerCog, GraduationCap } from "lucide-react";
+import { Factory, FlaskConical, Layers, ServerCog, GraduationCap, ArrowRight } from "lucide-react";
 import ScrollReveal from './ScrollReveal';
 
 const solutions = [
     {
-        icon: <Factory className="h-6 w-6 text-white" />,
+        icon: <Factory className="h-4 w-4" />,
         title: "Robotics Companies",
         desc: "Monitor production fleets, debug issues remotely, and reduce downtime across distributed deployments."
     },
     {
-        icon: <FlaskConical className="h-6 w-6 text-white" />,
+        icon: <FlaskConical className="h-4 w-4" />,
         title: "Research Labs",
         desc: "Get instant visibility into experiments, debug ROS workflows, and track system health without custom tooling."
     },
     {
-        icon: <Layers className="h-6 w-6 text-white" />,
-        title: "Platform & Autonomy Teams",
+        icon: <Layers className="h-4 w-4" />,
+        title: "Platform & Autonomy",
         desc: "Unify observability for autonomous systems, correlate incidents, and ship faster with AI-assisted insights."
     },
     {
-        icon: <ServerCog className="h-6 w-6 text-white" />,
+        icon: <ServerCog className="h-4 w-4" />,
         title: "Robotics SRE & DevOps",
         desc: "Implement SRE best practices with on-call workflows, escalation policies, and automated incident management."
     },
     {
-        icon: <GraduationCap className="h-6 w-6 text-white" />,
+        icon: <GraduationCap className="h-4 w-4" />,
         title: "Academic & R&D Teams",
         desc: "Focus on research, not infrastructure. Set up in minutes and start tracking robot behavior immediately."
     }
@@ -32,43 +32,47 @@ const solutions = [
 
 const FerronyxSolutions = () => {
     return (
-        <section id="built-for" className="relative w-full bg-black py-24 px-6 border-t border-white/5">
-            <ScrollReveal className="max-w-4xl mx-auto text-center mb-16">
-                <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
-                    Trusted by Robotics Teams <br />
-                    <span className="text-zinc-500">Worldwide</span>
+        <section id="built-for" className="relative w-full bg-[#050505] py-32 px-6 border-t border-white/[0.05]">
+            <ScrollReveal className="max-w-3xl mx-auto text-center mb-20">
+                <h2 className="text-3xl md:text-5xl font-semibold text-white mb-6 tracking-tight">
+                    Trusted by Robotics Teams
                 </h2>
-                <p className="text-lg text-zinc-400 max-w-2xl mx-auto">
+                <p className="text-lg text-[#8A8F98] max-w-xl mx-auto">
                     From research labs to production fleets — teams rely on Ferronyx to scale with confidence.
                 </p>
             </ScrollReveal>
 
-            <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {solutions.map((item, idx) => (
                     <ScrollReveal key={idx} delay={idx * 0.1} className="h-full">
-                        <div className="group h-full p-8 rounded-2xl bg-zinc-900/20 border border-white/5 hover:border-white/20 transition-all duration-300 hover:bg-white/5">
-                            <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/5 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <div className="group h-full p-8 rounded-xl bg-[#0A0A0B] border border-white/[0.08] hover:border-white/[0.15] transition-all duration-300 relative overflow-hidden">
+                             {/* Top Highlight */}
+                             <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/[0.1] to-transparent"></div>
+                            
+                            <div className="w-8 h-8 rounded-md bg-white/[0.05] flex items-center justify-center mb-6 text-zinc-300 group-hover:text-white transition-colors">
                                 {item.icon}
                             </div>
-                            <h3 className="text-xl font-bold text-white mb-3">
+                            <h3 className="text-lg font-medium text-[#EDEDED] mb-3">
                                 {item.title}
                             </h3>
-                            <p className="text-zinc-500 leading-relaxed text-sm">
+                            <p className="text-[#8A8F98] leading-relaxed text-sm">
                                 {item.desc}
                             </p>
                         </div>
                     </ScrollReveal>
                 ))}
                 
-                {/* CTA Card */}
+                {/* CTA Card - High Contrast */}
                 <ScrollReveal delay={0.5} className="h-full">
-                    <div className="h-full p-8 rounded-2xl bg-white text-black flex flex-col justify-center items-center text-center hover:scale-[1.02] transition-all cursor-pointer group shadow-[0_0_40px_rgba(255,255,255,0.1)]" onClick={() => document.getElementById('contact-footer')?.scrollIntoView({behavior: 'smooth'})}>
-                        <h3 className="text-2xl font-bold mb-2">Ready to scale?</h3>
-                        <p className="text-zinc-600 mb-6 text-sm">Join the next generation of robotics companies.</p>
-                        <span className="px-6 py-2 rounded-full bg-black text-white font-semibold text-sm group-hover:bg-zinc-800 transition-colors">
-                            Contact Sales
-                        </span>
-                    </div>
+                    <a href="https://dev.ferronyx.com/register" target="_blank" rel="noopener noreferrer" className="block h-full">
+                        <div className="h-full p-8 rounded-xl bg-[#EDEDED] text-black flex flex-col justify-center items-center text-center hover:scale-[1.01] transition-transform cursor-pointer group shadow-lg">
+                            <h3 className="text-xl font-bold mb-2">Ready to scale?</h3>
+                            <p className="text-zinc-600 mb-6 text-sm">Join the next generation of robotics companies.</p>
+                            <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#050505] text-white font-medium text-sm group-hover:bg-zinc-800 transition-colors">
+                                Contact Sales <ArrowRight className="h-3 w-3" />
+                            </span>
+                        </div>
+                    </a>
                 </ScrollReveal>
             </div>
         </section>
