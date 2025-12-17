@@ -76,8 +76,8 @@ const FerronyxSolutions = () => {
                 <ScrollReveal delay={0.5} className="h-full">
                     <a href="https://dev.ferronyx.com/register" target="_blank" rel="noopener noreferrer" className="block h-full">
                         <div className="h-full p-8 rounded-xl bg-[#EDEDED] text-black flex flex-col justify-center items-center text-center hover:scale-[1.01] transition-transform cursor-pointer group shadow-lg">
-                            <h3 className="text-xl font-bold mb-2">Ready to scale?</h3>
-                            <p className="text-zinc-600 mb-6 text-sm">Join the next generation of robotics companies.</p>
+                            <h3 className="text-xl font-bold mb-2">Ready to scale your fleet?</h3>
+                            <p className="text-zinc-600 mb-6 text-sm">Get full observability across all your robots.</p>
                             <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#050505] text-white font-medium text-sm group-hover:bg-zinc-800 transition-colors">
                                 Contact Sales <ArrowRight className="h-3 w-3" />
                             </span>
