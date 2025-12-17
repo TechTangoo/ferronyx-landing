@@ -3,7 +3,7 @@ import { Button } from "./ui/button";
 import { ChevronRight, Play } from "lucide-react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import DashboardIllustration from './DashboardIllustration';
-import Orb from './Orb';
+import LightRays from './LightRays';
 
 const FerronyxHero = () => {
     const targetRef = useRef(null);
@@ -12,9 +12,9 @@ const FerronyxHero = () => {
         offset: ["start start", "end start"]
     });
 
-    const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
-    const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.95]);
-    const y = useTransform(scrollYProgress, [0, 0.5], [0, 30]);
+    const scale = useTransform(scrollYProgress, [0, 1], [1, 0.9]);
+    const y = useTransform(scrollYProgress, [0, 1], [0, 50]);
+    // Removed opacity fade to keep dashboard visible
 
     // Stagger container for children
     const containerVariants = {
@@ -41,16 +41,17 @@ const FerronyxHero = () => {
         <section ref={targetRef} className="relative min-h-screen w-full flex flex-col items-center justify-center overflow-hidden bg-[#050505] pt-20">
             {/* Background Effects */}
             <div className="absolute inset-0 z-0">
-                {/* The Orb Component */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] md:w-[800px] md:h-[800px] opacity-60">
-                     <Orb hue={220} size={70} />
-                </div>
+                <LightRays 
+                    raysColor="#93C5FD" 
+                    raysSpeed={0.4} 
+                    rayLength={5} 
+                    lightSpread={0.4} 
+                    raysOrigin="top-center" 
+                    className="absolute inset-0 opacity-100 mix-blend-screen" 
+                />
                 
-                {/* Grid Overlay for texture - Extremely subtle */}
-                <div className="absolute inset-0 bg-[url('/grid.svg')] bg-[size:40px_40px] opacity-[0.04] pointer-events-none mix-blend-plus-lighter"></div>
-                
-                {/* Vignette */}
-                <div className="absolute inset-0 bg-radial-gradient from-transparent via-[#050505]/50 to-[#050505] pointer-events-none"></div>
+                {/* Vignette for text readability */}
+                <div className="absolute inset-0 bg-radial-gradient from-transparent via-[#050505]/40 to-[#050505] pointer-events-none"></div>
             </div>
 
             <motion.div
@@ -59,7 +60,7 @@ const FerronyxHero = () => {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
-                style={{ opacity, scale, y }} // Parallax effect on scroll
+                style={{ scale, y }} // Parallax effect on scroll, no opacity fade
             >
                 {/* Badge */}
                 <motion.div variants={itemVariants} className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/[0.03] backdrop-blur-md text-xs font-medium text-zinc-300 hover:bg-white/[0.08] transition-colors cursor-pointer group">
@@ -75,13 +76,13 @@ const FerronyxHero = () => {
                 </motion.div>
 
                 {/* Main Heading */}
-                <motion.h1 variants={itemVariants} className="text-5xl md:text-7xl lg:text-8xl font-semibold tracking-tight text-white leading-[1.1] md:leading-[1.05]">
+                <motion.h1 variants={itemVariants} className="text-9xl md:text-8xl lg:text-9xl font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white via-white to-white/70 leading-[1] md:leading-[0.95]">
                     Observe. Diagnose. <br />
                     <span className="text-transparent bg-clip-text bg-gradient-to-b from-blue-300 to-blue-600">Heal.</span>
                 </motion.h1>
 
                 {/* Subheading */}
-                <motion.p variants={itemVariants} className="text-lg md:text-xl text-[#8A8F98] max-w-2xl text-center leading-relaxed font-normal">
+                <motion.p variants={itemVariants} className="text-xl md:text-2xl text-[#B4B4B8] max-w-3xl text-center leading-relaxed font-normal tracking-tight">
                     Ferronyx is the intelligence layer for your robot fleet. <br className="hidden md:block" /> Real-time telemetry, SRE-grade incidents, and AI debugging.
                 </motion.p>
 
@@ -114,7 +115,7 @@ const FerronyxHero = () => {
                 </motion.div>
                 
                 {/* Companies/Social Proof Text */}
-                <motion.p variants={itemVariants} className="mt-12 text-xs font-medium text-zinc-600 uppercase tracking-widest">
+                <motion.p variants={itemVariants} className="mt-20 text-sm font-semibold text-zinc-400 uppercase tracking-widest">
                     TRUSTED BY ROBOTICS TEAMS AT
                 </motion.p>
 
