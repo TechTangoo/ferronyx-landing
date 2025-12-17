@@ -79,7 +79,7 @@ const FerronyxSolutions = () => {
                             <h3 className="text-xl font-bold mb-2">Ready to scale your fleet?</h3>
                             <p className="text-zinc-600 mb-6 text-sm">Get full observability across all your robots.</p>
                             <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#050505] text-white font-medium text-sm group-hover:bg-zinc-800 transition-colors">
-                                Contact Sales <ArrowRight className="h-3 w-3" />
+                                Book Demo <ArrowRight className="h-3 w-3" />
                             </span>
                         </div>
                     </a>

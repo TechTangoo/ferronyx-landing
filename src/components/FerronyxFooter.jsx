@@ -66,8 +66,8 @@ const FerronyxFooter = () => {
 
                 {/* Right Column: Contact Form - Linear Style */}
                 <div className="bg-[#0A0A0B] border border-white/[0.08] rounded-xl p-8 shadow-sm">
-                    <h4 className="text-lg font-medium text-white mb-2">Get Started Today</h4>
-                    <p className="text-[#8A8F98] mb-8 text-sm">Tell us about your fleet and we'll help you get set up.</p>
+                    <h4 className="text-lg font-medium text-white mb-2">Book a Demo</h4>
+                    <p className="text-[#8A8F98] mb-8 text-sm">See Ferronyx in action. We'll walk you through your specific use case.</p>
                     
                     <form onSubmit={handleSubmit} className="space-y-5">
                         <div className="space-y-2">
@@ -105,7 +105,7 @@ const FerronyxFooter = () => {
                             />
                         </div>
                         <Button type="submit" className="w-full bg-[#EDEDED] text-black hover:bg-white font-medium h-11 mt-4 rounded-lg shadow-lg hover:shadow-white/5 transition-all">
-                            Request Demo
+                            Book Demo
                         </Button>
                     </form>
                 </div>

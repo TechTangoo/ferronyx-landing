@@ -165,11 +165,11 @@ const FerronyxFeatures = () => {
                     <a href="https://dev.ferronyx.com/register" target="_blank" rel="noopener noreferrer" className="block h-full">
                         <div className="h-full rounded-xl bg-[#EDEDED] text-black p-8 flex flex-col justify-between group cursor-pointer transition-transform hover:scale-[1.01] shadow-lg hover:shadow-white/10">
                             <div>
-                                <h3 className="text-xl font-bold mb-2">Start for free</h3>
+                                <h3 className="text-xl font-bold mb-2">Start Free</h3>
                                 <p className="text-zinc-600 text-sm">Connect your first robot in 5 minutes.</p>
                             </div>
                             <div className="flex items-center gap-2 mt-6 font-semibold group-hover:gap-3 transition-all text-sm">
-                                Get Started <ArrowUpRight className="h-4 w-4" />
+                                Start Free <ArrowUpRight className="h-4 w-4" />
                             </div>
                         </div>
                     </a>
