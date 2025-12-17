@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import ScrollReveal from './ScrollReveal';
 import { motion, useScroll, useTransform } from "framer-motion";
 import logo from '../assets/logo.svg';
+import LightRays from './LightRays';
 import { 
     Brain, 
     BellRing, 
@@ -56,7 +57,7 @@ const FloatingCard = ({ item, index, align = 'left' }) => {
                 </div>
                 <div>
                     <div className="font-medium text-[#EDEDED] text-sm mb-0.5">{item.label}</div>
-                    <div className="text-[11px] text-[#8A8F98]">{item.desc}</div>
+                    <div className="text-[11px] text-zinc-400">{item.desc}</div>
                 </div>
                 
                 {/* Top Highlight - Color Coded */}
@@ -91,15 +92,15 @@ const LiquidLifecycle = () => {
     return (
         <section ref={ref} className="relative min-h-screen w-full flex flex-col items-center justify-center bg-[#050505] px-6 border-t border-white/[0.05] py-32 overflow-hidden">
              
-             {/* Liquid Background Blobs - Subtle & Dark */}
-             <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                 <motion.div 
-                    style={{ y: yLeft }}
-                    className="absolute top-[20%] left-[15%] w-[400px] h-[400px] bg-blue-500/[0.05] rounded-full blur-[100px]"
-                 />
-                 <motion.div 
-                    style={{ y: yRight }}
-                    className="absolute bottom-[20%] right-[15%] w-[400px] h-[400px] bg-purple-500/[0.05] rounded-full blur-[100px]"
+             {/* Background Effects */}
+             <div className="absolute inset-0 pointer-events-none">
+                 <LightRays 
+                    raysColor="#ffffff" 
+                    raysSpeed={0.1} 
+                    rayLength={3} 
+                    lightSpread={0.1} 
+                    raysOrigin="top-center" 
+                    className="absolute inset-0 opacity-10" 
                  />
              </div>
 
@@ -111,7 +112,7 @@ const LiquidLifecycle = () => {
                 <h2 className="text-4xl md:text-6xl font-semibold tracking-tight text-white">
                     Shift Left. <span className="text-white/20 mx-2">/</span> Shift Right.
                 </h2>
-                <p className="text-lg text-[#8A8F98] max-w-2xl leading-relaxed">
+                <p className="text-lg text-zinc-400 max-w-2xl leading-relaxed">
                     Ferronyx bridges the gap between proactive configuration and reactive operations.
                 </p>
             </ScrollReveal>
