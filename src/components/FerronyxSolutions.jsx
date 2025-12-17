@@ -5,26 +5,36 @@ import ScrollReveal from './ScrollReveal';
 const solutions = [
     {
         icon: <Factory className="h-4 w-4" />,
+        color: "text-blue-400 group-hover:text-blue-300",
+        bg: "bg-blue-500/10",
         title: "Robotics Companies",
         desc: "Monitor production fleets, debug issues remotely, and reduce downtime across distributed deployments."
     },
     {
         icon: <FlaskConical className="h-4 w-4" />,
+        color: "text-purple-400 group-hover:text-purple-300",
+        bg: "bg-purple-500/10",
         title: "Research Labs",
         desc: "Get instant visibility into experiments, debug ROS workflows, and track system health without custom tooling."
     },
     {
         icon: <Layers className="h-4 w-4" />,
+        color: "text-pink-400 group-hover:text-pink-300",
+        bg: "bg-pink-500/10",
         title: "Platform & Autonomy",
         desc: "Unify observability for autonomous systems, correlate incidents, and ship faster with AI-assisted insights."
     },
     {
         icon: <ServerCog className="h-4 w-4" />,
+        color: "text-amber-400 group-hover:text-amber-300",
+        bg: "bg-amber-500/10",
         title: "Robotics SRE & DevOps",
         desc: "Implement SRE best practices with on-call workflows, escalation policies, and automated incident management."
     },
     {
         icon: <GraduationCap className="h-4 w-4" />,
+        color: "text-emerald-400 group-hover:text-emerald-300",
+        bg: "bg-emerald-500/10",
         title: "Academic & R&D Teams",
         desc: "Focus on research, not infrastructure. Set up in minutes and start tracking robot behavior immediately."
     }
@@ -49,7 +59,7 @@ const FerronyxSolutions = () => {
                              {/* Top Highlight */}
                              <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/[0.1] to-transparent"></div>
                             
-                            <div className="w-8 h-8 rounded-md bg-white/[0.05] flex items-center justify-center mb-6 text-zinc-300 group-hover:text-white transition-colors">
+                            <div className={`w-8 h-8 rounded-md flex items-center justify-center mb-6 ${item.bg} ${item.color} transition-colors border border-white/5`}>
                                 {item.icon}
                             </div>
                             <h3 className="text-lg font-medium text-[#EDEDED] mb-3">
