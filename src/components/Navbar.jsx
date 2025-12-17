@@ -25,11 +25,11 @@ const Navbar = () => {
 
             <div className="flex items-center gap-4">
                 <button onClick={() => scrollToSection('contact-footer')} className="text-sm font-medium text-zinc-400 hover:text-white transition-colors hidden sm:block">
-                    Contact Sales
+                    Book Demo
                 </button>
                 <a href="https://dev.ferronyx.com/register" target="_blank" rel="noopener noreferrer">
                     <Button className="bg-[#EDEDED] text-black hover:bg-white rounded-full px-5 h-9 font-medium text-sm cursor-pointer border border-transparent transition-all shadow-sm">
-                        Get Started
+                        Start Free
                     </Button>
                 </a>
             </div>
