@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { Button } from "./ui/button";
-import { ChevronRight, Play } from "lucide-react";
+import { Play } from "lucide-react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import DashboardIllustration from './DashboardIllustration';
 import LightRays from './LightRays';
@@ -63,27 +63,22 @@ const FerronyxHero = () => {
                 style={{ scale, y }} // Parallax effect on scroll, no opacity fade
             >
                 {/* Badge */}
-                <motion.div variants={itemVariants} className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/[0.03] backdrop-blur-md text-xs font-medium text-zinc-300 hover:bg-white/[0.08] transition-colors cursor-pointer group">
+                <motion.div variants={itemVariants} className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/[0.03] backdrop-blur-md text-xs font-medium text-zinc-300">
                     <span className="relative flex h-2 w-2">
                         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-500 opacity-75"></span>
                         <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
                     </span>
                     v1.0 is now live
-                    <div className="h-3 w-[1px] bg-white/10 mx-1"></div>
-                    <span className="flex items-center text-zinc-400 group-hover:text-white transition-colors">
-                        Read the announcement <ChevronRight className="h-3 w-3 ml-1" />
-                    </span>
                 </motion.div>
 
                 {/* Main Heading */}
-                <motion.h1 variants={itemVariants} className="text-9xl md:text-8xl lg:text-9xl font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white via-white to-white/70 leading-[1] md:leading-[0.95]">
-                    Observe. Diagnose. <br />
-                    <span className="text-transparent bg-clip-text bg-gradient-to-b from-blue-300 to-blue-600">Heal.</span>
+                <motion.h1 variants={itemVariants} className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-white via-white to-white/70 leading-[1.1]">
+                    Observe. Diagnose. <span className="text-transparent bg-clip-text bg-gradient-to-b from-blue-300 to-blue-600">Heal.</span>
                 </motion.h1>
 
                 {/* Subheading */}
                 <motion.p variants={itemVariants} className="text-xl md:text-2xl text-[#B4B4B8] max-w-3xl text-center leading-relaxed font-normal tracking-tight">
-                    Ferronyx is the intelligence layer for your robot fleet. <br className="hidden md:block" /> Real-time telemetry, SRE-grade incidents, and AI debugging.
+                    Ferronyx gives robotics teams a unified view of their entire fleet — with real-time telemetry, SRE-grade incident management and AI-powered debugging.
                 </motion.p>
 
                 {/* Buttons */}
@@ -115,9 +110,9 @@ const FerronyxHero = () => {
                 </motion.div>
                 
                 {/* Companies/Social Proof Text */}
-                <motion.p variants={itemVariants} className="mt-20 text-sm font-semibold text-zinc-400 uppercase tracking-widest">
-                    TRUSTED BY ROBOTICS TEAMS AT
-                </motion.p>
+                {/*<motion.p variants={itemVariants} className="mt-20 text-sm font-semibold text-zinc-400 uppercase tracking-widest">*/}
+                {/*    TRUSTED BY ROBOTICS TEAMS AT*/}
+                {/*</motion.p>*/}
 
             </motion.div>
         </section>
