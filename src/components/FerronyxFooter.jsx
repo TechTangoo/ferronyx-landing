@@ -20,15 +20,65 @@ const FerronyxFooter = () => {
         }));
     };
 
+    const sendDemoBookingEmail = async (bookingData) => {
+        try {
+            // EmailJS configuration - replace these with your actual values
+            const serviceId = import.meta.env.VITE_APP_EMAILJS_SERVICE_ID;
+            const templateId = import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID;
+            const publicKey = import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY;
+
+            // Import EmailJS (you'll need to install: npm install @emailjs/browser)
+            const emailjs = await import('@emailjs/browser');
+
+            const templateParams = {
+                email: bookingData.email,
+                company: bookingData.company,
+                name: "User",
+                time: new Date().toLocaleString(),
+                message: bookingData.comments,
+                teamemail: 'team@ferronyx.com',
+            };
+
+            const response = await emailjs.send(
+                serviceId,
+                templateId,
+                templateParams,
+                publicKey
+            );
+
+            if (response.status === 200) {
+                return true;
+            } else {
+                throw new Error('EmailJS failed to send email');
+            }
+        } catch (error) {
+            console.error('Error sending demo booking email:', error);
+            return false;
+        }
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
-        alert("Thanks! We'll be in touch.");
-        setFormData({ company: '', email: '', comments: '' });
+
+        const emailSent = await sendDemoBookingEmail(formData);
+
+        if (emailSent) {
+            // Clear form
+            setFormData({
+                comments: '',
+                company: '',
+                email: ''
+            });
+
+            alert('Thank you! Your demo booking request has been sent. We\'ll be in touch soon.');
+        } else {
+            alert('There was an issue sending your request. Please try again or contact us directly at support@ferronyx.com');
+        }
     };
 
     return (
         <footer id="contact-footer" className="relative w-full bg-[#050505] pt-32 pb-10 px-6 border-t border-white/[0.05] font-sans overflow-hidden">
-            
+
             <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20">
 
                 {/* Left Column: Brand & Info */}
@@ -37,7 +87,7 @@ const FerronyxFooter = () => {
                         <img src={logo} alt="Ferronyx Logo" className="h-8 w-auto opacity-90" />
                         <span className="text-xl font-bold text-white tracking-tight">Ferronyx</span>
                     </div>
-                    
+
                     <div className="max-w-md">
                         <h3 className="text-3xl font-semibold text-white mb-4 leading-tight tracking-tight">
                             Command your robot fleet from anywhere.
@@ -68,40 +118,40 @@ const FerronyxFooter = () => {
                 <div className="bg-[#0A0A0B] border border-white/[0.08] rounded-xl p-8 shadow-sm">
                     <h4 className="text-lg font-medium text-white mb-2">Book a Demo</h4>
                     <p className="text-[#8A8F98] mb-8 text-sm">See Ferronyx in action. We'll walk you through your specific use case.</p>
-                    
+
                     <form onSubmit={handleSubmit} className="space-y-5">
                         <div className="space-y-2">
                             <label htmlFor="company" className="text-[11px] font-semibold text-zinc-500 uppercase tracking-widest">Company</label>
-                            <Input 
+                            <Input
                                 id="company"
                                 name="company"
-                                value={formData.company} 
-                                onChange={handleInputChange} 
-                                placeholder="Acme Robotics" 
-                                className="bg-[#050505] border-white/[0.08] text-white placeholder:text-zinc-700 h-11 focus:border-white/20 focus:ring-0 rounded-lg transition-colors" 
+                                value={formData.company}
+                                onChange={handleInputChange}
+                                placeholder="Acme Robotics"
+                                className="bg-[#050505] border-white/[0.08] text-white placeholder:text-zinc-700 h-11 focus:border-white/20 focus:ring-0 rounded-lg transition-colors"
                             />
                         </div>
                         <div className="space-y-2">
                             <label htmlFor="email" className="text-[11px] font-semibold text-zinc-500 uppercase tracking-widest">Work Email</label>
-                            <Input 
-                                id="email" 
+                            <Input
+                                id="email"
                                 name="email"
                                 type="email"
-                                value={formData.email} 
-                                onChange={handleInputChange} 
-                                placeholder="you@company.com" 
-                                className="bg-[#050505] border-white/[0.08] text-white placeholder:text-zinc-700 h-11 focus:border-white/20 focus:ring-0 rounded-lg transition-colors" 
+                                value={formData.email}
+                                onChange={handleInputChange}
+                                placeholder="you@company.com"
+                                className="bg-[#050505] border-white/[0.08] text-white placeholder:text-zinc-700 h-11 focus:border-white/20 focus:ring-0 rounded-lg transition-colors"
                             />
                         </div>
                         <div className="space-y-2">
                             <label htmlFor="comments" className="text-[11px] font-semibold text-zinc-500 uppercase tracking-widest">Project Details</label>
-                            <Textarea 
+                            <Textarea
                                 id="comments"
-                                name="comments" 
-                                value={formData.comments} 
-                                onChange={handleInputChange} 
-                                placeholder="We have 50 AMRs and need better logging..." 
-                                className="bg-[#050505] border-white/[0.08] text-white placeholder:text-zinc-700 min-h-[120px] resize-none focus:border-white/20 focus:ring-0 rounded-lg transition-colors" 
+                                name="comments"
+                                value={formData.comments}
+                                onChange={handleInputChange}
+                                placeholder="We have 50 AMRs and need better logging..."
+                                className="bg-[#050505] border-white/[0.08] text-white placeholder:text-zinc-700 min-h-[120px] resize-none focus:border-white/20 focus:ring-0 rounded-lg transition-colors"
                             />
                         </div>
                         <Button type="submit" className="w-full bg-[#EDEDED] text-black hover:bg-white font-medium h-11 mt-4 rounded-lg shadow-lg hover:shadow-white/5 transition-all">
