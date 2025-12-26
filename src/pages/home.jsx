@@ -46,15 +46,14 @@ function Home() {
           <div className="max-w-7xl mx-auto text-center">
             <div className="max-w-5xl mx-auto">
               {/* Badge */}
-              <div className="inline-flex items-center gap-2 px-4 py-2 mb-8 rounded-full bg-primary/10 border border-primary/20 text-sm font-medium text-primary backdrop-blur-sm">
-                <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
+              <div className="inline-flex items-center gap-2 px-4 py-2 mb-8 rounded-full bg-primary/80 border border-primary text-sm font-medium text-primary backdrop-blur-sm">
                 Full stack observability tool for robotic fleets
               </div>
 
               {/* Main Headline */}
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-foreground mb-8 leading-[0.95]">
                 Observe. Diagnose.{' '}
-                <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent font-bold">
                   Heal.
                 </span>
               </h1>
