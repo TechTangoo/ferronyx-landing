@@ -1,6 +1,7 @@
 import React from 'react';
 import { Factory, FlaskConical, Layers, ServerCog, GraduationCap, ArrowRight } from "lucide-react";
 import ScrollReveal from './ScrollReveal';
+import hsmariesLogo from '../../ferronyx_clients/HSM ARIES LOGO.png';
 
 const solutions = [
     {
@@ -50,6 +51,21 @@ const FerronyxSolutions = () => {
                 <p className="text-lg text-[#8A8F98] max-w-xl mx-auto">
                     From research labs to production fleets — teams rely on Ferronyx to scale with confidence.
                 </p>
+            </ScrollReveal>
+
+            {/* Customer Logo Strip */}
+            <ScrollReveal className="max-w-6xl mx-auto mb-16">
+                <p className="text-center text-xs text-zinc-500 uppercase tracking-widest mb-8">
+                    Trusted by robotics teams at
+                </p>
+                <div className="flex items-center justify-center gap-12">
+                    <img
+                        src={hsmariesLogo}
+                        alt="HSM ARIES"
+                        className="h-10 md:h-12 grayscale opacity-50 hover:opacity-100 hover:grayscale-0 transition-all duration-300"
+                    />
+                    {/* More logos will be added here */}
+                </div>
             </ScrollReveal>
 
             <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
