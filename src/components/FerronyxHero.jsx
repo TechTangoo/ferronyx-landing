@@ -56,7 +56,7 @@ const FerronyxHero = () => {
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
                     style={{ opacity: dashboardOpacity }}
-                    className="absolute inset-0 z-10 pt-24 p-4 md:p-8 flex items-center justify-center"
+                    className="absolute inset-x-0 bottom-0 top-28 md:top-32 z-10 p-4 md:p-8 flex items-center justify-center"
                 >
                     <motion.div
                         style={{ scale }}
