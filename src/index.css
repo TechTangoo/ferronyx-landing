@@ -29,6 +29,7 @@
 }
 
 body {
+  min-width: max-content;
   font-family: 'Inter', sans-serif;
   background-color: #050505; /* Deep, rich black */
   color: #ffffff;

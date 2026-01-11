@@ -114,7 +114,7 @@ const FerronyxFooter = () => {
                     </div>
                 </div>
 
-                {/* Right Column: Contact Form - Linear Style */}
+                {/* Right Column: Contact Form */}
                 <div className="bg-[#0A0A0B] border border-white/[0.08] rounded-xl p-8 shadow-sm">
                     <h4 className="text-lg font-medium text-white mb-2">Book a Demo</h4>
                     <p className="text-[#8A8F98] mb-8 text-sm">See Ferronyx in action. We'll walk you through your specific use case.</p>
@@ -127,7 +127,7 @@ const FerronyxFooter = () => {
                                 name="company"
                                 value={formData.company}
                                 onChange={handleInputChange}
-                                placeholder="Acme Robotics"
+                                placeholder="Robotics"
                                 className="bg-[#050505] border-white/[0.08] text-white placeholder:text-zinc-700 h-11 focus:border-white/20 focus:ring-0 rounded-lg transition-colors"
                             />
                         </div>
