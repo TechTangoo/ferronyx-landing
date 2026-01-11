@@ -61,7 +61,7 @@ average rate: 30.012`;
 
   return (
     <div
-      className="relative w-full h-full min-h-[400px] md:min-h-[500px] rounded-lg overflow-hidden"
+      className="relative w-full h-full overflow-hidden"
       style={{ backgroundColor: colors.background }}
     >
       {/* Grid background */}
@@ -75,7 +75,7 @@ average rate: 30.012`;
         />
       </div>
 
-      <div className="relative z-10 grid grid-cols-1 md:grid-cols-10 gap-4 p-4 md:p-6 h-full">
+      <div className="relative z-10 grid grid-cols-1 md:grid-cols-10 gap-4 p-4 md:p-6 lg:p-8 h-full">
 
         {/* LEFT PANEL: Robot List */}
         <motion.div
