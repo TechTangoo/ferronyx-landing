@@ -2,7 +2,7 @@ import React from 'react'
 import './App.css'
 import Navbar from './components/Navbar'
 import FerronyxHero from './components/FerronyxHero'
-import FerronyxFeatures from './components/FerronyxFeatures'
+import FerronyxFeaturesScroll from './components/FerronyxFeaturesScroll'
 import HowItWorks from './components/HowItWorks'
 import EcosystemSection from './components/EcosystemSection'
 import FerronyxSolutions from './components/FerronyxSolutions'
@@ -14,7 +14,7 @@ function App() {
     <div className='min-h-screen relative bg-black text-white selection:bg-blue-500/30'>
         <Navbar />
         <FerronyxHero />
-        <FerronyxFeatures />
+        <FerronyxFeaturesScroll />
         <HowItWorks />
         <EcosystemSection />
         <FerronyxSolutions />
