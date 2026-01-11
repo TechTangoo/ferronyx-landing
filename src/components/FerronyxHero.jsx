@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import { Button } from "./ui/button";
 import { Play } from "lucide-react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import DashboardIllustration from './DashboardIllustration';
+import FleetCommandCenter from './FleetCommandCenter';
 import LightRays from './LightRays';
 
 const FerronyxHero = () => {
@@ -41,15 +41,30 @@ const FerronyxHero = () => {
         <section ref={targetRef} className="relative min-h-screen w-full flex flex-col items-center justify-center overflow-hidden bg-[#050505] pt-20">
             {/* Background Effects */}
             <div className="absolute inset-0 z-0">
-                <LightRays 
-                    raysColor="#93C5FD" 
-                    raysSpeed={0.4} 
-                    rayLength={5} 
-                    lightSpread={0.4} 
-                    raysOrigin="top-center" 
-                    className="absolute inset-0 opacity-100 mix-blend-screen" 
+                {/* Primary light rays - enhanced with distortion */}
+                <LightRays
+                    raysColor="#93C5FD"
+                    raysSpeed={0.3}
+                    rayLength={8}
+                    lightSpread={0.6}
+                    raysOrigin="top-center"
+                    noiseAmount={0.2}
+                    distortion={0.3}
+                    className="absolute inset-0 opacity-80 mix-blend-screen"
                 />
-                
+
+                {/* Secondary layer for depth - from bottom left */}
+                <LightRays
+                    raysColor="#60A5FA"
+                    raysSpeed={0.2}
+                    rayLength={6}
+                    lightSpread={0.5}
+                    raysOrigin="bottom-left"
+                    noiseAmount={0.15}
+                    distortion={0.2}
+                    className="absolute inset-0 opacity-40 mix-blend-screen"
+                />
+
                 {/* Vignette for text readability */}
                 <div className="absolute inset-0 bg-radial-gradient from-transparent via-[#050505]/40 to-[#050505] pointer-events-none"></div>
             </div>
@@ -73,12 +88,12 @@ const FerronyxHero = () => {
 
                 {/* Main Heading */}
                 <motion.h1 variants={itemVariants} className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-white via-white to-white/70 leading-[1.1]">
-                    Observe. Diagnose. <span className="text-transparent bg-clip-text bg-gradient-to-b from-blue-300 to-blue-600">Heal.</span>
+                    Observability for <span className="text-transparent bg-clip-text bg-gradient-to-b from-blue-300 to-blue-600">Production Robot Fleets</span>
                 </motion.h1>
 
                 {/* Subheading */}
                 <motion.p variants={itemVariants} className="text-xl md:text-2xl text-[#B4B4B8] max-w-3xl text-center leading-relaxed font-normal tracking-tight">
-                    Ferronyx gives robotics teams a unified view of their entire fleet — with real-time telemetry, SRE-grade incident management and AI-powered debugging.
+                    Monitor any Linux robot (ROS2 native). Catch infra + ROS issues before downtime. Debug remotely. Behavioral AI roadmap.
                 </motion.p>
 
                 {/* Buttons */}
@@ -106,7 +121,7 @@ const FerronyxHero = () => {
                         <div className="w-3 h-3 rounded-full bg-[#2D2D2E]"></div>
                         <div className="w-3 h-3 rounded-full bg-[#2D2D2E]"></div>
                     </div>
-                     <DashboardIllustration />
+                     <FleetCommandCenter />
                 </motion.div>
                 
                 {/* Companies/Social Proof Text */}
