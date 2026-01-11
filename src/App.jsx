@@ -3,6 +3,7 @@ import './App.css'
 import Navbar from './components/Navbar'
 import FerronyxHero from './components/FerronyxHero'
 import FerronyxFeatures from './components/FerronyxFeatures'
+import HowItWorks from './components/HowItWorks'
 import EcosystemSection from './components/EcosystemSection'
 import FerronyxSolutions from './components/FerronyxSolutions'
 import FerronyxFAQ from './components/FerronyxFAQ'
@@ -14,6 +15,7 @@ function App() {
         <Navbar />
         <FerronyxHero />
         <FerronyxFeatures />
+        <HowItWorks />
         <EcosystemSection />
         <FerronyxSolutions />
         <FerronyxFAQ />

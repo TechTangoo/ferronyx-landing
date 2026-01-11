@@ -78,15 +78,15 @@ const LiquidLifecycle = () => {
     const yRight = useTransform(scrollYProgress, [0, 1], [-30, 30]);
     
     const leftSide = [
-        { id: 'ros', label: 'ROS 2 Discovery', icon: <Brain size={18} />, desc: "Auto-detect nodes" },
-        { id: 'alerts', label: 'Smart Thresholds', icon: <BellRing size={18} />, desc: "Configurable rules" },
-        { id: 'runbooks', label: 'Runbook Definitions', icon: <BookOpen size={18} />, desc: "Recovery logic" },
+        { id: 'ros', label: 'ROS2 Auto-Discovery', icon: <Brain size={18} />, desc: "Zero config" },
+        { id: 'alerts', label: 'Dynamic Thresholds', icon: <BellRing size={18} />, desc: "ML-learned" },
+        { id: 'runbooks', label: 'Executable Runbooks', icon: <BookOpen size={18} />, desc: "YAML/Python" },
     ];
 
     const rightSide = [
-        { id: 'monitor', label: 'Live Monitoring', icon: <Activity size={18} />, desc: "Real-time telemetry" },
-        { id: 'debug', label: 'AI Diagnostics', icon: <Terminal size={18} />, desc: "Root cause analysis" },
-        { id: 'heal', label: 'Remote Healing', icon: <Zap size={18} />, desc: "Execute fixes" },
+        { id: 'monitor', label: 'Real-Time Telemetry', icon: <Activity size={18} />, desc: "Sub-second latency" },
+        { id: 'debug', label: 'AI Root Cause', icon: <Terminal size={18} />, desc: "Behavioral context" },
+        { id: 'heal', label: 'Remote Execution', icon: <Zap size={18} />, desc: "SSH-free" },
     ];
 
     return (
