@@ -75,14 +75,116 @@ average rate: 30.012`;
         />
       </div>
 
-      <div className="relative z-10 grid grid-cols-1 md:grid-cols-10 gap-4 p-4 md:p-6 lg:p-8 h-full">
+      <div className="relative z-10 p-4 md:p-6 lg:p-8 h-full">
 
+        {/* MOBILE: Simplified 2-panel layout */}
+        <div className="md:hidden grid grid-cols-2 gap-3 h-full">
+          {/* Left: Simplified robot list */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="space-y-2"
+          >
+            <div className="flex items-center gap-2 mb-3">
+              <Activity size={14} style={{ color: colors.primary }} />
+              <span className="text-xs font-medium" style={{ color: colors.textSecondary }}>
+                FLEET
+              </span>
+            </div>
+
+            {/* Show only critical robot */}
+            {robots.filter(r => r.status === 'critical').slice(0, 1).map((robot) => (
+              <div
+                key={robot.id}
+                className="p-2 rounded-lg border"
+                style={{
+                  backgroundColor: colors.forebackground,
+                  borderColor: colors.error
+                }}
+              >
+                <div className="flex items-center justify-between mb-1">
+                  <div className="flex items-center gap-1.5">
+                    <div
+                      className="w-1.5 h-1.5 rounded-full animate-pulse"
+                      style={{
+                        backgroundColor: colors.error,
+                        boxShadow: `0 0 6px ${colors.error}`
+                      }}
+                    />
+                    <span className="text-xs font-medium text-white">robot-{robot.id}</span>
+                  </div>
+                  <span className="text-xs text-red-400">Critical</span>
+                </div>
+                <div className="text-xs text-zinc-500">CPU: {robot.cpu}%</div>
+              </div>
+            ))}
+
+            {/* Show 1-2 healthy robots */}
+            {robots.filter(r => r.status === 'online').slice(0, 2).map((robot) => (
+              <div
+                key={robot.id}
+                className="p-2 rounded-lg border"
+                style={{
+                  backgroundColor: colors.forebackground,
+                  borderColor: colors.border
+                }}
+              >
+                <div className="flex items-center justify-between mb-1">
+                  <div className="flex items-center gap-1.5">
+                    <div
+                      className="w-1.5 h-1.5 rounded-full"
+                      style={{
+                        backgroundColor: colors.success
+                      }}
+                    />
+                    <span className="text-xs font-medium text-white">robot-{robot.id}</span>
+                  </div>
+                </div>
+                <div className="text-xs text-zinc-500">CPU: {robot.cpu}%</div>
+              </div>
+            ))}
+          </motion.div>
+
+          {/* Right: Simplified terminal */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="space-y-2"
+          >
+            <div className="flex items-center gap-2 mb-3">
+              <Terminal size={14} style={{ color: colors.primary }} />
+              <span className="text-xs font-medium" style={{ color: colors.textSecondary }}>
+                ROS2
+              </span>
+            </div>
+
+            <div
+              className="p-2 rounded-lg border space-y-1.5"
+              style={{
+                backgroundColor: colors.forebackground,
+                borderColor: colors.border
+              }}
+            >
+              {topics.slice(0, 3).map(topic => (
+                <div key={topic.name} className="flex items-center justify-between text-xs">
+                  <span className="font-mono text-white truncate">{topic.name}</span>
+                  <span style={{ color: colors.primary }} className="font-mono text-xs">{topic.hz}Hz</span>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+
+        {/* DESKTOP: Full 3-panel layout */}
+        <div className="hidden md:grid md:grid-cols-10 gap-4 h-full">
         {/* LEFT PANEL: Robot List */}
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="md:col-span-3 space-y-3"
+          className="col-span-3 space-y-3"
         >
           <div className="flex items-center gap-2 mb-4">
             <Activity size={16} style={{ color: colors.primary }} />
@@ -300,6 +402,9 @@ average rate: 30.012`;
             </div>
           </div>
         </motion.div>
+
+        </div>
+        {/* End desktop grid */}
 
       </div>
     </div>
