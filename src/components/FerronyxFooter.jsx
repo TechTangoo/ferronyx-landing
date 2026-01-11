@@ -127,7 +127,7 @@ const FerronyxFooter = () => {
                                 name="company"
                                 value={formData.company}
                                 onChange={handleInputChange}
-                                placeholder="Acme Robotics"
+                                placeholder="Robotics"
                                 className="bg-[#050505] border-white/[0.08] text-white placeholder:text-zinc-700 h-11 focus:border-white/20 focus:ring-0 rounded-lg transition-colors"
                             />
                         </div>
