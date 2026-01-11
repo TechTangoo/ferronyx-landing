@@ -3,6 +3,7 @@ import { Twitter, Linkedin, Mail } from "lucide-react";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
+import DashboardWindow from "./DashboardWindow";
 import logo from '../assets/logo.svg';
 
 const FerronyxFooter = () => {
@@ -114,12 +115,17 @@ const FerronyxFooter = () => {
                     </div>
                 </div>
 
-                {/* Right Column: Contact Form - Linear Style */}
-                <div className="bg-[#0A0A0B] border border-white/[0.08] rounded-xl p-8 shadow-sm">
-                    <h4 className="text-lg font-medium text-white mb-2">Book a Demo</h4>
-                    <p className="text-[#8A8F98] mb-8 text-sm">See Ferronyx in action. We'll walk you through your specific use case.</p>
+                {/* Right Column: Contact Form - Dashboard Window */}
+                <DashboardWindow
+                    title="Book a Demo"
+                    icon={Mail}
+                    accent="blue"
+                    status="Open"
+                >
+                    <div className="p-6">
+                        <p className="text-[#8A8F98] mb-6 text-sm">See Ferronyx in action. We'll walk you through your specific use case.</p>
 
-                    <form onSubmit={handleSubmit} className="space-y-5">
+                        <form onSubmit={handleSubmit} className="space-y-5">
                         <div className="space-y-2">
                             <label htmlFor="company" className="text-[11px] font-semibold text-zinc-500 uppercase tracking-widest">Company</label>
                             <Input
@@ -158,7 +164,8 @@ const FerronyxFooter = () => {
                             Book Demo
                         </Button>
                     </form>
-                </div>
+                    </div>
+                </DashboardWindow>
             </div>
 
             <div className="max-w-7xl mx-auto mt-20 pt-8 border-t border-white/[0.05] flex flex-col md:flex-row justify-between text-xs text-zinc-600">
