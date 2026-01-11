@@ -23,14 +23,12 @@ const Navbar = () => {
                 <button onClick={() => scrollToSection('faqs')} className="hover:text-white transition-colors">Resources</button>
             </div>
 
+            {/* CTAs removed - they're in dashboard header now */}
             <div className="flex items-center gap-4">
-                <button onClick={() => scrollToSection('contact-footer')} className="text-sm font-medium text-zinc-400 hover:text-white transition-colors hidden sm:block">
-                    Book Demo
-                </button>
                 <a href="https://dev.ferronyx.com/register" target="_blank" rel="noopener noreferrer">
-                    <Button className="bg-[#EDEDED] text-black hover:bg-white rounded-full px-5 h-9 font-medium text-sm cursor-pointer border border-transparent transition-all shadow-sm">
-                        Start Free
-                    </Button>
+                    <button className="text-sm font-medium text-zinc-400 hover:text-white transition-colors">
+                        Sign In
+                    </button>
                 </a>
             </div>
         </nav>
