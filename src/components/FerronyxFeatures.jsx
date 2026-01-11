@@ -1,9 +1,12 @@
 import React from 'react';
-import { ArrowUpRight, Bot, CircleGauge, BellRing, Timer, Brain, ChartNoAxesCombined, BookOpen, CalendarClock } from "lucide-react";
+import { ArrowUpRight, Bot, CircleGauge, BellRing, Timer, Brain, ChartNoAxesCombined, BookOpen, CalendarClock, Network } from "lucide-react";
 import ScrollReveal from './ScrollReveal';
 import AIDebugMockup from './AIDebugMockup';
 import MonitoringMockup from './MonitoringMockup';
 import OnCallMockup from './OnCallMockup';
+import ROS2GraphExplorer from './ROS2GraphExplorer';
+import LinuxInfraMonitor from './LinuxInfraMonitor';
+import BehavioralAIPreview from './BehavioralAIPreview';
 
 const FerronyxFeatures = () => {
     return (
@@ -11,16 +14,39 @@ const FerronyxFeatures = () => {
             {/* Header */}
             <ScrollReveal className="max-w-3xl w-full text-center flex flex-col items-center gap-6 mb-24">
                 <h2 className="text-4xl md:text-5xl font-semibold tracking-tight text-white">
-                    Built for Modern Robotics
+                    Engineer-Grade Observability Stack
                 </h2>
                 <p className="text-lg text-[#8A8F98] max-w-xl leading-relaxed">
-                    Everything you need to observe, debug, and maintain your robot fleet — from real-time telemetry to AI-assisted diagnostics.
+                    From Linux infra to ROS2 topics. Full-stack visibility with zero config.
                 </p>
             </ScrollReveal>
 
             {/* Bento Grid */}
             <div className="w-full max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6">
-                
+
+                {/* NEW Feature: ROS2 Auto-Discovery (Span 6 - Full Width) - Indigo Accent */}
+                <ScrollReveal delay={0.05} className="lg:col-span-6 h-full">
+                    <div className="h-full rounded-xl bg-[#0A0A0B] border border-white/[0.08] overflow-hidden group hover:border-indigo-500/30 transition-colors relative shadow-sm">
+                        <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-indigo-500/40 to-transparent opacity-50 group-hover:opacity-100 transition-opacity"></div>
+
+                        <div className="p-8 pb-0">
+                            <div className="flex items-center gap-2 mb-3">
+                                <Network className="h-4 w-4 text-indigo-400" />
+                                <span className="text-xs font-medium text-indigo-400/80 uppercase tracking-widest">ROS2-Native</span>
+                            </div>
+                            <h3 className="text-xl font-medium text-[#EDEDED] mb-3">ROS2 Auto-Discovery</h3>
+                            <p className="text-[#8A8F98] max-w-2xl mb-8 text-sm leading-relaxed">
+                                Zero-config detection of nodes, topics, and message types. Visualize your ROS2 computation graph in real-time.
+                            </p>
+                        </div>
+                        <div className="relative w-full h-auto min-h-[280px] border-t border-white/[0.08] bg-[#050505]/50">
+                            <div className="absolute inset-0 p-4">
+                                <ROS2GraphExplorer />
+                            </div>
+                        </div>
+                    </div>
+                </ScrollReveal>
+
                 {/* Feature 1: AI Debugging (Span 4) - Purple Accent */}
                 <ScrollReveal delay={0.1} className="lg:col-span-4 h-full">
                     <div className="h-full rounded-xl bg-[#0A0A0B] border border-white/[0.08] overflow-hidden group hover:border-purple-500/30 transition-colors relative shadow-sm">
@@ -64,6 +90,28 @@ const FerronyxFeatures = () => {
                 </ScrollReveal>
 
                 {/* Row 2 */}
+                {/* NEW Feature: Linux Infra Monitor (Span 3) - Emerald Accent */}
+                <ScrollReveal delay={0.25} className="lg:col-span-3 h-full">
+                    <div className="h-full rounded-xl bg-[#0A0A0B] border border-white/[0.08] overflow-hidden group hover:border-emerald-500/30 transition-colors flex flex-col relative shadow-sm">
+                        <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-emerald-500/40 to-transparent opacity-50 group-hover:opacity-100 transition-opacity"></div>
+                        <div className="p-8 pb-4">
+                            <div className="flex items-center gap-2 mb-3">
+                                <Timer className="h-4 w-4 text-emerald-400" />
+                                <span className="text-xs font-medium text-emerald-400/80 uppercase tracking-widest">Linux-Native</span>
+                            </div>
+                            <h3 className="text-lg font-medium text-[#EDEDED] mb-2">Full System Access</h3>
+                            <p className="text-[#8A8F98] text-sm">
+                                Remote terminal access and Linux system monitoring. No SSH/VPN required.
+                            </p>
+                        </div>
+                        <div className="flex-1 relative w-full border-t border-white/[0.08] bg-[#050505]/50">
+                            <div className="absolute inset-0 p-4">
+                                <LinuxInfraMonitor />
+                            </div>
+                        </div>
+                    </div>
+                </ScrollReveal>
+
                 {/* Feature 3: Real-time Monitoring (Span 3) - Blue Accent */}
                 <ScrollReveal delay={0.3} className="lg:col-span-3 h-full">
                     <div className="h-full rounded-xl bg-[#0A0A0B] border border-white/[0.08] overflow-hidden group hover:border-blue-500/30 transition-colors flex flex-col relative shadow-sm">
@@ -109,8 +157,16 @@ const FerronyxFeatures = () => {
                 </ScrollReveal>
 
                  {/* Row 3 - Small Cards */}
-                 {/* Feature 5 - Pink Accent */}
+                 {/* NEW Feature: Behavioral AI Preview (Span 2) - Purple Accent */}
                  <ScrollReveal delay={0.5} className="lg:col-span-2 h-full">
+                    <div className="h-full rounded-xl bg-[#0A0A0B] border border-white/[0.08] p-6 hover:border-purple-500/30 transition-colors group relative shadow-sm">
+                        <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-purple-500/40 to-transparent opacity-50 group-hover:opacity-100 transition-opacity"></div>
+                        <BehavioralAIPreview />
+                    </div>
+                </ScrollReveal>
+
+                 {/* Feature 5 - Pink Accent */}
+                 <ScrollReveal delay={0.6} className="lg:col-span-2 h-full">
                     <div className="h-full rounded-xl bg-[#0A0A0B] border border-white/[0.08] p-8 hover:border-pink-500/30 transition-colors group relative shadow-sm">
                         <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-pink-500/40 to-transparent opacity-50 group-hover:opacity-100 transition-opacity"></div>
                         <div className="w-8 h-8 rounded-md bg-pink-500/10 flex items-center justify-center mb-6 text-pink-400 group-hover:text-pink-300 transition-colors">
