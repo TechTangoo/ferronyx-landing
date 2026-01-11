@@ -1,7 +1,6 @@
 import React from 'react';
-import { Factory, FlaskConical, Layers, ServerCog, GraduationCap, ArrowRight } from "lucide-react";
+import { Factory, FlaskConical, Layers, ServerCog, GraduationCap, ArrowRight, Quote } from "lucide-react";
 import ScrollReveal from './ScrollReveal';
-import hsmariesLogo from '../../ferronyx_clients/HSM ARIES LOGO.png';
 
 const solutions = [
     {
@@ -53,18 +52,20 @@ const FerronyxSolutions = () => {
                 </p>
             </ScrollReveal>
 
-            {/* Customer Logo Strip */}
-            <ScrollReveal className="max-w-6xl mx-auto mb-16">
-                <p className="text-center text-xs text-zinc-500 uppercase tracking-widest mb-8">
-                    Trusted by robotics teams at
-                </p>
-                <div className="flex items-center justify-center gap-12">
-                    <img
-                        src={hsmariesLogo}
-                        alt="HSM ARIES"
-                        className="h-10 md:h-12 grayscale opacity-50 hover:opacity-100 hover:grayscale-0 transition-all duration-300"
-                    />
-                    {/* More logos will be added here */}
+            {/* Customer Testimonial */}
+            <ScrollReveal className="max-w-4xl mx-auto mb-20">
+                <div className="bg-[#0A0A0B] border border-white/[0.08] rounded-xl p-8 md:p-10 relative">
+                    <Quote className="absolute top-6 left-6 h-8 w-8 text-blue-500/20" />
+                    <blockquote className="text-lg md:text-xl text-[#EDEDED] leading-relaxed mb-6 pl-8">
+                        "Caught topic drops we never saw before. Game changer for debugging our humanoid fleet."
+                    </blockquote>
+                    <div className="pl-8 flex items-center gap-4">
+                        <div className="flex-1">
+                            <div className="text-white font-medium text-sm">Engineering Team</div>
+                            <div className="text-zinc-500 text-xs">thehumanoid.ai</div>
+                        </div>
+                        <div className="text-xs text-zinc-600">Early Adopter</div>
+                    </div>
                 </div>
             </ScrollReveal>
 

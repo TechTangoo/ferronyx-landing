@@ -16,10 +16,9 @@ const AIDebugMockup = () => {
     }, [typingIndex]);
 
     return (
-        <div className="relative w-full aspect-video rounded-xl border overflow-hidden"
+        <div className="relative w-full h-full overflow-hidden"
              style={{
-                 backgroundColor: `${colors.forebackground}`,
-                 borderColor: `${colors.primary}40`
+                 backgroundColor: `${colors.forebackground}`
              }}>
 
             {/* Grid Pattern Background */}
