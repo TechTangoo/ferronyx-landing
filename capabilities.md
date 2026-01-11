@@ -1,78 +1,134 @@
-# Ferronyx - Landing Page Feature Document
+# Ferronyx – Landing Page Spec (Linux + ROS2 + Behavioral Future)
 
-## Tagline Options
-- "Command Your Robot Fleet From Anywhere"
-- "Robot Fleet Management, Simplified"
-- "Never Lose Sight of Your Robots Again"
+## Brand Positioning
+**Ferronyx = Observability for any Linux-based robot fleet → ROS2 native → Behavioral AI intelligence.**  
+**Today:** Infra + ROS2 monitoring for production.  
+**Future:** Behavioral observability + AI diagnostics (intent vs execution, environment adaptation).
 
----
-
-## Hero Section Value Prop
-Monitor, manage, and maintain your entire robot fleet from a single dashboard. Get instant alerts when issues arise, diagnose problems remotely, and keep your robots running 24/7.
+**Tagline:** "Observability for Linux Robot Fleets. ROS2 Native. Behavioral Intelligence Coming."
 
 ---
 
-## Key Features
+## Hero Section
+**Headline:** Observability for Production Robot Fleets  
+**Subheadline:** Monitor any Linux robot (ROS2 native). Catch infra + ROS issues before downtime. Debug remotely. Behavioral AI roadmap.
 
-### 1. Real-Time Fleet Visibility
-See every robot in your fleet at a glance. Know which robots are online, which need attention, and where problems are brewing - all in real-time.
+**Visual:**  
+Live dashboard:
+- Fleet list (robot status: Healthy/Warning/Critical)
+- ROS2 graph overlay
+- Infra metrics (CPU/GPU spikes)
+- Behavioral hint: "Robot #7: Intent (pick) ≠ Execution (stuck)"
 
-### 2. System Health Monitoring
-Track CPU, memory, disk, and network performance across your entire fleet. Spot resource issues before they cause downtime.
-
-### 3. ROS2 Native
-Built for ROS2 from the ground up. Automatically discover nodes, monitor topics, and track your robot's internal state without writing a single line of code.
-
-### 4. Smart Alerts
-Set custom thresholds and get notified the moment something goes wrong. Email, Slack, SMS, or phone call - your choice.
-
-### 5. Remote Diagnostics
-Run commands on any robot from anywhere. No SSH tunnels, no VPNs, no headaches.
-
-### 6. Automated Runbooks
-Define diagnostic and recovery procedures once. Let Ferronyx execute them automatically when alerts fire.
-
-### 7. On-Call Management
-Built-in scheduling for your team. Route alerts to the right person at the right time.
-
-### 8. Maintenance Windows
-Schedule maintenance periods to silence alerts. No more 3 AM pages for planned downtime.
+**CTAs:**  
+**Primary:** "Connect Your First Robot (5 Min)"  
+**Secondary:** "Book 20-Min Demo"
 
 ---
 
-## Pain Points We Solve
+## Problems We Solve
 
-| Problem | Ferronyx Solution |
-|---------|-------------------|
-| "I don't know if my robots are online" | Real-time status dashboard |
-| "I find out about issues after customers complain" | Proactive alerting before failures |
-| "I can't debug robots deployed in the field" | Remote command execution & diagnostics |
-| "My team gets alert fatigue" | Smart thresholds & maintenance windows |
-| "ROS2 monitoring is a nightmare to set up" | Zero-config ROS2 discovery |
-| "We waste hours SSHing into individual robots" | Fleet-wide visibility in one place |
-
----
-
-## Who Is Ferronyx For?
-
-- **Robotics Startups** scaling from 5 to 500 robots
-- **Warehouse & Logistics** teams managing AMR fleets
-- **Field Robotics** companies with robots deployed remotely
-- **Manufacturing** operations with robot arms and cobots
-- **R&D Teams** running experiments across multiple robots
+| Problem | Ferronyx Today | Ferronyx Future |
+|---------|----------------|-----------------|
+| Infra kills ROS (CPU/GPU spikes) | Unified infra + ROS monitoring | Behavioral correlation |
+| Topics/nodes fail silently | Auto-discovery + alerts | AI root cause |
+| Deployments break robots | Deployment markers | Regression prediction |
+| Fleet-wide patterns missed | Cross-robot correlation | Behavioral anomaly detection |
+| Manual SSH debugging | Remote execution | AI-assisted RCA |
 
 ---
 
-## Social Proof Angles
-- "Monitor 100s of robots from a single dashboard"
-- "Reduce robot downtime by X%"
-- "Get alerts in seconds, not hours"
-- "Zero-config ROS2 integration"
+## Features (Current + Roadmap)
+
+### Today: Linux + ROS2 Foundation
+**Infrastructure Monitoring**  
+CPU, GPU, memory, network on any Linux robot machine.
+
+**ROS2 Native**  
+Zero-config: nodes, topics, actions. Mark key topics/nodes.
+
+**Remote SSH & Execution**  
+Commands on any robot/machine. No VPN/SSH hell.
+
+**Threshold Alerts**  
+Slack/email on infra + ROS breaches.
+
+**Deployment Markers**  
+Correlate failures with releases.
+
+### Coming Soon: Behavioral AI
+**AI Root-Cause Pipeline**  
+Alert → probable causes (e.g. "GPU + topic drop = compute limit").
+
+**AI-Assisted Debugging**  
+Incident timeline: infra → ROS → behavior.
+
+**Fleet AI Assistant**  
+"What broke Robot #7?" → Summary + fixes.
+
+**Behavioral Observability**  
+Intent vs execution gaps. Environment-specific failures. Canary scoring.
 
 ---
 
-## CTA Options
-- "Start Monitoring Free"
-- "See Your Fleet in Real-Time"
-- "Book a Demo"
-- "Connect Your First Robot in 5 Minutes"
+## How It Works
+
+Install Linux Agent
+docker run ferronyx/agent
+
+Auto-Discover (ROS2 + Infra)
+Maps machines, ROS graph, key metrics
+
+Observe + Debug
+Alerts → remote fix → behavioral insights (soon)
+
+text
+
+---
+
+## Who It's For
+**Linux-based robot teams:**
+- ROS2 fleets (humanoids, AMRs)
+- Non-ROS Linux robots
+- Scaling from 5 → 500 units
+
+**Customers:** thehumanoid.ai • HsmAries
+
+---
+
+## Social Proof
+**Metrics:**  
+• 50+ robot-hours monitored daily  
+• MTTR: 3–4h → 15min
+
+**Quote:**  
+“Caught topic drops we never saw.” – thehumanoid.ai
+
+---
+
+## Pricing
+Linux robots: $50/machine/month
+ROS2 fleets: Same price, deeper insights
+
+Early pilots: $25/mo first 3 months
+Free trial available
+
+text
+
+---
+
+## CTA Flow
+**Mid:** "Connect Your First Robot"  
+**Footer:** "Demo" + "Pricing Call"
+
+---
+
+## UX Directive
+**Tone:** Robotics engineers (use "topics/nodes/bags/deployments").  
+**Visuals priority:**
+1. Fleet health dashboard
+2. ROS2 graph + infra overlay
+3. Incident timeline
+4. Behavioral roadmap teaser (badge: "Beta")
+
+**Differentiation:** Linux agent → ROS2 deep → Behavioral future.

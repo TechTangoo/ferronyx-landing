@@ -8,6 +8,22 @@ const faqs = [
         answer: "No. Ferronyx supports both ROS-based and non-ROS robots. For non-ROS systems, it still collects machine metrics, device health, and process data — giving full observability and alerting."
     },
     {
+        question: "What ROS2 distributions are supported?",
+        answer: "Ferronyx supports all major ROS2 distributions including Humble Hawksbill, Iron Irwini, Jazzy Jalisco, and Rolling. We also support ROS1 systems via the ros1_bridge package for hybrid deployments."
+    },
+    {
+        question: "Can I monitor custom ROS topics and message types?",
+        answer: "Yes. Ferronyx auto-discovers all topics including custom message types. It introspects your message definitions and provides full observability regardless of whether you're using standard sensor_msgs or proprietary custom types."
+    },
+    {
+        question: "What's the agent overhead on robot resources?",
+        answer: "The Ferronyx agent is lightweight: typically <5% CPU usage, ~50MB memory footprint, and minimal network bandwidth (<1Mbps for telemetry). It's designed to run alongside your robot workloads without impacting performance."
+    },
+    {
+        question: "Does it work with Nav2, MoveIt, and other ROS packages?",
+        answer: "Yes. Ferronyx is framework-agnostic and monitors any ROS2 system. Whether you're running Nav2 for navigation, MoveIt for manipulation, or custom stacks, we provide full observability of nodes, topics, and system resources."
+    },
+    {
         question: "How hard is it to install Ferronyx?",
         answer: "It takes under 10 minutes. Run one command, and our daemon handles the rest — from connecting securely to detecting your ROS topics."
     },
