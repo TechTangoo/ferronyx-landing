@@ -52,8 +52,8 @@ const FerronyxSolutions = () => {
                 </p>
             </ScrollReveal>
 
-            {/* Customer Testimonial */}
-            <ScrollReveal className="max-w-4xl mx-auto mb-20">
+            {/* Customer Testimonial - Hidden until we have more feedback */}
+            {/* <ScrollReveal className="max-w-4xl mx-auto mb-20">
                 <div className="bg-[#0A0A0B] border border-white/[0.08] rounded-xl p-8 md:p-10 relative">
                     <Quote className="absolute top-6 left-6 h-8 w-8 text-blue-500/20" />
                     <blockquote className="text-lg md:text-xl text-[#EDEDED] leading-relaxed mb-6 pl-8">
@@ -67,7 +67,7 @@ const FerronyxSolutions = () => {
                         <div className="text-xs text-zinc-600">Early Adopter</div>
                     </div>
                 </div>
-            </ScrollReveal>
+            </ScrollReveal> */}
 
             <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {solutions.map((item, idx) => (

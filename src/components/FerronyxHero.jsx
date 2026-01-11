@@ -198,7 +198,7 @@ const FerronyxHero = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.4 }}
-                    className="w-full max-w-2xl rounded-xl border border-white/[0.08] bg-[#0A0A0B]/50 backdrop-blur-xl shadow-2xl shadow-black/50 overflow-hidden ring-1 ring-white/5"
+                    className="w-full max-w-md md:max-w-2xl rounded-xl border border-white/[0.08] bg-[#0A0A0B]/50 backdrop-blur-xl shadow-2xl shadow-black/50 overflow-hidden ring-1 ring-white/5"
                 >
                     {/* Window Controls */}
                     <div className="h-8 border-b border-white/[0.08] bg-white/[0.02] flex items-center px-4 gap-2">
@@ -206,7 +206,7 @@ const FerronyxHero = () => {
                         <div className="w-3 h-3 rounded-full bg-[#2D2D2E]"></div>
                         <div className="w-3 h-3 rounded-full bg-[#2D2D2E]"></div>
                     </div>
-                    <div className="aspect-video">
+                    <div className="h-[350px] overflow-hidden">
                         <FleetCommandCenter />
                     </div>
                 </motion.div>
