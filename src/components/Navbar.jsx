@@ -25,9 +25,9 @@ const Navbar = () => {
 
             {/* CTAs removed - they're in dashboard header now */}
             <div className="flex items-center gap-4">
-                <a href="https://dev.ferronyx.com/register" target="_blank" rel="noopener noreferrer">
+                <a href="https://dev.ferronyx.com/request-access" target="_blank" rel="noopener noreferrer">
                     <button className="text-sm font-medium text-zinc-400 hover:text-white transition-colors">
-                        Sign In
+                        Request Access
                     </button>
                 </a>
             </div>
