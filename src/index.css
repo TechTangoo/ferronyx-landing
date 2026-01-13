@@ -5,6 +5,10 @@
 
 /* shadcn/ui compatible CSS variables */
 :root {
+  width: 100%;
+  min-width: 100%;
+  overflow-x: hidden;
+
   /* Dark Theme by default for "Linear" look */
   --background: 240 10% 3.9%; /* #09090b - Zinc 950 essentially */
   --foreground: 0 0% 98%;
@@ -28,8 +32,15 @@
   --radius: 0.5rem;
 }
 
+html, body {
+  width: 100%;
+  min-width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
 body {
-  min-width: max-content;
   font-family: 'Inter', sans-serif;
   background-color: #050505; /* Deep, rich black */
   color: #ffffff;
