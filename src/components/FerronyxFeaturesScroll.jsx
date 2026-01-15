@@ -150,14 +150,14 @@ const FerronyxFeaturesScroll = () => {
       </div>
 
       {/* Sticky Container - Split Layout */}
-      <div className="sticky top-[15vh] h-[70vh] flex items-center justify-center px-4 md:px-8">
+      <div className="sticky top-[15vh] h-auto min-h-[800px] lg:h-[70vh] flex items-center justify-center px-4 md:px-8">
         <div className="relative w-full max-w-7xl h-full">
 
           {/* Grid: Left Text + Right Mockup */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 h-full items-center">
+          <div className="flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-12 h-full items-center">
 
             {/* LEFT COLUMN: Text Content (changes on scroll) */}
-            <div className="relative h-full flex items-center">
+            <div className="relative min-h-[400px] lg:h-full flex items-center w-full">
               {features.map((feature, index) => {
                 const { opacity, y } = getFeatureAnimations(index);
 
@@ -198,7 +198,7 @@ const FerronyxFeaturesScroll = () => {
             </div>
 
             {/* RIGHT COLUMN: Mockup (changes on scroll) */}
-            <div className="relative h-full flex items-center">
+            <div className="relative min-h-[400px] lg:h-full flex items-center w-full">
               {features.map((feature, index) => {
                 const { opacity, scale } = getFeatureAnimations(index);
                 const MockupComponent = feature.mockup;

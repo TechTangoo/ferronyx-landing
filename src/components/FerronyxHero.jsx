@@ -91,7 +91,7 @@ const FerronyxHero = () => {
                                     initial={{ opacity: 0, y: -10 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ delay: 0.3, duration: 0.6 }}
-                                    className="hidden lg:flex items-center gap-2 ml-2"
+                                    className="flex items-center gap-2 ml-2"
                                 >
                                     <div className="h-4 w-px bg-white/[0.1]"></div>
                                     <h1 className="text-base font-medium tracking-tight text-white">
