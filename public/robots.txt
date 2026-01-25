@@ -1,0 +1,39 @@
+# Ferronyx Robots.txt
+# https://ferronyx.com
+
+# Traditional crawlers
+User-agent: *
+Allow: /
+Crawl-delay: 1
+
+# Explicitly allow AI crawlers
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Anthropic-AI
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Sitemaps
+Sitemap: https://ferronyx.com/sitemap.xml
+
+# LLM-specific content guide
+# For AI agents: see https://ferronyx.com/llms.txt for curated content
+# Extended version: https://ferronyx.com/llms-full.txt

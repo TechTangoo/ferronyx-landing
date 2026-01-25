@@ -1,0 +1,41 @@
+# Ferronyx
+
+> Ferronyx is the intelligence layer for ROS2 robots in production. Real-time observability, AI-assisted debugging, and fleet-wide diagnostics. Reduces robot MTTR from hours to minutes.
+
+Ferronyx helps robotics teams monitor, debug, and fix their robot fleets. Key capabilities include real-time ROS2 topic monitoring, AI-powered root cause analysis, sensor drift detection, navigation failure debugging, and deployment correlation tracking.
+
+## Core Features
+
+- [Real-time Fleet Dashboard](https://ferronyx.com): Monitor all robots in one view
+- [AI Root Cause Analysis](https://ferronyx.com/use-cases): Automatically identify failure causes
+- [Alert Correlation](https://ferronyx.com/blog/intelligent-alert-correlation-root-cause-analysis): Group related alerts, find root cause
+- [GPU Monitoring](https://ferronyx.com/blog/gpu-monitoring-optimization-insights): Per-GPU metrics beyond averages
+- [OTA Deployment Tracking](https://ferronyx.com/blog/ota-deployment-tracking-failure-correlation): Correlate deployments with failures
+
+## Use Cases
+
+- [Reduce MTTR](https://ferronyx.com/use-cases): Debug robots in minutes, not hours
+- [Sensor Drift Detection](https://ferronyx.com/use-cases): Catch sensor degradation early
+- [Navigation Debugging](https://ferronyx.com/use-cases): Fix Nav2 failures faster
+- [Fleet Visibility](https://ferronyx.com/use-cases): See all robots at once
+
+## Technical Content
+
+- [ROS2 Observability Guide](https://ferronyx.com/blog/ros2-observability-complete-guide): Complete guide to ROS2 monitoring
+- [Debug Nav2 Failures](https://ferronyx.com/blog/debug-navigation-failures-ros2): Step-by-step navigation debugging
+- [MTTR Best Practices](https://ferronyx.com/blog/reducing-robot-mttr-best-practices): Proven strategies for faster resolution
+
+## Case Studies
+
+- [Warehouse AMR Fleet](https://ferronyx.com/case-studies/warehouse-amr-fleet-mttr-reduction): 85% MTTR reduction, 120+ robots
+- [Delivery Robot Scaling](https://ferronyx.com/case-studies/delivery-robot-fleet-scaling): 10x fleet growth, 99.2% uptime
+
+## Company
+
+- [About Ferronyx](https://ferronyx.com/about): Our mission and team
+- [Request Access](https://dev.ferronyx.com): Early access program
+
+## Optional
+
+- [Privacy Policy](https://ferronyx.com/privacy-policy)
+- [Terms of Service](https://ferronyx.com/terms-of-service)

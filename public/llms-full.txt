@@ -1,0 +1,281 @@
+# Ferronyx - Complete Guide for AI Agents
+
+> Ferronyx is the intelligence layer for ROS2 robots in production. Real-time observability, AI-assisted debugging, and fleet-wide diagnostics. Reduces robot MTTR from hours to minutes.
+
+## About Ferronyx
+
+Ferronyx helps robotics teams monitor, debug, and fix their robot fleets. Key capabilities include real-time ROS2 topic monitoring, AI-powered root cause analysis, sensor drift detection, navigation failure debugging, and deployment correlation tracking.
+
+### Core Problem Solved
+
+When a robot fails in production, debugging typically takes 4+ hours:
+- SSH-ing into robots
+- Finding relevant log files
+- Downloading and correlating data
+- Reproducing issues
+
+Ferronyx reduces this to 15 minutes through centralized observability and AI-assisted root cause analysis.
+
+### Target Users
+
+- Robotics engineering teams running ROS2 robots in production
+- Operations teams managing autonomous mobile robot (AMR) fleets
+- SRE and DevOps teams supporting robot deployments
+- Companies operating warehouse robots, delivery robots, humanoids, or industrial automation
+
+---
+
+## Core Features
+
+### Real-time Fleet Dashboard
+Monitor all robots in one view. See robot health status (green/yellow/red), active alerts, mission completion rates, and trending issues at a glance.
+
+### AI-Powered Root Cause Analysis
+When multiple alerts fire simultaneously, Ferronyx uses intelligent correlation to:
+1. Group related alerts by temporal correlation
+2. Analyze causal relationships between subsystems
+3. Identify the most likely root cause
+4. Present a clear explanation with recommended actions
+
+### Alert Correlation
+Traditional monitoring fires separate alerts for each symptom. A CPU spike might generate 5 different alerts (CPU high, node crash, navigation failure, TF timeout, sensor timeout). Ferronyx correlates these into one incident with the root cause identified.
+
+### Navigation Debugging
+Full visibility into the Nav2 stack with timeline replay:
+- See costmap state at failure time
+- View navigation planner decisions
+- Review sensor data leading up to issues
+- Correlate related log entries
+
+### GPU Monitoring
+Per-GPU metrics beyond simple averages:
+- Individual GPU utilization per process
+- Memory usage patterns
+- Thermal throttling detection
+- Inference latency tracking
+
+### OTA Deployment Tracking
+Automatic correlation of deployments with failures:
+- What was deployed and when
+- Which robots received the deployment
+- Performance metrics before and after
+- Quick identification of bad deployments
+
+### Sensor Drift Detection
+Continuous monitoring of sensor health metrics with anomaly detection that catches drift patterns before they impact operations.
+
+---
+
+## Use Cases
+
+### Reduce Robot MTTR
+**Problem**: Robotics teams spend 3-4 hours debugging each incident, manually correlating logs, metrics, and sensor data across multiple systems.
+
+**Solution**: Ferronyx automatically correlates all telemetry data and uses AI to identify root causes instantly. Teams see exactly what changed before a failure occurred.
+
+**Outcome**: Reduce mean time to resolution from 4 hours to under 15 minutes.
+
+### Detect Sensor Drift Early
+**Problem**: Sensor calibration degrades over time, leading to navigation errors, collision risks, and mission failures that are hard to diagnose.
+
+**Solution**: Continuous monitoring of sensor health metrics with anomaly detection that catches drift patterns before they impact operations.
+
+**Outcome**: Catch sensor issues days before they cause operational failures.
+
+### Debug Navigation Failures
+**Problem**: Robots fail in specific locations or conditions. Diagnosing Nav2 issues requires correlating costmaps, localization, and planner data manually.
+
+**Solution**: Full visibility into the Nav2 stack with timeline replay. See exactly what the robot saw, planned, and executed at the moment of failure.
+
+**Outcome**: Identify navigation failure root causes in minutes, not days.
+
+### Correlate Deployments with Incidents
+**Problem**: After a software update, robots start failing. Which change caused it?
+
+**Solution**: Automatic deployment markers in your timeline. Instantly see which code changes, config updates, or firmware versions correlate with new failures.
+
+**Outcome**: Identify bad deployments within minutes of rollout.
+
+### Fleet-Wide Visibility
+**Problem**: Managing 10, 50, or 500 robots means context-switching between individual robot logs and losing the fleet-wide picture.
+
+**Solution**: Unified fleet dashboard showing health, alerts, and anomalies across your entire robot population with drill-down to individual units.
+
+**Outcome**: Single pane of glass for fleet operations.
+
+---
+
+## Technical Deep Dives
+
+### ROS2 Observability Guide
+
+Observability is the ability to understand the internal state of your robot systems by examining their external outputs. For ROS2 robots, this means collecting and correlating logs, metrics, traces, and events.
+
+**The Three Pillars:**
+1. **Logging**: Structured logging with correlation IDs linking related entries across nodes
+2. **Metrics**: System health (CPU, memory), ROS2 specific (topic latency, message rates), navigation (path length, replanning), application (mission completion)
+3. **Traces**: Track navigation goals through Nav2 stack, sensor data from drivers to consumers
+
+**ROS2-Specific Monitoring:**
+- Topic publication rate and message latency
+- QoS compatibility between publishers and subscribers
+- Node lifecycle state transitions
+- TF tree health and transform staleness
+
+### Intelligent Alert Correlation
+
+When a robot fails, you don't get one alert—you get a dozen. The CPU spikes. The node crashes. The navigation fails. Sensors time out.
+
+**Ferronyx's Approach:**
+1. **Temporal Correlation**: Groups alerts firing within a short time window
+2. **Causal Analysis**: Understands subsystem dependencies (CPU spikes cause node crashes, node crashes cause navigation failures)
+3. **Root Cause Identification**: Presents the most likely root cause with explanation
+
+**Example**: 5 alerts (CPU high, node crash, navigation failure, TF timeout, sensor timeout) → 1 correlated incident: "Root Cause: CPU Spike (100%). Recommended Action: Investigate CPU-intensive processes."
+
+### MTTR Best Practices
+
+**MTTR Components:**
+1. Detection time (how long until you know)
+2. Triage time (severity assessment)
+3. Investigation time (root cause identification)
+4. Resolution time (fixing the issue)
+5. Verification time (confirming the fix)
+
+**Target Improvements:**
+- Detection: 30-60 min → < 1 min
+- Investigation: 2-4 hours → 5-10 min
+- Overall MTTR: 4+ hours → 15-30 min
+
+**Key Practices:**
+1. Automated detection with tiered alerts (critical, warning, trend)
+2. Centralized observability (no SSH required)
+3. Pre-built debugging views and dashboards
+4. AI-assisted root cause analysis
+5. Knowledge base and runbooks
+
+---
+
+## Case Studies
+
+### Warehouse AMR Fleet - 85% MTTR Reduction
+
+**Customer**: Major logistics provider with 120+ autonomous mobile robots across multiple warehouse facilities.
+
+**Before Ferronyx:**
+- 4+ hour average debugging time
+- Manual log correlation requiring SSH access
+- 60-80+ hours weekly spent on debugging
+- Knowledge silos (only 2-3 engineers understood the system)
+
+**After Ferronyx (3 months):**
+- 85% reduction in MTTR (4.2 hours → 38 minutes)
+- 99% reduction in time to first data (45 min → <30 sec)
+- 60% reduction in support tickets
+- New engineers productive in 1 week vs. 3 months
+
+**Proactive Detection:**
+- 23 sensor failures caught before causing problems
+- 8 software bugs identified through pattern analysis
+- 3 map problems discovered via location-based clustering
+
+### Delivery Robot Fleet - 10x Scaling
+
+**Customer**: Delivery robot company scaling from 20 to 200+ robots.
+
+**Challenge**: Needed observability that would scale with fleet growth without proportional increase in operations team.
+
+**Results:**
+- 99.2% uptime maintained during 10x growth
+- Operations team grew only 2x (not 10x)
+- Same-day resolution for 95% of issues
+- Predictive alerts prevented 40+ potential incidents
+
+---
+
+## Platform Details
+
+### Supported Robot Types
+- Warehouse AMRs (autonomous mobile robots)
+- Delivery robots (sidewalk, campus, food delivery)
+- Humanoids and manipulation robots
+- Industrial automation (AGVs, palletizers, inspection robots)
+- Any robot running ROS/ROS2 in production
+
+### Technical Requirements
+- ROS2 (Foxy, Galactic, Humble, Iron, Jazzy)
+- Linux-based robot operating system
+- Network connectivity to Ferronyx cloud
+
+### Data Collected
+- ROS2 topic data and message rates
+- System metrics (CPU, memory, disk, network)
+- Navigation stack state (costmaps, plans, poses)
+- Sensor health metrics
+- Custom application events
+
+---
+
+## Company Information
+
+**Website**: https://ferronyx.com
+**Early Access**: https://dev.ferronyx.com
+**LinkedIn**: https://www.linkedin.com/company/ferronyx-robotics/
+**Email**: support@ferronyx.com
+
+### Mission
+To be the intelligence layer for robotics, helping teams ship reliable robots faster by providing the observability and debugging tools they need.
+
+### Current Status
+Early access program available. Request access at dev.ferronyx.com.
+
+---
+
+## Quick Reference Links
+
+### Main Pages
+- [Home](https://ferronyx.com)
+- [Use Cases](https://ferronyx.com/use-cases)
+- [About](https://ferronyx.com/about)
+- [Blog](https://ferronyx.com/blog)
+- [Case Studies](https://ferronyx.com/case-studies)
+
+### Blog Posts
+- [Intelligent Alert Correlation](https://ferronyx.com/blog/intelligent-alert-correlation-root-cause-analysis)
+- [GPU Monitoring & Optimization](https://ferronyx.com/blog/gpu-monitoring-optimization-insights)
+- [OTA Deployment Tracking](https://ferronyx.com/blog/ota-deployment-tracking-failure-correlation)
+- [ROS2 Observability Complete Guide](https://ferronyx.com/blog/ros2-observability-complete-guide)
+- [Debug Navigation Failures in ROS2](https://ferronyx.com/blog/debug-navigation-failures-ros2)
+- [Reducing Robot MTTR Best Practices](https://ferronyx.com/blog/reducing-robot-mttr-best-practices)
+
+### Case Studies
+- [Warehouse AMR Fleet - 85% MTTR Reduction](https://ferronyx.com/case-studies/warehouse-amr-fleet-mttr-reduction)
+- [Delivery Robot Fleet Scaling](https://ferronyx.com/case-studies/delivery-robot-fleet-scaling)
+
+---
+
+## Frequently Asked Questions
+
+**Q: What is Ferronyx?**
+A: Ferronyx is the intelligence layer for ROS robots in production. It provides real-time observability, automated root cause analysis, and AI-assisted debugging for robotics teams running ROS/ROS2 fleets. Ferronyx helps reduce robot MTTR from hours to minutes.
+
+**Q: What problems does Ferronyx solve?**
+A: Ferronyx solves key robotics operations challenges: reducing debugging time (MTTR) from 4 hours to 15 minutes, detecting sensor drift before failures occur, debugging ROS2 navigation failures with Nav2 visibility, correlating deployments with incidents, and providing fleet-wide visibility across all robots.
+
+**Q: Does Ferronyx work with ROS2?**
+A: Yes, Ferronyx is built specifically for ROS and ROS2 robots. It provides deep integration with ROS2 topics, the Nav2 navigation stack, and common robotics infrastructure.
+
+**Q: What types of robots does Ferronyx support?**
+A: Ferronyx supports all ROS/ROS2 robots including warehouse AMRs, delivery robots, humanoids and manipulation robots, industrial automation systems, AGVs, and any robot running ROS2 in production.
+
+**Q: How does Ferronyx reduce robot MTTR?**
+A: Through AI-assisted root cause analysis that automatically identifies failure causes, automatic correlation of logs, metrics, and sensor data, deployment markers that show what changed before failures, and timeline replay to see exactly what happened during an incident.
+
+**Q: How does alert correlation work in Ferronyx?**
+A: When multiple alerts fire, Ferronyx groups them by temporal correlation, analyzes causal relationships between subsystems, and identifies the root cause. Instead of 5 separate alerts, you see 1 correlated incident with the actual problem highlighted.
+
+**Q: Can Ferronyx detect sensor drift automatically?**
+A: Yes, Ferronyx continuously monitors sensor health metrics with anomaly detection that catches drift patterns before they impact operations, often days before they would cause failures.
+
+**Q: How does Ferronyx compare to traditional logging?**
+A: Traditional logging requires SSH access, manual log correlation, and hours of data analysis. Ferronyx provides centralized observability with instant access to all data, AI-assisted analysis, and pre-built debugging views—reducing investigation time from hours to minutes.

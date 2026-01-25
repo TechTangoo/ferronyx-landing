@@ -1,0 +1,182 @@
+# Intelligent Alert Correlation: Finding the Root Cause Automatically
+
+<QuickAnswer>
+Ferronyx's intelligent alert correlation automatically groups related alerts and identifies root causes. When a CPU spike causes a node crash, which causes navigation failure, Ferronyx shows you the causal chain instead of 5 separate alerts. Fix the root cause once, resolve all symptoms. Teams reduce investigation time from 90+ minutes to under 10 minutes.
+</QuickAnswer>
+
+When a robot fails in production, you don't get one alert. You get a dozen. The CPU spikes. The node crashes. The navigation fails. Sensors time out. Each symptom generates its own alert, creating a storm of notifications that obscures the actual problem.
+
+The real question isn't "what alerts are firing?" It's "what's the root cause?"
+
+## The Alert Storm Problem
+
+Consider this common scenario: Your ROS2 robot suddenly starts behaving erratically. Within seconds, your monitoring system fires:
+
+- **High CPU Alert**: CPU usage at 100%
+- **Node Crash Alert**: `/perception_node` has crashed
+- **Navigation Failure Alert**: Nav2 goal aborted
+- **Transform Timeout Alert**: TF tree has stale transforms
+- **Sensor Timeout Alert**: LiDAR data not received
+
+Five alerts. One root cause. But which one?
+
+<Callout type="warning" title="The Cost of Chasing Symptoms">
+Teams spend an average of 2-3 hours per incident chasing symptoms instead of root causes. With a 50-robot fleet experiencing 10 incidents per week, that's 100+ engineering hours lost monthly.
+</Callout>
+
+## Why Traditional Alerting Falls Short
+
+Traditional monitoring systems treat each metric independently. They fire alerts when thresholds are crossed, without understanding the relationships between events.
+
+This creates several problems:
+
+| Problem | Impact |
+|---------|--------|
+| Alert fatigue | Engineers ignore alerts, missing real issues |
+| Wrong prioritization | Time spent on symptoms instead of causes |
+| Duplicate effort | Multiple engineers investigating same root cause |
+| Longer MTTR | Resolution delayed while team triangulates |
+
+## How Ferronyx Correlates Alerts
+
+Ferronyx uses intelligent correlation to group related alerts and identify the causal chain. Here's how it works:
+
+### 1. Temporal Correlation
+
+When alerts fire within a short time window, Ferronyx automatically groups them. But timing alone isn't enough—a coincidence isn't causation.
+
+### 2. Causal Analysis
+
+Ferronyx understands the relationships between robot subsystems. It knows that:
+
+- CPU spikes can cause node crashes
+- Node crashes can cause navigation failures
+- Navigation failures can cause transform timeouts
+- And so on through the dependency graph
+
+### 3. Root Cause Identification
+
+By combining temporal correlation with causal analysis, Ferronyx identifies the most likely root cause and presents it clearly:
+
+<Callout type="info" title="Example: Alert Correlation in Action">
+**Root Cause Identified: CPU Spike (100%)**
+
+Related alerts (4):
+- Node Crash: `/perception_node` (caused by CPU exhaustion)
+- Navigation Failure (caused by perception node crash)
+- TF Timeout (caused by perception node crash)
+- Sensor Timeout (caused by perception node crash)
+
+**Recommended Action**: Investigate CPU-intensive processes. Check for runaway loops or memory leaks in perception stack.
+</Callout>
+
+## Real-World Scenario: The Runaway Process
+
+Let's walk through a real debugging session:
+
+### Without Alert Correlation
+
+1. Engineer receives 5 separate alerts
+2. Starts investigating navigation failure (most user-visible symptom)
+3. Spends 30 minutes checking Nav2 configuration
+4. Notices perception node crashed, investigates for 20 minutes
+5. Finally checks system resources, finds CPU spike
+6. Identifies runaway process in perception stack
+7. **Total time: 90+ minutes**
+
+### With Ferronyx Alert Correlation
+
+1. Engineer receives single correlated alert group
+2. Root cause clearly identified: CPU spike
+3. Clicks through to see process-level CPU breakdown
+4. Identifies runaway process immediately
+5. **Total time: 10 minutes**
+
+<MetricGrid>
+  <MetricCard value="85%" label="Faster Root Cause" description="From 90min to 10min" />
+  <MetricCard value="4→1" label="Alerts to Investigate" description="Grouped automatically" />
+  <MetricCard value="0" label="False Starts" description="No symptom chasing" />
+</MetricGrid>
+
+## The Fix-Once, Resolve-Many Pattern
+
+One of the most powerful aspects of alert correlation is the "fix once, resolve many" pattern.
+
+When you fix the root cause:
+- The CPU spike resolves → node stops crashing
+- The node stabilizes → navigation works
+- Navigation works → transforms update
+- Transforms update → sensors report normally
+
+**One fix. Five alerts resolved.**
+
+Without correlation, engineers often "fix" symptoms:
+- Restart the crashed node (it'll crash again)
+- Increase navigation timeouts (masks the real problem)
+- Add redundancy for sensor timeouts (doesn't help)
+
+These workarounds waste time and leave the root cause unresolved.
+
+## Setting Up Effective Alert Correlation
+
+### Define Your Alert Hierarchy
+
+Start by mapping your robot's subsystem dependencies:
+
+```
+System Resources (CPU, Memory, Disk)
+└── Core Nodes (perception, localization, planning)
+    └── Behavior Nodes (navigation, manipulation)
+        └── Application Layer (missions, tasks)
+```
+
+### Configure Correlation Windows
+
+Different failure modes have different propagation times:
+
+| Failure Type | Typical Propagation | Recommended Window |
+|--------------|--------------------|--------------------|
+| CPU exhaustion | 1-5 seconds | 10 seconds |
+| Network issues | 100ms-2 seconds | 5 seconds |
+| Hardware failures | Immediate | 2 seconds |
+| Software bugs | Varies | 30 seconds |
+
+### Review and Refine
+
+Alert correlation improves over time. Review correlated incidents weekly:
+
+- Were the root causes correctly identified?
+- Are there patterns the system missed?
+- Should correlation rules be adjusted?
+
+<Callout type="tip" title="Pro Tip">
+Use Ferronyx's correlation history to identify recurring root causes. If the same correlation pattern appears repeatedly, you've found a systematic issue worth prioritizing.
+</Callout>
+
+## Beyond Correlation: Predictive Root Cause Analysis
+
+The next evolution is predicting failures before they cascade. Ferronyx monitors leading indicators:
+
+- CPU trending toward critical threshold
+- Memory usage growing without bounds
+- Network latency increasing
+- Sensor quality degrading
+
+When these leading indicators appear, Ferronyx can alert you to the potential root cause before the cascade begins.
+
+## Conclusion
+
+Alert correlation transforms incident response from reactive symptom-chasing to proactive root cause resolution. Instead of drowning in alerts, engineers see the actual problem immediately.
+
+The key benefits:
+
+1. **Faster MTTR**: Find root causes in minutes, not hours
+2. **Reduced alert fatigue**: One meaningful alert instead of many
+3. **Better fixes**: Address root causes, not symptoms
+4. **Happier engineers**: Less firefighting, more building
+
+Stop chasing symptoms. Start fixing root causes.
+
+---
+
+*Ready to see intelligent alert correlation in action? [Get started with Ferronyx](https://dev.ferronyx.com) and turn your alert storm into clear signal.*
