@@ -1,7 +1,7 @@
 # ROS2 Observability: A Complete Guide
 
 <QuickAnswer>
-ROS2 observability means collecting and correlating logs, metrics, traces, and events from your robot systems to understand their internal state. Key components include centralized logging with correlation IDs, metrics collection (CPU, topic latency, navigation data), and alerting on critical conditions. Proper observability reduces debugging from hours to minutes.
+**How do I implement observability for ROS2 robots in production?** ROS2 observability requires three pillars: (1) centralized logging with correlation IDs linking entries across nodes, (2) metrics collection covering system health (CPU, memory), ROS2-specific data (topic latency, message rates), and navigation metrics, (3) alerting on critical conditions. Without observability, debugging takes 4+ hours of SSH and manual log correlation. With it, reduce debugging to minutes.
 </QuickAnswer>
 
 Running ROS2 robots in production requires more than just writing good code. You need to know what's happening inside your robots at all times. That's where observability comes in.
