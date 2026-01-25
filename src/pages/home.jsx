@@ -1,14 +1,17 @@
-import React from 'react';
-import FerronyxHero from '../components/FerronyxHero';
-import Navbar from '../components/Navbar';
+import Button from '@/components/Button'
+import React from 'react'
 
 function Home() {
   return (
-    <div className="relative min-h-screen w-full bg-black">
-      <Navbar />
-      <FerronyxHero />
+    <div>
+        <Button className="mt-4" variant={'primary'} onClick={() => alert('Button clicked!')}>
+          Request demo
+        </Button>
+         <Button className="mt-4" variant={'secondary'} onClick={() => alert('Button clicked!')}>
+          Send Feedback
+        </Button>
     </div>
-  );
+  )
 }
 
-export default Home;
+export default Home

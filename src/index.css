@@ -28,8 +28,17 @@
   --radius: 0.5rem;
 }
 
+.manrope {
+  font-family: "Manrope", sans-serif;
+}
+
+.dmsans {
+  font-family: "DM Sans", sans-serif;
+}
+
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: "Manrope", sans-serif;
+  line-height: 1.2;
   background-color: #050505; /* Deep, rich black */
   color: #ffffff;
   -webkit-font-smoothing: antialiased;
