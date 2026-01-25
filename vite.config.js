@@ -24,9 +24,4 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  // SSG configuration for vite-react-ssg
-  ssgOptions: {
-    script: 'async',
-    formatting: 'minify',
-  },
 })
