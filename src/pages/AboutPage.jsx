@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SEO from '../components/seo/SEO';
+import BreadcrumbSchema from '../components/seo/BreadcrumbSchema';
 import { Button } from '../components/ui/button';
 import {
     Target,
@@ -126,6 +127,10 @@ const AboutPage = () => {
                 canonicalUrl="https://ferronyx.com/about"
                 schema={aboutSchema}
             />
+            <BreadcrumbSchema items={[
+                { name: 'Home', url: 'https://ferronyx.com' },
+                { name: 'About' }
+            ]} />
 
             <main className="min-h-screen bg-black pt-24">
                 {/* Hero Section */}

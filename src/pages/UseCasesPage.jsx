@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SEO from '../components/seo/SEO';
+import BreadcrumbSchema from '../components/seo/BreadcrumbSchema';
 import SROnlyKeywords from '../components/seo/SROnlyKeywords';
 import { Button } from '../components/ui/button';
 import {
@@ -174,6 +175,10 @@ const UseCasesPage = () => {
                 canonicalUrl="https://ferronyx.com/use-cases"
                 schema={useCasesSchema}
             />
+            <BreadcrumbSchema items={[
+                { name: 'Home', url: 'https://ferronyx.com' },
+                { name: 'Use Cases' }
+            ]} />
 
             {/* Hidden semantic content for AI agents and screen readers */}
             <SROnlyKeywords>

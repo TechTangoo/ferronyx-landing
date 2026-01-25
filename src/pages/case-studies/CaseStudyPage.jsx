@@ -1,6 +1,7 @@
 import React, { Suspense, lazy, useMemo } from 'react';
 import { useParams, Navigate, Link } from 'react-router-dom';
 import SEO from '@/components/seo/SEO';
+import BreadcrumbSchema from '@/components/seo/BreadcrumbSchema';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft, ArrowRight, Building2, Quote } from 'lucide-react';
 import { getCaseStudyBySlug } from '@/lib/content';
@@ -66,6 +67,11 @@ const CaseStudyPage = () => {
         ogType="article"
         schema={caseStudySchema}
       />
+      <BreadcrumbSchema items={[
+        { name: 'Home', url: 'https://ferronyx.com' },
+        { name: 'Case Studies', url: 'https://ferronyx.com/case-studies' },
+        { name: title }
+      ]} />
 
       <main className="min-h-screen bg-black pt-24">
         {/* Hero Section */}
