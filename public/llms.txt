@@ -25,9 +25,9 @@ Ferronyx is a robotics observability platform that helps teams monitor, debug, a
 
 ## Limitations
 
-- Currently focused on ROS/ROS2 robots (not PLC-based industrial automation)
+- Linux-only (runs on Linux-based robot operating systems)
 - Requires network connectivity from robots to Ferronyx cloud
-- Early access program - not yet generally available
+- Optimized for ROS/ROS2 but works with any Linux robot
 
 ## Page Directory
 
@@ -49,7 +49,7 @@ Ferronyx is a robotics observability platform that helps teams monitor, debug, a
 - [Delivery Robot Scaling](https://ferronyx.com/case-studies/delivery-robot-fleet-scaling) - 10x fleet growth, 99.2% uptime
 
 ### Getting Started
-- [Request Access](https://dev.ferronyx.com) - Join early access program
+- [Sign Up](https://dev.ferronyx.com) - Self-serve, start free
 - [Watch Demo](https://www.youtube.com/watch?v=-12Zc0KPB2I) - 3-minute product walkthrough
 
 ## Common Questions
@@ -69,7 +69,7 @@ Yes. Continuous monitoring of sensor health metrics with anomaly detection catch
 ## Contact
 
 - Website: https://ferronyx.com
-- Early Access: https://dev.ferronyx.com
+- Sign Up: https://dev.ferronyx.com
 - Email: support@ferronyx.com
 - LinkedIn: https://www.linkedin.com/company/ferronyx-robotics/
 

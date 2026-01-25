@@ -76,9 +76,9 @@ Per-GPU utilization metrics beyond fleet averages. See individual GPU usage per 
 
 ## Limitations
 
-- **ROS/ROS2 Focus** - Currently optimized for ROS/ROS2 robots. Not designed for PLC-based industrial automation or non-ROS systems.
+- **Linux-Only** - Runs on Linux-based robot operating systems. Not compatible with Windows or bare-metal PLCs.
 - **Cloud Connectivity** - Requires network connectivity from robots to Ferronyx cloud. Offline-first environments need periodic sync.
-- **Early Access** - Currently in early access program. Not yet generally available.
+- **ROS2 Native** - Optimized for ROS/ROS2 with deep Nav2 integration, but works with any Linux robot.
 
 ---
 
@@ -226,7 +226,7 @@ MTTR (Mean Time To Resolution) is the average time to fix a robot issue. For pro
 
 ## Getting Started
 
-1. **Request Access:** https://dev.ferronyx.com
+1. **Sign Up:** https://dev.ferronyx.com (self-serve, start free)
 2. **Watch Demo:** https://www.youtube.com/watch?v=-12Zc0KPB2I (3 minutes)
 3. **Contact:** support@ferronyx.com
 
@@ -235,7 +235,7 @@ MTTR (Mean Time To Resolution) is the average time to fix a robot issue. For pro
 ## Contact & Links
 
 - **Website:** https://ferronyx.com
-- **Early Access:** https://dev.ferronyx.com
+- **Sign Up:** https://dev.ferronyx.com (self-serve)
 - **Email:** support@ferronyx.com
 - **LinkedIn:** https://www.linkedin.com/company/ferronyx-robotics/
 - **Demo Video:** https://www.youtube.com/watch?v=-12Zc0KPB2I
