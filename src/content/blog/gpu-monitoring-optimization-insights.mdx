@@ -1,7 +1,7 @@
 # GPU Monitoring: Beyond Averages to Actionable Insights
 
 <QuickAnswer>
-Fleet-wide GPU averages hide critical problems. A 40% average often means one GPU at 70% and another at 10%, leaving half your compute capacity unused. Monitor per-GPU utilization, memory usage, thermal throttling, and inference latency. Properly balanced GPU workloads can double effective compute capacity for perception, SLAM, and planning tasks.
+**How do I monitor GPU usage on robots?** Fleet-wide GPU averages hide critical problems—40% average often means GPU 0 at 70% while GPU 1 sits at 10%. Monitor per-GPU utilization (not averages), memory usage patterns, thermal throttling events, and inference latency per model. Key metrics: individual GPU load per process, memory fragmentation, and thermal headroom. Properly balanced workloads can double effective compute capacity for perception and planning.
 </QuickAnswer>
 
 Your fleet-wide dashboard shows GPU utilization at 40%. Everything looks healthy. But is it?
