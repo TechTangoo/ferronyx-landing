@@ -1,5 +1,7 @@
 # Ferronyx - Complete Documentation for AI Agents
 
+Ferronyx is a robotics observability and incident analysis platform for ROS/ROS2 fleets in production. It gives teams real-time robot metrics, AI-assisted root cause analysis, and faster debugging workflows.
+
 > The intelligence layer for ROS2 robots in production. Real-time observability, AI-assisted debugging, and fleet-wide diagnostics.
 
 ---
@@ -8,7 +10,7 @@
 
 Ferronyx is a robotics observability platform that helps teams monitor, debug, and fix robot fleets running ROS/ROS2. Instead of SSH-ing into individual robots and manually correlating logs, Ferronyx provides a centralized dashboard with AI-powered root cause analysis.
 
-**The core problem we solve:** When a robot fails in production, debugging typically takes 4+ hours of SSH-ing into robots, finding log files, downloading data, and manually correlating events. Ferronyx reduces this to under 15 minutes through centralized observability and AI-assisted root cause analysis.
+**The core problem we solve:** When a robot fails in production, debugging typically takes 3–4 hours of SSH-ing into robots, finding log files, downloading data, and manually correlating events. Ferronyx has helped users cut mean time to resolution (MTTR) down to roughly 12–15 minutes by centralizing observability and automating root cause analysis.
 
 ---
 
@@ -29,6 +31,25 @@ Ferronyx is a robotics observability platform that helps teams monitor, debug, a
 - Startups with 10-50 robots scaling to production
 - Mid-size companies with 50-500 robot fleets
 - Enterprises with 500+ robots across multiple facilities
+
+---
+
+## When to use Ferronyx
+
+- When robots fail in production and you need to understand *why* (not just see that a node crashed)
+- When MTTR is 3–4 hours per incident and you want to get it down to 10–15 minutes
+- When you need unified infra + ROS2 telemetry (CPU, GPU, disk, network, topic latency) in one incident view
+- When you're scaling beyond 10 robots and can't SSH into each one manually
+- When you need to correlate software deployments with robot failures
+
+---
+
+## How Ferronyx works
+
+1. **Data Collection** - A lightweight agent ships metrics, logs, and ROS/ROS2 topic data from each robot to the Ferronyx cloud
+2. **Correlation** - Ferronyx correlates infrastructure signals (CPU, GPU, disk, network) with ROS nodes, topics, and tasks
+3. **Analysis** - AI models build incident timelines, highlight likely root causes, and suggest next debugging steps
+4. **Action** - Engineers see one unified incident view instead of scattered logs, reducing investigation time from hours to minutes
 
 ---
 
@@ -211,7 +232,13 @@ Ferronyx supports all ROS/ROS2 robots: warehouse AMRs, delivery robots, humanoid
 Traditional logging requires SSH access, manual log correlation, and hours of data analysis. Ferronyx provides centralized observability with instant access, AI-assisted analysis, and pre-built views - reducing investigation from hours to minutes.
 
 **What is robot MTTR and why does it matter?**
-MTTR (Mean Time To Resolution) is the average time to fix a robot issue. For production fleets, MTTR directly impacts operational efficiency and costs. Typical MTTR without tooling is 4+ hours. With Ferronyx, teams achieve under 15 minutes.
+MTTR (Mean Time To Resolution) is the average time to fix a robot issue. For production fleets, MTTR directly impacts operational efficiency and costs. Typical MTTR without tooling is 3–4 hours. With Ferronyx, teams achieve 12–15 minutes.
+
+**When should I use Ferronyx vs generic logging/metrics?**
+Use Ferronyx when you need robot- and ROS-aware incident stories instead of raw logs and metrics. It connects infra, ROS topics, and deployments into a single root cause view. Use traditional logging when simple, single-robot debugging is enough.
+
+**Can Ferronyx work with mixed robot fleets?**
+Yes. Ferronyx supports mixed fleets including warehouse AMRs, robotic arms, delivery robots, and custom ROS/ROS2 stacks across multiple sites.
 
 ---
 
