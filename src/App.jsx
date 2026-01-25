@@ -1,9 +1,6 @@
 import React from 'react'
-import { Routes, Route, useLocation } from 'react-router-dom'
-import { useEffect } from 'react'
-import './App.css'
-import Navbar from './components/Navbar'
-import FerronyxFooter from './components/FerronyxFooter'
+import { Routes, Route } from 'react-router-dom'
+import Layout from './Layout'
 import HomePage from './pages/HomePage'
 import UseCasesPage from './pages/UseCasesPage'
 import AboutPage from './pages/AboutPage'
@@ -12,33 +9,12 @@ import BlogPostPage from './pages/blog/BlogPostPage'
 import CaseStudiesListingPage from './pages/case-studies/CaseStudiesListingPage'
 import CaseStudyPage from './pages/case-studies/CaseStudyPage'
 
-// Scroll to top on route change
-function ScrollToTop() {
-  const { pathname, hash } = useLocation()
-
-  useEffect(() => {
-    if (hash) {
-      // If there's a hash, scroll to that element
-      const element = document.getElementById(hash.slice(1))
-      if (element) {
-        setTimeout(() => {
-          element.scrollIntoView({ behavior: 'smooth' })
-        }, 100)
-      }
-    } else {
-      // Otherwise scroll to top
-      window.scrollTo(0, 0)
-    }
-  }, [pathname, hash])
-
-  return null
-}
+// This file is used for the SPA fallback build (npm run build:spa)
+// The main SSG build uses routes.jsx instead
 
 function App() {
   return (
-    <div className='min-h-screen relative bg-black text-white selection:bg-blue-500/30'>
-      <ScrollToTop />
-      <Navbar />
+    <Layout>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/use-cases" element={<UseCasesPage />} />
@@ -48,8 +24,7 @@ function App() {
         <Route path="/case-studies" element={<CaseStudiesListingPage />} />
         <Route path="/case-studies/:slug" element={<CaseStudyPage />} />
       </Routes>
-      <FerronyxFooter />
-    </div>
+    </Layout>
   )
 }
 

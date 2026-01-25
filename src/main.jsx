@@ -1,13 +1,15 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import { BrowserRouter } from 'react-router-dom'
+import { ViteReactSSG } from 'vite-react-ssg'
 import './index.css'
-import App from './App.jsx'
+import { routes } from './routes'
+import Layout from './Layout'
 
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </StrictMode>,
+export const createRoot = ViteReactSSG(
+  { routes },
+  ({ router, isClient }) => {
+    // Custom setup - runs on both client and server
+  },
+  ({ app, router, routes, isClient, initialState }) => {
+    // Return the app wrapped in Layout
+    return <Layout>{app}</Layout>
+  }
 )
