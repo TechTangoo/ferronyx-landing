@@ -26,6 +26,7 @@ const Navbar = () => {
                 <div className="hidden md:flex items-center gap-6 lg:gap-8 text-sm font-medium text-zinc-400">
                     <button onClick={() => scrollToSection('features')} className="hover:text-white transition-colors">Features</button>
                     <button onClick={() => scrollToSection('built-for')} className="hover:text-white transition-colors">Solutions</button>
+                    <button onClick={() => scrollToSection('pricing')} className="hover:text-white transition-colors">Pricing</button>
                     <button onClick={() => scrollToSection('faqs')} className="hover:text-white transition-colors">Resources</button>
                 </div>
 
@@ -71,6 +72,12 @@ const Navbar = () => {
                                 className="text-left text-base font-medium text-zinc-300 hover:text-white transition-colors py-3 border-b border-white/[0.05]"
                             >
                                 Solutions
+                            </button>
+                            <button
+                                onClick={() => scrollToSection('pricing')}
+                                className="text-left text-base font-medium text-zinc-300 hover:text-white transition-colors py-3 border-b border-white/[0.05]"
+                            >
+                                Pricing
                             </button>
                             <button
                                 onClick={() => scrollToSection('faqs')}
