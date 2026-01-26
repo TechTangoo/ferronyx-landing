@@ -68,7 +68,10 @@ const BlogListingPage = () => {
               Blog
             </span>
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight">
-              Robotics Observability Insights
+              Robotics Observability{' '}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-blue-300 to-cyan-400">
+                Insights
+              </span>
             </h1>
             <p className="text-xl text-zinc-400 leading-relaxed">
               Expert guides, tutorials, and best practices for running reliable robot fleets in production.
