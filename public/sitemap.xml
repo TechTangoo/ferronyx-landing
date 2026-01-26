@@ -1,45 +1,133 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://ferronyx.com/</loc>
-    <lastmod>2026-01-25</lastmod>
+    <lastmod>2026-01-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://ferronyx.com/#pricing</loc>
-    <lastmod>2026-01-25</lastmod>
-    <changefreq>monthly</changefreq>
+    <loc>https://ferronyx.com/use-cases</loc>
+    <lastmod>2026-01-26</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://ferronyx.com/#features</loc>
-    <lastmod>2026-01-25</lastmod>
+    <loc>https://ferronyx.com/about</loc>
+    <lastmod>2026-01-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ferronyx.com/#built-for</loc>
+    <loc>https://ferronyx.com/blog</loc>
+    <lastmod>2026-01-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://ferronyx.com/blog/intelligent-alert-correlation-root-cause-analysis</loc>
     <lastmod>2026-01-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://ferronyx.com/blog/alert-correlation-cover.png</image:loc>
+      <image:title>Intelligent Alert Correlation and Root Cause Analysis for Robots</image:title>
+    </image:image>
   </url>
   <url>
-    <loc>https://ferronyx.com/#faqs</loc>
-    <lastmod>2026-01-25</lastmod>
+    <loc>https://ferronyx.com/blog/gpu-monitoring-optimization-insights</loc>
+    <lastmod>2026-01-23</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://ferronyx.com/blog/gpu-monitoring-cover.png</image:loc>
+      <image:title>GPU Monitoring and Optimization for Robot Fleets</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://ferronyx.com/blog/ota-deployment-tracking-failure-correlation</loc>
+    <lastmod>2026-01-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://ferronyx.com/blog/ota-tracking-cover.png</image:loc>
+      <image:title>OTA Deployment Tracking and Failure Correlation</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://ferronyx.com/blog/ros2-observability-complete-guide</loc>
+    <lastmod>2026-01-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://ferronyx.com/blog/ros2-observability-cover.png</image:loc>
+      <image:title>Complete Guide to ROS2 Observability</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://ferronyx.com/blog/debug-navigation-failures-ros2</loc>
+    <lastmod>2026-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://ferronyx.com/blog/nav2-debugging-cover.png</image:loc>
+      <image:title>Debug Navigation Failures in ROS2</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://ferronyx.com/blog/reducing-robot-mttr-best-practices</loc>
+    <lastmod>2026-01-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://ferronyx.com/blog/mttr-cover.png</image:loc>
+      <image:title>Reducing Robot MTTR Best Practices</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://ferronyx.com/case-studies</loc>
+    <lastmod>2026-01-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://ferronyx.com/case-studies/warehouse-amr-fleet-mttr-reduction</loc>
+    <lastmod>2026-01-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://ferronyx.com/case-studies/warehouse-amr-cover.png</image:loc>
+      <image:title>Warehouse AMR Fleet MTTR Reduction Case Study</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://ferronyx.com/case-studies/delivery-robot-fleet-scaling</loc>
+    <lastmod>2026-01-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://ferronyx.com/case-studies/delivery-robot-cover.png</image:loc>
+      <image:title>Delivery Robot Fleet Scaling Case Study</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://ferronyx.com/privacy-policy</loc>
-    <lastmod>2025-10-19</lastmod>
+    <lastmod>2026-01-26</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://ferronyx.com/terms-of-service</loc>
-    <lastmod>2025-10-19</lastmod>
+    <lastmod>2026-01-26</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
+  </url>
+  <!-- LLM-specific content -->
+  <url>
+    <loc>https://ferronyx.com/llms.txt</loc>
+    <lastmod>2026-01-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
 </urlset>

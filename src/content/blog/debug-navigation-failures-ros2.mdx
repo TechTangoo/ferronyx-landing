@@ -1,0 +1,198 @@
+# How to Debug Navigation Failures in ROS2
+
+<QuickAnswer>
+**How do I debug ROS2 navigation failures in production?** Debug Nav2 failures systematically: (1) Check the TF tree for stale transforms, (2) verify costmap shows obstacles correctly, (3) confirm localization (AMCL) confidence is high. Use timeline replay to see costmap state, planner decisions, and sensor data at failure time. Common causes: blocked goals, sensor issues, costmap inflation too high, and feature-poor environments causing AMCL confidence drops.
+</QuickAnswer>
+
+Navigation failures are among the most frustrating issues in production robot fleets. Your robot gets stuck, fails to reach its goal, or takes unexpected paths. Here's a systematic approach to debugging these issues.
+
+## Common Navigation Failure Types
+
+Before diving into debugging, understand the failure modes:
+
+| Failure Type | Symptoms | Common Causes |
+|-------------|----------|---------------|
+| Path Planning Failure | No path found | Blocked goal, incomplete map, costmap inflation |
+| Localization Loss | AMCL confidence drops | Feature-poor environment, sensor issues |
+| Recovery Behavior Loop | Stuck in spin/backup cycle | Narrow passages, dynamic obstacles |
+| Goal Timeout | Mission times out | Slow planning, excessive replanning |
+
+## The Debugging Process
+
+### Step 1: Reproduce and Capture
+
+The biggest challenge with navigation failures is that by the time you investigate, the robot has moved on. You need:
+
+1. **Continuous recording**: Log all relevant data, not just when failures occur
+2. **Event markers**: Automatically flag navigation failures in your logs
+3. **State snapshots**: Capture costmaps, TF trees, and sensor data at failure time
+
+<Callout type="tip" title="Pro Tip">
+Configure your robots to automatically capture extended logs (10 minutes before/after) when navigation failures occur. This context is invaluable.
+</Callout>
+
+### Step 2: Check the Basics First
+
+Before deep-diving, verify these fundamentals:
+
+```bash
+# Check TF tree connectivity
+ros2 run tf2_tools view_frames
+
+# Verify localization is running
+ros2 topic echo /amcl_pose
+
+# Check costmap updates
+ros2 topic hz /global_costmap/costmap
+```
+
+Common issues that cause mysterious failures:
+
+- **TF timeouts**: Transforms becoming stale
+- **Clock sync**: Timestamps misaligned between nodes
+- **QoS mismatches**: Messages being dropped silently
+
+### Step 3: Analyze the Timeline
+
+Navigation failures rarely have a single cause. Build a timeline:
+
+1. When did the failure occur?
+2. What was the robot's state 30 seconds before?
+3. Were there any sensor anomalies?
+4. Were there deployment changes that day?
+
+<MetricGrid>
+  <MetricCard value="30s" label="Pre-Failure Window" description="Key context period" />
+  <MetricCard value="5-10" label="Data Sources" description="To correlate" />
+  <MetricCard value="1" label="Root Cause" description="To identify" />
+</MetricGrid>
+
+## Specific Failure Debugging
+
+### Path Planning Failures
+
+When the planner returns no path:
+
+1. **Check the goal pose**: Is it actually reachable? Inside walls or obstacles?
+2. **Examine costmap inflation**: Over-inflated costmaps can make valid paths seem blocked
+3. **Verify map accuracy**: Does the map match reality?
+
+```python
+# Key parameters to check
+costmap_2d:
+  inflation_radius: 0.55  # Too high = narrow passages blocked
+  cost_scaling_factor: 3.0  # Affects path proximity to obstacles
+```
+
+<Callout type="warning" title="Common Mistake">
+Don't just increase the inflation radius when robots hit obstacles. Find out why localization or sensing is inaccurate first.
+</Callout>
+
+### Localization Failures
+
+AMCL losing track of position:
+
+1. **Check particle cloud spread**: Wide spread = uncertainty
+2. **Verify sensor data quality**: LiDAR returns, odometry drift
+3. **Examine environment changes**: Did something move since mapping?
+
+Key metrics to monitor:
+
+- AMCL covariance values
+- Scan matching scores
+- Odometry vs. AMCL drift
+
+### Recovery Behavior Loops
+
+Robot stuck in endless recovery:
+
+1. **Check recovery behavior sequence**: Is it appropriate for the situation?
+2. **Verify controller timeout settings**: Are they too aggressive?
+3. **Examine local costmap clearing**: Are phantom obstacles persisting?
+
+## Using Ferronyx for Navigation Debugging
+
+With traditional tools, debugging requires:
+
+- SSH access to the robot
+- Manual log correlation
+- Expertise in RViz and Nav2 internals
+
+With Ferronyx:
+
+### Automatic Failure Detection
+
+Navigation failures are automatically flagged and categorized. No need to watch logs constantly.
+
+### Timeline Replay
+
+See exactly what the robot saw, planned, and executed at the moment of failure:
+
+- Costmap state
+- Planner output
+- Controller behavior
+- Sensor inputs
+
+### Cross-Robot Analysis
+
+Identify if failures cluster in specific:
+
+- Locations in your facility
+- Times of day
+- Robot configurations
+- Software versions
+
+<Callout type="info" title="Pattern Recognition">
+When you see the same navigation failure across multiple robots in the same location, it's likely a map or environment issue, not a robot problem.
+</Callout>
+
+## Prevention Strategies
+
+### 1. Proactive Monitoring
+
+Set up alerts for:
+
+- AMCL covariance exceeding thresholds
+- Excessive replanning frequency
+- Recovery behavior activation rate
+
+### 2. Regular Map Validation
+
+- Compare current LiDAR scans to stored maps
+- Flag divergence before it causes failures
+- Schedule re-mapping when environments change
+
+### 3. Sensor Health Monitoring
+
+- Track LiDAR return quality
+- Monitor odometry drift rates
+- Alert on IMU anomalies
+
+## Debugging Checklist
+
+When a navigation failure occurs, work through this checklist:
+
+- [ ] Capture timestamp and robot ID
+- [ ] Check TF tree at failure time
+- [ ] Verify localization confidence
+- [ ] Examine costmap state
+- [ ] Review planner output
+- [ ] Check controller behavior
+- [ ] Look for sensor anomalies
+- [ ] Check for recent deployments/changes
+- [ ] Compare with similar failures
+
+## Conclusion
+
+Navigation debugging doesn't have to be a multi-hour ordeal. With the right observability setup:
+
+1. **Failures are captured automatically** with full context
+2. **Correlation is instant** across all data sources
+3. **Patterns emerge** from fleet-wide analysis
+4. **Resolution is fast** because you see exactly what happened
+
+The difference between a 4-hour debugging session and a 15-minute investigation is the quality of your observability tooling.
+
+---
+
+*Debug navigation failures faster with Ferronyx. [Get started today](https://dev.ferronyx.com).*

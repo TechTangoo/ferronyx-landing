@@ -1,0 +1,243 @@
+# Reducing Robot MTTR: Best Practices
+
+<QuickAnswer>
+**How do I reduce robot MTTR in production?** Reduce robot MTTR from 4+ hours to under 15 minutes with: (1) automated detection alerts catching issues in seconds, (2) centralized observability eliminating SSH, (3) pre-built debugging dashboards for common failures, (4) AI-assisted root cause analysis that identifies problems automatically. The biggest opportunity is investigation time—teams typically spend 2-4 hours manually correlating logs. Centralized observability cuts this to minutes.
+</QuickAnswer>
+
+Mean Time to Resolution (MTTR) is the critical metric for robot operations teams. Every minute a robot spends broken is a minute it's not delivering value. Here's how to systematically reduce your fleet's MTTR.
+
+## Understanding Robot MTTR
+
+MTTR for robots includes:
+
+1. **Detection time**: How long until you know there's a problem?
+2. **Triage time**: How long to understand the severity and assign resources?
+3. **Investigation time**: How long to identify the root cause?
+4. **Resolution time**: How long to fix the issue?
+5. **Verification time**: How long to confirm the fix worked?
+
+<MetricGrid>
+  <MetricCard value="4+ hours" label="Typical MTTR" description="Without proper tooling" />
+  <MetricCard value="15 min" label="Target MTTR" description="With best practices" />
+  <MetricCard value="$500+" label="Cost per Hour" description="Of robot downtime" />
+</MetricGrid>
+
+## The MTTR Breakdown
+
+Let's examine where time goes in typical robot incident resolution:
+
+| Phase | Typical Time | With Best Practices |
+|-------|-------------|---------------------|
+| Detection | 30-60 min | < 1 min |
+| Triage | 15-30 min | 2-5 min |
+| Investigation | 2-4 hours | 5-10 min |
+| Resolution | 30-60 min | 10-20 min |
+| Verification | 15-30 min | 5-10 min |
+
+The biggest opportunity? **Investigation time**. This is where teams spend hours SSH-ing into robots, grepping logs, and correlating data manually.
+
+## Best Practice #1: Automated Detection
+
+Don't wait for operators to notice failures. Implement automated detection for:
+
+### Critical Alerts (Immediate)
+- Robot stopped responding
+- Safety system triggered
+- Navigation completely failed
+- Hardware fault detected
+
+### Warning Alerts (Within 5 minutes)
+- Localization confidence dropping
+- Battery below threshold
+- Network connectivity issues
+- Sensor degradation detected
+
+### Trend Alerts (Daily review)
+- Increasing failure rates
+- Degrading performance metrics
+- Resource usage trends
+
+<Callout type="warning" title="Alert Hygiene">
+Every alert should be actionable. If you're ignoring alerts, they're either too noisy or not important. Fix the alerting, not the human behavior.
+</Callout>
+
+## Best Practice #2: Centralized Observability
+
+The #1 time sink in robot debugging is data collection. Engineers spend hours:
+
+- SSH-ing into robots
+- Finding relevant log files
+- Downloading and correlating data
+- Reproducing issues
+
+### The Solution
+
+Centralize all robot telemetry:
+
+```
+Robot Fleet → Central Platform → Instant Access
+     ↓              ↓                 ↓
+   Logs          Storage          Dashboards
+   Metrics       Processing       Queries
+   Events        Correlation      Alerts
+```
+
+With centralized observability:
+- No SSH required
+- All data in one place
+- Instant correlation across data types
+- Historical data for trend analysis
+
+## Best Practice #3: Pre-built Debugging Views
+
+Don't make engineers build queries from scratch every incident. Create saved views for:
+
+### Robot Health Dashboard
+- Fleet overview with problem robots highlighted
+- Key metrics for each robot
+- Recent alerts and warnings
+
+### Incident Investigation View
+- Timeline of events around the incident
+- Correlated logs, metrics, and sensor data
+- Diff with normal operation
+
+### Navigation Debugging View
+- Costmap state at failure time
+- Localization confidence history
+- Path planner output
+- Controller behavior
+
+<Callout type="tip" title="Pro Tip">
+After every significant incident, ask: "What dashboard or view would have helped us find this faster?" Then build it.
+</Callout>
+
+## Best Practice #4: Automated Root Cause Analysis
+
+AI can dramatically speed up investigation by:
+
+### Pattern Recognition
+- "This looks similar to 5 other incidents this week"
+- "This failure always occurs after deployments"
+- "This location has 10x the failure rate"
+
+### Anomaly Detection
+- "CPU spiked 30 seconds before the failure"
+- "This sensor started drifting 2 hours ago"
+- "Network latency increased at 3 PM"
+
+### Suggested Causes
+- "Based on the error pattern, this is likely a TF timeout"
+- "Similar failures were resolved by updating the costmap parameters"
+
+## Best Practice #5: Knowledge Base
+
+Don't solve the same problem twice. Build a knowledge base of:
+
+### Known Issues
+- Symptoms to look for
+- Root causes
+- Resolution steps
+- Prevention measures
+
+### Runbooks
+- Step-by-step debugging procedures
+- Decision trees for common issues
+- Escalation paths
+
+### Post-mortems
+- What happened
+- Why it happened
+- How it was resolved
+- How to prevent recurrence
+
+## Best Practice #6: Deployment Correlation
+
+Many robot issues follow deployments. Track:
+
+- What was deployed and when
+- Which robots received the deployment
+- Performance metrics before and after
+
+<MetricGrid>
+  <MetricCard value="60%" label="Issues After Deploy" description="Common correlation" />
+  <MetricCard value="< 5 min" label="To Identify" description="With proper tracking" />
+  <MetricCard value="Quick" label="Rollback Decision" description="When you see the pattern" />
+</MetricGrid>
+
+## Implementing MTTR Reduction
+
+### Phase 1: Foundation (Week 1-2)
+1. Set up centralized log collection
+2. Implement critical alerts
+3. Create fleet health dashboard
+
+### Phase 2: Investigation Tools (Week 3-4)
+1. Build incident investigation views
+2. Set up metric correlation
+3. Create debugging runbooks
+
+### Phase 3: Automation (Month 2)
+1. Implement AI-assisted analysis
+2. Automate common resolutions
+3. Build predictive alerts
+
+### Phase 4: Optimization (Ongoing)
+1. Review MTTR trends weekly
+2. Update runbooks based on new learnings
+3. Refine alerts to reduce noise
+
+## Measuring Success
+
+Track these metrics to measure MTTR improvement:
+
+| Metric | Target |
+|--------|--------|
+| Mean Detection Time | < 1 minute |
+| Mean Investigation Time | < 10 minutes |
+| Mean Resolution Time | < 30 minutes |
+| Repeat Incidents | < 10% |
+| False Alert Rate | < 5% |
+
+## Real Results
+
+Teams implementing these practices see:
+
+- **85% reduction** in average investigation time
+- **70% reduction** in overall MTTR
+- **50% reduction** in repeat incidents
+- **90% reduction** in time to first meaningful data
+
+<Callout type="info" title="The Compound Effect">
+Every minute saved on MTTR multiplies across your fleet. With 100 robots and 10 incidents per week, saving 3 hours per incident saves 1,500+ hours per year.
+</Callout>
+
+## Common Pitfalls
+
+### Pitfall 1: Tool Sprawl
+Don't implement 10 different monitoring tools. Consolidate for faster correlation.
+
+### Pitfall 2: Alert Fatigue
+Start with fewer, higher-quality alerts. Expand only when current alerts are well-handled.
+
+### Pitfall 3: Ignoring Trends
+Individual incidents matter, but patterns matter more. Look for systemic issues.
+
+### Pitfall 4: No Post-mortems
+If you don't learn from incidents, you'll keep having them.
+
+## Conclusion
+
+Reducing MTTR isn't about working faster - it's about working smarter. The key investments:
+
+1. **Automated detection** so you know immediately
+2. **Centralized observability** so data is instant
+3. **Pre-built tools** so investigation is fast
+4. **AI assistance** so patterns are obvious
+5. **Knowledge management** so you learn
+
+The result? Your team spends less time debugging and more time building great robots.
+
+---
+
+*Ready to reduce your robot MTTR? [Get started with Ferronyx](https://dev.ferronyx.com) and join teams who debug in minutes, not hours.*

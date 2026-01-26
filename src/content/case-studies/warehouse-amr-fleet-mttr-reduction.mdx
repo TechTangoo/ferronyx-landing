@@ -1,0 +1,151 @@
+# The Challenge
+
+A major logistics provider operates a fleet of 120+ autonomous mobile robots (AMRs) across multiple warehouse facilities. These robots handle thousands of picking and transport tasks daily, making reliability critical to operations.
+
+Before implementing Ferronyx, the operations team faced significant challenges:
+
+- **4+ hour average debugging time** for robot incidents
+- **Limited visibility** into fleet-wide performance
+- **Manual log correlation** requiring SSH access to individual robots
+- **No proactive alerting** - issues discovered by operators on the floor
+- **Knowledge silos** - only 2-3 engineers understood the full system
+
+<Callout type="info" title="The Impact">
+With an average of 15-20 incidents per week across the fleet, the team was spending 60-80+ hours weekly just on debugging - time that could be spent improving the system.
+</Callout>
+
+## The Solution
+
+The logistics provider implemented Ferronyx across their entire AMR fleet, focusing on three key areas:
+
+### 1. Real-Time Fleet Observability
+
+- Centralized dashboard showing all 120+ robots
+- Instant access to logs, metrics, and sensor data
+- No SSH required - everything accessible from one interface
+
+### 2. Automated Incident Detection
+
+- Navigation failures flagged immediately
+- Sensor degradation alerts before failures occur
+- Resource issues (CPU, memory, disk) detected in real-time
+
+### 3. AI-Assisted Root Cause Analysis
+
+- Automatic correlation of related data
+- Pattern recognition across similar incidents
+- Suggested causes based on historical data
+
+## Implementation
+
+The rollout happened in phases over 6 weeks:
+
+**Week 1-2: Pilot**
+- Deployed Ferronyx agent on 10 robots
+- Validated data collection and dashboard
+- Trained core operations team
+
+**Week 3-4: Expansion**
+- Rolled out to all 120+ robots
+- Set up alerting and escalation workflows
+- Created custom dashboards for shift supervisors
+
+**Week 5-6: Optimization**
+- Refined alert thresholds based on real data
+- Built debugging runbooks
+- Trained all operations staff
+
+<Callout type="tip" title="Key Success Factor">
+The pilot phase was critical. Starting with 10 robots allowed the team to validate the approach and build confidence before fleet-wide rollout.
+</Callout>
+
+## The Results
+
+After 3 months of using Ferronyx:
+
+### MTTR Reduction: 85%
+
+| Metric | Before | After | Improvement |
+|--------|--------|-------|-------------|
+| Average Debug Time | 4.2 hours | 38 minutes | 85% reduction |
+| Time to First Data | 45 minutes | < 30 seconds | 99% reduction |
+| Investigation Effort | 3-4 people | 1 person | 70% reduction |
+
+### Proactive Issue Detection
+
+- **23 sensor failures** caught before causing operational issues
+- **8 software bugs** identified through pattern analysis
+- **3 map problems** discovered via location-based failure clustering
+
+### Operational Efficiency
+
+- Support tickets reduced by **60%**
+- Night shift can now resolve issues without calling day engineers
+- New engineers productive on debugging within **1 week** vs. **3 months**
+
+## Key Features Used
+
+### Fleet Dashboard
+The operations team starts every shift by checking the fleet dashboard. At a glance, they see:
+- Robot health status (green/yellow/red)
+- Active alerts and warnings
+- Mission completion rates
+- Trending issues
+
+### Timeline Replay
+When incidents occur, engineers use timeline replay to see exactly what happened:
+- Costmap state at failure time
+- Navigation planner decisions
+- Sensor data leading up to the issue
+- Related log entries
+
+### Cross-Robot Analysis
+Pattern detection helped identify systemic issues:
+- Specific warehouse zones with higher failure rates
+- Correlation between deployment changes and incidents
+- Time-based patterns (shift changes, lighting conditions)
+
+## Lessons Learned
+
+### 1. Start with the Right Alerts
+Initial alert configuration was too aggressive, causing alert fatigue. After tuning:
+- Critical alerts: 5-10 per day (truly urgent)
+- Warnings: 20-30 per day (review in batches)
+- Info: Available but not pushed
+
+### 2. Invest in Runbooks
+With faster debugging comes the need for faster resolution. The team built runbooks for:
+- Top 10 failure types
+- Escalation procedures
+- Recovery verification steps
+
+### 3. Share Knowledge Broadly
+Previously, debugging was a specialized skill. Now:
+- All operators can do first-level triage
+- Shift supervisors can resolve 70% of issues
+- Engineers focus on prevention and improvement
+
+## What's Next
+
+The logistics provider is now expanding their use of Ferronyx:
+
+- **Predictive maintenance**: Using trend data to schedule maintenance before failures
+- **Capacity planning**: Understanding fleet utilization patterns
+- **New facility rollout**: Applying learnings to new warehouse deployments
+
+<Callout type="success" title="Customer Quote">
+"Ferronyx transformed how we operate our robot fleet. What used to take half a day now takes 30 minutes. More importantly, we catch issues before they impact operations."
+
+*— Operations Director*
+</Callout>
+
+## Summary
+
+By implementing Ferronyx, this logistics provider achieved:
+
+- **85% reduction** in mean time to resolution
+- **60% reduction** in support tickets
+- **Proactive detection** of 30+ issues before they caused problems
+- **Democratized debugging** across the operations team
+
+The ROI was clear within the first month: time saved on debugging more than justified the investment, and the proactive issue detection prevented multiple potential operational disruptions.
