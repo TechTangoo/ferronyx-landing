@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Twitter, Linkedin, Mail } from "lucide-react";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
@@ -83,10 +84,10 @@ const FerronyxFooter = () => {
 
                 {/* Left Column: Brand & Info */}
                 <div className="flex flex-col gap-10">
-                    <div className="flex items-center gap-3">
+                    <Link to="/" className="flex items-center gap-3">
                         <img src={logo} alt="Ferronyx Logo" className="h-8 w-auto opacity-90" />
                         <span className="text-xl font-bold text-white tracking-tight">Ferronyx</span>
-                    </div>
+                    </Link>
 
                     <div className="max-w-md">
                         <h3 className="text-3xl font-semibold text-white mb-4 leading-tight tracking-tight">
@@ -95,6 +96,44 @@ const FerronyxFooter = () => {
                         <p className="text-[#8A8F98] leading-relaxed text-lg">
                             Real-time fleet observability, AI-assisted troubleshooting, and SRE-grade incident management for modern robotics teams.
                         </p>
+                    </div>
+
+                    {/* Quick Links */}
+                    <div className="grid grid-cols-2 gap-8">
+                        <div>
+                            <h4 className="text-sm font-medium text-white uppercase tracking-widest mb-4">Product</h4>
+                            <ul className="space-y-3">
+                                <li>
+                                    <Link to="/#features" className="text-zinc-400 hover:text-white transition-colors text-sm">Features</Link>
+                                </li>
+                                <li>
+                                    <Link to="/use-cases" className="text-zinc-400 hover:text-white transition-colors text-sm">Use Cases</Link>
+                                </li>
+                                <li>
+                                    <Link to="/case-studies" className="text-zinc-400 hover:text-white transition-colors text-sm">Case Studies</Link>
+                                </li>
+                                <li>
+                                    <Link to="/#faqs" className="text-zinc-400 hover:text-white transition-colors text-sm">FAQs</Link>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 className="text-sm font-medium text-white uppercase tracking-widest mb-4">Resources</h4>
+                            <ul className="space-y-3">
+                                <li>
+                                    <Link to="/blog" className="text-zinc-400 hover:text-white transition-colors text-sm">Blog</Link>
+                                </li>
+                                <li>
+                                    <Link to="/about" className="text-zinc-400 hover:text-white transition-colors text-sm">About Us</Link>
+                                </li>
+                                <li>
+                                    <a href="mailto:support@ferronyx.com" className="text-zinc-400 hover:text-white transition-colors text-sm">Contact</a>
+                                </li>
+                                <li>
+                                    <a href="https://www.linkedin.com/company/ferronyx-robotics/" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-white transition-colors text-sm">LinkedIn</a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
 
                     <div className="flex flex-col gap-3">

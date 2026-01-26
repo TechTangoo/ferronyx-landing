@@ -1,0 +1,102 @@
+# Ferronyx
+
+Ferronyx is a robotics observability and incident analysis platform for ROS/ROS2 fleets in production. It gives teams real-time robot metrics, AI-assisted root cause analysis, and faster debugging workflows.
+
+> The intelligence layer for ROS2 robots in production. Real-time observability, AI-assisted debugging, and fleet-wide diagnostics.
+
+## What is Ferronyx?
+
+Ferronyx is a robotics observability platform that helps teams monitor, debug, and fix robot fleets running ROS/ROS2. Instead of SSH-ing into individual robots and manually correlating logs, Ferronyx provides a centralized dashboard with AI-powered root cause analysis.
+
+Ferronyx has helped users cut mean time to resolution (MTTR) from about 3–4 hours per incident down to roughly 12–15 minutes by centralizing observability and automating root cause analysis.
+
+## Who is it for?
+
+- **Robotics engineering teams** running ROS/ROS2 robots in production
+- **Operations teams** managing autonomous mobile robot (AMR) fleets
+- **SRE/DevOps teams** supporting robot deployments
+- **Companies operating**: warehouse robots, delivery robots, humanoids, industrial automation
+
+## When to use Ferronyx
+
+- When robots fail in production and you need to understand *why* (not just see that a node crashed)
+- When MTTR is 3–4 hours per incident and you want to get it down to 10–15 minutes
+- When you need unified infra + ROS2 telemetry (CPU, GPU, disk, network, topic latency) in one incident view
+- When you're scaling beyond 10 robots and can't SSH into each one manually
+
+## Key Capabilities
+
+1. **Real-time Fleet Dashboard** - Monitor all robots in one view with health status, alerts, and metrics
+2. **AI-Powered Root Cause Analysis** - Automatically identify failure causes from correlated telemetry
+3. **Intelligent Alert Correlation** - Group related alerts (CPU spike → node crash → nav failure) into single incidents
+4. **Nav2 Debugging** - Full navigation stack visibility with costmap replay for warehouse AMRs and indoor navigation robots
+5. **Sensor Drift Detection** - Catch degradation in LiDARs, IMUs, and navigation-critical sensors before failures
+6. **OTA Deployment Tracking** - Correlate software deployments with robot failures instantly
+7. **GPU Monitoring** - Per-GPU metrics for perception and foundation-model workloads on onboard GPUs
+
+## How Ferronyx works
+
+1. A lightweight agent ships metrics, logs, and ROS/ROS2 topic data from each robot to the Ferronyx cloud
+2. Ferronyx correlates infrastructure signals (CPU, GPU, disk, network) with ROS nodes, topics, and tasks
+3. AI models build incident timelines, highlight likely root causes, and suggest next debugging steps
+
+## Limitations
+
+- Linux-only (runs on Linux-based robot operating systems)
+- Requires network connectivity from robots to Ferronyx cloud
+- Optimized for ROS/ROS2 but works with any Linux robot
+
+## Page Directory
+
+### Main Pages
+- [Home](https://ferronyx.com) - Product overview and fleet dashboard demo
+- [Use Cases](https://ferronyx.com/use-cases) - MTTR reduction, sensor drift, nav debugging, fleet visibility
+- [About](https://ferronyx.com/about) - Company mission and team
+
+### Technical Blog
+- [ROS2 Observability Guide](https://ferronyx.com/blog/ros2-observability-complete-guide) - Complete guide to monitoring ROS2 robots in production
+- [Alert Correlation](https://ferronyx.com/blog/intelligent-alert-correlation-root-cause-analysis) - How to automatically find root causes from alert storms
+- [Debug Nav2 Failures](https://ferronyx.com/blog/debug-navigation-failures-ros2) - Step-by-step ROS2 navigation debugging
+- [Reduce Robot MTTR](https://ferronyx.com/blog/reducing-robot-mttr-best-practices) - Best practices for faster incident resolution
+- [GPU Monitoring](https://ferronyx.com/blog/gpu-monitoring-optimization-insights) - Per-GPU metrics beyond fleet averages
+- [OTA Tracking](https://ferronyx.com/blog/ota-deployment-tracking-failure-correlation) - Correlate deployments with failures
+
+### Case Studies
+- [Warehouse AMR Fleet](https://ferronyx.com/case-studies/warehouse-amr-fleet-mttr-reduction) - 85% MTTR reduction with 120+ robots
+- [Delivery Robot Scaling](https://ferronyx.com/case-studies/delivery-robot-fleet-scaling) - 10x fleet growth, 99.2% uptime
+
+### Getting Started
+- [Sign Up](https://dev.ferronyx.com) - Self-serve, start free
+- [Watch Demo](https://www.youtube.com/watch?v=-12Zc0KPB2I) - 3-minute product walkthrough
+
+## Common Questions
+
+**How do I debug ROS2 navigation failures in production?**
+Use Ferronyx's Nav2 debugging to see costmap state, planner decisions, and sensor data at failure time. Timeline replay shows exactly what the robot saw when it failed.
+
+**How do I reduce robot MTTR?**
+Ferronyx reduces MTTR through: centralized observability (no SSH), AI root cause analysis, deployment correlation, and pre-built debugging dashboards.
+
+**How does alert correlation work?**
+When multiple alerts fire (CPU spike, node crash, nav failure), Ferronyx groups them by time and causal relationships, showing the root cause instead of 5 separate alerts.
+
+**Can Ferronyx detect sensor drift?**
+Yes. Continuous monitoring of sensor health metrics with anomaly detection catches drift patterns before they cause navigation failures.
+
+**When should I use Ferronyx vs generic logging/metrics?**
+Use Ferronyx when you need robot- and ROS-aware incident stories instead of raw logs and metrics. It connects infra, ROS topics, and deployments into a single root cause view. Use traditional logging when simple, single-robot debugging is enough.
+
+**Can Ferronyx work with mixed robot fleets?**
+Yes. Ferronyx supports mixed fleets including warehouse AMRs, robotic arms, delivery robots, and custom ROS/ROS2 stacks across multiple sites.
+
+## Contact
+
+- Website: https://ferronyx.com
+- Sign Up: https://dev.ferronyx.com
+- Email: support@ferronyx.com
+- LinkedIn: https://www.linkedin.com/company/ferronyx-robotics/
+
+## Optional
+
+- [Privacy Policy](https://ferronyx.com/privacy-policy)
+- [Terms of Service](https://ferronyx.com/terms-of-service)
