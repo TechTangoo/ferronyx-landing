@@ -141,7 +141,10 @@ const FerronyxFeaturesScroll = () => {
       <div className="relative w-full flex flex-col items-center justify-center px-4 pt-32 pb-20">
         <div className="max-w-3xl w-full text-center flex flex-col items-center gap-6">
           <h2 className="text-4xl md:text-5xl font-semibold tracking-tight text-white">
-            Engineer-Grade Observability Stack
+            Engineer-Grade{' '}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-blue-300 to-cyan-400">
+              Observability Stack
+            </span>
           </h2>
           <p className="text-lg text-[#8A8F98] max-w-xl leading-relaxed">
             From Linux infra to ROS2 topics. Full-stack visibility with zero config.
