@@ -5,6 +5,7 @@ import FerronyxHero from './components/FerronyxHero'
 import FerronyxFeaturesScroll from './components/FerronyxFeaturesScroll'
 import HowItWorks from './components/HowItWorks'
 import FerronyxSolutions from './components/FerronyxSolutions'
+import FerronyxPricing from './components/FerronyxPricing'
 import FerronyxFAQ from './components/FerronyxFAQ'
 import FerronyxFooter from './components/FerronyxFooter'
 
@@ -16,6 +17,7 @@ function App() {
         <FerronyxFeaturesScroll />
         <HowItWorks />
         <FerronyxSolutions />
+        <FerronyxPricing />
         <FerronyxFAQ />
         <FerronyxFooter />
     </div>
