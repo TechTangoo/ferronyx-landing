@@ -131,7 +131,7 @@ const FerronyxPricing = () => {
   }, []);
 
   const monthlyPrice = 29;
-  const annualPrice = 25;
+  const annualPrice = 300; // 20% discount for annual billing
 
   const sharedFeatures = [
     'Real-time monitoring',
@@ -404,7 +404,7 @@ const FerronyxPricing = () => {
         >
           <div className="grid grid-cols-3 divide-x divide-white/10">
             <div className="text-center px-4">
-              <div className="text-2xl font-bold text-white mb-1">2 weeks</div>
+              <div className="text-2xl font-bold text-white mb-1">1 month</div>
               <p className="text-xs text-zinc-500">Free trial</p>
             </div>
             <div className="text-center px-4">
