@@ -196,7 +196,7 @@ const UseCasesPage = () => {
                 {/* Hero Section */}
                 <section className="px-6 py-20 max-w-7xl mx-auto">
                     <div className="text-center max-w-4xl mx-auto">
-                        <span className="inline-block px-4 py-1.5 rounded-full bg-white/[0.05] border border-white/[0.08] text-sm text-zinc-400 mb-6">
+                        <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-blue-500/20 bg-blue-500/5 text-sm font-medium text-blue-400 mb-8 backdrop-blur-sm">
                             Use Cases
                         </span>
                         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 tracking-tight">

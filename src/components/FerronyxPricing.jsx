@@ -419,7 +419,7 @@ const FerronyxPricing = () => {
         </motion.div>
 
         {/* Footer CTA */}
-        <motion.p
+        {/* <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -435,7 +435,7 @@ const FerronyxPricing = () => {
           >
             Talk to our team
           </a>
-        </motion.p>
+        </motion.p> */}
       </div>
     </section>
   );
