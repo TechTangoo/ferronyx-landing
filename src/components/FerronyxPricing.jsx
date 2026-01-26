@@ -1,10 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Check, Cloud, Server, Sparkles, ArrowRight } from 'lucide-react';
 
 const FerronyxPricing = () => {
-  const [billingPeriod, setBillingPeriod] = useState('monthly');
-
   // SEO: Update meta tags and add structured data when component mounts
   useEffect(() => {
     // Update page title
@@ -131,7 +129,6 @@ const FerronyxPricing = () => {
   }, []);
 
   const monthlyPrice = 29;
-  const annualPrice = 300; // 20% discount for annual billing
 
   const sharedFeatures = [
     'Real-time monitoring',
@@ -223,36 +220,9 @@ const FerronyxPricing = () => {
             </span>
           </h2>
 
-          <p className="text-lg text-zinc-400 max-w-xl mx-auto mb-10">
+          <p className="text-lg text-zinc-400 max-w-xl mx-auto">
             Start with a 1-month free trial. No credit card required.
           </p>
-
-          {/* Billing Toggle */}
-          <div className="inline-flex items-center gap-4 p-1.5 rounded-full bg-white/5 border border-white/10">
-            <button
-              onClick={() => setBillingPeriod('monthly')}
-              className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${
-                billingPeriod === 'monthly'
-                  ? 'bg-white text-zinc-900 shadow-lg'
-                  : 'text-zinc-400 hover:text-white'
-              }`}
-            >
-              Monthly
-            </button>
-            <button
-              onClick={() => setBillingPeriod('annual')}
-              className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 flex items-center gap-2 ${
-                billingPeriod === 'annual'
-                  ? 'bg-white text-zinc-900 shadow-lg'
-                  : 'text-zinc-400 hover:text-white'
-              }`}
-            >
-              Annual
-              <span className="text-xs px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 font-semibold">
-                -20%
-              </span>
-            </button>
-          </div>
         </motion.div>
 
         {/* Pricing Cards */}
@@ -291,20 +261,13 @@ const FerronyxPricing = () => {
               <div className="mb-8 pb-8 border-b border-white/10">
                 <div className="flex items-baseline gap-1">
                   <span className="text-5xl font-bold text-white">
-                    ${billingPeriod === 'monthly' ? monthlyPrice : annualPrice}
+                    ${monthlyPrice}
                   </span>
                   <span className="text-zinc-500 text-sm">/machine/month</span>
                 </div>
-                {billingPeriod === 'annual' && (
-                  <p className="text-sm text-emerald-400 mt-2">
-                    Save ${(monthlyPrice - annualPrice) * 12} per machine annually
-                  </p>
-                )}
-                {billingPeriod === 'monthly' && (
-                  <p className="text-sm text-zinc-500 mt-2">
-                    Billed monthly, cancel anytime
-                  </p>
-                )}
+                <p className="text-sm text-zinc-500 mt-2">
+                  Billed monthly, cancel anytime
+                </p>
               </div>
 
               {/* CTA */}
@@ -408,8 +371,8 @@ const FerronyxPricing = () => {
               <p className="text-xs text-zinc-500">Free trial</p>
             </div>
             <div className="text-center px-4">
-              <div className="text-2xl font-bold text-white mb-1">20%</div>
-              <p className="text-xs text-zinc-500">Annual savings</p>
+              <div className="text-2xl font-bold text-white mb-1">$29</div>
+              <p className="text-xs text-zinc-500">Per machine/month</p>
             </div>
             <div className="text-center px-4">
               <div className="text-2xl font-bold text-white mb-1">24/7</div>
