@@ -49,7 +49,7 @@ const Navbar = () => {
 
                 <div className="flex items-center gap-4">
                     {/* Get Started - Always visible */}
-                    <a href="https://dev.ferronyx.com" target="_blank" rel="noopener noreferrer">
+                    <a href="https://dev.ferronyx.com/register" target="_blank" rel="noopener noreferrer">
                         <button className="text-sm font-medium bg-white text-black px-4 py-2 rounded-lg hover:bg-zinc-200 transition-colors">
                             Get Started
                         </button>

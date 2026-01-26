@@ -193,7 +193,7 @@ const CaseStudyPage = () => {
               Join leading robotics companies who trust Ferronyx for their observability needs.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="https://dev.ferronyx.com" target="_blank" rel="noopener noreferrer">
+              <a href="https://dev.ferronyx.com/register" target="_blank" rel="noopener noreferrer">
                 <Button className="bg-white text-black hover:bg-zinc-200 font-medium px-8 py-6 text-base">
                   Get Started
                   <ArrowRight className="ml-2 h-4 w-4" />
@@ -201,7 +201,7 @@ const CaseStudyPage = () => {
               </a>
               <Link to="/#contact-footer">
                 <Button variant="outline" className="border-white/[0.15] text-white hover:bg-white/[0.05] font-medium px-8 py-6 text-base">
-                  Book a Demo
+                  Contact Us
                 </Button>
               </Link>
             </div>

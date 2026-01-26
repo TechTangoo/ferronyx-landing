@@ -163,7 +163,7 @@ const BlogPost = ({ post, children }) => {
           <p className="text-zinc-400 mb-6 max-w-lg mx-auto">
             Join robotics teams who have reduced their MTTR from hours to minutes with Ferronyx.
           </p>
-          <a href="https://dev.ferronyx.com" target="_blank" rel="noopener noreferrer">
+          <a href="https://dev.ferronyx.com/register" target="_blank" rel="noopener noreferrer">
             <Button className="bg-white text-black hover:bg-zinc-200 font-medium px-8 py-6 text-base">
               Get Started
               <ArrowRight className="ml-2 h-4 w-4" />

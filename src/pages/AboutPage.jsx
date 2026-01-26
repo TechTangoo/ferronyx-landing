@@ -380,7 +380,7 @@ const AboutPage = () => {
                             variants={fadeInUp}
                         >
                             <motion.a 
-                                href="https://dev.ferronyx.com" 
+                                href="https://dev.ferronyx.com/register" 
                                 target="_blank" 
                                 rel="noopener noreferrer"
                                 whileHover={{ scale: 1.05 }}

@@ -208,7 +208,7 @@ const BlogListingPage = () => {
               transition={{ duration: 0.5, delay: 0.2 }}
             >
               <motion.a 
-                href="https://dev.ferronyx.com" 
+                href="https://dev.ferronyx.com/register" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
@@ -220,9 +220,9 @@ const BlogListingPage = () => {
                 </Button>
               </motion.a>
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
-                <Link to="/case-studies">
+                <Link to="/#contact-footer">
                   <Button variant="outline" className="border-white/[0.15] text-white hover:bg-white/[0.05] font-medium px-8 py-6 text-base">
-                    View Case Studies
+                    Contact Us
                   </Button>
                 </Link>
               </motion.div>

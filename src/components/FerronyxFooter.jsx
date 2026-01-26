@@ -155,7 +155,7 @@ const FerronyxFooter = () => {
 
                 {/* Right Column: Contact Form */}
                 <div className="bg-[#0A0A0B] border border-white/[0.08] rounded-xl p-8 shadow-sm">
-                    <h4 className="text-lg font-medium text-white mb-2">Book a Demo</h4>
+                    <h4 className="text-lg font-medium text-white mb-2">Contact Us</h4>
                     <p className="text-[#8A8F98] mb-8 text-sm">See Ferronyx in action. We'll walk you through your specific use case.</p>
 
                     <form onSubmit={handleSubmit} className="space-y-5">
@@ -194,7 +194,7 @@ const FerronyxFooter = () => {
                             />
                         </div>
                         <Button type="submit" className="w-full bg-[#EDEDED] text-black hover:bg-white font-medium h-11 mt-4 rounded-lg shadow-lg hover:shadow-white/5 transition-all">
-                            Book Demo
+                            Contact Us
                         </Button>
                     </form>
                 </div>

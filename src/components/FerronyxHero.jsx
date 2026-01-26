@@ -116,12 +116,12 @@ const FerronyxHero = () => {
                                         <Play className="mr-1.5 h-3 w-3 fill-white" /> Demo
                                     </Button>
                                 </a>
-                                <a href="https://dev.ferronyx.com/request-access" target="_blank" rel="noopener noreferrer">
+                                <a href="https://dev.ferronyx.com/register" target="_blank" rel="noopener noreferrer">
                                     <Button
                                         size="sm"
                                         className="rounded-full text-xs h-8 px-4 bg-[#F5F5F7] text-black hover:bg-white font-medium shadow-[0_0_20px_rgba(255,255,255,0.1)] transition-all hover:scale-[1.02]"
                                     >
-                                        Request Access
+                                        Get Started
                                     </Button>
                                 </a>
                             </motion.div>
@@ -181,9 +181,9 @@ const FerronyxHero = () => {
                     transition={{ duration: 0.6, delay: 0.3 }}
                     className="flex flex-col gap-3 w-full max-w-sm mb-12"
                 >
-                    <a href="https://dev.ferronyx.com/request-access" target="_blank" rel="noopener noreferrer" className="w-full">
+                    <a href="https://dev.ferronyx.com/register" target="_blank" rel="noopener noreferrer" className="w-full">
                         <Button size="lg" className="rounded-full text-sm h-12 px-8 bg-[#F5F5F7] text-black hover:bg-white border border-transparent font-medium shadow-[0_0_20px_rgba(255,255,255,0.1)] transition-all hover:scale-[1.02] w-full">
-                            Request Access
+                            Get Started
                         </Button>
                     </a>
                     <a href="https://www.youtube.com/watch?v=-12Zc0KPB2I" target="_blank" rel="noopener noreferrer" className="w-full">
