@@ -1,5 +1,8 @@
+'use client'
+
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
+import Image from 'next/image';
 import { Twitter, Linkedin, Mail } from "lucide-react";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
@@ -23,12 +26,12 @@ const FerronyxFooter = () => {
 
     const sendDemoBookingEmail = async (bookingData) => {
         try {
-            // EmailJS configuration - replace these with your actual values
-            const serviceId = import.meta.env.VITE_APP_EMAILJS_SERVICE_ID;
-            const templateId = import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID;
-            const publicKey = import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY;
+            // EmailJS configuration - using NEXT_PUBLIC_ prefix for Next.js
+            const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+            const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+            const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
 
-            // Import EmailJS (you'll need to install: npm install @emailjs/browser)
+            // Import EmailJS
             const emailjs = await import('@emailjs/browser');
 
             const templateParams = {
@@ -84,8 +87,8 @@ const FerronyxFooter = () => {
 
                 {/* Left Column: Brand & Info */}
                 <div className="flex flex-col gap-10">
-                    <Link to="/" className="flex items-center gap-3">
-                        <img src={logo} alt="Ferronyx Logo" className="h-8 w-auto opacity-90" />
+                    <Link href="/" className="flex items-center gap-3">
+                        <Image src={logo} alt="Ferronyx Logo" className="h-8 w-auto opacity-90" height={32} width={32} />
                         <span className="text-xl font-bold text-white tracking-tight">Ferronyx</span>
                     </Link>
 
@@ -104,16 +107,16 @@ const FerronyxFooter = () => {
                             <h4 className="text-sm font-medium text-white uppercase tracking-widest mb-4">Product</h4>
                             <ul className="space-y-3">
                                 <li>
-                                    <Link to="/#features" className="text-zinc-400 hover:text-white transition-colors text-sm">Features</Link>
+                                    <Link href="/#features" className="text-zinc-400 hover:text-white transition-colors text-sm">Features</Link>
                                 </li>
                                 <li>
-                                    <Link to="/use-cases" className="text-zinc-400 hover:text-white transition-colors text-sm">Use Cases</Link>
+                                    <Link href="/use-cases" className="text-zinc-400 hover:text-white transition-colors text-sm">Use Cases</Link>
                                 </li>
                                 <li>
-                                    <Link to="/case-studies" className="text-zinc-400 hover:text-white transition-colors text-sm">Case Studies</Link>
+                                    <Link href="/case-studies" className="text-zinc-400 hover:text-white transition-colors text-sm">Case Studies</Link>
                                 </li>
                                 <li>
-                                    <Link to="/#faqs" className="text-zinc-400 hover:text-white transition-colors text-sm">FAQs</Link>
+                                    <Link href="/#faqs" className="text-zinc-400 hover:text-white transition-colors text-sm">FAQs</Link>
                                 </li>
                             </ul>
                         </div>
@@ -121,10 +124,10 @@ const FerronyxFooter = () => {
                             <h4 className="text-sm font-medium text-white uppercase tracking-widest mb-4">Resources</h4>
                             <ul className="space-y-3">
                                 <li>
-                                    <Link to="/blog" className="text-zinc-400 hover:text-white transition-colors text-sm">Blog</Link>
+                                    <Link href="/blog" className="text-zinc-400 hover:text-white transition-colors text-sm">Blog</Link>
                                 </li>
                                 <li>
-                                    <Link to="/about" className="text-zinc-400 hover:text-white transition-colors text-sm">About Us</Link>
+                                    <Link href="/about" className="text-zinc-400 hover:text-white transition-colors text-sm">About Us</Link>
                                 </li>
                                 <li>
                                     <a href="mailto:support@ferronyx.com" className="text-zinc-400 hover:text-white transition-colors text-sm">Contact</a>
@@ -201,7 +204,7 @@ const FerronyxFooter = () => {
             </div>
 
             <div className="max-w-7xl mx-auto mt-20 pt-8 border-t border-white/[0.05] flex flex-col md:flex-row justify-between text-xs text-zinc-600">
-                <span>© 2025 Ferronyx. All rights reserved.</span>
+                <span>&copy; 2025 Ferronyx. All rights reserved.</span>
                 <div className="flex gap-6 mt-4 md:mt-0">
                     <a href="#" className="hover:text-zinc-400 transition-colors">Privacy Policy</a>
                     <a href="#" className="hover:text-zinc-400 transition-colors">Terms of Service</a>

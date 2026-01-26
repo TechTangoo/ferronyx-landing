@@ -1,17 +1,21 @@
+'use client'
+
 import React, { useState } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import Link from 'next/link';
+import { usePathname, useRouter } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
 import logo from '../assets/logo.svg';
+import Image from 'next/image';
 
-const Navbar = () => {
+export const Navbar = () => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-    const location = useLocation();
-    const navigate = useNavigate();
+    const pathname = usePathname();
+    const router = useRouter();
 
     const scrollToSection = (id) => {
-        if (location.pathname !== '/') {
+        if (pathname !== '/') {
             // Navigate to home page with hash
-            navigate('/#' + id);
+            router.push('/#' + id);
         } else {
             const element = document.getElementById(id);
             if (element) {
@@ -22,10 +26,10 @@ const Navbar = () => {
     };
 
     const handleLogoClick = () => {
-        if (location.pathname === '/') {
+        if (pathname === '/') {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         } else {
-            navigate('/');
+            router.push('/');
         }
     };
 
@@ -33,18 +37,18 @@ const Navbar = () => {
         <>
             <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-4 md:px-6 py-4 transition-all duration-300 bg-[#050505]/80 backdrop-blur-md border-b border-white/[0.05]">
                 <div className="flex items-center gap-3 cursor-pointer" onClick={handleLogoClick}>
-                    <img src={logo} alt="Ferronyx Logo" className="h-8 w-auto opacity-90" />
+                    <Image src={logo} alt="Ferronyx Logo" className="h-8 w-auto opacity-90" height={32} width={32} />
                     <span className="text-lg font-semibold tracking-tight text-white hidden sm:block">Ferronyx</span>
                 </div>
 
                 {/* Desktop Navigation */}
                 <div className="hidden md:flex items-center gap-6 lg:gap-8 text-sm font-medium text-zinc-400">
-                    <button onClick={() => scrollToSection('features')} className={`hover:text-white transition-colors ${location.hash === '#features' ? 'font-semibold text-white' : ''}`}>Features</button>
-                    <Link to="/use-cases" className={`hover:text-white transition-colors ${location.pathname === '/use-cases' ? 'font-semibold text-white' : ''}`}>Use Cases</Link>
-                    <Link to="/blog" className={`hover:text-white transition-colors ${location.pathname.startsWith('/blog') ? 'font-semibold text-white' : ''}`}>Blog</Link>
-                    <Link to="/case-studies" className={`hover:text-white transition-colors ${location.pathname.startsWith('/case-studies') ? 'font-semibold text-white' : ''}`}>Case Studies</Link>
-                    <Link to="/about" className={`hover:text-white transition-colors ${location.pathname === '/about' ? 'font-semibold text-white' : ''}`}>About</Link>
-                    <Link to="/pricing" className={`hover:text-white transition-colors ${location.pathname === '/pricing' ? 'font-semibold text-white' : ''}`}>Pricing</Link>
+                    <button onClick={() => scrollToSection('features')} className="hover:text-white transition-colors">Features</button>
+                    <Link href="/use-cases" className={`hover:text-white transition-colors ${pathname === '/use-cases' ? 'font-semibold text-white' : ''}`}>Use Cases</Link>
+                    <Link href="/blog" className={`hover:text-white transition-colors ${pathname.startsWith('/blog') ? 'font-semibold text-white' : ''}`}>Blog</Link>
+                    <Link href="/case-studies" className={`hover:text-white transition-colors ${pathname.startsWith('/case-studies') ? 'font-semibold text-white' : ''}`}>Case Studies</Link>
+                    <Link href="/about" className={`hover:text-white transition-colors ${pathname === '/about' ? 'font-semibold text-white' : ''}`}>About</Link>
+                    <Link href="/pricing" className={`hover:text-white transition-colors ${pathname === '/pricing' ? 'font-semibold text-white' : ''}`}>Pricing</Link>
                 </div>
 
                 <div className="flex items-center gap-4">
@@ -80,49 +84,48 @@ const Navbar = () => {
                         <div className="flex flex-col p-6 space-y-4">
                             <button
                                 onClick={() => scrollToSection('features')}
-                                className={`text-left text-base font-medium text-zinc-300 hover:text-white transition-colors py-3 border-b border-white/[0.05]
-                                    ${location.hash === '#features' ? 'font-semibold text-white' : ''}`}
+                                className="text-left text-base font-medium text-zinc-300 hover:text-white transition-colors py-3 border-b border-white/[0.05]"
                             >
                                 Features
                             </button>
                             <Link
-                                to="/use-cases"
+                                href="/use-cases"
                                 onClick={() => setMobileMenuOpen(false)}
                                 className={`text-left text-base font-medium text-zinc-300 hover:text-white transition-colors py-3 border-b border-white/[0.05]
-                                    ${location.pathname === '/use-cases' ? 'font-semibold text-white' : ''}`}
+                                    ${pathname === '/use-cases' ? 'font-semibold text-white' : ''}`}
                             >
                                 Use Cases
                             </Link>
                             <Link
-                                to="/blog"
+                                href="/blog"
                                 onClick={() => setMobileMenuOpen(false)}
                                 className={`text-left text-base font-medium text-zinc-300 hover:text-white transition-colors py-3 border-b border-white/[0.05]
-                                    ${location.pathname.startsWith('/blog') ? 'font-semibold text-white' : ''}`}
+                                    ${pathname.startsWith('/blog') ? 'font-semibold text-white' : ''}`}
 
                             >
                                 Blog
                             </Link>
                             <Link
-                                to="/case-studies"
+                                href="/case-studies"
                                 onClick={() => setMobileMenuOpen(false)}
                                 className={`text-left text-base font-medium text-zinc-300 hover:text-white transition-colors py-3 border-b border-white/[0.05]
-                                    ${location.pathname.startsWith('/case-studies') ? 'font-semibold text-white' : ''}`}
+                                    ${pathname.startsWith('/case-studies') ? 'font-semibold text-white' : ''}`}
                             >
                                 Case Studies
                             </Link>
                             <Link
-                                to="/about"
+                                href="/about"
                                 onClick={() => setMobileMenuOpen(false)}
                                 className={`text-left text-base font-medium text-zinc-300 hover:text-white transition-colors py-3
-                                    ${location.pathname === '/about' ? 'font-semibold text-white' : ''}`}
+                                    ${pathname === '/about' ? 'font-semibold text-white' : ''}`}
                             >
                                 About
                             </Link>
- <Link
-                                to="/pricing"
+                            <Link
+                                href="/pricing"
                                 onClick={() => setMobileMenuOpen(false)}
                                 className={`text-left text-base font-medium text-zinc-300 hover:text-white transition-colors py-3 border-b border-white/[0.05]
-                                    ${location.pathname === '/pricing' ? 'font-semibold text-white' : ''}`}
+                                    ${pathname === '/pricing' ? 'font-semibold text-white' : ''}`}
                             >
                                 Pricing
                             </Link>

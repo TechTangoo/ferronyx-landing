@@ -1,5 +1,6 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+'use client'
+
+import Link from 'next/link';
 import { Clock, ArrowRight } from 'lucide-react';
 import { formatDate } from '@/lib/content';
 
@@ -9,7 +10,7 @@ const BlogCard = ({ post, featured = false }) => {
   if (featured) {
     return (
       <Link
-        to={`/blog/${slug}`}
+        href={`/blog/${slug}`}
         className="group block bg-[#0A0A0B] border border-white/[0.08] rounded-xl overflow-hidden hover:border-white/[0.15] transition-all"
       >
         <div className="grid grid-cols-1 lg:grid-cols-2">
@@ -63,7 +64,7 @@ const BlogCard = ({ post, featured = false }) => {
 
   return (
     <Link
-      to={`/blog/${slug}`}
+      href={`/blog/${slug}`}
       className="group block bg-[#0A0A0B] border border-white/[0.08] rounded-xl overflow-hidden hover:border-white/[0.15] transition-all"
     >
       {/* Cover Image */}

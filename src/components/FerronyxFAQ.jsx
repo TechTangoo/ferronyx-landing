@@ -1,4 +1,5 @@
-import React from 'react';
+'use client'
+
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from './ui/accordion';
 import ScrollReveal from './ScrollReveal';
 
