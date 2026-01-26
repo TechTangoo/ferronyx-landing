@@ -1,4 +1,5 @@
-import React from 'react';
+'use client'
+
 import { getRelatedBlogPosts } from '@/lib/content';
 import BlogCard from './BlogCard';
 

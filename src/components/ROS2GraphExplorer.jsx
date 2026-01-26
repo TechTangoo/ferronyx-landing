@@ -107,7 +107,7 @@ const ROS2GraphExplorer = () => {
 
         {/* Draw nodes */}
         <g>
-          {nodes.map(node => (
+          {nodes.map((node, idx) => (
             <g key={node.id} className="hover:opacity-100 transition-opacity" opacity="0.95">
               {/* Node glow */}
               <circle
@@ -158,14 +158,14 @@ const ROS2GraphExplorer = () => {
                   values="2;6;8"
                   dur="3s"
                   repeatCount="indefinite"
-                  begin={`${Math.random() * 3}s`}
+                  begin={`${idx * 0.6}s`}
                 />
                 <animate
                   attributeName="opacity"
                   values="0.6;0.3;0"
                   dur="3s"
                   repeatCount="indefinite"
-                  begin={`${Math.random() * 3}s`}
+                  begin={`${idx * 0.6}s`}
                 />
               </circle>
             </g>

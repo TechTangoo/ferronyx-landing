@@ -1,5 +1,6 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+'use client'
+
+import Link from 'next/link';
 import { MDXProvider } from '@mdx-js/react';
 import { motion } from 'framer-motion';
 import { Clock, Calendar, ArrowLeft, ArrowRight } from 'lucide-react';
@@ -11,8 +12,8 @@ import { formatDate } from '@/lib/content';
 // Animation variants
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
-  visible: { 
-    opacity: 1, 
+  visible: {
+    opacity: 1,
     y: 0,
     transition: { duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }
   }
@@ -32,7 +33,7 @@ const BlogPost = ({ post, children }) => {
   return (
     <article className="min-h-screen bg-black pt-24">
       {/* Hero Section */}
-      <motion.header 
+      <motion.header
         className="px-6 py-12 max-w-4xl mx-auto"
         initial="hidden"
         animate="visible"
@@ -41,7 +42,7 @@ const BlogPost = ({ post, children }) => {
         {/* Breadcrumb */}
         <motion.nav className="mb-8" variants={fadeInUp}>
           <Link
-            to="/blog"
+            href="/blog"
             className="inline-flex items-center gap-2 text-zinc-400 hover:text-white transition-colors text-sm"
           >
             <ArrowLeft className="h-4 w-4" />
@@ -50,7 +51,7 @@ const BlogPost = ({ post, children }) => {
         </motion.nav>
 
         {/* Category */}
-        <motion.span 
+        <motion.span
           className="inline-block px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 text-xs font-medium mb-4"
           variants={fadeInUp}
         >
@@ -58,7 +59,7 @@ const BlogPost = ({ post, children }) => {
         </motion.span>
 
         {/* Title */}
-        <motion.h1 
+        <motion.h1
           className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 tracking-tight leading-tight"
           variants={fadeInUp}
         >
@@ -66,7 +67,7 @@ const BlogPost = ({ post, children }) => {
         </motion.h1>
 
         {/* Excerpt */}
-        <motion.p 
+        <motion.p
           className="text-xl text-zinc-400 mb-8 leading-relaxed"
           variants={fadeInUp}
         >
@@ -74,7 +75,7 @@ const BlogPost = ({ post, children }) => {
         </motion.p>
 
         {/* Meta */}
-        <motion.div 
+        <motion.div
           className="flex flex-wrap items-center gap-6 text-sm text-zinc-500 pb-8 border-b border-white/[0.08]"
           variants={fadeInUp}
         >
@@ -96,7 +97,7 @@ const BlogPost = ({ post, children }) => {
 
       {/* Cover Image */}
       {coverImage && (
-        <motion.div 
+        <motion.div
           className="px-6 pb-12 max-w-5xl mx-auto"
           initial={{ opacity: 0, scale: 0.98 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -113,7 +114,7 @@ const BlogPost = ({ post, children }) => {
       )}
 
       {/* Content */}
-      <motion.div 
+      <motion.div
         className="px-6 pb-20 max-w-4xl mx-auto"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -127,7 +128,7 @@ const BlogPost = ({ post, children }) => {
 
         {/* Tags */}
         {tags && tags.length > 0 && (
-          <motion.div 
+          <motion.div
             className="flex flex-wrap gap-2 mt-12 pt-8 border-t border-white/[0.08]"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -150,7 +151,7 @@ const BlogPost = ({ post, children }) => {
         )}
 
         {/* CTA Section */}
-        <motion.div 
+        <motion.div
           className="bg-[#0A0A0B] border border-white/[0.08] rounded-xl p-8 mt-12 text-center"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

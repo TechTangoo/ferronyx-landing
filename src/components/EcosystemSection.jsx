@@ -1,3 +1,5 @@
+'use client'
+
 import React, { useRef } from 'react';
 import ScrollReveal from './ScrollReveal';
 import { motion, useScroll, useTransform } from "framer-motion";

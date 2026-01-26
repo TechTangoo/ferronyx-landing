@@ -1,3 +1,5 @@
+'use client'
+
 import React, { useState, useEffect } from 'react';
 import { colors } from '../utils/colors';
 import { Bot, User, Play, Edit, X } from 'lucide-react';

@@ -1,5 +1,6 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+'use client'
+
+import Link from 'next/link';
 import { ArrowRight, Building2 } from 'lucide-react';
 
 const CaseStudyCard = ({ caseStudy, featured = false }) => {
@@ -8,7 +9,7 @@ const CaseStudyCard = ({ caseStudy, featured = false }) => {
   if (featured) {
     return (
       <Link
-        to={`/case-studies/${slug}`}
+        href={`/case-studies/${slug}`}
         className="group block bg-[#0A0A0B] border border-white/[0.08] rounded-xl overflow-hidden hover:border-white/[0.15] transition-all"
       >
         <div className="grid grid-cols-1 lg:grid-cols-2">
@@ -66,7 +67,7 @@ const CaseStudyCard = ({ caseStudy, featured = false }) => {
 
   return (
     <Link
-      to={`/case-studies/${slug}`}
+      href={`/case-studies/${slug}`}
       className="group block bg-[#0A0A0B] border border-white/[0.08] rounded-xl overflow-hidden hover:border-white/[0.15] transition-all"
     >
       {/* Header with logo */}

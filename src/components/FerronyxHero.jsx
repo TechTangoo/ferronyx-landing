@@ -1,3 +1,5 @@
+'use client'
+
 import React, { useRef } from 'react';
 import { Button } from "./ui/button";
 import { Play } from "lucide-react";
