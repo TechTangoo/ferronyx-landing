@@ -74,8 +74,27 @@ const CaseStudyPage = () => {
       ]} />
 
       <main className="min-h-screen bg-black pt-24">
+        {/* Hero Image */}
+        {logo && (
+          <div className="w-full max-w-6xl mx-auto px-6 mb-8">
+            <div className="relative aspect-[21/9] rounded-2xl overflow-hidden">
+              <img 
+                src={logo} 
+                alt={title}
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+              <div className="absolute bottom-6 left-6">
+                <span className="inline-block px-3 py-1 rounded-full bg-blue-500/20 backdrop-blur-sm text-blue-400 text-xs font-medium">
+                  {industry}
+                </span>
+              </div>
+            </div>
+          </div>
+        )}
+
         {/* Hero Section */}
-        <header className="px-6 py-12 max-w-5xl mx-auto">
+        <header className="px-6 py-8 max-w-5xl mx-auto">
           {/* Breadcrumb */}
           <nav className="mb-8">
             <Link
@@ -87,19 +106,17 @@ const CaseStudyPage = () => {
             </Link>
           </nav>
 
-          {/* Industry Badge */}
-          <span className="inline-block px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 text-xs font-medium mb-4">
-            {industry}
-          </span>
+          {/* Industry Badge (only if no hero image) */}
+          {!logo && (
+            <span className="inline-block px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 text-xs font-medium mb-4">
+              {industry}
+            </span>
+          )}
 
           {/* Company */}
-          <div className="flex items-center gap-4 mb-6">
-            <div className="h-16 w-16 rounded-lg bg-white/[0.05] flex items-center justify-center">
-              {logo ? (
-                <img src={logo} alt={company} className="h-10 w-10 object-contain" />
-              ) : (
-                <Building2 className="h-8 w-8 text-zinc-500" />
-              )}
+          <div className="flex items-center gap-3 mb-6">
+            <div className="h-10 w-10 rounded-lg bg-white/[0.05] flex items-center justify-center">
+              <Building2 className="h-5 w-5 text-zinc-500" />
             </div>
             <div>
               <p className="text-zinc-400 text-sm">Case Study</p>
