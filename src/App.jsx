@@ -16,8 +16,8 @@ import AboutPage from './pages/AboutPage'
 import PricingPage from './pages/PricingPage'
 import BlogListingPage from './pages/blog/BlogListingPage'
 import BlogPostPage from './pages/blog/BlogPostPage'
-import CaseStudiesListingPage from './pages/case-studies/CaseStudiesListingPage'
-import CaseStudyPage from './pages/case-studies/CaseStudyPage'
+// import CaseStudiesListingPage from './pages/case-studies/CaseStudiesListingPage'
+// import CaseStudyPage from './pages/case-studies/CaseStudyPage'
 
 // Scroll to top on route change
 function ScrollToTop() {
@@ -53,8 +53,8 @@ function App() {
         <Route path="/pricing" element={<PricingPage />} />
         <Route path="/blog" element={<BlogListingPage />} />
         <Route path="/blog/:slug" element={<BlogPostPage />} />
-        <Route path="/case-studies" element={<CaseStudiesListingPage />} />
-        <Route path="/case-studies/:slug" element={<CaseStudyPage />} />
+        {/* <Route path="/case-studies" element={<CaseStudiesListingPage />} /> */}
+        {/* <Route path="/case-studies/:slug" element={<CaseStudyPage />} /> */}
       </Routes>
       <FerronyxFooter />
     </div>

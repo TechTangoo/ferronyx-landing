@@ -42,7 +42,7 @@ const Navbar = () => {
                     <button onClick={() => scrollToSection('features')} className={`hover:text-white transition-colors ${location.hash === '#features' ? 'font-semibold text-white' : ''}`}>Features</button>
                     <Link to="/use-cases" className={`hover:text-white transition-colors ${location.pathname === '/use-cases' ? 'font-semibold text-white' : ''}`}>Use Cases</Link>
                     <Link to="/blog" className={`hover:text-white transition-colors ${location.pathname.startsWith('/blog') ? 'font-semibold text-white' : ''}`}>Blog</Link>
-                    <Link to="/case-studies" className={`hover:text-white transition-colors ${location.pathname.startsWith('/case-studies') ? 'font-semibold text-white' : ''}`}>Case Studies</Link>
+                    {/* <Link to="/case-studies" className={`hover:text-white transition-colors ${location.pathname.startsWith('/case-studies') ? 'font-semibold text-white' : ''}`}>Case Studies</Link> */}
                     <Link to="/about" className={`hover:text-white transition-colors ${location.pathname === '/about' ? 'font-semibold text-white' : ''}`}>About</Link>
                     <Link to="/pricing" className={`hover:text-white transition-colors ${location.pathname === '/pricing' ? 'font-semibold text-white' : ''}`}>Pricing</Link>
                 </div>
@@ -102,14 +102,14 @@ const Navbar = () => {
                             >
                                 Blog
                             </Link>
-                            <Link
+                            {/* <Link
                                 to="/case-studies"
                                 onClick={() => setMobileMenuOpen(false)}
                                 className={`text-left text-base font-medium text-zinc-300 hover:text-white transition-colors py-3 border-b border-white/[0.05]
                                     ${location.pathname.startsWith('/case-studies') ? 'font-semibold text-white' : ''}`}
                             >
                                 Case Studies
-                            </Link>
+                            </Link> */}
                             <Link
                                 to="/about"
                                 onClick={() => setMobileMenuOpen(false)}
