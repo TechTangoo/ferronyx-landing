@@ -17,7 +17,7 @@ const FerronyxPricing = () => {
       metaDescription.setAttribute('name', 'description');
       document.head.appendChild(metaDescription);
     }
-    metaDescription.setAttribute('content', 'Simple, transparent pricing for robot fleet monitoring. $40/machine/month with all features included. 2-week free trial. Cloud-hosted or on-premise deployment options.');
+    metaDescription.setAttribute('content', 'Simple, transparent pricing for robot fleet monitoring. $29/machine/month with all features included. 1-month free trial. Cloud-hosted or on-premise deployment options.');
     
     // Update meta keywords
     let metaKeywords = document.querySelector('meta[name="keywords"]');
@@ -31,7 +31,7 @@ const FerronyxPricing = () => {
     // Add Open Graph tags for social sharing
     const ogTags = [
       { property: 'og:title', content: 'Pricing - Ferronyx | Robot Fleet Observability' },
-      { property: 'og:description', content: 'Simple pricing: $40/machine/month with all features. 2-week free trial. No credit card required.' },
+      { property: 'og:description', content: 'Simple pricing: $29/machine/month with all features. 1-month free trial. No credit card required.' },
       { property: 'og:type', content: 'website' },
       { property: 'og:url', content: 'https://ferronyx.com/#pricing' },
     ];
@@ -50,7 +50,7 @@ const FerronyxPricing = () => {
     const twitterTags = [
       { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'twitter:title', content: 'Pricing - Ferronyx' },
-      { name: 'twitter:description', content: 'Simple pricing: $40/machine/month. 2-week free trial. All features included.' },
+      { name: 'twitter:description', content: 'Simple pricing: $29/machine/month. 1-month free trial. All features included.' },
     ];
     
     twitterTags.forEach(({ name, content }) => {
@@ -77,11 +77,11 @@ const FerronyxPricing = () => {
         {
           "@type": "Offer",
           "name": "Cloud-Hosted Plan",
-          "price": "40",
+          "price": "29",
           "priceCurrency": "USD",
           "priceSpecification": {
             "@type": "UnitPriceSpecification",
-            "price": "40",
+            "price": "29",
             "priceCurrency": "USD",
             "unitText": "per machine per month"
           },
@@ -130,8 +130,8 @@ const FerronyxPricing = () => {
     };
   }, []);
 
-  const monthlyPrice = 40;
-  const annualPrice = 32;
+  const monthlyPrice = 29;
+  const annualPrice = 25;
 
   const sharedFeatures = [
     'Real-time monitoring',
@@ -224,7 +224,7 @@ const FerronyxPricing = () => {
           </h2>
 
           <p className="text-lg text-zinc-400 max-w-xl mx-auto mb-10">
-            Start with a 2-week free trial. No credit card required.
+            Start with a 1-month free trial. No credit card required.
           </p>
 
           {/* Billing Toggle */}
