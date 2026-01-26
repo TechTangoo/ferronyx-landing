@@ -61,6 +61,17 @@ Ferronyx has helped users cut mean time to resolution (MTTR) from about 3–4 ho
 - [GPU Monitoring](https://ferronyx.com/blog/gpu-monitoring-optimization-insights) - Per-GPU metrics beyond fleet averages
 - [OTA Tracking](https://ferronyx.com/blog/ota-deployment-tracking-failure-correlation) - Correlate deployments with failures
 
+### Technical Blog (Plain Text for AI Agents)
+Each blog post is available as plain text:
+- [ROS2 Observability Guide](/blog/ros2-observability-complete-guide.txt)
+- [Alert Correlation](/blog/intelligent-alert-correlation-root-cause-analysis.txt)
+- [Debug Nav2 Failures](/blog/debug-navigation-failures-ros2.txt)
+- [Reduce Robot MTTR](/blog/reducing-robot-mttr-best-practices.txt)
+- [GPU Monitoring](/blog/gpu-monitoring-optimization-insights.txt)
+- [OTA Tracking](/blog/ota-deployment-tracking-failure-correlation.txt)
+
+Full blog index: /blog/index.txt
+
 ### Case Studies
 - [Warehouse AMR Fleet](https://ferronyx.com/case-studies/warehouse-amr-fleet-mttr-reduction) - 85% MTTR reduction with 120+ robots
 - [Delivery Robot Scaling](https://ferronyx.com/case-studies/delivery-robot-fleet-scaling) - 10x fleet growth, 99.2% uptime
