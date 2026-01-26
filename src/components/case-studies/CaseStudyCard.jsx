@@ -13,16 +13,19 @@ const CaseStudyCard = ({ caseStudy, featured = false }) => {
       >
         <div className="grid grid-cols-1 lg:grid-cols-2">
           {/* Left - Logo/Visual */}
-          <div className="aspect-[4/3] lg:aspect-auto bg-gradient-to-br from-zinc-800 to-zinc-900 p-12 flex items-center justify-center relative">
+          <div className="aspect-[4/3] lg:aspect-auto lg:min-h-[320px] bg-gradient-to-br from-zinc-800 to-zinc-900 relative overflow-hidden">
             {logo ? (
               <img
                 src={logo}
-                alt={`${company} logo`}
-                className="max-w-[200px] max-h-[100px] object-contain opacity-80 group-hover:opacity-100 transition-opacity"
+                alt={`${company} case study`}
+                className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
               />
             ) : (
-              <Building2 className="h-24 w-24 text-white/20" />
+              <div className="w-full h-full flex items-center justify-center">
+                <Building2 className="h-24 w-24 text-white/20" />
+              </div>
             )}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
             <div className="absolute top-4 left-4">
               <span className="px-3 py-1 rounded-full bg-black/60 backdrop-blur-sm text-white text-xs font-medium">
                 {industry}
@@ -67,16 +70,19 @@ const CaseStudyCard = ({ caseStudy, featured = false }) => {
       className="group block bg-[#0A0A0B] border border-white/[0.08] rounded-xl overflow-hidden hover:border-white/[0.15] transition-all"
     >
       {/* Header with logo */}
-      <div className="aspect-[2/1] bg-gradient-to-br from-zinc-800 to-zinc-900 p-8 flex items-center justify-center relative">
+      <div className="aspect-[2/1] bg-gradient-to-br from-zinc-800 to-zinc-900 relative overflow-hidden">
         {logo ? (
           <img
             src={logo}
-            alt={`${company} logo`}
-            className="max-w-[120px] max-h-[60px] object-contain opacity-70 group-hover:opacity-100 transition-opacity"
+            alt={`${company} case study`}
+            className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
           />
         ) : (
-          <Building2 className="h-16 w-16 text-white/20" />
+          <div className="w-full h-full flex items-center justify-center">
+            <Building2 className="h-16 w-16 text-white/20" />
+          </div>
         )}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
         <div className="absolute top-4 left-4">
           <span className="px-3 py-1 rounded-full bg-black/60 backdrop-blur-sm text-white text-xs font-medium">
             {industry}

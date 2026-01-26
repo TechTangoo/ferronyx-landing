@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import SEO from '../components/seo/SEO';
 import BreadcrumbSchema from '../components/seo/BreadcrumbSchema';
 import SROnlyKeywords from '../components/seo/SROnlyKeywords';
@@ -18,6 +19,33 @@ import {
     Zap,
     ArrowRight
 } from 'lucide-react';
+
+// Animation variants
+const fadeInUp = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { 
+        opacity: 1, 
+        y: 0,
+        transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }
+    }
+};
+
+const staggerContainer = {
+    hidden: { opacity: 0 },
+    visible: {
+        opacity: 1,
+        transition: { staggerChildren: 0.1 }
+    }
+};
+
+const scaleIn = {
+    hidden: { opacity: 0, scale: 0.95 },
+    visible: { 
+        opacity: 1, 
+        scale: 1,
+        transition: { duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }
+    }
+};
 
 const useCases = [
     {
@@ -195,37 +223,72 @@ const UseCasesPage = () => {
             <main className="min-h-screen bg-black pt-24">
                 {/* Hero Section */}
                 <section className="px-6 py-20 max-w-7xl mx-auto">
-                    <div className="text-center max-w-4xl mx-auto">
-                        <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-blue-500/20 bg-blue-500/5 text-sm font-medium text-blue-400 mb-8 backdrop-blur-sm">
+                    <motion.div 
+                        className="text-center max-w-4xl mx-auto"
+                        initial="hidden"
+                        animate="visible"
+                        variants={staggerContainer}
+                    >
+                        <motion.span 
+                            variants={fadeInUp}
+                            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-blue-500/20 bg-blue-500/5 text-sm font-medium text-blue-400 mb-8 backdrop-blur-sm"
+                        >
                             Use Cases
-                        </span>
-                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 tracking-tight">
-                            Solve Real Robot Problems
-                        </h1>
-                        <p className="text-xl text-zinc-400 leading-relaxed">
+                        </motion.span>
+                        <motion.h1 
+                            variants={fadeInUp}
+                            className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 tracking-tight"
+                        >
+                            Solve Real{' '}
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-blue-300 to-cyan-400">
+                                Robot Problems
+                            </span>
+                        </motion.h1>
+                        <motion.p 
+                            variants={fadeInUp}
+                            className="text-xl text-zinc-400 leading-relaxed"
+                        >
                             From debugging navigation failures to reducing fleet-wide MTTR,
                             see how Ferronyx helps robotics teams ship reliable robots faster.
-                        </p>
-                    </div>
+                        </motion.p>
+                    </motion.div>
                 </section>
 
                 {/* Use Cases Grid */}
                 <section className="px-6 py-16 max-w-7xl mx-auto">
-                    <h2 className="text-2xl font-semibold text-white mb-12 text-center">
+                    <motion.h2 
+                        className="text-2xl font-semibold text-white mb-12 text-center"
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, margin: "-100px" }}
+                        variants={fadeInUp}
+                    >
                         Common Challenges We Solve
-                    </h2>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {useCases.map((useCase) => {
+                    </motion.h2>
+                    <motion.div 
+                        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, margin: "-100px" }}
+                        variants={staggerContainer}
+                    >
+                        {useCases.map((useCase, index) => {
                             const Icon = useCase.icon;
                             return (
-                                <article
+                                <motion.article
                                     key={useCase.id}
                                     id={useCase.id}
+                                    variants={fadeInUp}
+                                    whileHover={{ y: -5, transition: { duration: 0.3 } }}
                                     className="bg-[#0A0A0B] border border-white/[0.08] rounded-xl p-6 hover:border-white/[0.15] transition-all group"
                                 >
-                                    <div className="h-12 w-12 rounded-lg bg-white/[0.05] flex items-center justify-center mb-4 group-hover:bg-white/[0.08] transition-colors">
+                                    <motion.div 
+                                        className="h-12 w-12 rounded-lg bg-white/[0.05] flex items-center justify-center mb-4 group-hover:bg-white/[0.08] transition-colors"
+                                        whileHover={{ rotate: 5, scale: 1.1 }}
+                                        transition={{ duration: 0.3 }}
+                                    >
                                         <Icon className="h-6 w-6 text-zinc-400" />
-                                    </div>
+                                    </motion.div>
                                     <h3 className="text-lg font-semibold text-white mb-1">
                                         {useCase.title}
                                     </h3>
@@ -245,16 +308,22 @@ const UseCasesPage = () => {
                                             <span className="text-green-400 font-medium">{useCase.outcome}</span>
                                         </div>
                                     </div>
-                                </article>
+                                </motion.article>
                             );
                         })}
-                    </div>
+                    </motion.div>
                 </section>
 
                 {/* Industries Section */}
                 <section className="px-6 py-20 bg-[#0A0A0B]/50">
                     <div className="max-w-7xl mx-auto">
-                        <div className="text-center mb-16">
+                        <motion.div 
+                            className="text-center mb-16"
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true, margin: "-100px" }}
+                            variants={fadeInUp}
+                        >
                             <h2 className="text-3xl font-bold text-white mb-4">
                                 Built for Every Robot Type
                             </h2>
@@ -262,16 +331,29 @@ const UseCasesPage = () => {
                                 Whether you're running warehouse AMRs, delivery bots, or industrial automation,
                                 Ferronyx adapts to your fleet.
                             </p>
-                        </div>
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        </motion.div>
+                        <motion.div 
+                            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true, margin: "-100px" }}
+                            variants={staggerContainer}
+                        >
                             {industries.map((industry) => {
                                 const Icon = industry.icon;
                                 return (
-                                    <div
+                                    <motion.div
                                         key={industry.title}
+                                        variants={fadeInUp}
+                                        whileHover={{ y: -5, transition: { duration: 0.3 } }}
                                         className="bg-black border border-white/[0.08] rounded-xl p-6 hover:border-white/[0.15] transition-all"
                                     >
-                                        <Icon className="h-8 w-8 text-zinc-400 mb-4" />
+                                        <motion.div
+                                            whileHover={{ rotate: 5, scale: 1.1 }}
+                                            transition={{ duration: 0.3 }}
+                                        >
+                                            <Icon className="h-8 w-8 text-zinc-400 mb-4" />
+                                        </motion.div>
                                         <h3 className="text-lg font-semibold text-white mb-2">
                                             {industry.title}
                                         </h3>
@@ -288,36 +370,62 @@ const UseCasesPage = () => {
                                                 </span>
                                             ))}
                                         </div>
-                                    </div>
+                                    </motion.div>
                                 );
                             })}
-                        </div>
+                        </motion.div>
                     </div>
                 </section>
 
                 {/* CTA Section */}
-                <section className="px-6 py-20 max-w-4xl mx-auto text-center">
-                    <h2 className="text-3xl font-bold text-white mb-4">
+                <motion.section 
+                    className="px-6 py-20 max-w-4xl mx-auto text-center"
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-100px" }}
+                    variants={scaleIn}
+                >
+                    <motion.h2 
+                        className="text-3xl font-bold text-white mb-4"
+                        variants={fadeInUp}
+                    >
                         Ready to Debug Faster?
-                    </h2>
-                    <p className="text-zinc-400 mb-8 max-w-2xl mx-auto">
+                    </motion.h2>
+                    <motion.p 
+                        className="text-zinc-400 mb-8 max-w-2xl mx-auto"
+                        variants={fadeInUp}
+                    >
                         Join robotics teams who have reduced their debugging time from hours to minutes.
                         See Ferronyx in action with your own robot data.
-                    </p>
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <a href="https://dev.ferronyx.com" target="_blank" rel="noopener noreferrer">
+                    </motion.p>
+                    <motion.div 
+                        className="flex flex-col sm:flex-row gap-4 justify-center"
+                        variants={fadeInUp}
+                    >
+                        <motion.a 
+                            href="https://dev.ferronyx.com" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.98 }}
+                        >
                             <Button className="bg-white text-black hover:bg-zinc-200 font-medium px-8 py-6 text-base">
                                 Get Started
                                 <ArrowRight className="ml-2 h-4 w-4" />
                             </Button>
-                        </a>
-                        <Link to="/#contact-footer">
-                            <Button variant="outline" className="border-white/[0.15] text-white hover:bg-white/[0.05] font-medium px-8 py-6 text-base">
-                                Book a Demo
-                            </Button>
-                        </Link>
-                    </div>
-                </section>
+                        </motion.a>
+                        <motion.div
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.98 }}
+                        >
+                            <Link to="/#contact-footer">
+                                <Button variant="outline" className="border-white/[0.15] text-white hover:bg-white/[0.05] font-medium px-8 py-6 text-base">
+                                    Book a Demo
+                                </Button>
+                            </Link>
+                        </motion.div>
+                    </motion.div>
+                </motion.section>
             </main>
         </>
     );
