@@ -282,31 +282,30 @@ const UseCasesPage = () => {
                                     whileHover={{ y: -5, transition: { duration: 0.3 } }}
                                     className="bg-[#0A0A0B] border border-white/[0.08] rounded-xl p-6 hover:border-white/[0.15] transition-all group"
                                 >
-                                    <motion.div 
-                                        className="h-12 w-12 rounded-lg bg-white/[0.05] flex items-center justify-center mb-4 group-hover:bg-white/[0.08] transition-colors"
-                                        whileHover={{ rotate: 5, scale: 1.1 }}
-                                        transition={{ duration: 0.3 }}
-                                    >
-                                        <Icon className="h-6 w-6 text-zinc-400" />
-                                    </motion.div>
-                                    <h3 className="text-lg font-semibold text-white mb-1">
-                                        {useCase.title}
-                                    </h3>
-                                    <p className="text-sm text-blue-400 mb-4">
-                                        {useCase.subtitle}
+                                    <div className="flex items-center gap-3 mb-4">
+                                        <div className="h-10 w-10 rounded-lg bg-blue-500/10 flex items-center justify-center group-hover:bg-blue-500/15 transition-colors">
+                                            <Icon className="h-5 w-5 text-blue-400" />
+                                        </div>
+                                        <div>
+                                            <h3 className="text-base font-semibold text-white">
+                                                {useCase.title}
+                                            </h3>
+                                            <span className="text-xs text-zinc-500">
+                                                {useCase.subtitle}
+                                            </span>
+                                        </div>
+                                    </div>
+                                    
+                                    <p className=" text-white leading-relaxed mb-4">
+                                        {useCase.problem}
                                     </p>
-                                    <div className="space-y-4 text-sm">
-                                        <div>
-                                            <span className="text-zinc-500 font-medium">Problem:</span>
-                                            <p className="text-zinc-400 mt-1">{useCase.problem}</p>
-                                        </div>
-                                        <div>
-                                            <span className="text-zinc-500 font-medium">Solution:</span>
-                                            <p className="text-zinc-400 mt-1">{useCase.solution}</p>
-                                        </div>
-                                        <div className="pt-3 border-t border-white/[0.05]">
-                                            <span className="text-green-400 font-medium">{useCase.outcome}</span>
-                                        </div>
+                                    
+                                    <p className="text-sm text-zinc-500 leading-relaxed mb-5">
+                                        {useCase.solution}
+                                    </p>
+                                    
+                                    <div className="pt-4 border-t border-white/[0.05]">
+                                        <p className="text-sm text-blue-400">{useCase.outcome}</p>
                                     </div>
                                 </motion.article>
                             );
@@ -351,8 +350,9 @@ const UseCasesPage = () => {
                                         <motion.div
                                             whileHover={{ rotate: 5, scale: 1.1 }}
                                             transition={{ duration: 0.3 }}
+                                            className="h-12 w-12 rounded-lg bg-blue-500/10 flex items-center justify-center mb-4"
                                         >
-                                            <Icon className="h-8 w-8 text-zinc-400 mb-4" />
+                                            <Icon className="h-6 w-6 text-blue-400" />
                                         </motion.div>
                                         <h3 className="text-lg font-semibold text-white mb-2">
                                             {industry.title}
