@@ -1,0 +1,242 @@
+# OTA Deployment Tracking: One View of Deployments and Failures
+
+> Quick Answer: How do I correlate robot failures with OTA deployments? When robots fail after an update, you need answers fast: which robots received it, when, and whether non-updated robots are failing too. Ferronyx automatically adds deployment markers to your timeline showing what version each robot runs and when updates occurred. Compare failure rates before vs. after deployment instantly. Identify bad deployments within minutes of rollout, not hours of manual correlation.
+
+URL: https://ferronyx.com/blog/ota-deployment-tracking-failure-correlation
+Date: January 21, 2025 | Category: Features | Reading Time: 7 min read
+Tags: OTA, Deployments, Fleet Management, Correlation
+
+---
+
+# OTA Deployment Tracking: One View of Deployments and Failures
+
+"What changed?"
+
+It's the first question every engineer asks when something breaks. And it's surprisingly hard to answer when you're managing a fleet of robots receiving over-the-air updates.
+
+Yesterday, three robots started failing navigation. Is it the update you pushed this morning? A coincidence? Something else entirely? Without deployment tracking integrated into your observability, you're guessing.
+
+## The Debugging Nightmare
+
+Picture this scenario:
+
+- **Monday 9:00 AM**: You push OTA update v2.3.1 to your fleet
+- **Monday 11:00 AM**: Operations reports three robots failing to navigate
+- **Monday 11:30 AM**: Two more robots show the same failure
+- **Monday 12:00 PM**: You're still trying to figure out if it's the update
+
+Questions racing through your mind:
+- Did the failing robots receive the update?
+- When exactly did they receive it?
+- Are robots that didn't receive the update also failing?
+- Is this a rollout issue or a code issue?
+
+Without integrated deployment tracking, answering these questions requires:
+1. Checking your OTA system for deployment status
+2. Cross-referencing with robot IDs
+3. Pulling failure logs with timestamps
+4. Manually correlating everything in a spreadsheet
+
+**The Cost of Manual Correlation**
+Teams report spending 2-4 hours per incident just determining whether a deployment caused the issue. That's before any actual debugging begins.
+
+## How Ferronyx Solves This
+
+Ferronyx provides a single unified timeline showing both deployments and failures. No more tab-switching between systems. No more spreadsheet correlation.
+
+### Deployment Markers on Timeline
+
+Every OTA deployment appears as a marker on your robot's timeline:
+
+- **Deployment initiated**: When the update was pushed
+- **Download completed**: When the robot received the package
+- **Installation started**: When the update began installing
+- **Deployment completed**: When the robot rebooted with new software
+- **Verification status**: Health checks post-deployment
+
+### Failure Correlation
+
+When failures occur, Ferronyx automatically correlates them with recent deployments:
+
+**Example: Deployment Correlation**
+**Navigation Failure Detected**
+
+Robot: AMR-042
+Time: Monday 11:15 AM
+Error: Path planning timeout
+
+**Recent Deployment**:
+- v2.3.1 deployed Monday 9:45 AM
+- Time since deployment: 1h 30m
+- Other robots with v2.3.1: 12
+- Other robots with failures: 5 (all have v2.3.1)
+- Robots without v2.3.1: 8
+- Failures on old version: 0
+
+**Correlation**: High likelihood deployment-related
+
+## The Power of Comparative Analysis
+
+The real insight comes from comparing robots that received the update against those that didn't.
+
+### Scenario: Is It the Update?
+
+| Metric | Robots with v2.3.1 | Robots with v2.3.0 |
+|--------|-------------------|-------------------|
+| Total robots | 12 | 8 |
+| Navigation failures | 5 | 0 |
+| Failure rate | 41.7% | 0% |
+| CPU usage | +15% avg | Normal |
+| Memory usage | Normal | Normal |
+
+**Conclusion**: Strong correlation between v2.3.1 and navigation failures. The update is likely the cause.
+
+### Scenario: Coincidental Timing
+
+| Metric | Robots with v2.3.1 | Robots with v2.3.0 |
+|--------|-------------------|-------------------|
+| Total robots | 12 | 8 |
+| Navigation failures | 2 | 2 |
+| Failure rate | 16.7% | 25% |
+| Location | Building A | Building A |
+| Time pattern | 11 AM-12 PM | 11 AM-12 PM |
+
+**Conclusion**: Failures not correlated with deployment. Both versions affected equally. Investigate environmental factor (Building A, late morning timeframe).
+
+- Time to Correlation: < 5min (Automatic analysis)
+- Built-in Comparison: A/B (Updated vs. non-updated)
+- Unified Timeline: 1 View (Deployments + failures)
+
+## Deployment Tracking Features
+
+### Staged Rollout Visibility
+
+See your rollout progress at a glance:
+
+```
+v2.3.1 Deployment Status
+├── Stage 1 (Canary): 2/2 robots ✓
+│   └── Health: All passing, no failures
+├── Stage 2 (10%): 5/5 robots ✓
+│   └── Health: All passing, no failures
+├── Stage 3 (50%): 12/25 robots (in progress)
+│   └── Health: 5 failures detected ⚠️
+└── Stage 4 (100%): Blocked pending investigation
+```
+
+### Automatic Rollout Pause
+
+When Ferronyx detects deployment-correlated failures, it can automatically:
+
+1. Alert the team immediately
+2. Pause the ongoing rollout
+3. Provide correlation analysis
+4. Suggest rollback if confidence is high
+
+### Rollback Decision Support
+
+Should you rollback? Ferronyx provides data to decide:
+
+- **Failure severity**: Are these critical failures or minor issues?
+- **Failure rate**: What percentage of updated robots are affected?
+- **Blast radius**: How many more robots would be affected if rollout continues?
+- **Rollback risk**: Are there known issues with the previous version?
+
+## Real-World Debugging: A Timeline
+
+### Without Deployment Tracking
+
+| Time | Action |
+|------|--------|
+| 11:00 | Operations reports navigation failures |
+| 11:15 | Engineer pulls robot logs |
+| 11:30 | Notices update happened today |
+| 11:45 | Checks OTA system for deployment times |
+| 12:00 | Creates spreadsheet of robots + deployment status |
+| 12:30 | Manually correlates with failure timestamps |
+| 13:00 | Confirms 5 of 5 failing robots have new version |
+| 13:15 | Realizes need to check non-failing robots too |
+| 13:45 | Completes analysis, confirms deployment correlation |
+| **Total**: 2h 45m to confirm deployment caused issue |
+
+### With Ferronyx Deployment Tracking
+
+| Time | Action |
+|------|--------|
+| 11:00 | Ferronyx alerts: Navigation failures detected |
+| 11:01 | Ferronyx analysis: High deployment correlation |
+| 11:02 | Engineer reviews correlation dashboard |
+| 11:05 | Confirms pattern: all failures on v2.3.1 |
+| 11:10 | Decision made: pause rollout, investigate |
+| **Total**: 10 minutes to confirm and act |
+
+**Pro Tip**
+Set up deployment-aware alerts. Instead of "5 navigation failures," get "5 navigation failures on robots with v2.3.1 deployed in last 24h."
+
+## Beyond Correlation: Pre/Post Deployment Comparison
+
+Ferronyx doesn't just correlate failures—it compares overall robot behavior before and after deployment.
+
+### Behavioral Comparison Dashboard
+
+| Metric | Pre-Deployment (7 days) | Post-Deployment (24h) | Change |
+|--------|------------------------|----------------------|--------|
+| Avg CPU Usage | 45% | 58% | +13% ⚠️ |
+| Avg Memory | 2.1 GB | 2.0 GB | -5% |
+| Navigation Success | 99.2% | 95.1% | -4.1% ⚠️ |
+| Mission Complete | 98.5% | 94.2% | -4.3% ⚠️ |
+| Avg Loop Time | 50ms | 52ms | +4% |
+
+This comparison catches regressions even when they don't trigger failure alerts:
+
+- CPU increased 13%—new code is less efficient
+- Navigation success dropped 4%—new path planner has edge cases
+- Mission completion down—cascading effect of navigation issues
+
+## Setting Up Deployment Tracking
+
+### Step 1: Integrate Your OTA System
+
+Ferronyx integrates with common robotics OTA platforms:
+
+- Send deployment events via webhook
+- Include: robot ID, version, timestamp, status
+- Track staged rollouts automatically
+
+### Step 2: Configure Correlation Windows
+
+Define what "recent deployment" means for your fleet:
+
+| Deployment Type | Recommended Correlation Window |
+|-----------------|-------------------------------|
+| Minor updates | 2-4 hours |
+| Major releases | 24-48 hours |
+| Firmware updates | 72 hours |
+| Configuration changes | 1 hour |
+
+### Step 3: Set Up Deployment-Aware Alerts
+
+Create alerts that include deployment context:
+
+- "Navigation failure on robot with deployment < 24h ago"
+- "Error rate increased > 10% since last deployment"
+- "New error type first seen after deployment"
+
+## Conclusion
+
+"What changed?" shouldn't be a multi-hour investigation. With integrated deployment tracking, the answer is immediate:
+
+1. **See deployments and failures on one timeline**
+2. **Automatic correlation analysis**
+3. **Compare updated vs. non-updated robots**
+4. **Make informed rollback decisions**
+
+Stop guessing whether deployments caused failures. Start knowing.
+
+---
+
+*Ready to see deployments and failures in one view? [Get started with Ferronyx](https://dev.ferronyx.com) and make "what changed?" the easiest question to answer.*
+
+---
+
+Related: https://ferronyx.com/llms.txt
