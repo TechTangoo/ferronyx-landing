@@ -13,6 +13,7 @@ import FerronyxFooter from './components/FerronyxFooter'
 import HomePage from './pages/HomePage'
 import UseCasesPage from './pages/UseCasesPage'
 import AboutPage from './pages/AboutPage'
+import PricingPage from './pages/PricingPage'
 import BlogListingPage from './pages/blog/BlogListingPage'
 import BlogPostPage from './pages/blog/BlogPostPage'
 import CaseStudiesListingPage from './pages/case-studies/CaseStudiesListingPage'
@@ -49,6 +50,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/use-cases" element={<UseCasesPage />} />
         <Route path="/about" element={<AboutPage />} />
+        <Route path="/pricing" element={<PricingPage />} />
         <Route path="/blog" element={<BlogListingPage />} />
         <Route path="/blog/:slug" element={<BlogPostPage />} />
         <Route path="/case-studies" element={<CaseStudiesListingPage />} />
