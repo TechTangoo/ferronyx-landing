@@ -1,11 +1,30 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { MDXProvider } from '@mdx-js/react';
+import { motion } from 'framer-motion';
 import { Clock, Calendar, ArrowLeft, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import MDXComponents from './MDXComponents';
 import RelatedPosts from './RelatedPosts';
 import { formatDate } from '@/lib/content';
+
+// Animation variants
+const fadeInUp = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: { duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }
+  }
+};
+
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.1 }
+  }
+};
 
 const BlogPost = ({ post, children }) => {
   const { slug, title, excerpt, date, author, category, tags, readingTime, coverImage } = post;
@@ -13,9 +32,14 @@ const BlogPost = ({ post, children }) => {
   return (
     <article className="min-h-screen bg-black pt-24">
       {/* Hero Section */}
-      <header className="px-6 py-12 max-w-4xl mx-auto">
+      <motion.header 
+        className="px-6 py-12 max-w-4xl mx-auto"
+        initial="hidden"
+        animate="visible"
+        variants={staggerContainer}
+      >
         {/* Breadcrumb */}
-        <nav className="mb-8">
+        <motion.nav className="mb-8" variants={fadeInUp}>
           <Link
             to="/blog"
             className="inline-flex items-center gap-2 text-zinc-400 hover:text-white transition-colors text-sm"
@@ -23,25 +47,37 @@ const BlogPost = ({ post, children }) => {
             <ArrowLeft className="h-4 w-4" />
             Back to Blog
           </Link>
-        </nav>
+        </motion.nav>
 
         {/* Category */}
-        <span className="inline-block px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 text-xs font-medium mb-4">
+        <motion.span 
+          className="inline-block px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 text-xs font-medium mb-4"
+          variants={fadeInUp}
+        >
           {category}
-        </span>
+        </motion.span>
 
         {/* Title */}
-        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 tracking-tight leading-tight">
+        <motion.h1 
+          className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 tracking-tight leading-tight"
+          variants={fadeInUp}
+        >
           {title}
-        </h1>
+        </motion.h1>
 
         {/* Excerpt */}
-        <p className="text-xl text-zinc-400 mb-8 leading-relaxed">
+        <motion.p 
+          className="text-xl text-zinc-400 mb-8 leading-relaxed"
+          variants={fadeInUp}
+        >
           {excerpt}
-        </p>
+        </motion.p>
 
         {/* Meta */}
-        <div className="flex flex-wrap items-center gap-6 text-sm text-zinc-500 pb-8 border-b border-white/[0.08]">
+        <motion.div 
+          className="flex flex-wrap items-center gap-6 text-sm text-zinc-500 pb-8 border-b border-white/[0.08]"
+          variants={fadeInUp}
+        >
           <div className="flex items-center gap-2">
             <Calendar className="h-4 w-4" />
             {formatDate(date)}
@@ -55,12 +91,17 @@ const BlogPost = ({ post, children }) => {
               <span>By {author.name}</span>
             </div>
           )}
-        </div>
-      </header>
+        </motion.div>
+      </motion.header>
 
       {/* Cover Image */}
       {coverImage && (
-        <div className="px-6 pb-12 max-w-5xl mx-auto">
+        <motion.div 
+          className="px-6 pb-12 max-w-5xl mx-auto"
+          initial={{ opacity: 0, scale: 0.98 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+        >
           <div className="aspect-[2/1] rounded-xl overflow-hidden bg-zinc-900 border border-white/[0.08]">
             <img
               src={coverImage}
@@ -68,11 +109,16 @@ const BlogPost = ({ post, children }) => {
               className="w-full h-full object-cover"
             />
           </div>
-        </div>
+        </motion.div>
       )}
 
       {/* Content */}
-      <div className="px-6 pb-20 max-w-4xl mx-auto">
+      <motion.div 
+        className="px-6 pb-20 max-w-4xl mx-auto"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.4 }}
+      >
         <div className="prose-custom">
           <MDXProvider components={MDXComponents}>
             {children}
@@ -81,20 +127,36 @@ const BlogPost = ({ post, children }) => {
 
         {/* Tags */}
         {tags && tags.length > 0 && (
-          <div className="flex flex-wrap gap-2 mt-12 pt-8 border-t border-white/[0.08]">
-            {tags.map((tag) => (
-              <span
+          <motion.div 
+            className="flex flex-wrap gap-2 mt-12 pt-8 border-t border-white/[0.08]"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            {tags.map((tag, index) => (
+              <motion.span
                 key={tag}
                 className="px-3 py-1 rounded-full bg-white/[0.05] text-zinc-400 text-sm"
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.3, delay: index * 0.05 }}
               >
                 #{tag}
-              </span>
+              </motion.span>
             ))}
-          </div>
+          </motion.div>
         )}
 
         {/* CTA Section */}
-        <div className="bg-[#0A0A0B] border border-white/[0.08] rounded-xl p-8 mt-12 text-center">
+        <motion.div 
+          className="bg-[#0A0A0B] border border-white/[0.08] rounded-xl p-8 mt-12 text-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
           <h3 className="text-xl font-bold text-white mb-3">
             Ready to reduce your robot debugging time?
           </h3>
@@ -107,11 +169,11 @@ const BlogPost = ({ post, children }) => {
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </a>
-        </div>
+        </motion.div>
 
         {/* Related Posts */}
         <RelatedPosts currentSlug={slug} />
-      </div>
+      </motion.div>
     </article>
   );
 };
