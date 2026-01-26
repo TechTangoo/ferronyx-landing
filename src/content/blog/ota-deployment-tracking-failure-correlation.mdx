@@ -1,5 +1,3 @@
-# OTA Deployment Tracking: One View of Deployments and Failures
-
 <QuickAnswer>
 **How do I correlate robot failures with OTA deployments?** When robots fail after an update, you need answers fast: which robots received it, when, and whether non-updated robots are failing too. Ferronyx automatically adds deployment markers to your timeline showing what version each robot runs and when updates occurred. Compare failure rates before vs. after deployment instantly. Identify bad deployments within minutes of rollout, not hours of manual correlation.
 </QuickAnswer>
@@ -8,7 +6,7 @@
 
 It's the first question every engineer asks when something breaks. And it's surprisingly hard to answer when you're managing a fleet of robots receiving over-the-air updates.
 
-Yesterday, three robots started failing navigation. Is it the update you pushed this morning? A coincidence? Something else entirely? Without deployment tracking integrated into your observability, you're guessing.
+Yesterday, three robots started failing navigation. Is it the update you pushed this morning? A coincidence? Something else entirely? Without deployment tracking integrated into your observability, you're guessing. This is where [comprehensive ROS2 observability](/blog/ros2-observability-complete-guide) becomes essential.
 
 ## The Debugging Nightmare
 
@@ -230,7 +228,7 @@ Create alerts that include deployment context:
 3. **Compare updated vs. non-updated robots**
 4. **Make informed rollback decisions**
 
-Stop guessing whether deployments caused failures. Start knowing.
+Stop guessing whether deployments caused failures. Start knowing. Combined with [intelligent alert correlation](/blog/intelligent-alert-correlation-root-cause-analysis) and strategies for [reducing robot MTTR](/blog/reducing-robot-mttr-best-practices), you can turn incident response from hours into minutes.
 
 ---
 

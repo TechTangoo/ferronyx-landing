@@ -16,8 +16,7 @@
   <meta name="robots" content="index, follow" />
   <meta name="ai-content-guide" content="https://ferronyx.com/llms.txt" />
 
-  <!-- Canonical URL -->
-  <link rel="canonical" href="https://ferronyx.com" />
+  <!-- Canonical URL - dynamically set by React SEO component for each page -->
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
@@ -43,6 +42,22 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link href="/src/index.css" rel="stylesheet">
+
+  <!-- Google Analytics 4 (loaded conditionally based on cookie consent) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+
+    // Check for existing consent
+    if (localStorage.getItem('cookieConsent') === 'accepted') {
+      var script = document.createElement('script');
+      script.async = true;
+      script.src = 'https://www.googletagmanager.com/gtag/js?id=G-05BBC91V7F';
+      document.head.appendChild(script);
+      gtag('js', new Date());
+      gtag('config', 'G-05BBC91V7F');
+    }
+  </script>
 
   <!-- GEO: Comprehensive Schema.org Markup for AI/LLM Discovery -->
   <script type="application/ld+json">

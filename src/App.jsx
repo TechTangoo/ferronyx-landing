@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
-import { useEffect } from 'react'
 import './App.css'
 import Navbar from './components/Navbar'
+import PrivacyBanner from './components/PrivacyBanner'
+import { trackPageView } from './lib/analytics'
 import FerronyxHero from './components/FerronyxHero'
 import FerronyxFeaturesScroll from './components/FerronyxFeaturesScroll'
 import HowItWorks from './components/HowItWorks'
@@ -19,7 +20,7 @@ import BlogPostPage from './pages/blog/BlogPostPage'
 // import CaseStudiesListingPage from './pages/case-studies/CaseStudiesListingPage'
 // import CaseStudyPage from './pages/case-studies/CaseStudyPage'
 
-// Scroll to top on route change
+// Scroll to top and track page views on route change
 function ScrollToTop() {
   const { pathname, hash } = useLocation()
 
@@ -36,6 +37,9 @@ function ScrollToTop() {
       // Otherwise scroll to top
       window.scrollTo(0, 0)
     }
+
+    // Track page view for SPA navigation
+    trackPageView(pathname, document.title)
   }, [pathname, hash])
 
   return null
@@ -57,6 +61,7 @@ function App() {
         {/* <Route path="/case-studies/:slug" element={<CaseStudyPage />} /> */}
       </Routes>
       <FerronyxFooter />
+      <PrivacyBanner />
     </div>
   )
 }

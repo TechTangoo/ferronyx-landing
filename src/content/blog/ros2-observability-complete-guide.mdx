@@ -1,5 +1,3 @@
-# ROS2 Observability: A Complete Guide
-
 <QuickAnswer>
 **How do I implement observability for ROS2 robots in production?** ROS2 observability requires three pillars: (1) centralized logging with correlation IDs linking entries across nodes, (2) metrics collection covering system health (CPU, memory), ROS2-specific data (topic latency, message rates), and navigation metrics, (3) alerting on critical conditions. Without observability, debugging takes 4+ hours of SSH and manual log correlation. With it, reduce debugging to minutes.
 </QuickAnswer>
@@ -89,7 +87,7 @@ Configure alerts for critical conditions:
 - Navigation failures or excessive replanning
 
 <Callout type="warning" title="Alert Fatigue">
-Be selective with alerts. Too many false positives lead to alert fatigue where real issues get ignored. Start with critical alerts only and expand carefully.
+Be selective with alerts. Too many false positives lead to alert fatigue where real issues get ignored. Start with critical alerts only and expand carefully. Learn more about managing alerts effectively in our guide on [Intelligent Alert Correlation](/blog/intelligent-alert-correlation-root-cause-analysis).
 </Callout>
 
 ## ROS2-Specific Considerations
@@ -118,6 +116,8 @@ The TF tree is critical for navigation. Monitor:
 - Transform availability
 - Transform age and staleness
 - Missing links in the transform tree
+
+For a deep dive on debugging navigation issues, see [How to Debug Nav2 Navigation Failures](/blog/debug-navigation-failures-ros2).
 
 ## Best Practices
 
@@ -181,7 +181,7 @@ Then evolve toward:
 2. AI-assisted debugging
 3. Predictive maintenance
 
-The investment in observability pays off quickly when you reduce your first critical incident from a 4-hour debugging session to a 15-minute investigation.
+The investment in observability pays off quickly when you reduce your first critical incident from a 4-hour debugging session to a 15-minute investigation. For proven strategies to achieve this, see [Reducing Robot MTTR: Best Practices](/blog/reducing-robot-mttr-best-practices).
 
 ---
 

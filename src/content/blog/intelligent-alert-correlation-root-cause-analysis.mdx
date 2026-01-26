@@ -1,12 +1,10 @@
-# Intelligent Alert Correlation: Finding the Root Cause Automatically
-
 <QuickAnswer>
 **How does alert correlation work for robotics?** When a robot fails, you get 5+ alerts (CPU spike, node crash, nav failure, sensor timeout). Ferronyx's intelligent alert correlation groups these by temporal proximity and causal relationships, identifying that the CPU spike caused the node crash, which caused navigation failure. Instead of investigating 5 separate alerts, you see one incident with the root cause. Teams reduce investigation time from 90+ minutes to under 10 minutes.
 </QuickAnswer>
 
 When a robot fails in production, you don't get one alert. You get a dozen. The CPU spikes. The node crashes. The navigation fails. Sensors time out. Each symptom generates its own alert, creating a storm of notifications that obscures the actual problem.
 
-The real question isn't "what alerts are firing?" It's "what's the root cause?"
+The real question isn't "what alerts are firing?" It's "what's the root cause?" This is a critical component of [reducing robot MTTR](/blog/reducing-robot-mttr-best-practices).
 
 ## The Alert Storm Problem
 
@@ -174,6 +172,8 @@ The key benefits:
 2. **Reduced alert fatigue**: One meaningful alert instead of many
 3. **Better fixes**: Address root causes, not symptoms
 4. **Happier engineers**: Less firefighting, more building
+
+To build the observability foundation needed for effective alert correlation, see our [ROS2 Observability Complete Guide](/blog/ros2-observability-complete-guide).
 
 Stop chasing symptoms. Start fixing root causes.
 

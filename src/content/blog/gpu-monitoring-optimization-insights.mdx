@@ -1,5 +1,3 @@
-# GPU Monitoring: Beyond Averages to Actionable Insights
-
 <QuickAnswer>
 **How do I monitor GPU usage on robots?** Fleet-wide GPU averages hide critical problems—40% average often means GPU 0 at 70% while GPU 1 sits at 10%. Monitor per-GPU utilization (not averages), memory usage patterns, thermal throttling events, and inference latency per model. Key metrics: individual GPU load per process, memory fragmentation, and thermal headroom. Properly balanced workloads can double effective compute capacity for perception and planning.
 </QuickAnswer>
@@ -8,7 +6,7 @@ Your fleet-wide dashboard shows GPU utilization at 40%. Everything looks healthy
 
 That 40% average hides a critical problem: GPU 0 is running at 70% while GPU 1 sits nearly idle at 10%. Your inference workloads are bottlenecked on a single GPU while half your compute capacity goes unused.
 
-Fleet averages lie. Individual GPU metrics tell the truth.
+Fleet averages lie. Individual GPU metrics tell the truth. This is a key aspect of [comprehensive ROS2 observability](/blog/ros2-observability-complete-guide).
 
 ## The Hidden Cost of GPU Imbalance
 
@@ -233,7 +231,7 @@ Fleet-average GPU metrics hide the problems that matter. Individual GPU monitori
 - Memory fragmentation causing OOM on loaded GPUs
 - Optimization opportunities for better performance
 
-Stop trusting averages. Start seeing individual GPU reality.
+Stop trusting averages. Start seeing individual GPU reality. Combined with proper [alert correlation](/blog/intelligent-alert-correlation-root-cause-analysis), you can catch GPU issues before they cascade into robot failures.
 
 ---
 

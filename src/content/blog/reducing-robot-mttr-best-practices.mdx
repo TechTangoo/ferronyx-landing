@@ -1,10 +1,8 @@
-# Reducing Robot MTTR: Best Practices
-
 <QuickAnswer>
 **How do I reduce robot MTTR in production?** Reduce robot MTTR from 4+ hours to under 15 minutes with: (1) automated detection alerts catching issues in seconds, (2) centralized observability eliminating SSH, (3) pre-built debugging dashboards for common failures, (4) AI-assisted root cause analysis that identifies problems automatically. The biggest opportunity is investigation time—teams typically spend 2-4 hours manually correlating logs. Centralized observability cuts this to minutes.
 </QuickAnswer>
 
-Mean Time to Resolution (MTTR) is the critical metric for robot operations teams. Every minute a robot spends broken is a minute it's not delivering value. Here's how to systematically reduce your fleet's MTTR.
+Mean Time to Resolution (MTTR) is the critical metric for robot operations teams. Every minute a robot spends broken is a minute it's not delivering value. Here's how to systematically reduce your fleet's MTTR. For the foundation you need, start with our [ROS2 Observability Complete Guide](/blog/ros2-observability-complete-guide).
 
 ## Understanding Robot MTTR
 
@@ -108,6 +106,8 @@ Don't make engineers build queries from scratch every incident. Create saved vie
 - Path planner output
 - Controller behavior
 
+For detailed guidance on navigation debugging, see [How to Debug Nav2 Navigation Failures](/blog/debug-navigation-failures-ros2).
+
 <Callout type="tip" title="Pro Tip">
 After every significant incident, ask: "What dashboard or view would have helped us find this faster?" Then build it.
 </Callout>
@@ -158,6 +158,8 @@ Many robot issues follow deployments. Track:
 - What was deployed and when
 - Which robots received the deployment
 - Performance metrics before and after
+
+Learn how to implement this effectively in our guide on [OTA Deployment Tracking](/blog/ota-deployment-tracking-failure-correlation).
 
 <MetricGrid>
   <MetricCard value="60%" label="Issues After Deploy" description="Common correlation" />

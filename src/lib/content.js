@@ -7,8 +7,8 @@
 export const blogPosts = [
   {
     slug: 'intelligent-alert-correlation-root-cause-analysis',
-    title: 'Intelligent Alert Correlation: Finding the Root Cause Automatically',
-    excerpt: 'Learn how Ferronyx correlates related alerts to identify root causes automatically. Stop chasing symptoms and fix the real problem.',
+    title: 'Intelligent Alert Correlation: Finding Root Causes Automatically',
+    excerpt: 'Learn how to correlate related alerts in robot fleets. AI-assisted root cause analysis reduces debugging time from hours to minutes.',
     date: '2026-01-25',
     author: {
       name: 'Ferronyx Team',
@@ -22,8 +22,8 @@ export const blogPosts = [
   },
   {
     slug: 'gpu-monitoring-optimization-insights',
-    title: 'GPU Monitoring: Beyond Averages to Actionable Insights',
-    excerpt: 'Discover why fleet-average GPU metrics hide critical problems and how per-GPU monitoring reveals optimization opportunities.',
+    title: 'GPU Monitoring for Robotics: Beyond Fleet Averages to Actionable Insights',
+    excerpt: 'Optimize GPU performance per robot. Detect inference bottlenecks, thermal issues, and memory problems before they cause failures.',
     date: '2026-01-23',
     author: {
       name: 'Ferronyx Team',
@@ -37,8 +37,8 @@ export const blogPosts = [
   },
   {
     slug: 'ota-deployment-tracking-failure-correlation',
-    title: 'OTA Deployment Tracking: One View of Deployments and Failures',
-    excerpt: 'See how Ferronyx correlates OTA deployments with robot failures, making "what changed?" the easiest question to answer.',
+    title: 'OTA Deployment Tracking: Correlate Deployments with Robot Failures',
+    excerpt: "Track what changed and when. Instantly answer 'what changed before this robot failed?' with deployment correlation.",
     date: '2026-01-21',
     author: {
       name: 'Ferronyx Team',
@@ -52,8 +52,8 @@ export const blogPosts = [
   },
   {
     slug: 'ros2-observability-complete-guide',
-    title: 'ROS2 Observability: A Complete Guide',
-    excerpt: 'Learn how to implement comprehensive observability for your ROS2 robot fleet. From logging and metrics to tracing and alerting.',
+    title: 'ROS2 Observability: Complete Guide to Monitoring & Debugging',
+    excerpt: 'Learn to implement comprehensive observability for ROS2 robots. Covers logging, metrics, tracing, alerting, and best practices for production fleets.',
     date: '2026-01-20',
     author: {
       name: 'Ferronyx Team',
@@ -67,8 +67,8 @@ export const blogPosts = [
   },
   {
     slug: 'debug-navigation-failures-ros2',
-    title: 'How to Debug Navigation Failures in ROS2',
-    excerpt: 'Step-by-step guide to diagnosing and fixing common Nav2 navigation issues in production robot fleets.',
+    title: 'How to Debug Nav2 Navigation Failures in ROS2 [Step-by-Step]',
+    excerpt: 'Troubleshoot ROS2 navigation issues. Guide to diagnosing costmap errors, planner failures, controller problems, and sensor integration.',
     date: '2026-01-15',
     author: {
       name: 'Ferronyx Team',
@@ -82,8 +82,8 @@ export const blogPosts = [
   },
   {
     slug: 'reducing-robot-mttr-best-practices',
-    title: 'Reducing Robot MTTR: Best Practices',
-    excerpt: 'Proven strategies to reduce your robot fleet\'s mean time to resolution from hours to minutes.',
+    title: 'Reducing Robot MTTR: Best Practices for Production Teams',
+    excerpt: 'Reduce robot troubleshooting time from 4+ hours to 15 minutes. Strategies for faster incident detection, debugging, and resolution.',
     date: '2026-01-10',
     author: {
       name: 'Ferronyx Team',

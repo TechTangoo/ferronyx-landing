@@ -1,10 +1,8 @@
-# How to Debug Navigation Failures in ROS2
-
 <QuickAnswer>
 **How do I debug ROS2 navigation failures in production?** Debug Nav2 failures systematically: (1) Check the TF tree for stale transforms, (2) verify costmap shows obstacles correctly, (3) confirm localization (AMCL) confidence is high. Use timeline replay to see costmap state, planner decisions, and sensor data at failure time. Common causes: blocked goals, sensor issues, costmap inflation too high, and feature-poor environments causing AMCL confidence drops.
 </QuickAnswer>
 
-Navigation failures are among the most frustrating issues in production robot fleets. Your robot gets stuck, fails to reach its goal, or takes unexpected paths. Here's a systematic approach to debugging these issues.
+Navigation failures are among the most frustrating issues in production robot fleets. Your robot gets stuck, fails to reach its goal, or takes unexpected paths. Here's a systematic approach to debugging these issues. To implement comprehensive observability that makes this debugging possible, see our [ROS2 Observability Complete Guide](/blog/ros2-observability-complete-guide).
 
 ## Common Navigation Failure Types
 
@@ -191,7 +189,7 @@ Navigation debugging doesn't have to be a multi-hour ordeal. With the right obse
 3. **Patterns emerge** from fleet-wide analysis
 4. **Resolution is fast** because you see exactly what happened
 
-The difference between a 4-hour debugging session and a 15-minute investigation is the quality of your observability tooling.
+The difference between a 4-hour debugging session and a 15-minute investigation is the quality of your observability tooling. For more strategies on reducing debugging time, read our guide on [Reducing Robot MTTR: Best Practices](/blog/reducing-robot-mttr-best-practices).
 
 ---
 

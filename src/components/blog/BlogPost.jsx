@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { MDXProvider } from '@mdx-js/react';
 import { motion } from 'framer-motion';
-import { Clock, Calendar, ArrowLeft, ArrowRight } from 'lucide-react';
+import { Clock, Calendar, ArrowLeft, ArrowRight, Linkedin, Twitter, Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import MDXComponents from './MDXComponents';
 import RelatedPosts from './RelatedPosts';
 import { formatDate } from '@/lib/content';
+import { trackBlogRead, trackShareClick, trackEmailSubscribe, trackCTAClick } from '@/lib/analytics';
 
 // Animation variants
 const fadeInUp = {
@@ -26,8 +27,40 @@ const staggerContainer = {
   }
 };
 
+// Social share URLs
+const getShareUrls = (slug, title) => {
+  const url = encodeURIComponent(`https://ferronyx.com/blog/${slug}`);
+  const text = encodeURIComponent(title);
+  return {
+    linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${url}`,
+    twitter: `https://twitter.com/intent/tweet?url=${url}&text=${text}`
+  };
+};
+
 const BlogPost = ({ post, children }) => {
   const { slug, title, excerpt, date, author, category, tags, readingTime, coverImage } = post;
+  const shareUrls = getShareUrls(slug, title);
+
+  // Track blog post view on mount
+  useEffect(() => {
+    trackBlogRead(slug, title, category);
+  }, [slug, title, category]);
+
+  // Handle share click tracking
+  const handleShareClick = (platform) => {
+    trackShareClick(platform, slug);
+  };
+
+  // Handle email subscription form submit
+  const handleEmailSubmit = (e) => {
+    trackEmailSubscribe('blog_post');
+    // Form will submit normally to the action URL
+  };
+
+  // Handle CTA click tracking
+  const handleCTAClick = () => {
+    trackCTAClick('Get Started', 'blog_post_cta');
+  };
 
   return (
     <article className="min-h-screen bg-black pt-24">
@@ -91,6 +124,30 @@ const BlogPost = ({ post, children }) => {
               <span>By {author.name}</span>
             </div>
           )}
+          {/* Share Buttons */}
+          <div className="flex items-center gap-3 ml-auto">
+            <span className="text-zinc-600 text-xs">Share:</span>
+            <a
+              href={shareUrls.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-zinc-500 hover:text-blue-400 transition-colors"
+              aria-label="Share on LinkedIn"
+              onClick={() => handleShareClick('linkedin')}
+            >
+              <Linkedin className="h-4 w-4" />
+            </a>
+            <a
+              href={shareUrls.twitter}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-zinc-500 hover:text-blue-400 transition-colors"
+              aria-label="Share on Twitter"
+              onClick={() => handleShareClick('twitter')}
+            >
+              <Twitter className="h-4 w-4" />
+            </a>
+          </div>
         </motion.div>
       </motion.header>
 
@@ -149,9 +206,79 @@ const BlogPost = ({ post, children }) => {
           </motion.div>
         )}
 
+        {/* Email Signup Section */}
+        <motion.div
+          className="bg-gradient-to-br from-blue-500/10 to-purple-500/10 border border-blue-500/20 rounded-xl p-8 mt-12"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          <div className="flex items-start gap-4">
+            <div className="p-3 bg-blue-500/20 rounded-lg">
+              <Mail className="h-6 w-6 text-blue-400" />
+            </div>
+            <div className="flex-1">
+              <h3 className="text-lg font-bold text-white mb-2">
+                Get ROS2 debugging tips in your inbox
+              </h3>
+              <p className="text-zinc-400 text-sm mb-4">
+                Weekly insights on robot observability, debugging techniques, and best practices for production fleets.
+              </p>
+              <form
+                action="https://dev.ferronyx.com/subscribe"
+                method="POST"
+                className="flex gap-3 flex-col sm:flex-row"
+                onSubmit={handleEmailSubmit}
+              >
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="your@email.com"
+                  required
+                  className="flex-1 px-4 py-2 bg-black/50 border border-white/10 rounded-lg text-white placeholder-zinc-500 focus:outline-none focus:border-blue-500/50 text-sm"
+                />
+                <Button
+                  type="submit"
+                  className="bg-blue-500 hover:bg-blue-600 text-white font-medium px-6 py-2 text-sm whitespace-nowrap"
+                >
+                  Subscribe
+                </Button>
+              </form>
+              <p className="text-zinc-600 text-xs mt-2">No spam. Unsubscribe anytime.</p>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Author Bio Section */}
+        <motion.div
+          className="flex items-center gap-4 mt-8 p-6 bg-white/[0.02] border border-white/[0.08] rounded-xl"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          <div className="w-16 h-16 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center text-white font-bold text-xl">
+            FT
+          </div>
+          <div className="flex-1">
+            <h4 className="text-white font-semibold">{author?.name || 'Ferronyx Team'}</h4>
+            <p className="text-zinc-400 text-sm">Building the intelligence layer for robotics. We help teams debug robots in minutes, not hours.</p>
+            <a
+              href="https://www.linkedin.com/company/ferronyx-robotics/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 text-blue-400 hover:text-blue-300 text-sm mt-2"
+            >
+              <Linkedin className="h-4 w-4" />
+              Follow on LinkedIn
+            </a>
+          </div>
+        </motion.div>
+
         {/* CTA Section */}
-        <motion.div 
-          className="bg-[#0A0A0B] border border-white/[0.08] rounded-xl p-8 mt-12 text-center"
+        <motion.div
+          className="bg-[#0A0A0B] border border-white/[0.08] rounded-xl p-8 mt-8 text-center"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -163,12 +290,36 @@ const BlogPost = ({ post, children }) => {
           <p className="text-zinc-400 mb-6 max-w-lg mx-auto">
             Join robotics teams who have reduced their MTTR from hours to minutes with Ferronyx.
           </p>
-          <a href="https://dev.ferronyx.com/register" target="_blank" rel="noopener noreferrer">
-            <Button className="bg-white text-black hover:bg-zinc-200 font-medium px-8 py-6 text-base">
-              Get Started
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
-          </a>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="https://dev.ferronyx.com/register" target="_blank" rel="noopener noreferrer" onClick={handleCTAClick}>
+              <Button className="bg-white text-black hover:bg-zinc-200 font-medium px-8 py-6 text-base w-full sm:w-auto">
+                Get Started
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </a>
+            <div className="flex gap-3 justify-center">
+              <a
+                href={shareUrls.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-4 py-2 border border-white/10 rounded-lg text-zinc-400 hover:text-white hover:border-white/20 transition-colors text-sm"
+                onClick={() => handleShareClick('linkedin')}
+              >
+                <Linkedin className="h-4 w-4" />
+                Share
+              </a>
+              <a
+                href={shareUrls.twitter}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-4 py-2 border border-white/10 rounded-lg text-zinc-400 hover:text-white hover:border-white/20 transition-colors text-sm"
+                onClick={() => handleShareClick('twitter')}
+              >
+                <Twitter className="h-4 w-4" />
+                Tweet
+              </a>
+            </div>
+          </div>
         </motion.div>
 
         {/* Related Posts */}
