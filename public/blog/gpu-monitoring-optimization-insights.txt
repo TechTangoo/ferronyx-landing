@@ -1,0 +1,245 @@
+# GPU Monitoring: Beyond Averages to Actionable Insights
+
+> Quick Answer: How do I monitor GPU usage on robots? Fleet-wide GPU averages hide critical problems—40% average often means GPU 0 at 70% while GPU 1 sits at 10%. Monitor per-GPU utilization (not averages), memory usage patterns, thermal throttling events, and inference latency per model. Key metrics: individual GPU load per process, memory fragmentation, and thermal headroom. Properly balanced workloads can double effective compute capacity for perception and planning.
+
+URL: https://ferronyx.com/blog/gpu-monitoring-optimization-insights
+Date: January 23, 2025 | Category: Features | Reading Time: 7 min read
+Tags: GPU, Monitoring, Performance, Optimization
+
+---
+
+# GPU Monitoring: Beyond Averages to Actionable Insights
+
+Your fleet-wide dashboard shows GPU utilization at 40%. Everything looks healthy. But is it?
+
+That 40% average hides a critical problem: GPU 0 is running at 70% while GPU 1 sits nearly idle at 10%. Your inference workloads are bottlenecked on a single GPU while half your compute capacity goes unused.
+
+Fleet averages lie. Individual GPU metrics tell the truth.
+
+## The Hidden Cost of GPU Imbalance
+
+Modern robotics workloads are GPU-intensive. Autonomous robots run multiple parallel workloads:
+
+- **Perception**: Object detection, segmentation, depth estimation
+- **SLAM**: Visual-inertial odometry, mapping, localization
+- **Planning**: Path planning, trajectory optimization
+- **Point Cloud Processing**: LiDAR processing, obstacle detection
+
+Each workload has different GPU requirements. When they're not properly distributed, you get imbalanced utilization that kills performance.
+
+**The Real Cost**
+A robot with 50% GPU imbalance (70%/30% split) is effectively running on half its compute capacity. That's like paying for two GPUs but only using one.
+
+## Why Averages Mislead
+
+Consider a dual-GPU robot system:
+
+| Metric | GPU 0 | GPU 1 | Fleet Average |
+|--------|-------|-------|---------------|
+| Utilization | 70% | 10% | 40% |
+| Memory | 6GB/8GB | 1GB/8GB | 43% |
+| Temperature | 78°C | 45°C | 61°C |
+
+The average looks fine. But:
+- GPU 0 is approaching thermal throttling
+- GPU 1 is almost completely idle
+- Inference latency is constrained by GPU 0
+- You're paying for compute you're not using
+
+Traditional monitoring that only shows averages would miss all of this.
+
+## What Per-GPU Monitoring Reveals
+
+### Problem 1: Inference Running on Single GPU
+
+**Symptom**: High latency on perception pipeline despite "low" average GPU usage.
+
+**What Ferronyx shows**:
+- GPU 0: 85% utilization, running YOLO inference
+- GPU 1: 5% utilization, idle
+
+**Root cause**: Model was loaded on GPU 0 only. CUDA device not specified.
+
+**Fix**: Explicitly set `CUDA_VISIBLE_DEVICES` or use model parallelism.
+
+### Problem 2: CUDA Stream Serialization
+
+**Symptom**: GPU utilization spikes, then drops, then spikes again.
+
+**What Ferronyx shows**:
+- Periodic utilization pattern on GPU 0
+- GPU 1 shows inverse pattern
+- Memory transfers blocking compute
+
+**Root cause**: CUDA streams not properly parallelized. Memory copies blocking kernel execution.
+
+**Fix**: Use async memory transfers with `cudaMemcpyAsync` and proper stream management.
+
+### Problem 3: Memory Fragmentation
+
+**Symptom**: OOM errors despite adequate total memory.
+
+**What Ferronyx shows**:
+- GPU 0: 7.5GB/8GB used
+- GPU 1: 2GB/8GB used
+- Memory allocation failures on GPU 0
+
+**Root cause**: All models loaded on GPU 0. Memory fragmented from repeated allocations.
+
+**Fix**: Distribute models across GPUs. Use memory pools to reduce fragmentation.
+
+- Throughput Gain: 2x (After balancing GPU load)
+- Latency Reduction: 40% (From proper parallelization)
+- Hardware Cost: $0 (Same GPUs, better utilization)
+
+## Key GPU Metrics for Robotics
+
+### Utilization Metrics
+
+Track these for each GPU individually:
+
+| Metric | What It Shows | Warning Threshold |
+|--------|---------------|-------------------|
+| SM Utilization | Compute usage | >85% sustained |
+| Memory Bandwidth | Data transfer rate | >90% sustained |
+| PCIe Throughput | Host-device transfer | Bottleneck indicator |
+
+### Memory Metrics
+
+| Metric | What It Shows | Warning Threshold |
+|--------|---------------|-------------------|
+| Used Memory | Current allocation | >90% of total |
+| Memory Growth | Leak indicator | Steady increase |
+| Fragmentation | Allocation efficiency | OOM despite free memory |
+
+### Thermal Metrics
+
+| Metric | What It Shows | Warning Threshold |
+|--------|---------------|-------------------|
+| Temperature | Heat generation | >80°C |
+| Throttling Events | Performance limiting | Any occurrence |
+| Fan Speed | Cooling demand | >80% |
+
+**Why Individual Metrics Matter**
+A robot with thermal throttling on GPU 0 but cool GPU 1 has a workload distribution problem, not a cooling problem. The fix is software, not hardware.
+
+## Common Robotics GPU Workload Patterns
+
+### Pattern 1: Perception-Heavy
+
+```
+GPU 0: Object Detection (YOLO/SSD)     → 60% utilization
+GPU 1: Depth Estimation (MonoDepth)   → 40% utilization
+```
+
+**Optimal**: Workloads balanced, similar latency requirements.
+
+### Pattern 2: Inference + SLAM
+
+```
+GPU 0: Visual SLAM                     → 80% utilization
+GPU 1: Inference (idle waiting)        → 20% utilization
+```
+
+**Problem**: SLAM consuming GPU 0, inference starved.
+
+**Fix**: Move inference to GPU 1, or use TensorRT for faster SLAM.
+
+### Pattern 3: Point Cloud Processing
+
+```
+GPU 0: LiDAR processing                → 70% utilization
+GPU 0: Point cloud segmentation        → (queued)
+GPU 1: Idle                            → 5% utilization
+```
+
+**Problem**: Both point cloud workloads on same GPU.
+
+**Fix**: Distribute point cloud processing across GPUs.
+
+## Optimizing GPU Distribution
+
+### Step 1: Profile Your Workloads
+
+Use Ferronyx to identify which processes use which GPUs:
+
+- Which nodes consume the most GPU?
+- Are workloads balanced across available GPUs?
+- Where are the bottlenecks?
+
+### Step 2: Plan Your Distribution
+
+Map workloads to GPUs based on:
+
+1. **Latency requirements**: Real-time perception on dedicated GPU
+2. **Memory requirements**: Large models get more headroom
+3. **Communication patterns**: Co-locate data-sharing workloads
+
+### Step 3: Implement and Validate
+
+After redistribution, verify with Ferronyx:
+
+- Utilization balanced within 20% across GPUs
+- No thermal throttling
+- Latency targets met
+- Memory headroom maintained
+
+### Step 4: Monitor Continuously
+
+GPU behavior changes over time:
+
+- New model versions may have different requirements
+- Environmental conditions affect thermal behavior
+- Fleet updates may shift workload patterns
+
+**Pro Tip**
+Set up Ferronyx alerts for GPU imbalance. If one GPU consistently runs 2x the utilization of another, you have an optimization opportunity.
+
+## Real Fleet Example
+
+A delivery robot fleet was experiencing intermittent perception failures. Fleet average GPU: 45%.
+
+**Ferronyx analysis revealed**:
+- GPU 0: 90% utilization (thermal throttling in warm weather)
+- GPU 1: 15% utilization (idle)
+- Perception inference on GPU 0 only
+- Warm afternoon temperatures pushing GPU 0 to throttle
+
+**Solution**:
+1. Moved depth estimation to GPU 1
+2. Configured inference to use both GPUs
+3. Set up temperature-based workload balancing
+
+**Results**:
+- Zero thermal throttling incidents
+- 35% improvement in perception latency
+- Consistent performance across temperature ranges
+
+## Beyond Monitoring: GPU Optimization Recommendations
+
+Ferronyx doesn't just show you the problem—it suggests the fix:
+
+- **Imbalanced utilization**: "Consider moving workload X to GPU 1"
+- **Memory pressure**: "Model Y uses 4GB; GPU 1 has 6GB free"
+- **Thermal issues**: "GPU 0 throttling; distribute load to GPU 1"
+
+These actionable recommendations turn monitoring data into optimization actions.
+
+## Conclusion
+
+Fleet-average GPU metrics hide the problems that matter. Individual GPU monitoring reveals:
+
+- Imbalanced workloads wasting compute capacity
+- Thermal issues affecting specific GPUs
+- Memory fragmentation causing OOM on loaded GPUs
+- Optimization opportunities for better performance
+
+Stop trusting averages. Start seeing individual GPU reality.
+
+---
+
+*Ready to see what your GPUs are really doing? [Get started with Ferronyx](https://dev.ferronyx.com) and optimize your robot fleet's compute utilization.*
+
+---
+
+Related: https://ferronyx.com/llms.txt
