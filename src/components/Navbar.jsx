@@ -44,6 +44,7 @@ const Navbar = () => {
                     <Link to="/blog" className="hover:text-white transition-colors">Blog</Link>
                     <Link to="/case-studies" className="hover:text-white transition-colors">Case Studies</Link>
                     <Link to="/about" className="hover:text-white transition-colors">About</Link>
+                    <Link to="/pricing" className="hover:text-white transition-colors">Pricing</Link>
                 </div>
 
                 <div className="flex items-center gap-4">
@@ -110,6 +111,13 @@ const Navbar = () => {
                                 className="text-left text-base font-medium text-zinc-300 hover:text-white transition-colors py-3"
                             >
                                 About
+                            </Link>
+ <Link
+                                to="/pricing"
+                                onClick={() => setMobileMenuOpen(false)}
+                                className="text-left text-base font-medium text-zinc-300 hover:text-white transition-colors py-3 border-b border-white/[0.05]"
+                            >
+                                Pricing
                             </Link>
                         </div>
                     </div>
