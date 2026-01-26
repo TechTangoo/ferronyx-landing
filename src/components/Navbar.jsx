@@ -39,12 +39,12 @@ const Navbar = () => {
 
                 {/* Desktop Navigation */}
                 <div className="hidden md:flex items-center gap-6 lg:gap-8 text-sm font-medium text-zinc-400">
-                    <button onClick={() => scrollToSection('features')} className="hover:text-white transition-colors">Features</button>
-                    <Link to="/use-cases" className="hover:text-white transition-colors">Use Cases</Link>
-                    <Link to="/blog" className="hover:text-white transition-colors">Blog</Link>
-                    <Link to="/case-studies" className="hover:text-white transition-colors">Case Studies</Link>
-                    <Link to="/about" className="hover:text-white transition-colors">About</Link>
-                    <Link to="/pricing" className="hover:text-white transition-colors">Pricing</Link>
+                    <button onClick={() => scrollToSection('features')} className={`hover:text-white transition-colors ${location.hash === '#features' ? 'font-semibold text-white' : ''}`}>Features</button>
+                    <Link to="/use-cases" className={`hover:text-white transition-colors ${location.pathname === '/use-cases' ? 'font-semibold text-white' : ''}`}>Use Cases</Link>
+                    <Link to="/blog" className={`hover:text-white transition-colors ${location.pathname.startsWith('/blog') ? 'font-semibold text-white' : ''}`}>Blog</Link>
+                    <Link to="/case-studies" className={`hover:text-white transition-colors ${location.pathname.startsWith('/case-studies') ? 'font-semibold text-white' : ''}`}>Case Studies</Link>
+                    <Link to="/about" className={`hover:text-white transition-colors ${location.pathname === '/about' ? 'font-semibold text-white' : ''}`}>About</Link>
+                    <Link to="/pricing" className={`hover:text-white transition-colors ${location.pathname === '/pricing' ? 'font-semibold text-white' : ''}`}>Pricing</Link>
                 </div>
 
                 <div className="flex items-center gap-4">
@@ -80,42 +80,49 @@ const Navbar = () => {
                         <div className="flex flex-col p-6 space-y-4">
                             <button
                                 onClick={() => scrollToSection('features')}
-                                className="text-left text-base font-medium text-zinc-300 hover:text-white transition-colors py-3 border-b border-white/[0.05]"
+                                className={`text-left text-base font-medium text-zinc-300 hover:text-white transition-colors py-3 border-b border-white/[0.05]
+                                    ${location.hash === '#features' ? 'font-semibold text-white' : ''}`}
                             >
                                 Features
                             </button>
                             <Link
                                 to="/use-cases"
                                 onClick={() => setMobileMenuOpen(false)}
-                                className="text-left text-base font-medium text-zinc-300 hover:text-white transition-colors py-3 border-b border-white/[0.05]"
+                                className={`text-left text-base font-medium text-zinc-300 hover:text-white transition-colors py-3 border-b border-white/[0.05]
+                                    ${location.pathname === '/use-cases' ? 'font-semibold text-white' : ''}`}
                             >
                                 Use Cases
                             </Link>
                             <Link
                                 to="/blog"
                                 onClick={() => setMobileMenuOpen(false)}
-                                className="text-left text-base font-medium text-zinc-300 hover:text-white transition-colors py-3 border-b border-white/[0.05]"
+                                className={`text-left text-base font-medium text-zinc-300 hover:text-white transition-colors py-3 border-b border-white/[0.05]
+                                    ${location.pathname.startsWith('/blog') ? 'font-semibold text-white' : ''}`}
+
                             >
                                 Blog
                             </Link>
                             <Link
                                 to="/case-studies"
                                 onClick={() => setMobileMenuOpen(false)}
-                                className="text-left text-base font-medium text-zinc-300 hover:text-white transition-colors py-3 border-b border-white/[0.05]"
+                                className={`text-left text-base font-medium text-zinc-300 hover:text-white transition-colors py-3 border-b border-white/[0.05]
+                                    ${location.pathname.startsWith('/case-studies') ? 'font-semibold text-white' : ''}`}
                             >
                                 Case Studies
                             </Link>
                             <Link
                                 to="/about"
                                 onClick={() => setMobileMenuOpen(false)}
-                                className="text-left text-base font-medium text-zinc-300 hover:text-white transition-colors py-3"
+                                className={`text-left text-base font-medium text-zinc-300 hover:text-white transition-colors py-3
+                                    ${location.pathname === '/about' ? 'font-semibold text-white' : ''}`}
                             >
                                 About
                             </Link>
  <Link
                                 to="/pricing"
                                 onClick={() => setMobileMenuOpen(false)}
-                                className="text-left text-base font-medium text-zinc-300 hover:text-white transition-colors py-3 border-b border-white/[0.05]"
+                                className={`text-left text-base font-medium text-zinc-300 hover:text-white transition-colors py-3 border-b border-white/[0.05]
+                                    ${location.pathname === '/pricing' ? 'font-semibold text-white' : ''}`}
                             >
                                 Pricing
                             </Link>
