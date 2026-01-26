@@ -1278,7 +1278,7 @@ Create `.planning/phases/XX-name/{phase}-USER-SETUP.md` using template from `./.
 ```markdown
 # Phase 10: User Setup Required
 
-**Generated:** 2025-01-14
+**Generated:** 2026-01-14
 **Phase:** 10-monetization
 **Status:** Incomplete
 
@@ -1409,7 +1409,7 @@ Before:
 Phase: 2 of 4 (Authentication)
 Plan: Not started
 Status: Ready to execute
-Last activity: 2025-01-18 - Phase 1 complete
+Last activity: 2026-01-18 - Phase 1 complete
 
 Progress: ██████░░░░ 40%
 ```
@@ -1422,7 +1422,7 @@ After:
 Phase: 2 of 4 (Authentication)
 Plan: 1 of 2 in current phase
 Status: In progress
-Last activity: 2025-01-19 - Completed 02-01-PLAN.md
+Last activity: 2026-01-19 - Completed 02-01-PLAN.md
 
 Progress: ███████░░░ 50%
 ```

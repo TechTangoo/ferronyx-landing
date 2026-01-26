@@ -3,7 +3,7 @@
 > Quick Answer: How do I correlate robot failures with OTA deployments? When robots fail after an update, you need answers fast: which robots received it, when, and whether non-updated robots are failing too. Ferronyx automatically adds deployment markers to your timeline showing what version each robot runs and when updates occurred. Compare failure rates before vs. after deployment instantly. Identify bad deployments within minutes of rollout, not hours of manual correlation.
 
 URL: https://ferronyx.com/blog/ota-deployment-tracking-failure-correlation
-Date: January 21, 2025 | Category: Features | Reading Time: 7 min read
+Date: January 21, 2026 | Category: Features | Reading Time: 7 min read
 Tags: OTA, Deployments, Fleet Management, Correlation
 
 ---

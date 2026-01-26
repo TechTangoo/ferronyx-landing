@@ -3,7 +3,7 @@
 > Quick Answer: How do I monitor GPU usage on robots? Fleet-wide GPU averages hide critical problems—40% average often means GPU 0 at 70% while GPU 1 sits at 10%. Monitor per-GPU utilization (not averages), memory usage patterns, thermal throttling events, and inference latency per model. Key metrics: individual GPU load per process, memory fragmentation, and thermal headroom. Properly balanced workloads can double effective compute capacity for perception and planning.
 
 URL: https://ferronyx.com/blog/gpu-monitoring-optimization-insights
-Date: January 23, 2025 | Category: Features | Reading Time: 7 min read
+Date: January 23, 2026 | Category: Features | Reading Time: 7 min read
 Tags: GPU, Monitoring, Performance, Optimization
 
 ---

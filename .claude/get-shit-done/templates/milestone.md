@@ -65,7 +65,7 @@ If MILESTONES.md doesn't exist, create it with header:
 ```markdown
 # Project Milestones: WeatherBar
 
-## v1.1 Security & Polish (Shipped: 2025-12-10)
+## v1.1 Security & Polish (Shipped: 2026-12-10)
 
 **Delivered:** Security hardening with Keychain integration and comprehensive error handling
 
@@ -89,7 +89,7 @@ If MILESTONES.md doesn't exist, create it with header:
 
 ---
 
-## v1.0 MVP (Shipped: 2025-11-25)
+## v1.0 MVP (Shipped: 2026-11-25)
 
 **Delivered:** Menu bar weather app with current conditions and 3-day forecast
 

@@ -130,7 +130,7 @@ Template for `.planning/codebase/INTEGRATIONS.md` - captures external service de
 ```markdown
 # External Integrations
 
-**Analysis Date:** 2025-01-20
+**Analysis Date:** 2026-01-20
 
 ## APIs & External Services
 
@@ -236,7 +236,7 @@ Template for `.planning/codebase/INTEGRATIONS.md` - captures external service de
 
 ---
 
-*Integration audit: 2025-01-20*
+*Integration audit: 2026-01-20*
 *Update when adding/removing external services*
 ```
 </good_examples>

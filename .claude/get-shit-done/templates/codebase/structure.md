@@ -118,7 +118,7 @@ Template for `.planning/codebase/STRUCTURE.md` - captures physical file organiza
 ```markdown
 # Codebase Structure
 
-**Analysis Date:** 2025-01-20
+**Analysis Date:** 2026-01-20
 
 ## Directory Layout
 
@@ -240,7 +240,7 @@ get-shit-done/
 
 ---
 
-*Structure analysis: 2025-01-20*
+*Structure analysis: 2026-01-20*
 *Update when directory structure changes*
 ```
 </good_examples>

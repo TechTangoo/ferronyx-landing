@@ -3,7 +3,7 @@
 > Quick Answer: How do I implement observability for ROS2 robots in production? ROS2 observability requires three pillars: (1) centralized logging with correlation IDs linking entries across nodes, (2) metrics collection covering system health (CPU, memory), ROS2-specific data (topic latency, message rates), and navigation metrics, (3) alerting on critical conditions. Without observability, debugging takes 4+ hours of SSH and manual log correlation. With it, reduce debugging to minutes.
 
 URL: https://ferronyx.com/blog/ros2-observability-complete-guide
-Date: January 20, 2025 | Category: Guides | Reading Time: 12 min read
+Date: January 20, 2026 | Category: Guides | Reading Time: 12 min read
 Tags: ROS2, Observability, Monitoring, Best Practices
 
 ---

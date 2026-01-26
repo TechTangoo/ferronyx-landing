@@ -76,7 +76,7 @@ Template for `.planning/phases/XX-name/{phase}-CONTEXT.md` - captures implementa
 ```markdown
 # Phase 3: Post Feed - Context
 
-**Gathered:** 2025-01-20
+**Gathered:** 2026-01-20
 **Status:** Ready for planning
 
 <domain>
@@ -129,7 +129,7 @@ Display posts from followed users in a scrollable feed. Users can view posts and
 ---
 
 *Phase: 03-post-feed*
-*Context gathered: 2025-01-20*
+*Context gathered: 2026-01-20*
 ```
 
 **Example 2: CLI tool (Database backup)**
@@ -137,7 +137,7 @@ Display posts from followed users in a scrollable feed. Users can view posts and
 ```markdown
 # Phase 2: Backup Command - Context
 
-**Gathered:** 2025-01-20
+**Gathered:** 2026-01-20
 **Status:** Ready for planning
 
 <domain>
@@ -191,7 +191,7 @@ CLI command to backup database to local file or S3. Supports full and incrementa
 ---
 
 *Phase: 02-backup-command*
-*Context gathered: 2025-01-20*
+*Context gathered: 2026-01-20*
 ```
 
 **Example 3: Organization task (Photo library)**
@@ -199,7 +199,7 @@ CLI command to backup database to local file or S3. Supports full and incrementa
 ```markdown
 # Phase 1: Photo Organization - Context
 
-**Gathered:** 2025-01-20
+**Gathered:** 2026-01-20
 **Status:** Ready for planning
 
 <domain>
@@ -253,7 +253,7 @@ Organize existing photo library into structured folders. Handle duplicates and a
 ---
 
 *Phase: 01-photo-organization*
-*Context gathered: 2025-01-20*
+*Context gathered: 2026-01-20*
 ```
 
 </good_examples>

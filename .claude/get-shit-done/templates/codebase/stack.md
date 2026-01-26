@@ -85,7 +85,7 @@ Template for `.planning/codebase/STACK.md` - captures the technology foundation.
 ```markdown
 # Technology Stack
 
-**Analysis Date:** 2025-01-20
+**Analysis Date:** 2026-01-20
 
 ## Languages
 
@@ -151,7 +151,7 @@ Template for `.planning/codebase/STACK.md` - captures the technology foundation.
 
 ---
 
-*Stack analysis: 2025-01-20*
+*Stack analysis: 2026-01-20*
 *Update after major dependency changes*
 ```
 </good_examples>

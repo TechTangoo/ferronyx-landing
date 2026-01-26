@@ -123,7 +123,7 @@ Template for `.planning/codebase/CONCERNS.md` - captures known issues and areas 
 ```markdown
 # Codebase Concerns
 
-**Analysis Date:** 2025-01-20
+**Analysis Date:** 2026-01-20
 
 ## Tech Debt
 
@@ -256,7 +256,7 @@ Template for `.planning/codebase/CONCERNS.md` - captures known issues and areas 
 
 ---
 
-*Concerns audit: 2025-01-20*
+*Concerns audit: 2026-01-20*
 *Update as issues are fixed or new ones discovered*
 ```
 </good_examples>

@@ -134,7 +134,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 ```markdown
 # Requirements: CommunityApp
 
-**Defined:** 2025-01-14
+**Defined:** 2026-01-14
 **Core Value:** Users can share and discuss content with people who share their interests
 
 ## v1 Requirements
@@ -224,8 +224,8 @@ Which phases cover which requirements. Updated during roadmap creation.
 - Unmapped: 0 ✓
 
 ---
-*Requirements defined: 2025-01-14*
-*Last updated: 2025-01-14 after initial definition*
+*Requirements defined: 2026-01-14*
+*Last updated: 2026-01-14 after initial definition*
 ```
 
 </example>

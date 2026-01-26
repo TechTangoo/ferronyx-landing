@@ -107,7 +107,7 @@ Template for `.planning/codebase/ARCHITECTURE.md` - captures conceptual code org
 ```markdown
 # Architecture
 
-**Analysis Date:** 2025-01-20
+**Analysis Date:** 2026-01-20
 
 ## Pattern Overview
 
@@ -216,7 +216,7 @@ Template for `.planning/codebase/ARCHITECTURE.md` - captures conceptual code org
 
 ---
 
-*Architecture analysis: 2025-01-20*
+*Architecture analysis: 2026-01-20*
 *Update when major patterns change*
 ```
 </good_examples>

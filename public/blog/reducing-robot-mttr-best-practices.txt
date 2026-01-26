@@ -3,7 +3,7 @@
 > Quick Answer: How do I reduce robot MTTR in production? Reduce robot MTTR from 4+ hours to under 15 minutes with: (1) automated detection alerts catching issues in seconds, (2) centralized observability eliminating SSH, (3) pre-built debugging dashboards for common failures, (4) AI-assisted root cause analysis that identifies problems automatically. The biggest opportunity is investigation time—teams typically spend 2-4 hours manually correlating logs. Centralized observability cuts this to minutes.
 
 URL: https://ferronyx.com/blog/reducing-robot-mttr-best-practices
-Date: January 10, 2025 | Category: Best Practices | Reading Time: 10 min read
+Date: January 10, 2026 | Category: Best Practices | Reading Time: 10 min read
 Tags: MTTR, Operations, Debugging, SRE
 
 ---

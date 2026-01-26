@@ -77,17 +77,17 @@ const values = [
 
 const milestones = [
     {
-        year: "2025",
+        year: "2026",
         title: "Founded",
         description: "Started with a mission to bring modern observability practices to robotics."
     },
     {
-        year: "2025",
+        year: "2026",
         title: "First Beta Users",
         description: "Partnered with robotics teams running ROS2 fleets in production environments."
     },
     {
-        year: "2025",
+        year: "2026",
         title: "Early Access Launch",
         description: "Opening Ferronyx to robotics teams worldwide. Join the waitlist."
     }
@@ -120,7 +120,7 @@ const AboutPage = () => {
                     "height": "512"
                 },
                 "description": "Ferronyx is the intelligence layer for ROS robots in production. We provide real-time observability, automated root cause analysis, and AI-assisted debugging for robotics teams running ROS/ROS2 fleets.",
-                "foundingDate": "2025",
+                "foundingDate": "2026",
                 "slogan": "The Intelligence Layer for Robotics",
                 "knowsAbout": [
                     "Robotics Observability",

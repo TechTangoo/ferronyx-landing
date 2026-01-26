@@ -3,7 +3,7 @@
 > Quick Answer: How does alert correlation work for robotics? When a robot fails, you get 5+ alerts (CPU spike, node crash, nav failure, sensor timeout). Ferronyx's intelligent alert correlation groups these by temporal proximity and causal relationships, identifying that the CPU spike caused the node crash, which caused navigation failure. Instead of investigating 5 separate alerts, you see one incident with the root cause. Teams reduce investigation time from 90+ minutes to under 10 minutes.
 
 URL: https://ferronyx.com/blog/intelligent-alert-correlation-root-cause-analysis
-Date: January 25, 2025 | Category: Features | Reading Time: 8 min read
+Date: January 25, 2026 | Category: Features | Reading Time: 8 min read
 Tags: Alerting, Root Cause Analysis, ROS2, Debugging
 
 ---

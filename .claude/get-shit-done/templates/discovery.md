@@ -22,7 +22,7 @@ Before beginning discovery, verify today's date:
 !`date +%Y-%m-%d`
 
 Use this date when searching for "current" or "latest" information.
-Example: If today is 2025-11-22, search for "2025" not "2024".
+Example: If today is 2026-11-22, search for "2026" not "2024".
 </session_initialization>
 
 <discovery_objective>

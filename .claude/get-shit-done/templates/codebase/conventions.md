@@ -134,7 +134,7 @@ Template for `.planning/codebase/CONVENTIONS.md` - captures coding style and pat
 ```markdown
 # Coding Conventions
 
-**Analysis Date:** 2025-01-20
+**Analysis Date:** 2026-01-20
 
 ## Naming Patterns
 
@@ -262,7 +262,7 @@ Template for `.planning/codebase/CONVENTIONS.md` - captures coding style and pat
 
 ---
 
-*Convention analysis: 2025-01-20*
+*Convention analysis: 2026-01-20*
 *Update when patterns change*
 ```
 </good_examples>

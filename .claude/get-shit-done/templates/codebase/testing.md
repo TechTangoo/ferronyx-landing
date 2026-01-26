@@ -213,7 +213,7 @@ it('should reject on failure', async () => {
 ```markdown
 # Testing Patterns
 
-**Analysis Date:** 2025-01-20
+**Analysis Date:** 2026-01-20
 
 ## Test Framework
 
@@ -433,7 +433,7 @@ it('mocks file system', () => {
 
 ---
 
-*Testing analysis: 2025-01-20*
+*Testing analysis: 2026-01-20*
 *Update when test patterns change*
 ```
 </good_examples>

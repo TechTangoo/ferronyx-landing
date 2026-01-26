@@ -120,7 +120,7 @@ user_setup:
 ```markdown
 # Phase 10: User Setup Required
 
-**Generated:** 2025-01-14
+**Generated:** 2026-01-14
 **Phase:** 10-monetization
 **Status:** Incomplete
 
@@ -195,7 +195,7 @@ Expected: Build passes, webhook returns 400 (signature validation working).
 ```markdown
 # Phase 2: User Setup Required
 
-**Generated:** 2025-01-14
+**Generated:** 2026-01-14
 **Phase:** 02-authentication
 **Status:** Incomplete
 
@@ -249,7 +249,7 @@ npx supabase status
 ```markdown
 # Phase 5: User Setup Required
 
-**Generated:** 2025-01-14
+**Generated:** 2026-01-14
 **Phase:** 05-notifications
 **Status:** Incomplete
 

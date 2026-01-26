@@ -8,7 +8,7 @@ phase: XX-name
 task: 3
 total_tasks: 7
 status: in_progress
-last_updated: 2025-01-15T14:30:00Z
+last_updated: 2026-01-15T14:30:00Z
 ---
 ```
 
