@@ -17,6 +17,9 @@ import AboutPage from './pages/AboutPage'
 import PricingPage from './pages/PricingPage'
 import BlogListingPage from './pages/blog/BlogListingPage'
 import BlogPostPage from './pages/blog/BlogPostPage'
+import TermsPage from './pages/TermsPage'
+import PrivacyPage from './pages/PrivacyPage'
+import CookiePolicyPage from './pages/CookiePolicyPage'
 // import CaseStudiesListingPage from './pages/case-studies/CaseStudiesListingPage'
 // import CaseStudyPage from './pages/case-studies/CaseStudyPage'
 
@@ -57,6 +60,9 @@ function App() {
         <Route path="/pricing" element={<PricingPage />} />
         <Route path="/blog" element={<BlogListingPage />} />
         <Route path="/blog/:slug" element={<BlogPostPage />} />
+        <Route path="/terms" element={<TermsPage />} />
+        <Route path="/privacy" element={<PrivacyPage />} />
+        <Route path="/cookies" element={<CookiePolicyPage />} />
         {/* <Route path="/case-studies" element={<CaseStudiesListingPage />} /> */}
         {/* <Route path="/case-studies/:slug" element={<CaseStudyPage />} /> */}
       </Routes>

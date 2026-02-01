@@ -203,8 +203,9 @@ const FerronyxFooter = () => {
             <div className="max-w-7xl mx-auto mt-20 pt-8 border-t border-white/[0.05] flex flex-col md:flex-row justify-between text-xs text-zinc-600">
                 <span>© 2026 Ferronyx. All rights reserved.</span>
                 <div className="flex gap-6 mt-4 md:mt-0">
-                    <a href="#" className="hover:text-zinc-400 transition-colors">Privacy Policy</a>
-                    <a href="#" className="hover:text-zinc-400 transition-colors">Terms of Service</a>
+                    <Link to="/privacy" className="hover:text-zinc-400 transition-colors">Privacy Policy</Link>
+                    <Link to="/terms" className="hover:text-zinc-400 transition-colors">Terms of Service</Link>
+                    <Link to="/cookies" className="hover:text-zinc-400 transition-colors">Cookie Policy</Link>
                 </div>
             </div>
         </footer>
