@@ -207,48 +207,48 @@ const BlogPost = ({ post, children }) => {
         )}
 
         {/* Email Signup Section */}
-        <motion.div
-          className="bg-gradient-to-br from-blue-500/10 to-purple-500/10 border border-blue-500/20 rounded-xl p-8 mt-12"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
-          <div className="flex items-start gap-4">
-            <div className="p-3 bg-blue-500/20 rounded-lg">
-              <Mail className="h-6 w-6 text-blue-400" />
-            </div>
-            <div className="flex-1">
-              <h3 className="text-lg font-bold text-white mb-2">
-                Get ROS2 debugging tips in your inbox
-              </h3>
-              <p className="text-zinc-400 text-sm mb-4">
-                Weekly insights on robot observability, debugging techniques, and best practices for production fleets.
-              </p>
-              <form
-                action="https://dev.ferronyx.com/subscribe"
-                method="POST"
-                className="flex gap-3 flex-col sm:flex-row"
-                onSubmit={handleEmailSubmit}
-              >
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="your@email.com"
-                  required
-                  className="flex-1 px-4 py-2 bg-black/50 border border-white/10 rounded-lg text-white placeholder-zinc-500 focus:outline-none focus:border-blue-500/50 text-sm"
-                />
-                <Button
-                  type="submit"
-                  className="bg-blue-500 hover:bg-blue-600 text-white font-medium px-6 py-2 text-sm whitespace-nowrap"
-                >
-                  Subscribe
-                </Button>
-              </form>
-              <p className="text-zinc-600 text-xs mt-2">No spam. Unsubscribe anytime.</p>
-            </div>
-          </div>
-        </motion.div>
+        {/*<motion.div*/}
+        {/*  className="bg-gradient-to-br from-blue-500/10 to-purple-500/10 border border-blue-500/20 rounded-xl p-8 mt-12"*/}
+        {/*  initial={{ opacity: 0, y: 20 }}*/}
+        {/*  whileInView={{ opacity: 1, y: 0 }}*/}
+        {/*  viewport={{ once: true }}*/}
+        {/*  transition={{ duration: 0.5 }}*/}
+        {/*>*/}
+        {/*  <div className="flex items-start gap-4">*/}
+        {/*    <div className="p-3 bg-blue-500/20 rounded-lg">*/}
+        {/*      <Mail className="h-6 w-6 text-blue-400" />*/}
+        {/*    </div>*/}
+        {/*    <div className="flex-1">*/}
+        {/*      <h3 className="text-lg font-bold text-white mb-2">*/}
+        {/*        Get ROS2 debugging tips in your inbox*/}
+        {/*      </h3>*/}
+        {/*      <p className="text-zinc-400 text-sm mb-4">*/}
+        {/*        Weekly insights on robot observability, debugging techniques, and best practices for production fleets.*/}
+        {/*      </p>*/}
+        {/*      <form*/}
+        {/*        action="https://dev.ferronyx.com/subscribe"*/}
+        {/*        method="POST"*/}
+        {/*        className="flex gap-3 flex-col sm:flex-row"*/}
+        {/*        onSubmit={handleEmailSubmit}*/}
+        {/*      >*/}
+        {/*        <input*/}
+        {/*          type="email"*/}
+        {/*          name="email"*/}
+        {/*          placeholder="your@email.com"*/}
+        {/*          required*/}
+        {/*          className="flex-1 px-4 py-2 bg-black/50 border border-white/10 rounded-lg text-white placeholder-zinc-500 focus:outline-none focus:border-blue-500/50 text-sm"*/}
+        {/*        />*/}
+        {/*        <Button*/}
+        {/*          type="submit"*/}
+        {/*          className="bg-blue-500 hover:bg-blue-600 text-white font-medium px-6 py-2 text-sm whitespace-nowrap"*/}
+        {/*        >*/}
+        {/*          Subscribe*/}
+        {/*        </Button>*/}
+        {/*      </form>*/}
+        {/*      <p className="text-zinc-600 text-xs mt-2">No spam. Unsubscribe anytime.</p>*/}
+        {/*    </div>*/}
+        {/*  </div>*/}
+        {/*</motion.div>*/}
 
         {/* Author Bio Section */}
         <motion.div
