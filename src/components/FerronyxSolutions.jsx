@@ -1,6 +1,7 @@
 import React from 'react';
 import { Factory, FlaskConical, Layers, ServerCog, GraduationCap, ArrowRight, Quote } from "lucide-react";
 import ScrollReveal from './ScrollReveal';
+import { trackSignup } from '../lib/analytics';
 
 const solutions = [
     {
@@ -91,7 +92,7 @@ const FerronyxSolutions = () => {
                 
                 {/* CTA Card - High Contrast */}
                 <ScrollReveal delay={0.5} className="h-full">
-                    <a href="https://dev.ferronyx.com/register" target="_blank" rel="noopener noreferrer" className="block h-full">
+                    <a href="https://dev.ferronyx.com/register" target="_blank" rel="noopener noreferrer" className="block h-full" onClick={() => trackSignup('solutions')}>
                         <div className="h-full p-8 rounded-xl bg-[#EDEDED] text-black flex flex-col justify-center items-center text-center hover:scale-[1.01] transition-transform cursor-pointer group shadow-lg">
                             <h3 className="text-xl font-bold mb-2">Ready to scale your fleet?</h3>
                             <p className="text-zinc-600 mb-6 text-sm">Get full observability across all your robots.</p>

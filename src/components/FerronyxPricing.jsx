@@ -1,133 +1,9 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { Check, Cloud, Server, Sparkles, ArrowRight } from 'lucide-react';
+import { trackSignup } from '../lib/analytics';
 
 const FerronyxPricing = () => {
-  // SEO: Update meta tags and add structured data when component mounts
-  useEffect(() => {
-    // Update page title
-    document.title = 'Pricing - Ferronyx | Robot Fleet Observability';
-    
-    // Update meta description
-    let metaDescription = document.querySelector('meta[name="description"]');
-    if (!metaDescription) {
-      metaDescription = document.createElement('meta');
-      metaDescription.setAttribute('name', 'description');
-      document.head.appendChild(metaDescription);
-    }
-    metaDescription.setAttribute('content', 'Simple, transparent pricing for robot fleet monitoring. $29/machine/month with all features included. 1-month free trial. Cloud-hosted or on-premise deployment options.');
-    
-    // Update meta keywords
-    let metaKeywords = document.querySelector('meta[name="keywords"]');
-    if (!metaKeywords) {
-      metaKeywords = document.createElement('meta');
-      metaKeywords.setAttribute('name', 'keywords');
-      document.head.appendChild(metaKeywords);
-    }
-    metaKeywords.setAttribute('content', 'robotics pricing, robot monitoring pricing, fleet management cost, ROS observability pricing, robotics SaaS pricing, robot fleet cost');
-    
-    // Add Open Graph tags for social sharing
-    const ogTags = [
-      { property: 'og:title', content: 'Pricing - Ferronyx | Robot Fleet Observability' },
-      { property: 'og:description', content: 'Simple pricing: $29/machine/month with all features. 1-month free trial. No credit card required.' },
-      { property: 'og:type', content: 'website' },
-      { property: 'og:url', content: 'https://ferronyx.com/#pricing' },
-    ];
-    
-    ogTags.forEach(({ property, content }) => {
-      let tag = document.querySelector(`meta[property="${property}"]`);
-      if (!tag) {
-        tag = document.createElement('meta');
-        tag.setAttribute('property', property);
-        document.head.appendChild(tag);
-      }
-      tag.setAttribute('content', content);
-    });
-    
-    // Add Twitter Card tags
-    const twitterTags = [
-      { name: 'twitter:card', content: 'summary_large_image' },
-      { name: 'twitter:title', content: 'Pricing - Ferronyx' },
-      { name: 'twitter:description', content: 'Simple pricing: $29/machine/month. 1-month free trial. All features included.' },
-    ];
-    
-    twitterTags.forEach(({ name, content }) => {
-      let tag = document.querySelector(`meta[name="${name}"]`);
-      if (!tag) {
-        tag = document.createElement('meta');
-        tag.setAttribute('name', name);
-        document.head.appendChild(tag);
-      }
-      tag.setAttribute('content', content);
-    });
-    
-    // Add JSON-LD structured data for pricing
-    const structuredData = {
-      "@context": "https://schema.org",
-      "@type": "Product",
-      "name": "Ferronyx Robot Fleet Observability",
-      "description": "Cloud-based robot fleet monitoring and observability platform",
-      "brand": {
-        "@type": "Brand",
-        "name": "Ferronyx"
-      },
-      "offers": [
-        {
-          "@type": "Offer",
-          "name": "Cloud-Hosted Plan",
-          "price": "29",
-          "priceCurrency": "USD",
-          "priceSpecification": {
-            "@type": "UnitPriceSpecification",
-            "price": "29",
-            "priceCurrency": "USD",
-            "unitText": "per machine per month"
-          },
-          "availability": "https://schema.org/InStock",
-          "url": "https://ferronyx.com/#pricing",
-          "priceValidUntil": "2026-12-31",
-          "eligibleQuantity": {
-            "@type": "QuantitativeValue",
-            "minValue": 1
-          },
-          "description": "Fully managed cloud-hosted robot fleet monitoring with all features included"
-        },
-        {
-          "@type": "Offer",
-          "name": "On-Premise Enterprise Plan",
-          "price": "0",
-          "priceCurrency": "USD",
-          "availability": "https://schema.org/InStock",
-          "url": "https://ferronyx.com/#pricing",
-          "description": "Custom on-premise deployment with full customization and dedicated support"
-        }
-      ],
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "5",
-        "reviewCount": "1"
-      }
-    };
-    
-    let scriptTag = document.querySelector('script[type="application/ld+json"][data-pricing]');
-    if (!scriptTag) {
-      scriptTag = document.createElement('script');
-      scriptTag.setAttribute('type', 'application/ld+json');
-      scriptTag.setAttribute('data-pricing', 'true');
-      document.head.appendChild(scriptTag);
-    }
-    scriptTag.textContent = JSON.stringify(structuredData);
-    
-    // Cleanup function to restore original meta tags when component unmounts
-    return () => {
-      document.title = 'Ferronyx - The Intelligence Layer for Robotics';
-      const originalDescription = document.querySelector('meta[name="description"]');
-      if (originalDescription) {
-        originalDescription.setAttribute('content', 'Monitor, debug, and fix your robot fleet from anywhere. Get real-time observability and AI-assisted troubleshooting, all in one cloud dashboard.');
-      }
-    };
-  }, []);
-
   const monthlyPrice = 29;
 
   const sharedFeatures = [
@@ -275,6 +151,7 @@ const FerronyxPricing = () => {
                 href="https://dev.ferronyx.com/request-access"
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackSignup('pricing_cloud')}
                 className="flex items-center justify-center gap-2 w-full h-12 rounded-xl font-medium bg-gradient-to-r from-blue-500 to-blue-600 text-white hover:from-blue-400 hover:to-blue-500 transition-all duration-300 shadow-lg shadow-blue-500/20 group/btn mb-8"
               >
                 Start Free Trial
@@ -331,6 +208,7 @@ const FerronyxPricing = () => {
                 href="https://dev.ferronyx.com/request-access"
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackSignup('pricing_enterprise')}
                 className="flex items-center justify-center gap-2 w-full h-12 rounded-xl font-medium bg-white/5 border border-white/10 text-white hover:bg-white/10 hover:border-white/20 transition-all duration-300 group/btn mb-8"
               >
                 Contact Sales

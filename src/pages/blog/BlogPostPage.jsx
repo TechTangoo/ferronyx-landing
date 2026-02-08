@@ -90,7 +90,7 @@ const BlogPostPage = () => {
     "image": post.coverImage ? `https://ferronyx.com${post.coverImage}` : "https://ferronyx.com/og-image.png",
     "keywords": post.tags?.join(', '),
     "articleSection": post.category,
-    "wordCount": 1500, // Approximate
+    "wordCount": (parseInt(post.readingTime) || 7) * 200,
     "isPartOf": {
       "@id": "https://ferronyx.com/blog/#webpage"
     }

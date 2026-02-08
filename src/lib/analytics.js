@@ -1,16 +1,18 @@
 /**
  * Google Analytics 4 Utility Functions
  *
- * Replace 'G-05BBC91V7F' with your actual GA4 Measurement ID
+ * Replace 'G-RBSD8NNKR7' with your actual GA4 Measurement ID
  *
  * Setup:
  * 1. Go to https://analytics.google.com
  * 2. Create a new GA4 property for ferronyx.com
  * 3. Get your Measurement ID (starts with G-)
- * 4. Replace G-05BBC91V7F in index.html and this file
+ * 4. Replace G-RBSD8NNKR7 in index.html and this file
  */
 
-export const GA_MEASUREMENT_ID = 'G-05BBC91V7F';
+export const GA_MEASUREMENT_ID = 'G-RBSD8NNKR7';
+
+let initialized = false;
 
 /**
  * Check if analytics is available (consent given and gtag loaded)
@@ -26,18 +28,25 @@ export const isAnalyticsEnabled = () => {
  */
 export const initializeGA = () => {
   if (typeof window === 'undefined') return;
+  if (initialized) return;
+  initialized = true;
 
-  // Load the gtag script
-  const script = document.createElement('script');
-  script.async = true;
-  script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
-  document.head.appendChild(script);
-
-  // Initialize gtag
+  // Define gtag immediately so early events queue in dataLayer
   window.dataLayer = window.dataLayer || [];
-  window.gtag = function() {
-    window.dataLayer.push(arguments);
-  };
+  if (typeof window.gtag !== 'function') {
+    window.gtag = function() {
+      window.dataLayer.push(arguments);
+    };
+  }
+
+  // Only load the script if not already present (e.g. from index.html inline script)
+  if (!document.querySelector('script[src*="googletagmanager"]')) {
+    const script = document.createElement('script');
+    script.async = true;
+    script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
+    document.head.appendChild(script);
+  }
+
   window.gtag('js', new Date());
   window.gtag('config', GA_MEASUREMENT_ID);
 };

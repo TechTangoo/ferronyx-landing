@@ -8,8 +8,6 @@ Tags: ROS2, Observability, Monitoring, Best Practices
 
 ---
 
-# ROS2 Observability: A Complete Guide
-
 Running ROS2 robots in production requires more than just writing good code. You need to know what's happening inside your robots at all times. That's where observability comes in.
 
 ## What is Robotics Observability?
@@ -92,7 +90,7 @@ Configure alerts for critical conditions:
 - Navigation failures or excessive replanning
 
 **Alert Fatigue**
-Be selective with alerts. Too many false positives lead to alert fatigue where real issues get ignored. Start with critical alerts only and expand carefully.
+Be selective with alerts. Too many false positives lead to alert fatigue where real issues get ignored. Start with critical alerts only and expand carefully. Learn more about managing alerts effectively in our guide on [Intelligent Alert Correlation](/blog/intelligent-alert-correlation-root-cause-analysis).
 
 ## ROS2-Specific Considerations
 
@@ -120,6 +118,8 @@ The TF tree is critical for navigation. Monitor:
 - Transform availability
 - Transform age and staleness
 - Missing links in the transform tree
+
+For a deep dive on debugging navigation issues, see [How to Debug Nav2 Navigation Failures](/blog/debug-navigation-failures-ros2).
 
 ## Best Practices
 
@@ -182,7 +182,7 @@ Then evolve toward:
 2. AI-assisted debugging
 3. Predictive maintenance
 
-The investment in observability pays off quickly when you reduce your first critical incident from a 4-hour debugging session to a 15-minute investigation.
+The investment in observability pays off quickly when you reduce your first critical incident from a 4-hour debugging session to a 15-minute investigation. For proven strategies to achieve this, see [Reducing Robot MTTR: Best Practices](/blog/reducing-robot-mttr-best-practices).
 
 ---
 

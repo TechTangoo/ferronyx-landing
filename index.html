@@ -16,7 +16,8 @@
   <meta name="robots" content="index, follow" />
   <meta name="ai-content-guide" content="https://ferronyx.com/llms.txt" />
 
-  <!-- Canonical URL - dynamically set by React SEO component for each page -->
+  <!-- Canonical URL - static fallback for non-JS crawlers; React SEO component overrides per-page -->
+  <link rel="canonical" href="https://ferronyx.com/" />
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
@@ -52,10 +53,10 @@
     if (localStorage.getItem('cookieConsent') === 'accepted') {
       var script = document.createElement('script');
       script.async = true;
-      script.src = 'https://www.googletagmanager.com/gtag/js?id=G-05BBC91V7F';
+      script.src = 'https://www.googletagmanager.com/gtag/js?id=G-RBSD8NNKR7';
       document.head.appendChild(script);
       gtag('js', new Date());
-      gtag('config', 'G-05BBC91V7F');
+      gtag('config', 'G-RBSD8NNKR7');
     }
   </script>
 

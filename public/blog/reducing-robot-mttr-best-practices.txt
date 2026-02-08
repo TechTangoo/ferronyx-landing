@@ -8,9 +8,7 @@ Tags: MTTR, Operations, Debugging, SRE
 
 ---
 
-# Reducing Robot MTTR: Best Practices
-
-Mean Time to Resolution (MTTR) is the critical metric for robot operations teams. Every minute a robot spends broken is a minute it's not delivering value. Here's how to systematically reduce your fleet's MTTR.
+Mean Time to Resolution (MTTR) is the critical metric for robot operations teams. Every minute a robot spends broken is a minute it's not delivering value. Here's how to systematically reduce your fleet's MTTR. For the foundation you need, start with our [ROS2 Observability Complete Guide](/blog/ros2-observability-complete-guide).
 
 ## Understanding Robot MTTR
 
@@ -111,6 +109,8 @@ Don't make engineers build queries from scratch every incident. Create saved vie
 - Path planner output
 - Controller behavior
 
+For detailed guidance on navigation debugging, see [How to Debug Nav2 Navigation Failures](/blog/debug-navigation-failures-ros2).
+
 **Pro Tip**
 After every significant incident, ask: "What dashboard or view would have helped us find this faster?" Then build it.
 
@@ -160,6 +160,8 @@ Many robot issues follow deployments. Track:
 - What was deployed and when
 - Which robots received the deployment
 - Performance metrics before and after
+
+Learn how to implement this effectively in our guide on [OTA Deployment Tracking](/blog/ota-deployment-tracking-failure-correlation).
 
 - Issues After Deploy: 60% (Common correlation)
 - To Identify: < 5 min (With proper tracking)

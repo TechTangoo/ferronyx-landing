@@ -8,9 +8,7 @@ Tags: ROS2, Nav2, Debugging, Navigation
 
 ---
 
-# How to Debug Navigation Failures in ROS2
-
-Navigation failures are among the most frustrating issues in production robot fleets. Your robot gets stuck, fails to reach its goal, or takes unexpected paths. Here's a systematic approach to debugging these issues.
+Navigation failures are among the most frustrating issues in production robot fleets. Your robot gets stuck, fails to reach its goal, or takes unexpected paths. Here's a systematic approach to debugging these issues. To implement comprehensive observability that makes this debugging possible, see our [ROS2 Observability Complete Guide](/blog/ros2-observability-complete-guide).
 
 ## Common Navigation Failure Types
 
@@ -192,7 +190,7 @@ Navigation debugging doesn't have to be a multi-hour ordeal. With the right obse
 3. **Patterns emerge** from fleet-wide analysis
 4. **Resolution is fast** because you see exactly what happened
 
-The difference between a 4-hour debugging session and a 15-minute investigation is the quality of your observability tooling.
+The difference between a 4-hour debugging session and a 15-minute investigation is the quality of your observability tooling. For more strategies on reducing debugging time, read our guide on [Reducing Robot MTTR: Best Practices](/blog/reducing-robot-mttr-best-practices).
 
 ---
 

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import SEO from '@/components/seo/SEO';
+import BreadcrumbSchema from '@/components/seo/BreadcrumbSchema';
 import BlogCard from '@/components/blog/BlogCard';
 import CategoryFilter from '@/components/blog/CategoryFilter';
 import { Button } from '@/components/ui/button';
@@ -78,6 +79,11 @@ const BlogListingPage = () => {
         canonicalUrl="https://ferronyx.com/blog"
         schema={blogSchema}
       />
+
+      <BreadcrumbSchema items={[
+        { name: 'Home', url: 'https://ferronyx.com' },
+        { name: 'Blog' }
+      ]} />
 
       <main className="min-h-screen bg-black pt-24">
         {/* Hero Section */}

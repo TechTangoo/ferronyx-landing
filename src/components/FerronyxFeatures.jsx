@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowUpRight, Bot, CircleGauge, BellRing, Timer, Brain, ChartNoAxesCombined, BookOpen, CalendarClock, Network } from "lucide-react";
 import ScrollReveal from './ScrollReveal';
+import { trackSignup } from '../lib/analytics';
 import AIDebugMockup from './AIDebugMockup';
 import MonitoringMockup from './MonitoringMockup';
 import OnCallMockup from './OnCallMockup';
@@ -231,7 +232,7 @@ const FerronyxFeatures = () => {
 
                 {/* CTA Card - High Contrast White */}
                  <ScrollReveal delay={0.9} className="lg:col-span-3 h-full">
-                    <a href="https://dev.ferronyx.com/register" target="_blank" rel="noopener noreferrer" className="block h-full">
+                    <a href="https://dev.ferronyx.com/register" target="_blank" rel="noopener noreferrer" className="block h-full" onClick={() => trackSignup('features')}>
                         <div className="h-full rounded-xl bg-[#EDEDED] text-black p-8 flex flex-col justify-between group cursor-pointer transition-transform hover:scale-[1.01] shadow-lg hover:shadow-white/10">
                             <div>
                                 <h3 className="text-xl font-bold mb-2">Get Started</h3>

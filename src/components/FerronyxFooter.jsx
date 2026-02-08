@@ -5,6 +5,7 @@ import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import logo from '../assets/logo.svg';
+import { trackDemoRequest } from '../lib/analytics';
 
 const FerronyxFooter = () => {
     const [formData, setFormData] = useState({
@@ -64,6 +65,8 @@ const FerronyxFooter = () => {
         const emailSent = await sendDemoBookingEmail(formData);
 
         if (emailSent) {
+            trackDemoRequest();
+
             // Clear form
             setFormData({
                 comments: '',
@@ -109,9 +112,7 @@ const FerronyxFooter = () => {
                                 <li>
                                     <Link to="/use-cases" className="text-zinc-400 hover:text-white transition-colors text-sm">Use Cases</Link>
                                 </li>
-                                <li>
-                                    <Link to="/case-studies" className="text-zinc-400 hover:text-white transition-colors text-sm">Case Studies</Link>
-                                </li>
+                                {/* Case Studies link removed: route not currently active */}
                                 <li>
                                     <Link to="/#faqs" className="text-zinc-400 hover:text-white transition-colors text-sm">FAQs</Link>
                                 </li>
