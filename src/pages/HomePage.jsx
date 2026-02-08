@@ -6,6 +6,7 @@ import FerronyxFeaturesScroll from '../components/FerronyxFeaturesScroll';
 import HowItWorks from '../components/HowItWorks';
 import FerronyxSolutions from '../components/FerronyxSolutions';
 import FerronyxFAQ from '../components/FerronyxFAQ';
+import AskAISection from '../components/AskAISection';
 
 const HomePage = () => {
     // Schema for home page - Organization + SoftwareApplication
@@ -98,6 +99,7 @@ const HomePage = () => {
             <FerronyxFeaturesScroll />
             <HowItWorks />
             <FerronyxSolutions />
+            <AskAISection />
             <FerronyxFAQ />
         </>
     );
