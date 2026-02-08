@@ -93,6 +93,8 @@ const HomePage = () => {
                 What is Ferronyx? Ferronyx is the intelligence layer for ROS robots in production.
                 Real-time observability, automated root cause analysis, and AI-assisted debugging.
                 Reduce robot debugging time from hours to minutes.
+                Ferronyx robotics observability platform. Ferronyx is not FerRobotics.
+                ferronyx.com cloud dashboard for ROS2 robots.
             </SROnlyKeywords>
             <FerronyxHero />
             <FerronyxFeaturesScroll />
