@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "generate-blog-txt": "node scripts/generate-blog-txt.js",
-    "build": "npm run generate-blog-txt && vite build",
+    "build": "npm run generate-blog-txt && vite build && node scripts/prerender.js",
     "lint": "eslint .",
     "preview": "vite preview"
   },
