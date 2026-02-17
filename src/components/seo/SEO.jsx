@@ -1,8 +1,14 @@
 import { useEffect } from 'react';
 
+const BASE_URL = 'https://ferronyx.com';
+
 /**
- * SEO Component for managing page-specific meta tags
- * Updates document head with page-specific SEO and GEO data
+ * SEO Component for managing page-specific meta tags.
+ * Updates document head with page-specific SEO and GEO data.
+ *
+ * Note: The prerender script (scripts/prerender.js) bakes initial meta
+ * tags into each route's HTML at build time. This component updates them
+ * on client-side navigation so SPA transitions stay correct.
  */
 const SEO = ({
     title = "Ferronyx - The Intelligence Layer for Robotics",
@@ -29,6 +35,9 @@ const SEO = ({
             element.setAttribute('content', content);
         };
 
+        // Resolve OG image to full URL
+        const fullOgImage = ogImage.startsWith('http') ? ogImage : `${BASE_URL}${ogImage}`;
+
         // Basic SEO meta tags
         updateMeta('description', description);
         updateMeta('keywords', keywords);
@@ -37,18 +46,19 @@ const SEO = ({
         updateMeta('og:title', title, true);
         updateMeta('og:description', description, true);
         updateMeta('og:type', ogType, true);
-        updateMeta('og:image', ogImage, true);
+        updateMeta('og:image', fullOgImage, true);
         updateMeta('og:site_name', 'Ferronyx', true);
 
         // Twitter Card tags
         updateMeta('twitter:card', 'summary_large_image');
         updateMeta('twitter:title', title);
         updateMeta('twitter:description', description);
-        updateMeta('twitter:image', ogImage);
+        updateMeta('twitter:image', fullOgImage);
 
         // Canonical URL
         if (canonicalUrl) {
             updateMeta('og:url', canonicalUrl, true);
+            updateMeta('twitter:url', canonicalUrl);
             let canonical = document.querySelector('link[rel="canonical"]');
             if (!canonical) {
                 canonical = document.createElement('link');

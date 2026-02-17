@@ -4,7 +4,6 @@
 # Traditional crawlers
 User-agent: *
 Allow: /
-Crawl-delay: 1
 
 # Explicitly allow AI crawlers
 User-agent: GPTBot

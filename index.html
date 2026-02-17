@@ -16,15 +16,18 @@
   <meta name="robots" content="index, follow" />
   <meta name="ai-content-guide" content="https://ferronyx.com/llms.txt" />
 
-  <!-- Canonical URL - static fallback for non-JS crawlers; React SEO component overrides per-page -->
-  <link rel="canonical" href="https://ferronyx.com/" />
+  <!-- Canonical URL - prerender script overrides per-page; React SEO component updates client-side -->
+  <link rel="canonical" href="https://ferronyx.com" />
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://ferronyx.com" />
-  <meta property="og:title" content="Ferronyx - The Intelligence Layer for Robotics" />
-  <meta property="og:description" content="Monitor, debug, and fix your robot fleet from anywhere. Real-time ROS2 observability, AI-assisted root cause analysis, and fleet-wide diagnostics." />
+  <meta property="og:title" content="Ferronyx - The Intelligence Layer for Robotics | ROS2 Observability Platform" />
+  <meta property="og:description" content="Monitor, debug, and fix your robot fleet from anywhere. Real-time ROS2 observability, AI-assisted root cause analysis, and fleet-wide diagnostics. Reduce robot MTTR from hours to minutes." />
   <meta property="og:image" content="https://ferronyx.com/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="en_US" />
   <meta property="og:site_name" content="Ferronyx" />
 
   <!-- Twitter Card -->
@@ -147,11 +150,6 @@
         "description": "Monitor, debug, and fix your robot fleet from anywhere. Real-time ROS2 observability, AI-assisted root cause analysis, and fleet-wide diagnostics.",
         "publisher": {
           "@id": "https://ferronyx.com/#organization"
-        },
-        "potentialAction": {
-          "@type": "SearchAction",
-          "target": "https://ferronyx.com/search?q={search_term_string}",
-          "query-input": "required name=search_term_string"
         }
       },
       {
